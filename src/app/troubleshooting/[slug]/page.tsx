@@ -6,3 +6,4 @@ export default async function TroubleshootingPage({ params }: { params: Promise<
   // This pulls the specific "Troubleshooting" post from WordPress
   return <DocTemplate slug={slug} />;
 }
+
