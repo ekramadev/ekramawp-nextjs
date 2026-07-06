@@ -64,7 +64,7 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
   if (!post) {
     return (
       <div className="min-h-screen bg-transparent flex items-center justify-center">
-        <p className="text-white/50">Document not found in WordPress...</p>
+        <p className="text-black/50">Document not found in WordPress...</p>
       </div>
     );
   }
@@ -108,22 +108,22 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
         </div>
 
         {/* --- 2. THE OFFICIAL TITLE --- */}
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
           {post.title}
         </h1>
 
         {/* --- 3. METADATA HEADER --- */}
-        <div className="w-full flex flex-col mb-10 border-b border-white/10 pb-6">
+        <div className="w-full flex flex-col mb-10 border-b border-black/10 pb-6">
 
           <div className="flex items-center gap-3 mb-6">
-            <img src={avatarUrl} alt={authorName} className="w-10 h-10 rounded-full bg-white/10 object-cover" />
+            <img src={avatarUrl} alt={authorName} className="w-10 h-10 rounded-full bg-black/10 object-cover" />
             <div className="flex flex-col justify-center">
-              <span className="text-white font-medium leading-tight">{authorName}</span>
-              <span className="text-white/50 text-sm">Author</span>
+              <span className="text-black font-medium leading-tight">{authorName}</span>
+              <span className="text-black/50 text-sm">Author</span>
             </div>
           </div>
 
-          <div className="w-full flex justify-between items-center text-white/50 text-sm">
+          <div className="w-full flex justify-between items-center text-black/50 text-sm">
             <div className="flex items-center gap-6">
               <span className="flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
