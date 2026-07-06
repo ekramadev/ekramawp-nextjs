@@ -145,8 +145,8 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
 
         {/* --- 4. THE CONTENT --- */}
         <div className="prose prose-invert prose-lg max-w-none 
-          prose-p:text-white/80 
-          prose-headings:text-white 
+          prose-p:text-black/80 
+          prose-headings:text-black 
           prose-a:text-emerald-400">
           {parse(post.content)}
         </div>
