@@ -4,9 +4,9 @@ import React from "react";
 export const GeoOverlapSection = () => {
   return (
     <section className="pt-10 pb-0 px-5 min-h-[5vh] flex items-center relative overflow-hidden">
-      
+
       <div className="max-w-[1200px] w-full mx-auto flex flex-col relative z-10">
-        
+
         {/* --- HEADER --- */}
         <div className="text-center max-w-[900px] mx-auto mb-8">
           {/* Removed hardcoded fonts. Inherits global H1 */}
@@ -18,7 +18,7 @@ export const GeoOverlapSection = () => {
 
         {/* --- CONTENT WRAPPER --- */}
         <div className="flex flex-col lg:flex-row items-start justify-between relative gap-12 lg:gap-16 mb-10">
-          
+
           {/* --- LEFT COLUMN --- */}
           <div className="w-full lg:w-[45%] flex flex-col z-20">
             <div>
@@ -40,7 +40,7 @@ export const GeoOverlapSection = () => {
               <p className="mb-6 max-w-[600px] mx-auto lg:mx-0">
                 Your competitors are shipping features rapidly using React and Next.js. Meanwhile, your legacy codebase forces your engineering team to spend all their time in maintenance mode rather than innovating.
               </p>
-              
+
               <ul className="space-y-4 lg:space-y-6 mb-6 lg:mb-10 max-w-[600px] mx-auto lg:mx-0">
                 {/* Cleaned up List Items */}
                 <li className="relative pl-7">
@@ -65,12 +65,12 @@ export const GeoOverlapSection = () => {
 
           {/* --- RIGHT COLUMN --- */}
           <div className="w-full lg:w-[55%] z-10">
-            
+
             {/* Changed to H2 and removed hardcoded fonts */}
             <h3 className="mb-2 text-center lg:text-left">
               We Build <span className="text-emerald-400">Atomic Systems</span>
             </h3>
-            
+
             <p className="mb-8 max-w-[600px] mx-auto lg:mx-0 text-center lg:text-left">
               We replace outdated code with type-safe, headless architectures. Here are the core pillars of our front-end engineering methodology.
             </p>
@@ -78,7 +78,7 @@ export const GeoOverlapSection = () => {
             {/* --- 8 DETAILED TABS / CARDS --- */}
             {/* Maintained micro-typography (text-[13px]) so they fit in the grid layout, but stripped line heights and weights */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              
+
               <div className="bg-emerald-900/40 border border-emerald-500/20 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-800/50">
                 <h4 className="text-emerald-300 font-bold mb-1">Server-side rendering</h4>
                 <p className="text-white/80">

@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --primary-darkest-gray: #222222;
+  --primary-darkest-gray: #1a1a1a;
+  /* Used for headings */
   --gray-08: #fefefe;
   --white: #ffffff;
   --font-neuehaas: "NeueHaasGrotesk", "Helvetica", "Arial", sans-serif;
@@ -13,61 +14,60 @@
   body {
     margin: 0;
     min-height: 100vh;
-    color: var(--white);
+    color: var(--primary-darkest-gray);
+    /* Changed to dark text */
     font-family: var(--font-neuehaas);
     font-size: 16px;
     font-weight: 400;
-    
-    background: linear-gradient(45deg, rgba(20, 20, 20, 1), rgba(40, 40, 40, 1), rgba(60, 60, 60, 1)) !important;
-    background-attachment: fixed !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    animation: gradientShift 30s ease infinite;
+
+    background: var(--white);
+    /* Changed to white background */
     -webkit-font-smoothing: antialiased;
   }
 
   /* Paragraphs/Lists aligned with your AiShiftSection spec */
-  p, li {
-    /* clamp(1.125rem, 1.5vw, 1.25rem) matches text-[1.125rem] to md:text-[1.25rem] */
-    font-size: clamp(1.125rem, 1.5vw, 1.25rem); 
-    /* clamp(1.41rem, 2vw, 1.75rem) matches leading-[1.41rem] to md:leading-[1.75rem] */
-    line-height: clamp(1.41rem, 2vw, 1.75rem); 
-    font-weight: 300; /* font-medium */
-    letter-spacing: 0.015em; /* tracking-[.015em] */
-    color: #ffffff; /* text-[#a1a1aa] */
+  p,
+  li {
+    font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+    line-height: clamp(1.41rem, 2vw, 1.75rem);
+    font-weight: 300;
+    letter-spacing: 0.015em;
+    color: #4b5563;
+    /* Changed to a highly readable dark slate gray */
   }
 
   p {
     margin-bottom: 24px;
-    max-width: 54rem; /* max-w-[34rem] from your p tag */
+    max-width: 54rem;
   }
 
   h1 {
     font-size: clamp(3rem, 5vw, 6rem);
     font-weight: 400;
     line-height: 0.95;
-    color: var(--white);
+    color: var(--primary-darkest-gray);
+    /* Changed to dark text */
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
   }
 
   /* Updated H2 with your exact AiShiftSection specs */
   h2 {
-    /* clamp(3rem, 5vw, 3.4375rem) matches text-[3rem] to md:text-[3.4375rem] */
-    font-size: clamp(3rem, 5vw, 3.4375rem); 
-    /* clamp(3.42rem, 6vw, 4rem) matches leading-[3.42rem] to md:leading-[4rem] */
-    line-height: clamp(3.42rem, 6vw, 4rem); 
-    font-weight: 400; /* font-normal */
-    color: var(--white);
-    margin-bottom: 1.5rem; /* mb-6 */
-    letter-spacing: -0.025em; /* tracking-tight */
+    font-size: clamp(3rem, 5vw, 3.4375rem);
+    line-height: clamp(3.42rem, 6vw, 4rem);
+    font-weight: 400;
+    color: var(--primary-darkest-gray);
+    /* Changed to dark text */
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.025em;
   }
 
   h3 {
     font-size: clamp(2rem, 3vw, 2.5rem);
     font-weight: 400;
     line-height: 1.2;
-    color: var(--white);
+    color: var(--primary-darkest-gray);
+    /* Changed to dark text */
     margin-bottom: 1.25rem;
   }
 }
@@ -83,12 +83,25 @@
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
 }
 
-html, main, #__next, #smooth-wrapper, #smooth-content, [data-scroll-container] {
+html,
+main,
+#__next,
+#smooth-wrapper,
+#smooth-content,
+[data-scroll-container] {
   background-color: transparent !important;
   background-image: none !important;
 }

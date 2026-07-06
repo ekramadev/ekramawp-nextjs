@@ -1,4 +1,12 @@
 import parse from "html-react-parser";
+// 1. IMPORT NOTFOUND
+import { notFound } from "next/navigation";
+
+// 2. DEFINE THE INTERFACE
+interface DocTemplateProps {
+  slug: string;
+  expectedCategory: string;
+}
 
 // 1. THE FETCHER
 async function getDocData(slug: string) {
@@ -11,6 +19,7 @@ async function getDocData(slug: string) {
         categories {
           nodes {
             name
+            slug # 3. WE MUST FETCH THE SLUG TO COMPARE IT TO THE URL FOLDER
           }
         }
         author {
@@ -35,7 +44,7 @@ async function getDocData(slug: string) {
         "X-Forwarded-For": "66.249.66.1"
       },
       body: JSON.stringify({ query, variables: { slug } }),
-      cache: "no-store", 
+      cache: "no-store",
     });
 
     if (!res.ok) return null;
@@ -48,8 +57,8 @@ async function getDocData(slug: string) {
   }
 }
 
-// 2. THE COMPONENT
-export default async function DocTemplate({ slug }: { slug: string }) {
+// 4. UPDATE THE COMPONENT SIGNATURE TO USE THE INTERFACE
+export default async function DocTemplate({ slug, expectedCategory }: DocTemplateProps) {
   const post = await getDocData(slug);
 
   if (!post) {
@@ -58,6 +67,15 @@ export default async function DocTemplate({ slug }: { slug: string }) {
         <p className="text-white/50">Document not found in WordPress...</p>
       </div>
     );
+  }
+
+  // --- 5. THE STRICT CATEGORY VALIDATION CHECK ---
+  // We grab the WordPress category slug (e.g., "api-documentation")
+  const wpCategorySlug = post.categories?.nodes[0]?.slug;
+
+  // If the folder they are in does NOT match the WordPress category, boot them to a 404
+  if (wpCategorySlug !== expectedCategory) {
+    notFound();
   }
 
   // --- METADATA CALCULATIONS ---
@@ -74,14 +92,14 @@ export default async function DocTemplate({ slug }: { slug: string }) {
 
   const authorName = post.author?.node?.name || "Ekrama Taimuri";
   const avatarUrl = post.author?.node?.avatar?.url || `https://ui-avatars.com/api/?name=${authorName}&background=0D8B4E&color=fff`;
-  
-  // Grab the first category attached to the post (e.g., "API Documentation")
+
+  // Grab the first category attached to the post for the UI badge
   const categoryName = post.categories?.nodes[0]?.name || "Documentation";
 
   return (
     <article className="w-full min-h-screen bg-transparent pt-12 pb-20 px-5 flex flex-col items-center">
       <div className="w-full max-w-[700px]">
-        
+
         {/* --- 1. CATEGORY BADGE --- */}
         <div className="mb-4">
           <span className="text-emerald-400 font-semibold tracking-wider uppercase text-sm">
@@ -96,7 +114,7 @@ export default async function DocTemplate({ slug }: { slug: string }) {
 
         {/* --- 3. METADATA HEADER --- */}
         <div className="w-full flex flex-col mb-10 border-b border-white/10 pb-6">
-          
+
           <div className="flex items-center gap-3 mb-6">
             <img src={avatarUrl} alt={authorName} className="w-10 h-10 rounded-full bg-white/10 object-cover" />
             <div className="flex flex-col justify-center">
@@ -113,7 +131,7 @@ export default async function DocTemplate({ slug }: { slug: string }) {
                 </svg>
                 {readTime} min read
               </span>
-              
+
               <div className="flex items-center gap-2 text-blue-400 cursor-pointer hover:text-blue-300 transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />

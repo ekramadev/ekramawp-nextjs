@@ -22,7 +22,7 @@ const TABS_DATA: Record<string, any> = {
         content: (
           <>
             <p>
-              Content modeling is the fundamental backbone of any successful Headless WordPress architecture. When you decouple the frontend presentation layer from the backend content management system, you can no longer rely on traditional page builders or WYSIWYG editors to dictate the visual layout. 
+              Content modeling is the fundamental backbone of any successful Headless WordPress architecture. When you decouple the frontend presentation layer from the backend content management system, you can no longer rely on traditional page builders or WYSIWYG editors to dictate the visual layout.
             </p>
             <p>
               Instead, content must be broken down into structured, logical, and reusable pieces. This approach ensures consistency and flexibility across your entire digital ecosystem:
@@ -49,7 +49,7 @@ const TABS_DATA: Record<string, any> = {
         content: (
           <>
             <p>
-              Transitioning to a headless architecture often involves replacing the traditional WordPress REST API with WPGraphQL. This represents a paradigm shift that revolutionizes how your frontend requests data. 
+              Transitioning to a headless architecture often involves replacing the traditional WordPress REST API with WPGraphQL. This represents a paradigm shift that revolutionizes how your frontend requests data.
             </p>
             <p>
               In a standard REST architecture, hitting an endpoint often returns a massive JSON payload filled with redundant data, bloating network requests and slowing down page load times. WPGraphQL solves this dynamically:
@@ -161,7 +161,7 @@ const TABS_DATA: Record<string, any> = {
           <>
             <h3>Modern Component UI</h3>
             <p>
-              Unlike traditional websites, web apps require highly interactive interfaces. We leverage React and Next.js to build modular, reusable components that provide instantaneous feedback to users without page reloads. 
+              Unlike traditional websites, web apps require highly interactive interfaces. We leverage React and Next.js to build modular, reusable components that provide instantaneous feedback to users without page reloads.
             </p>
             <p>
               By utilizing Next.js Server Components and Client Components strategically, we ship less JavaScript to the browser, drastically improving initial load times while keeping complex UI elements highly interactive.
@@ -281,37 +281,39 @@ export const HeadlessfiveElements = () => {
   const pathname = usePathname() || "/";
   // Normalize path by stripping trailing slash to ensure it matches dictionary keys
   const normalizedPath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
-  
+
   // Find data for current path, fallback to headless data if route not found
   const pageData = TABS_DATA[normalizedPath] || TABS_DATA["/headless-wordpress-front-end"];
-  
- const { heading, subheading, tabs } = pageData; 
-const [activeTab, setActiveTab] = useState(0);
-// Logic to isolate the last word
-const words = heading.split(" ");
-const lastWord = words.pop();
-const firstPart = words.join(" ");
 
-if (!tabs || tabs.length === 0) return null;
+  const { heading, subheading, tabs } = pageData;
+  const [activeTab, setActiveTab] = useState(0);
 
-return (
-  <section id="ek-headless-tabs" className="w-full pt-2 pb-16 relative overflow-hidden">
-    <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
-      
-      <div className="king-heading-wrap text-center mb-[50px]">
-        <h2>
-    {firstPart} <span className="text-emerald-400">{lastWord}</span>
-  </h2>
-        
-        {/* 2. Render the subheading here */}
-        {subheading && (
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            {subheading}
-          </p>
-        )}
-      </div>
+  // Logic to isolate the last word
+  const words = heading.split(" ");
+  const lastWord = words.pop();
+  const firstPart = words.join(" ");
+
+  if (!tabs || tabs.length === 0) return null;
+
+  return (
+    <section id="ek-headless-tabs" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
+      <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
+
+        <div className="king-heading-wrap text-center mb-[50px]">
+          <h2 className="text-gray-900 font-bold">
+            {firstPart} <span className="text-[#10B981]">{lastWord}</span>
+          </h2>
+
+          {/* 2. Render the subheading here - updated to slate gray */}
+          {subheading && (
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
+              {subheading}
+            </p>
+          )}
+        </div>
 
         <div className="fx-wrapper relative flex w-full justify-between items-start gap-[50px] text-left max-[968px]:flex-col max-[968px]:gap-10">
+
           <div
             className="fx-tabs z-20 flex flex-col gap-4 basis-[300px] shrink-0 grow-0 max-[968px]:w-full max-[968px]:flex-row max-[968px]:overflow-x-auto max-[968px]:overflow-y-hidden max-[968px]:py-[10px] max-[968px]:justify-start max-[968px]:gap-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             role="tablist"
@@ -319,18 +321,18 @@ return (
             {tabs.map((tab: any, index: number) => (
               <button
                 key={index}
-                className={`fx-tab flex items-center gap-[15px] py-[10px] cursor-pointer text-white transition-all duration-300 ease-in-out bg-transparent border-0 select-none text-left hover:opacity-80 max-[968px]:flex-none max-[968px]:p-0 ${
-                  activeTab === index ? 'opacity-100' : 'opacity-50'
-                }`}
+                // Updated inactive/active text colors for light theme
+                className={`fx-tab flex items-center gap-[15px] py-[10px] cursor-pointer transition-all duration-300 ease-in-out bg-transparent border-0 select-none text-left hover:text-gray-900 max-[968px]:flex-none max-[968px]:p-0 ${activeTab === index ? 'text-gray-900 font-bold' : 'text-gray-500'
+                  }`}
                 onClick={() => setActiveTab(index)}
                 aria-selected={activeTab === index}
                 role="tab"
                 type="button"
               >
                 <div
-                  className={`fx-icon flex items-center justify-center text-white shrink-0 transition-all duration-300 ease-in-out ${
-                    activeTab === index ? 'scale-110' : 'scale-100'
-                  }`}
+                  // Icon color always Emerald for branding, scaled slightly on active
+                  className={`fx-icon flex items-center justify-center text-[#10B981] shrink-0 transition-all duration-300 ease-in-out ${activeTab === index ? 'scale-110' : 'scale-100'
+                    }`}
                 >
                   {typeof tab.icon === 'string' ? (
                     <div dangerouslySetInnerHTML={{ __html: tab.icon }} />
@@ -338,7 +340,7 @@ return (
                     tab.icon
                   )}
                 </div>
-                <span className="text-[20px] font-semibold max-[968px]:text-base max-[968px]:whitespace-nowrap">
+                <span className="text-[20px] max-[968px]:text-base max-[968px]:whitespace-nowrap">
                   {tab.title}
                 </span>
               </button>
@@ -349,20 +351,26 @@ return (
             {tabs.map((tab: any, index: number) => (
               <div
                 key={index}
-                className={`fx-panel w-full h-full p-0 ${
-                  activeTab === index ? 'block' : 'hidden'
-                }`}
+                className={`fx-panel w-full h-full p-0 ${activeTab === index ? 'block animate-[fadeIn_0.4s_ease-out]' : 'hidden'
+                  }`}
                 role="tabpanel"
               >
-                <div className="fx-text-col [&_h3]:mb-6 [&_p]:mb-5 [&_p]:text-base [&_p]:font-normal [&_p]:leading-[1.8] [&_p]:text-white/85 [&_ul]:mb-6 [&_ul]:ml-6 [&_ul]:list-disc [&_ul]:p-0 [&_ul]:text-white/85 [&_li]:mb-3 [&_li]:text-base [&_li]:leading-[1.6] [&_strong]:font-bold [&_strong]:text-white [&_code]:text-white">
+                {/* Tailwind specific typography resets applied here:
+                  - h3: dark gray, bold 
+                  - p: slate gray 
+                  - ul: bulleted list inside the content area
+                  - strong: dark gray bold text 
+                */}
+                <div className="fx-text-col [&_h3]:mb-6 [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:text-gray-900 [&_p]:mb-5 [&_p]:text-[1.05rem] [&_p]:font-normal [&_p]:leading-[1.8] [&_p]:text-gray-600 [&_ul]:mb-6 [&_ul]:ml-6 [&_ul]:list-disc [&_ul]:p-0 [&_ul]:text-gray-600 [&_li]:mb-3 [&_li]:text-[1.05rem] [&_li]:leading-[1.6] [&_strong]:font-bold [&_strong]:text-gray-900 [&_code]:text-gray-900 [&_code]:bg-gray-100 [&_code]:px-1 [&_code]:rounded">
+
                   {/* Fallback rendering in case h3 title isn't included in raw strings */}
                   {typeof tab.content === 'string' && !tab.content.includes('<h3') && (
-                    <h3 className="mb-6">{tab.title}</h3>
+                    <h3 className="mb-6 text-gray-900 font-bold">{tab.title}</h3>
                   )}
                   {typeof tab.content !== 'string' &&
                     !React.Children.toArray(tab.content.props.children).some(
                       child => (child as any).type === 'h3'
-                    ) && <h3 className="mb-6">{tab.title}</h3>}
+                    ) && <h3 className="mb-6 text-gray-900 font-bold">{tab.title}</h3>}
 
                   {typeof tab.content === 'string' ? (
                     <div dangerouslySetInnerHTML={{ __html: tab.content }} />
@@ -375,6 +383,13 @@ return (
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </section>
   );
 };

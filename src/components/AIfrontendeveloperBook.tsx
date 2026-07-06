@@ -6,7 +6,7 @@ export const AIfrontendeveloperBook = () => {
   // 1. ALL hooks must go right here, inside the component, before anything else!
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expandedItem, setExpandedItem] = useState<number | null>(null);
-  const [showAllFeatures, setShowAllFeatures] = useState(false); // <--- Add it right here!
+  const [showAllFeatures, setShowAllFeatures] = useState(false);
 
   const steps = [
     {
@@ -135,9 +135,9 @@ export const AIfrontendeveloperBook = () => {
   return (
     <section className="bofu-pricing-wrapper">
       <style jsx>{`
-        /* --- 1. THE MAIN WRAPPER --- */
+        /* --- 1. THE MAIN WRAPPER (Light Theme) --- */
         .bofu-pricing-wrapper {
-          color: #fafbfd !important;
+          color: #333333 !important;
           padding: 80px 20px 100px;
           position: relative;
           z-index: 1;
@@ -145,9 +145,10 @@ export const AIfrontendeveloperBook = () => {
           min-height: auto;
           isolation: isolate;
           overflow: visible !important;
+          background-color: transparent !important;
         }
 
-        /* --- 2. THE DOTTED GREEN BOTTOM --- */
+        /* --- 2. THE DOTTED EMERALD BOTTOM (Light Theme) --- */
         .bofu-pricing-wrapper::before {
           content: "";
           position: absolute;
@@ -155,8 +156,8 @@ export const AIfrontendeveloperBook = () => {
           top: 650px; 
           width: 100%;
           height: 800px; 
-          background-color: #1b572c !important; 
-          background-image: radial-gradient(#000000 1.2px, transparent 1.2px) !important;  
+          background-color: #d1fae5 !important; /* Soft emerald background */
+          background-image: radial-gradient(#10b981 1.2px, transparent 1.2px) !important;  
           background-size: 14px 14px !important;
           background-repeat: no-repeat; 
           background-size: 100% 100%; 
@@ -172,7 +173,7 @@ export const AIfrontendeveloperBook = () => {
           top: 450px; 
           width: 100%;
           height: 300px; 
-          background-image: radial-gradient(#000000 1px, transparent 1.5px) !important;
+          background-image: radial-gradient(#d1d5db 1px, transparent 1.5px) !important; /* Soft gray dots */
           background-size: 14px 14px !important;
           z-index: -1;
         }
@@ -185,34 +186,36 @@ export const AIfrontendeveloperBook = () => {
           position: relative;
           z-index: 10;
         }
-/* Hide the toggle button entirely on desktop */
-.mobile-feature-toggle {
-  display: none !important;
-}
-        /* --- 5. TOP INTRO TEXT --- */
+
+        /* Hide the toggle button entirely on desktop */
+        .mobile-feature-toggle {
+          display: none !important;
+        }
+
+        /* --- 5. TOP INTRO TEXT (Light Theme) --- */
         .intro-header {
           text-align: center;
           margin-bottom: 70px;
         }
         .intro-header h2 {
           font-size: clamp(1.8rem, 4vw, 2.4rem) !important;
-          color: #ffffff !important;
+          color: #1a1a1a !important; /* Dark text */
           margin-bottom: 20px !important;
         }
         .intro-header p {
           font-size: 1.05rem !important;
-          color: #f0f2f4 !important;
+          color: #4b5563 !important; /* Slate gray */
           max-width: 800px;
           margin: 0 auto !important;
         }
 
-        /* --- 6. MAIN PRICING CARD --- */
+        /* --- 6. MAIN PRICING CARD (Light Theme) --- */
         .pricing-card {
           display: flex;
-          background-color: #060505 !important;
+          background-color: #ffffff !important;
           border-radius: 20px;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4) !important;
-          border: 1px solid #1f1a1a !important;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08) !important; /* Soft shadow */
+          border: 1px solid #e5e7eb !important; /* Light border */
           position: relative;
           min-height: auto; 
           overflow: visible; 
@@ -223,11 +226,11 @@ export const AIfrontendeveloperBook = () => {
           flex: 1.2;
           display: flex;
           flex-direction: column;
-          border-right: 1px solid #342b2b !important;
+          border-right: 1px solid #e5e7eb !important; /* Light border divider */
         }
 
         .card-left-top {
-          background-color: #08743e !important;
+          background-color: #10b981 !important; /* Emerald Header */
           padding: 60px 30px 40px; 
           text-align: center;
           position: relative;
@@ -246,7 +249,7 @@ export const AIfrontendeveloperBook = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important; /* Softer shadow */
         }
         .badge {
           color: #ffffff !important;
@@ -257,7 +260,7 @@ export const AIfrontendeveloperBook = () => {
         .label {
           color: #ffffff !important;
           font-size: 0.9rem !important;
-          opacity: 0.8;
+          opacity: 0.9;
           margin: 0 0 10px 0 !important;
         }
         .price {
@@ -271,7 +274,7 @@ export const AIfrontendeveloperBook = () => {
         }
 
         .card-left-bottom {
-          background-color: #1A1A1A !important;
+          background-color: #ffffff !important; /* White background */
           padding: 35px 40px 50px !important; 
           flex-grow: 1; 
           display: flex;
@@ -279,7 +282,7 @@ export const AIfrontendeveloperBook = () => {
           border-bottom-left-radius: 20px;
         }
         .card-left-bottom h4 {
-          color: #ffffff !important;
+          color: #1a1a1a !important; /* Dark text */
           font-size: 1.25rem !important;
           margin: 0 0 25px 0 !important; 
         }
@@ -302,20 +305,22 @@ export const AIfrontendeveloperBook = () => {
           flex-shrink: 0;
         }
         .item-header h5 {
-          color: #ffffff !important; 
+          color: #1a1a1a !important; /* Dark text */
           font-size: 1.05rem !important;
           margin: 0 !important; 
+          font-weight: 600;
         }
         .item-block p {
-          color: #e0e0e0 !important;
-          font-size: 0.9rem !important;
+          color: #4b5563 !important; /* Slate gray description */
+          font-size: 0.95rem !important;
           margin: 0 !important;
+          line-height: 1.5;
         }
 
-        /* --- 8. RIGHT COLUMN --- */
+        /* --- 8. RIGHT COLUMN (Light Theme) --- */
         .card-right {
           flex: 1;
-          background-color: #151515 !important;
+          background-color: #f9fafb !important; /* Light gray background */
           padding: 60px 40px; 
           display: flex;
           flex-direction: column;
@@ -323,9 +328,10 @@ export const AIfrontendeveloperBook = () => {
           border-bottom-right-radius: 20px;
         }
         .card-right h4 {
-          color: #ffffff !important;
+          color: #1a1a1a !important; /* Dark text */
           font-size: 1.2rem !important;
           margin: 0 0 30px 0 !important;
+          font-weight: 600;
         }
         .feature-list {
           list-style: none !important;
@@ -339,23 +345,24 @@ export const AIfrontendeveloperBook = () => {
           display: flex;
           align-items: flex-start;
           gap: 12px;
-          color: #f0f2f4 !important;
-          font-size: 0.9rem !important;
+          color: #374151 !important; /* Dark slate gray */
+          font-size: 0.95rem !important;
+          line-height: 1.4;
         }
         .check-circle {
           width: 20px;
           height: 20px;
-          background-color: #E9F7F0 !important;
+          background-color: #d1fae5 !important; /* Light emerald circle */
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #26B16D !important;
+          color: #10b981 !important; /* Emerald checkmark */
           flex-shrink: 0;
           margin-top: 1px;
         }
         .cta-button {
-          background-color: #26B16D !important;
+          background-color: #10b981 !important; /* Emerald Button */
           color: #ffffff !important;
           font-size: 1rem !important;
           padding: 16px 20px !important;
@@ -365,10 +372,11 @@ export const AIfrontendeveloperBook = () => {
           text-align: center !important;
           width: 100% !important;
           margin-top: auto !important;
+          font-weight: bold;
           transition: background-color 0.2s ease !important;
         }
         .cta-button:hover {
-          background-color: #1e9258 !important;
+          background-color: #059669 !important; /* Darker emerald on hover */
         }
 
         /* --- 9. BOTTOM NAVIGATION LINK --- */
@@ -380,64 +388,71 @@ export const AIfrontendeveloperBook = () => {
         .nav-link-area button {
           background: none !important;
           border: none !important;
-          color: #207DE9 !important;
+          color: #10b981 !important; /* Emerald text */
           font-size: 0.95rem !important;
           cursor: pointer !important;
           padding: 10px 15px !important;
+          font-weight: bold;
         }
         .nav-link-area button:hover {
           text-decoration: underline;
         }
         .nav-link-area span {
-          color: #ffffff !important;
+          color: #6b7280 !important; /* Slate gray */
           font-size: 0.9rem !important;
           margin: 0 15px !important;
         }
-/* Hide the +/- icon on desktop since everything is always expanded */
-.accordion-icon {
-  display: none;
-}
-.item-desc {
-  color: #e0e0e0 !important;
-  font-size: 0.9rem !important;
-  margin: 0 !important;
-  transition: all 0.3s ease;
-}
-        /* --- 10. MOBILE RESPONSIVENESS (UPDATED) --- */
+
+        /* Hide the +/- icon on desktop since everything is always expanded */
+        .accordion-icon {
+          display: none;
+        }
+        .item-desc {
+          color: #4b5563 !important; /* Slate gray */
+          font-size: 0.95rem !important;
+          margin: 0 !important;
+          transition: all 0.3s ease;
+        }
+
+        /* --- 10. MOBILE RESPONSIVENESS --- */
         @media (max-width: 900px) {
-          /* Hide Green Background completely */
+          /* Hide Background Patterns */
           .bofu-pricing-wrapper::before,
           .bofu-pricing-wrapper::after {
             display: none !important;
           }
-            /* Hide features beyond the first 5 to save vertical space */
-.hide-on-mobile {
-  display: none !important;
-}
+
+          /* Hide features beyond the first 5 to save vertical space */
+          .hide-on-mobile {
+            display: none !important;
+          }
 
           /* Strip down wrapper padding */
           .bofu-pricing-wrapper {
-            padding: 40px 30px !important;
+            padding: 40px 20px !important;
             background-color: transparent !important;
           }
-/* Hide features beyond the first 5 when the state is false */
-.hidden-mobile-feature {
-  display: none !important;
-}
 
-/* Style the "See All" button for mobile */
-.mobile-feature-toggle {
-  display: block !important;
-  width: 100%;
-  background: transparent !important;
-  border: none !important;
-  color: #26B16D !important;
-  font-size: 0.95rem !important;
-  margin-top: -10px !important;
-  margin-bottom: 25px !important;
-  cursor: pointer !important;
-  text-align: center !important;
-}
+          /* Hide features beyond the first 5 when the state is false */
+          .hidden-mobile-feature {
+            display: none !important;
+          }
+
+          /* Style the "See All" button for mobile */
+          .mobile-feature-toggle {
+            display: block !important;
+            width: 100%;
+            background: transparent !important;
+            border: none !important;
+            color: #10b981 !important; /* Emerald text */
+            font-size: 0.95rem !important;
+            margin-top: -10px !important;
+            margin-bottom: 25px !important;
+            cursor: pointer !important;
+            text-align: center !important;
+            font-weight: bold;
+          }
+
           /* Hide long intro paragraph */
           .intro-header p {
             display: none !important;
@@ -446,7 +461,7 @@ export const AIfrontendeveloperBook = () => {
             margin-bottom: 40px !important;
           }
           .intro-header h2 {
-             font-size: clamp(1.4rem, 4vw, 2rem) !important;
+             font-size: clamp(1.6rem, 4vw, 2rem) !important;
           }
 
           /* Stack Card vertically */
@@ -455,7 +470,7 @@ export const AIfrontendeveloperBook = () => {
           }
           .card-left {
             border-right: none !important;
-            border-bottom: 1px solid #342b2b !important;
+            border-bottom: 1px solid #e5e7eb !important;
           }
           
           /* Fix Border Radii for stacking */
@@ -476,34 +491,29 @@ export const AIfrontendeveloperBook = () => {
             padding: 25px 20px !important;
           }
 
-          /* Hide lengthy item descriptions to save space */
-         /* --- MOBILE ACCORDION STYLES --- */
-/* 1. Show the +/- icon and push it to the right edge */
-.accordion-icon {
-  display: block !important;
-  margin-left: auto;
-  color: #26B16D !important; /* Green color to show it's clickable */
-  font-size: 1.5rem !important;
-}
+          /* --- MOBILE ACCORDION STYLES --- */
+          .accordion-icon {
+            display: block !important;
+            margin-left: auto;
+            color: #10b981 !important; 
+            font-size: 1.5rem !important;
+          }
 
-/* 2. Make the header look clickable */
-.item-header {
-  margin-bottom: 0 !important;
-  padding: 5px 0;
-}
+          .item-header {
+            margin-bottom: 0 !important;
+            padding: 5px 0;
+          }
 
-/* 3. Hide descriptions by default on mobile */
-.item-desc {
-  display: none !important;
-}
+          .item-desc {
+            display: none !important;
+          }
 
-/* 4. Show the description ONLY if it has the 'expanded' class */
-.item-desc.expanded {
-  display: block !important;
-  margin-top: 10px !important;
-  padding-left: 44px; /* Aligns text perfectly under the title, skipping the icon */
-}
-          /* Remove gaps since description is gone */
+          .item-desc.expanded {
+            display: block !important;
+            margin-top: 10px !important;
+            padding-left: 44px; /* Aligns text perfectly under the title, skipping the icon */
+          }
+
           .item-block {
             margin-bottom: 15px !important;
           }
@@ -518,7 +528,7 @@ export const AIfrontendeveloperBook = () => {
       `}</style>
 
       <div className="container-inner">
-        
+
         {/* Intro Header */}
         <div className="intro-header">
           <h2>
@@ -533,14 +543,14 @@ export const AIfrontendeveloperBook = () => {
 
         {/* Pricing Card */}
         <div className="pricing-card">
-          
+
           {/* Left Side */}
           <div className="card-left">
             <div className="card-left-top">
               {/* Floating SVG Icon */}
               <div className="floating-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="#207DE9">
-                  <path d="M4 6h16v2H4zm2 3h12v10H6zm2 2v6h2v-6zm6 0v6h2v-6z"/>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#10b981">
+                  <path d="M4 6h16v2H4zm2 3h12v10H6zm2 2v6h2v-6zm6 0v6h2v-6z" />
                 </svg>
               </div>
               <h3 className="badge">{activeStep.badge}</h3>
@@ -550,74 +560,71 @@ export const AIfrontendeveloperBook = () => {
               </h2>
             </div>
 
-<div className="card-left-bottom">
-  <h4>{activeStep.infoTitle}</h4>
-  
-  {activeStep.items.map((item, idx) => {
-    // Check if this specific item is the one currently expanded
-    const isExpanded = expandedItem === idx;
+            <div className="card-left-bottom">
+              <h4>{activeStep.infoTitle}</h4>
 
-    return (
-      <div className="item-block" key={idx}>
-        <div 
-          className="item-header cursor-pointer lg:cursor-default"
-          onClick={() => setExpandedItem(isExpanded ? -1 : idx)}>
-          <div className="item-icon-wrap">
-            {item.icon}
-          </div>
-          <h5>{item.title}</h5>
-          <span className="accordion-icon">
-            {isExpanded ? "−" : "+"}
-          </span>
-        </div>
-        {/* Description Text */}
-        <p className={`item-desc ${isExpanded ? "expanded" : ""}`}>
-          {item.desc}
-        </p>
-      </div>
-    );
-  })}
-</div>
+              {activeStep.items.map((item, idx) => {
+                const isExpanded = expandedItem === idx;
+
+                return (
+                  <div className="item-block" key={idx}>
+                    <div
+                      className="item-header cursor-pointer lg:cursor-default"
+                      onClick={() => setExpandedItem(isExpanded ? -1 : idx)}>
+                      <div className="item-icon-wrap">
+                        {item.icon}
+                      </div>
+                      <h5>{item.title}</h5>
+                      <span className="accordion-icon">
+                        {isExpanded ? "−" : "+"}
+                      </span>
+                    </div>
+                    {/* Description Text */}
+                    <p className={`item-desc ${isExpanded ? "expanded" : ""}`}>
+                      {item.desc}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           {/* Right Side */}
-          {/* Right Side */}
-<div className="card-right">
-  <h4>{activeStep.rightTitle}</h4>
-  
-  <ul className="feature-list">
-    {activeStep.features.map((feature, idx) => {
-      // If it's item 6+ and we haven't clicked "See All", hide it on mobile
-      const isHiddenOnMobile = idx >= 5 && !showAllFeatures;
+          <div className="card-right">
+            <h4>{activeStep.rightTitle}</h4>
 
-      return (
-        <li key={idx} className={isHiddenOnMobile ? "hidden-mobile-feature" : ""}>
-          {/* SVG Checkmark */}
-          <div className="check-circle">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <ul className="feature-list">
+              {activeStep.features.map((feature, idx) => {
+                const isHiddenOnMobile = idx >= 5 && !showAllFeatures;
+
+                return (
+                  <li key={idx} className={isHiddenOnMobile ? "hidden-mobile-feature" : ""}>
+                    {/* SVG Checkmark */}
+                    <div className="check-circle">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </div>
+                    {feature}
+                  </li>
+                );
+              })}
+            </ul>
+
+            {/* Mobile "See More" Toggle Button */}
+            {activeStep.features.length > 5 && (
+              <button
+                className="mobile-feature-toggle"
+                onClick={() => setShowAllFeatures(!showAllFeatures)}
+              >
+                {showAllFeatures ? "See Less ↑" : "See All Features ↓"}
+              </button>
+            )}
+
+            <button className="cta-button">
+              {activeStep.btnText}
+            </button>
           </div>
-          {feature}
-        </li>
-      );
-    })}
-  </ul>
-
-  {/* Mobile "See More" Toggle Button */}
-  {activeStep.features.length > 5 && (
-    <button 
-      className="mobile-feature-toggle" 
-      onClick={() => setShowAllFeatures(!showAllFeatures)}
-    >
-      {showAllFeatures ? "See Less ↑" : "See All Features ↓"}
-    </button>
-  )}
-
-  <button className="cta-button">
-    {activeStep.btnText}
-  </button>
-</div>
 
         </div>
 

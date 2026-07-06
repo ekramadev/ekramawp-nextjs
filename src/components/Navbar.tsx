@@ -12,26 +12,22 @@ type NavLinkItem = {
   href: string;
 };
 
-type CardItem = {
+type NavCategory = {
   title: string;
-  description: string;
-  buttonText: string;
-  href: string;
-  subtitle?: string;
-  icon: (props: IconProps) => React.JSX.Element;
+  links: NavLinkItem[];
 };
 
 type NavSection = {
   id: number;
   title: string;
   href: string;
-  headerTitle: string;
-  headerIcon: (props: IconProps) => React.JSX.Element;
-  navIcon: (props: IconProps) => React.JSX.Element;
-  links: NavLinkItem[];
-  primaryCard: CardItem;
-  secondaryCard: CardItem;
-  mobileAllLabel: string;
+  columns: NavCategory[][];
+  promo?: {
+    heading: string;
+    description: string;
+    badgeTopText: string;
+    badgeBottomText: string;
+  };
 };
 
 function ChevronDown({ className = "h-4 w-4" }: IconProps) {
@@ -42,318 +38,377 @@ function ChevronDown({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
-function SubLinkIcon({ className = "h-3.5 w-3.5" }: IconProps) {
+function SearchIcon({ className = "h-4 w-4" }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <path d="M5 12h14" strokeLinecap="round" />
-      <path d="M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
     </svg>
   );
 }
 
-function CodeIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M8 9L4 12L8 15" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M16 9L20 12L16 15" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M14 5L10 19" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function WordpressIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2.5A9.5 9.5 0 1 0 21.5 12 9.51 9.51 0 0 0 12 2.5Zm0 17.5a7.87 7.87 0 0 1-4.1-1.15l4.36-12 2.9 7.95a.67.67 0 0 1 .03.43L14 18.77A7.86 7.86 0 0 1 12 20Zm-6.34-3.2A7.83 7.83 0 0 1 4.2 10.4c0-.8.12-1.56.35-2.28l3.2 8.68a.95.95 0 0 0 1.78 0l1.75-4.83 1.85 5.04A7.86 7.86 0 0 1 5.66 16.8Zm10.83-.9 1.16-3.34c.28-.75.38-1.35.38-1.88 0-.7-.2-1.3-.46-1.83A7.84 7.84 0 0 1 19.8 12a7.8 7.8 0 0 1-3.31 6.4Z" />
-    </svg>
-  );
-}
-
-function LaptopIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <rect x="4" y="5" width="16" height="11" rx="2" />
-      <path d="M2 19H22" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function BoltIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M13 2L5 13h5l-1 9 8-11h-5l1-9Z" />
-    </svg>
-  );
-}
-
-function UserTieIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="7" r="4" />
-      <path d="M5.5 21a6.5 6.5 0 0 1 13 0" strokeLinecap="round" />
-      <path d="M12 11l-1.5 3L12 16l1.5-2L12 11Z" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function LayersIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M12 3L3 8l9 5 9-5-9-5Z" />
-      <path d="M3 12l9 5 9-5" />
-      <path d="M3 16l9 5 9-5" />
-    </svg>
-  );
-}
-
-function DatabaseIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <ellipse cx="12" cy="5" rx="7" ry="3" />
-      <path d="M5 5v6c0 1.66 3.13 3 7 3s7-1.34 7-3V5" />
-      <path d="M5 11v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6" />
-    </svg>
-  );
-}
-
-function PenIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M12 20h9" strokeLinecap="round" />
-      <path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5Z" />
-    </svg>
-  );
-}
-
-function UsersIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-      <circle cx="10" cy="7" r="4" />
-      <path d="M20 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
-  );
-}
-
-function GaugeIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M12 14l4-4" strokeLinecap="round" />
-      <path d="M20 14a8 8 0 1 0-16 0" />
-      <path d="M12 18h.01" />
-    </svg>
-  );
-}
-
-function ServerIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <rect x="3" y="4" width="18" height="6" rx="2" />
-      <rect x="3" y="14" width="18" height="6" rx="2" />
-      <path d="M7 7h.01M7 17h.01" />
-    </svg>
-  );
-}
-
-function RocketIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M5 19c2-1 4-3 5-5" />
-      <path d="M15 9l-6 6" />
-      <path d="M14 4c3 0 6 3 6 6-2 1-4 1-6 1-1 2-1 4-1 6-3 0-6-3-6-6 0-2 0-4 1-6 2 0 4 0 6-1Z" />
-      <circle cx="15" cy="9" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function HandshakeIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M10 11l2 2a2 2 0 0 0 3 0l3-3" />
-      <path d="M7 13l-2 2a2 2 0 0 1-3-3l4-4a2 2 0 0 1 3 0l1 1" />
-      <path d="M17 11l2 2a2 2 0 0 0 3-3l-4-4a2 2 0 0 0-3 0l-1 1" />
-      <path d="M8 8l3-3a3 3 0 0 1 4 0l1 1" />
-    </svg>
-  );
-}
-
-function TargetIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="12" r="8" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function MailIcon({ className = "h-5 w-5" }: IconProps) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="M3 7l9 6 9-6" />
-    </svg>
-  );
-}
-
+// Fully Updated Database with all URLs and Groupings
 const navSections: NavSection[] = [
   {
     id: 1,
-    title: "Front End Tech",
-    href: "/front-end-technologies",
-    headerTitle: "Languages",
-    headerIcon: CodeIcon,
-    navIcon: CodeIcon,
-    links: [
-      { label: "HTML", href: "/front-end-technologies/html" },
-      { label: "CSS", href: "/front-end-technologies/css" },
-      { label: "Javascript", href: "/front-end-technologies/javascript" },
-      { label: "Page Builders", href: "/front-end-technologies/page-builders" },
-      { label: "Next.js with Typescript", href: "/front-end-technologies/nextjs-with-typescript" },
+    title: "Services",
+    href: "/services",
+    promo: {
+      heading: "WPFEDEV USA Corporation is a 5-Year Champion in the Financial Times Rating",
+      description: "For the fifth year in a row, WPFEDEV USA Corporation earns a place among The Americas' Fastest-Growing Companies.",
+      badgeTopText: "FT FINANCIAL TIMES | statista",
+      badgeBottomText: "5 YEAR CHAMPION",
+    },
+    columns: [
+      [
+        {
+          title: "Software Engineering",
+          links: [
+            { label: "Software Development", href: "/services/software-development" },
+            { label: "MVP Development", href: "/services/mvp-development" },
+            { label: "AI Development", href: "/services/ai-development" },
+            { label: "Web Development", href: "/services/web-development" },
+            { label: "Mobile Development", href: "/services/mobile-development" },
+            { label: "Desktop Development", href: "/services/desktop-development" },
+            { label: "API Development", href: "/services/api-development" },
+            { label: "Database Development", href: "/services/database-development" },
+            { label: "Software Modernization", href: "/services/software-modernization" },
+            { label: "IT Staff Augmentation", href: "/services/it-staff-augmentation" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Strategy & Advisory",
+          links: [
+            { label: "IT Consulting", href: "/services/it-consulting" },
+            { label: "Digital Transformation", href: "/services/digital-transformation" },
+            { label: "Software Consulting", href: "/services/software-consulting" },
+            { label: "IT Project Management", href: "/services/it-project-management" },
+            { label: "Agile Consulting", href: "/services/agile-consulting" },
+            { label: "DevOps Consulting", href: "/services/devops-consulting" },
+            { label: "Microsoft Consulting", href: "/services/microsoft-consulting" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Data & Intelligence",
+          links: [
+            { label: "Data Analytics", href: "/services/data-analytics" },
+            { label: "Data Warehousing", href: "/services/data-warehousing" },
+            { label: "Big Data", href: "/services/big-data" },
+            { label: "Business Intelligence", href: "/services/business-intelligence" },
+            { label: "Data Science", href: "/services/data-science" },
+            { label: "Machine Learning", href: "/services/machine-learning" },
+            { label: "Artificial Intelligence", href: "/services/artificial-intelligence" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Operations & Support",
+          links: [
+            { label: "IT Outsourcing", href: "/services/it-outsourcing" },
+            { label: "Managed IT Services", href: "/services/managed-it-services" },
+            { label: "Infrastructure Services", href: "/services/infrastructure-services" },
+            { label: "IT Support", href: "/services/it-support" },
+            { label: "IT Help Desk", href: "/services/it-help-desk" },
+            { label: "Application Services", href: "/services/application-services" },
+            { label: "Application Maintenance", href: "/services/application-maintenance" },
+            { label: "Testing and QA", href: "/services/testing-and-qa" },
+          ],
+        },
+        {
+          title: "Security",
+          links: [
+            { label: "Cybersecurity", href: "/services/cybersecurity" },
+            { label: "Compliance Services", href: "/services/compliance-services" },
+            { label: "Security Testing", href: "/services/security-testing" },
+            { label: "Penetration Testing", href: "/services/penetration-testing" },
+          ],
+        },
+      ],
     ],
-    primaryCard: {
-      title: "Front End Strategy",
-      description:
-        "Comprehensive front-end solutions. We create responsive, and performant interfaces using HTML, CSS, and Modern JavaScript.",
-      buttonText: "View Technologies",
-      href: "/front-end-technologies",
-      icon: LayersIcon,
-    },
-    secondaryCard: {
-      title: "Dev Success Stories",
-      description:
-        "Browse our case studies to see how we have helped clients achieve pixel-perfect designs and interactive user experiences.",
-      buttonText: "View Portfolio",
-      href: "/portfolio/",
-      icon: DatabaseIcon,
-    },
-    mobileAllLabel: "All Technologies",
   },
   {
     id: 2,
-    title: "Traditional WP",
-    href: "/traditional-wordpress-front-end/",
-    headerTitle: "Development",
-    headerIcon: WordpressIcon,
-    navIcon: WordpressIcon,
-    links: [
-      { label: "Design Conversion", href: "/traditional-wordpress-front-end/design-conversion/" },
-      { label: "SEO & Mobile Responsive", href: "/traditional-wordpress-front-end/seo-and-mobile-responsive/" },
-      { label: "Speed Optimization", href: "/traditional-wordpress-front-end/speed-front-end-optimization/" },
-      { label: "Theme Setup & Customization", href: "/traditional-wordpress-front-end/theme-setup-customization/" },
+    title: "Technologies",
+    href: "/technologies",
+    promo: {
+      heading: "WPFEDEV USA Corporation is a 5-Year Champion in the Financial Times Rating",
+      description: "For the fifth year in a row, WPFEDEV USA Corporation earns a place among The Americas' Fastest-Growing Companies.",
+      badgeTopText: "FT FINANCIAL TIMES | statista",
+      badgeBottomText: "5 YEAR CHAMPION",
+    },
+    columns: [
+      [
+        {
+          title: "AI & Innovation",
+          links: [
+            { label: "Data Science Ops", href: "/ai/data-science-ops" },
+            { label: "ML Engineering", href: "/ai/ml-engineering" },
+            { label: "Computer Vision", href: "/ai/computer-vision" },
+            { label: "Blockchain Tech", href: "/blockchain-tech" },
+            { label: "Big Data Systems", href: "/big-data-systems" },
+            { label: "IoT Engineering", href: "/iot-engineering" },
+            { label: "VR Enterprise", href: "/vr-enterprise" },
+            { label: "AR Experiences", href: "/ar-experiences" },
+          ],
+        },
+        {
+          title: "Cloud & SaaS",
+          links: [
+            { label: "Cloud Native", href: "/cloud-native" },
+            { label: "SaaS Architecture", href: "/saas-architecture" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Engineers for Hire",
+          links: [
+            { label: ".NET Experts", href: "/net-experts" },
+            { label: "Java Architects", href: "/java-architects" },
+            { label: "Python Engineers", href: "/python-engineers" },
+            { label: "PHP Engineers", href: "/php-Engineers" },
+            { label: "Go Engineers", href: "/go-Engineers" },
+            { label: "C++ Engineers", href: "/c-engineers" },
+            { label: "Node.js Experts", href: "/node-js-experts" },
+            { label: "JavaScript Devs", href: "/javascript-devs" },
+            { label: "React Native Experts", href: "/react-native-experts" },
+            { label: "Mobile Devs", href: "/mobile-devs" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Enterprise Platforms",
+          links: [
+            { label: "MS Ecosystem", href: "/ms-ecosystem" },
+            { label: "Azure Cloud", href: "/azure-cloud" },
+            { label: "Power Apps Dev", href: "/power-apps-dev" },
+            { label: "Dynamics 365 Solutions", href: "/dynamics-365-solutions" },
+            { label: "M365 & SharePoint", href: "/m365-sharepoint" },
+            { label: "Power BI Dashboards", href: "/power-bi-dashboards" },
+            { label: "AWS Infrastructure", href: "/aws-infrastructure" },
+            { label: "Adobe Commerce Tech", href: "/adobe-commerce-tech" },
+            { label: "ServiceNow Dev", href: "/servicenow-dev" },
+            { label: "Salesforce Tech", href: "/salesforce-tech" },
+            { label: "Pimcore Solutions", href: "/pimcore-solutions" },
+          ],
+        },
+      ],
     ],
-    primaryCard: {
-      title: "Traditional WordPress",
-      description:
-        "Expert theme development and customization. We convert your designs into fully functional WordPress themes.",
-      buttonText: "Our Approach",
-      href: "/traditional-wordpress-front-end/",
-      icon: PenIcon,
-    },
-    secondaryCard: {
-      title: "WP Campaigns",
-      description:
-        "Explore our portfolio of successful WordPress sites that have increased engagement and built brand trust.",
-      buttonText: "View Portfolio",
-      href: "/portfolio/",
-      icon: UsersIcon,
-    },
-    mobileAllLabel: "Traditional WP Services",
   },
   {
     id: 3,
-    title: "Web App Front End",
-    href: "/wep-app-front-end/",
-    headerTitle: "Application",
-    headerIcon: LaptopIcon,
-    navIcon: LaptopIcon,
-    links: [
-      { label: "Design Conversion", href: "/wep-app-front-end/design-conversion/" },
-      { label: "SEO & Mobile Responsive", href: "/wep-app-front-end/seo-and-mobile-responsive/" },
-      { label: "Speed Optimization", href: "/wep-app-front-end/speed-optimization/" },
-      { label: "Theme Setup & Customization", href: "/wep-app-front-end/theme-setup-customization/" },
+    title: "Solutions",
+    href: "/solutions",
+    promo: {
+      heading: "WPFEDEV USA Corporation is a 5-Year Champion in the Financial Times Rating",
+      description: "For the fifth year in a row, WPFEDEV USA Corporation earns a place among The Americas' Fastest-Growing Companies.",
+      badgeTopText: "FT FINANCIAL TIMES | statista",
+      badgeBottomText: "5 YEAR CHAMPION",
+    },
+    columns: [
+      [
+        {
+          title: "Operations & SCM",
+          links: [
+            { label: "Custom ERP", href: "/custom-erp" },
+            { label: "Transportation Management", href: "/transportation-management" },
+            { label: "Supply Chain Management", href: "/supply-chain-tech" },
+            { label: "WMS Solutions", href: "/wms-solutions" },
+            { label: "Enterprise Asset Management", href: "/enterprise-asset-management" },
+            { label: "Procurement Management", href: "/procurement" },
+            { label: "Enterprise Project Management", href: "/enterprise-pm" },
+            { label: "Logistics Management", href: "/logistics-fleet" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Customer Experience",
+          links: [
+            { label: "CRM Engineering", href: "/crm-engineering" },
+            { label: "Enterprise Commerce", href: "/enterprise-commerce" },
+            { label: "Headless CMS", href: "/headless-cms" },
+            { label: "Marketing software", href: "/marketing-software" },
+          ],
+        },
+        {
+          title: "Portals & Digital Workplace",
+          links: [
+            { label: "Secure Web Portals", href: "/secure-portals" },
+            { label: "Corporate Intranets", href: "/corporate-intranets" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Corporate Finance",
+          links: [
+            { label: "Financial Planning and Analysis", href: "/financial-planning-analyses" },
+            { label: "Billing and Invoicing Management", href: "/transaction-systems" },
+            { label: "Accounting Software", href: "/enterprise-accounting" },
+          ],
+        },
+        {
+          title: "Analytics & AI",
+          links: [
+            { label: "Business Intelligence", href: "/business-intelligence" },
+            { label: "Applied AI", href: "/applied-ai" },
+          ],
+        },
+        {
+          title: "HR & Learning",
+          links: [
+            { label: "HRIS Software", href: "/hris-software" },
+            { label: "Corporate LMS", href: "/corporate-lms" },
+          ],
+        },
+      ],
     ],
-    primaryCard: {
-      title: "Web App Development",
-      description:
-        "Custom Web Application interfaces. We build fast, secure, and mobile-responsive web apps that provide seamless user experiences.",
-      buttonText: "Check Speed",
-      href: "/wep-app-front-end/",
-      icon: GaugeIcon,
-    },
-    secondaryCard: {
-      title: "App Projects",
-      description:
-        "Check out our development portfolio featuring high-performance web applications with custom functionality.",
-      buttonText: "View Portfolio",
-      href: "/portfolio/",
-      icon: ServerIcon,
-    },
-    mobileAllLabel: "Web App Services",
   },
   {
     id: 4,
-    title: "Headless WP",
-    href: "/headless-wordpress-front-end/",
-    headerTitle: "Headless",
-    headerIcon: BoltIcon,
-    navIcon: BoltIcon,
-    links: [
-      { label: "Design Conversion", href: "/headless-wordpress-front-end/design-conversion/" },
-      { label: "SEO & Mobile Responsive", href: "/headless-wordpress-front-end/seo-and-mobile-responsive/" },
-      { label: "Speed Optimization", href: "/headless-wordpress-front-end/speed-front-end-optimization/" },
-      { label: "Theme Setup & Customization", href: "/headless-wordpress-front-end/theme-setup-customization/" },
+    title: "Industries",
+    href: "/industries",
+    promo: {
+      heading: "WPFEDEV USA Corporation is a 5-Year Champion in the Financial Times Rating",
+      description: "For the fifth year in a row, WPFEDEV USA Corporation earns a place among The Americas' Fastest-Growing Companies.",
+      badgeTopText: "FT FINANCIAL TIMES | statista",
+      badgeBottomText: "5 YEAR CHAMPION",
+    },
+    columns: [
+      [
+        {
+          title: "Healthcare",
+          links: [
+            { label: "Med Devices Software", href: "/med-devices-software" },
+            { label: "Behavioral Health IT", href: "/behavioral-health-it" },
+            { label: "Lab Info Systems", href: "/lab-info-systems" },
+            { label: "Pharma & Biotech Systems", href: "/pharma-biotech" },
+            { label: "MedTech Startups Platforms", href: "/medtech-startups" },
+            { label: "Public Health Systems", href: "/public-health-systems" },
+            { label: "Wellness Apps", href: "/wellness-apps" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Finance",
+          links: [
+            { label: "Finance", href: "/finance-software" },
+            { label: "Retail Banking", href: "/retail-banking-it" },
+            { label: "Insurance Tech", href: "/insurtech" },
+            { label: "Wealth Management Tech", href: "/wealth-management-tech" },
+            { label: "Digital Lending", href: "/digital-lending" },
+            { label: "FinTech Engineering", href: "/fintech-engineering" },
+            { label: "Payment Gateways", href: "/payment-gateways" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Other Industries",
+          links: [
+            { label: "Smart Manufacturing", href: "/smart-manufacturing" },
+            { label: "Digital Retail", href: "/digital-retail" },
+            { label: "Logistics & Fleet", href: "/logistics-software" },
+            { label: "Energy & Utilities", href: "/energy-utilities" },
+            { label: "Professional Services IT", href: "/professional-services-it" },
+            { label: "Telecom Tech", href: "/telecom-tech" },
+            { label: "PropTech", href: "/real-estate" },
+            { label: "Construction IT", href: "/construction-it" },
+            { label: "Hospitality Tech", href: "/hospitality-tech" },
+          ],
+        },
+      ],
     ],
-    primaryCard: {
-      title: "Headless Architecture",
-      description:
-        "Decoupled front-end strategies for ultimate speed and security. We leverage Next.js and WordPress APIs for a modern web experience.",
-      buttonText: "Our Services",
-      href: "/headless-wordpress-front-end/",
-      icon: RocketIcon,
-    },
-    secondaryCard: {
-      title: "Headless Results",
-      description:
-        "See our headless success stories. We have successfully helped clients modernize their stack and drive performance.",
-      buttonText: "View Portfolio",
-      href: "/portfolio/",
-      icon: HandshakeIcon,
-    },
-    mobileAllLabel: "Headless Services",
   },
   {
     id: 5,
-    title: "About",
-    href: "/about/",
-    headerTitle: "Company",
-    headerIcon: UserTieIcon,
-    navIcon: UserTieIcon,
-    links: [
-      { label: "Blogs", href: "/blogs/" },
-      { label: "Approach", href: "/about/approach/" },
-      { label: "Story", href: "/about/story/" },
-      { label: "Contact", href: "/contact/" },
-      { label: "Terms", href: "/terms-and-conditions/" },
+    title: "About Us",
+    href: "/about",
+    promo: {
+      heading: "WPFEDEV USA Corporation is a 5-Year Champion in the Financial Times Rating",
+      description: "For the fifth year in a row, WPFEDEV USA Corporation earns a place among The Americas' Fastest-Growing Companies.",
+      badgeTopText: "FT FINANCIAL TIMES | statista",
+      badgeBottomText: "5 YEAR CHAMPION",
+    },
+    columns: [
+      [
+        {
+          title: "Company",
+          links: [
+            { label: "Our Agency", href: "/our-agency" },
+            { label: "Our Vision", href: "/our-vision" },
+            { label: "Quality Standards", href: "/quality-standards" },
+            { label: "Directors", href: "/directors" },
+            { label: "The Engineers", href: "/the-engineers" },
+            { label: "Case Studies", href: "/case-studies" },
+            { label: "Client Feedback", href: "/client-feedback" },
+            { label: "Tech Alliances", href: "/tech-alliances" },
+            { label: "Global Presence", href: "/global-presence" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Approach",
+          links: [
+            { label: "Onboarding Workflow", href: "/onboarding-workflow" },
+            { label: "Engagement Models", href: "/engagement-models" },
+            { label: "Agile PMO", href: "/agile-pmo" },
+            { label: "System Design Hub", href: "/system-design-hub" },
+            { label: "Innovation Labs", href: "/innovation-labs" },
+            { label: "Delivery Framework", href: "/delivery-framework" },
+            { label: "Security Posture", href: "/security-posture" },
+            { label: "Co-Innovation", href: "/co-innovation" },
+            { label: "Green IT", href: "/green-it" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Thought Leadership",
+          links: [
+            { label: "Webinars & Talks", href: "/webinars-talks" },
+            { label: "Press Coverage", href: "/press-coverage" },
+            { label: "Leadership Insights", href: "/leadership-insights" },
+            { label: "Tech Blog", href: "/tech-blog" },
+            { label: "Agency Updates", href: "/agency-updates" },
+          ],
+        },
+        {
+          title: "News",
+          links: [
+            { label: "Press Kit", href: "/news/press-kit" },
+            { label: "Media Spokespersons", href: "/news/media-spokespersons" },
+          ],
+        },
+      ],
+      [
+        {
+          title: "Careers",
+          links: [
+            { label: "Hiring Workflow", href: "/careers/hiring-workflow" },
+            { label: "Partner Program", href: "/partner-program" },
+            { label: "Refer a Dev", href: "/refer-a-dev" },
+          ],
+        },
+        {
+          title: "Recognition",
+          links: [
+            { label: "Endorsements", href: "/testimonials/endorsements" },
+            { label: "Industry Awards", href: "/industry-awards" },
+            { label: "Careers Portal", href: "/careers-portal" },
+          ],
+        },
+      ],
     ],
-    primaryCard: {
-      title: "Meet WPFEDEV",
-      description:
-        "Learn about our mission to bring transparency to web development. Discover the core values and strategic approach that drive client success.",
-      buttonText: "Read Mission",
-      href: "/about/",
-      icon: TargetIcon,
-    },
-    secondaryCard: {
-      title: "Professional Journey",
-      description:
-        "View our professional portfolio showcasing a history of successful projects, from technical audits to full-scale web development.",
-      buttonText: "View Portfolio",
-      href: "/portfolio/",
-      icon: MailIcon,
-    },
-    mobileAllLabel: "About",
   },
 ];
 
@@ -361,269 +416,284 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => !prev);
-  };
-
-  const toggleAccordion = (id: number) => {
-    setOpenAccordion((prev) => (prev === id ? null : id));
-  };
-
+  const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
+  const toggleAccordion = (id: number) => setOpenAccordion((prev) => (prev === id ? null : id));
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
     setOpenAccordion(null);
   };
 
   return (
-   <header 
-  className="relative sticky top-0 z-[1000] w-full text-white shadow-[0_10px_30px_rgba(0,0,0,0.3)] lg:top-[-41px]"
-  style={{ background: "linear-gradient(45deg, rgba(20, 20, 20, 1), rgba(40, 40, 40, 1), rgba(60, 60, 60, 1))" }}
->
-      <div className="hidden h-10 bg-transparent text-[14px] font-black lg:block">
+    <header className="sticky top-0 z-[1000] w-full bg-white text-[#333] border-b border-gray-200 shadow-sm">
+      {/* Top Utility Bar */}
+      <div className="hidden h-6 bg-[#f8f9fa] text-[13px] border-b border-gray-200 lg:block">
         <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-6">
-          <div className="flex items-center">
-            <span className="opacity-90">REVENUE DRIVEN FOR OUR CLIENTS</span>
-            <span className="ml-[5px] font-black text-[#00ffbf]">
-              $10,085,355,239+ <span className="text-white/70">ⓘ</span>
-            </span>
+          <div className="flex items-center gap-5 text-gray-600 font-medium">
+            <a href="#" className="hover:text-[#0056b3] transition-colors">WPFEDEV Healthcare</a>
+            <a href="#" className="hover:text-[#0056b3] transition-colors">WPFEDEV Finance</a>
           </div>
-
-          <div className="flex items-center">
-            <a href="#" className="border-r border-white/20 pr-[15px] text-white no-underline">
-              Client Login
+          <div className="flex items-center text-gray-600">
+            <span className="mr-6 text-gray-500">17–19 June: WPFEDEV at Tech Expo Miami. Meet us there!</span>
+            <a href="mailto:contact@wpfedev.com" className="border-r border-gray-300 pr-4 hover:text-[#0056b3] transition-colors">
+              contact@wpfedev.com
             </a>
-            <a href="tel:+92-324-256-8650" className="ml-[15px] text-white no-underline">
-              +92-324-256-8650
+            <a href="tel:+923242568650" className="ml-4 hover:text-[#0056b3] transition-colors">
+              🇵🇰 +92-324-256-8650
             </a>
           </div>
         </div>
       </div>
 
-      <nav className="bg-transparent">
-        <div className="mx-auto flex h-[70px] max-w-[1400px] items-center px-6">
-          <div className="z-[1001] mr-6 flex min-w-[160px] flex-col leading-[1.1] xl:mr-8 max-lg:mr-4 max-lg:min-w-0">
-            <div className="text-[24px] font-black text-white max-lg:text-[22px]">WPFEDEV</div>
-            <div className="hidden text-[10px] font-medium tracking-[0.5px] text-[#b0b8c4] xl:block">
-              Digital Marketing That Drives Revenue®
-            </div>
-          </div>
+      <nav className="relative bg-white">
+        <div className="mx-auto flex h-[55px] max-w-[1400px] items-center px-6">
+          {/* Logo */}
+          <div className="z-[1001] flex flex-1 flex-col leading-none">
+            <Link href="/" className="no-underline">
+              <svg width="200" height="36" viewBox="0 0 200 36" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-          <ul className="hidden h-full flex-nowrap items-center p-0 lg:flex">
-            {navSections.map((section) => {
-              const HeaderIcon = section.headerIcon;
-              const NavIcon = section.navIcon;
-              const PrimaryIcon = section.primaryCard.icon;
-              const SecondaryIcon = section.secondaryCard.icon;
 
-              return (
-                <li key={section.id} className="group static flex h-full shrink-0 cursor-pointer items-center pr-5 xl:pr-7">
-                  <Link
-                    href={section.href}
-                    className="flex h-full shrink-0 items-center gap-2 whitespace-nowrap text-[13px] font-medium tracking-[-0.005em] text-white no-underline transition-colors duration-200 group-hover:text-[#00ffbf] xl:text-[14px]"
-                  >
-                    <NavIcon className="h-[15px] w-[15px] shrink-0 text-[#41D48C]" />
-                    <span className="whitespace-nowrap">{section.title}</span>
-                    <ChevronDown className="h-[11px] w-[11px] shrink-0 text-[#b0b8c4] transition duration-200 group-hover:rotate-180 group-hover:text-[#00ffbf]" />
-                  </Link>
 
-                  <div 
-                    className="pointer-events-none invisible absolute left-0 top-full z-[999] w-full border-t border-white/10 opacity-0 shadow-2xl transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"
-                    style={{ background: "rgba(15, 15, 17, 0.98)" }}
-                  >
-                    {/* ADDED min-h-[420px] HERE */}
-                    <div className="mx-auto flex w-full max-w-[1400px] min-h-[420px] items-stretch justify-between gap-8 px-6 py-12 xl:gap-12">
-                      
-                      {/* Column 1 - Links (flex-1) */}
-                      <div className="flex flex-1 flex-col py-2">
-                        <div className="mb-6 flex items-center gap-3 text-[18px] font-bold text-white">
-                          <HeaderIcon className="h-6 w-6 text-[#41D48C]" />
-                          <span>{section.headerTitle}</span>
-                        </div>
+                <g>
 
-                        <div className="flex flex-1 flex-col gap-3">
-                          {section.links.map((link) => (
-                            <Link
-                              key={link.href}
-                              href={link.href}
-                              className="group/link flex items-center gap-3 text-[15px] font-medium text-[#b0b8c4] transition-colors hover:text-white"
-                            >
-                              <div className="flex h-6 w-6 items-center justify-center rounded bg-white/5 transition-colors group-hover/link:bg-[#41D48C]/20 group-hover/link:text-[#41D48C]">
-                                <SubLinkIcon className="h-3 w-3" />
-                              </div>
-                              <span>{link.label}</span>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
+                  <polygon points="16,18 32,18 26,30 10,30" fill="#047857" />
 
-                      {/* Column 2 - Primary Premium Card (flex-1) */}
-                      <Link
-                        href={section.primaryCard.href}
-                        className="group/card relative flex flex-1 flex-col overflow-hidden rounded-xl border border-white/10 p-7 no-underline transition-all duration-300 hover:border-[#41D48C]/50 hover:shadow-[0_0_30px_rgba(65,212,140,0.15)]"
-                        style={{ background: 'radial-gradient(circle at top right, rgba(65, 212, 140, 0.15), transparent 70%), rgba(255, 255, 255, 0.03)' }}
-                      >
-                        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-[#41D48C]/20 text-[#41D48C]">
-                          <PrimaryIcon className="h-6 w-6" />
-                        </div>
+                  <polygon points="11,12 27,12 21,24 5,24" fill="#10b981" />
 
-                        <h3 className="mb-2 text-[20px] font-bold text-white transition-colors group-hover/card:text-[#41D48C]">
-                          {section.primaryCard.title}
-                        </h3>
+                  <polygon points="6,6 22,6 16,18 0,18" fill="#34d399" />
+                </g>
 
-                        {section.primaryCard.subtitle && (
-                          <div className="mb-3 text-[12px] font-bold uppercase tracking-wider text-[#41D48C]">
-                            {section.primaryCard.subtitle}
-                          </div>
-                        )}
 
-                        <p className="mb-8 flex-1 text-[14px] leading-relaxed text-[#b0b8c4]">
-                          {section.primaryCard.description}
-                        </p>
+                <text x="36" y="29" fontFamily="NeueHaasGrotesk, Helvetica, Arial, sansSerif" fontSize="26" fontWeight="300" strokeWidth="0.6" fill="#00674F" stroke="#00674F" letterSpacing="-1.4">
+                  wp<tspan fontWeight="300" strokeWidth="1.2" fill="#3EBB9E" stroke="#3EBB9E">Fedev</tspan>
+                </text>
 
-                        <div className="mt-auto flex w-full items-center justify-center rounded-lg bg-[#41D48C] py-3 text-[14px] font-bold text-black transition-transform group-hover/card:scale-[1.02]">
-                          {section.primaryCard.buttonText}
-                        </div>
-                      </Link>
+              </svg>
 
-                      {/* Column 3 - Secondary Premium Card (flex-1) */}
-                      <Link
-                        href={section.secondaryCard.href}
-                        className="group/card relative flex flex-1 flex-col overflow-hidden rounded-xl border border-white/10 p-7 no-underline transition-all duration-300 hover:border-[#3B82F6]/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]"
-                        style={{ background: 'radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent 70%), rgba(255, 255, 255, 0.03)' }}
-                      >
-                        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-[#3B82F6]/20 text-[#3B82F6]">
-                          <SecondaryIcon className="h-6 w-6" />
-                        </div>
-
-                        <h3 className="mb-2 text-[20px] font-bold text-white transition-colors group-hover/card:text-[#3B82F6]">
-                          {section.secondaryCard.title}
-                        </h3>
-
-                        <p className="mb-8 flex-1 text-[14px] leading-relaxed text-[#b0b8c4]">
-                          {section.secondaryCard.description}
-                        </p>
-
-                        <div className="mt-auto flex w-full items-center justify-center rounded-lg bg-[#3B82F6] py-3 text-[14px] font-bold text-white transition-transform group-hover/card:scale-[1.02]">
-                          {section.secondaryCard.buttonText}
-                        </div>
-                      </Link>
-                      
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-
-          <Link
-            href="/contact/"
-            className="ml-auto hidden shrink-0 whitespace-nowrap rounded-[4px] bg-[#00674F] px-5 py-[10px] text-[14px] font-bold text-white no-underline transition hover:bg-[#50C878] xl:px-6 lg:inline-block"
-          >
-            Get a Proposal
-          </Link>
-
-          <button
-            type="button"
-            className="ml-auto flex flex-col gap-[5px] lg:hidden"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            <span
-              className={`block h-[3px] w-[25px] bg-white transition-all duration-300 ${
-                isMobileMenuOpen ? "translate-y-2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`block h-[3px] w-[25px] bg-white transition-all duration-300 ${
-                isMobileMenuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-[3px] w-[25px] bg-white transition-all duration-300 ${
-                isMobileMenuOpen ? "-translate-y-2 -rotate-45" : ""
-              }`}
-            />
-          </button>
-        </div>
-
-        {/* Mobile Menu Content */}
-        <div
-          className={`absolute left-0 top-full z-[998] w-full pb-6 transition-all duration-300 lg:hidden ${
-            isMobileMenuOpen
-              ? "visible translate-y-0 opacity-100"
-              : "invisible pointer-events-none -translate-y-2 opacity-0"
-          }`}
-          style={{ background: "linear-gradient(45deg, rgba(20, 20, 20, 1), rgba(40, 40, 40, 1), rgba(60, 60, 60, 1))" }}
-        >
-          {navSections.map((section) => {
-            const isOpen = openAccordion === section.id;
-            const NavIcon = section.navIcon;
-
-            return (
-              <div key={section.id} className="border-b border-white/10">
-                <button
-                  type="button"
-                  onClick={() => toggleAccordion(section.id)}
-                  className={`flex w-full items-center justify-between px-6 py-5 text-left font-bold text-white ${
-                    isOpen ? "bg-white/5" : ""
-                  }`}
-                >
-                  <span className="flex items-center gap-2">
-                    <NavIcon className="h-[16px] w-[16px] text-[#41D48C]" />
-                    <span>{section.title}</span>
-                  </span>
-
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-200 ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-
-                <div className={`${isOpen ? "block" : "hidden"} bg-black/20`}>
-                  {section.links.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={closeMobileMenu}
-                      className="flex items-center gap-2 border-b border-white/5 px-10 py-3 text-[14px] text-[#b0b8c4] no-underline transition hover:text-white"
-                    >
-                      <SubLinkIcon className="h-[14px] w-[14px] shrink-0 text-[#41D48C]" />
-                      <span>{link.label}</span>
-                    </Link>
-                  ))}
-
-                  <Link
-                    href={section.href}
-                    onClick={closeMobileMenu}
-                    className="flex items-center gap-2 border-b border-white/5 px-10 py-3 text-[14px] font-semibold text-[#207DE9] no-underline"
-                  >
-                    <SubLinkIcon className="h-[14px] w-[14px] shrink-0 text-[#207DE9]" />
-                    <span>{section.mobileAllLabel}</span>
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-
-          <div className="border-b border-white/10">
-            <Link
-              href="/portfolio/"
-              onClick={closeMobileMenu}
-              className="block px-6 py-5 font-bold text-white no-underline"
-            >
-              Portfolio
             </Link>
           </div>
 
-          <div className="p-6 text-center">
+          {/* Desktop Navigation Items */}
+          <ul className="hidden h-full flex-nowrap justify-center items-center p-0 m-0 lg:flex shrink-0 px-4">
+            {navSections.map((section) => (
+              <li key={section.id} className="group static flex h-full shrink-0 cursor-pointer items-center pr-6 xl:pr-8">
+                <Link
+                  href={section.href}
+                  className="flex h-full items-center gap-1 whitespace-nowrap text-[15px] font-semibold text-[#333] no-underline transition-colors duration-200 group-hover:text-[#0056b3]"
+                >
+                  <span>{section.title}</span>
+                  <ChevronDown className="h-[13px] w-[13px] text-gray-400 transition duration-200 group-hover:rotate-180 group-hover:text-[#0056b3]" />
+                </Link>
+
+                <div className="pointer-events-none invisible absolute left-0 top-full z-[999] w-full bg-white opacity-0 shadow-[0_15px_35px_rgba(0,0,0,0.08)] transition-all duration-200 ease-out group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 border-t border-gray-200">
+                  {/* Strict Fixed Height Wrapper (450px) */}
+                  <div className="mx-auto flex w-full max-w-[1400px] flex-col h-[450px]">
+
+                    {/* Scrolling Content Layer */}
+                    <div className="flex w-full flex-1 overflow-hidden">
+
+                      {/* Left Promo Award Card */}
+                      {section.promo && (
+                        <div className="w-[30%] shrink-0 pr-8 mr-8 border-r border-gray-200 flex flex-col justify-start p-6 overflow-y-auto">
+                          <h2 className="text-[18px] font-bold text-[#333] mb-4 leading-snug">
+                            {section.promo.heading}
+                          </h2>
+                          <p className="text-[14px] text-gray-600 mb-6 leading-relaxed">
+                            {section.promo.description}
+                          </p>
+                          {/* Updated Emerald Border */}
+                          <div className="bg-[#3b434a] p-4 rounded-sm border-b-[5px] border-[#10b981] text-white flex flex-col gap-2">
+                            <span className="text-[11px] font-bold tracking-widest uppercase text-gray-200">
+                              {section.promo.badgeTopText}
+                            </span>
+                            <div className="border-t border-gray-500 w-full my-1"></div>
+                            <span className="text-[13px] font-bold text-center tracking-widest uppercase">
+                              {section.promo.badgeBottomText}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Right Side Links Grid - Rendering ALL Links Without Truncating */}
+                      <div className={`flex-1 overflow-y-auto p-6 grid gap-x-8 ${section.promo ? 'grid-cols-3 xl:grid-cols-4' : 'grid-cols-4 xl:grid-cols-5'}`}>
+                        {section.columns.map((column, colIdx) => (
+                          <div key={colIdx} className="flex flex-col gap-6">
+                            {column.map((category) => (
+                              <div key={category.title} className="flex flex-col text-left">
+                                <div className="mb-3.5">
+                                  {/* Updated Emerald Bottom Border */}
+                                  <h3 className="text-[16px] font-bold text-[#222] inline-block border-b-2 border-[#10b981] pb-0.5 tracking-wide">
+                                    {category.title}
+                                  </h3>
+                                </div>
+
+                                <ul className="flex flex-col gap-2 p-0 m-0 list-none items-start">
+                                  {category.links.map((link) => (
+                                    <li key={link.href} className="w-full">
+                                      <Link
+                                        href={link.href}
+                                        className="text-[14px] text-gray-600 no-underline transition-colors hover:text-[#0056b3] block w-full py-0.5"
+                                      >
+                                        {link.label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Text-Based Bottom Banner */}
+                    <div className="w-full bg-white border-t border-gray-200 py-5 px-6 flex items-center shrink-0">
+                      <div className="text-[15px] text-[#333]">
+                        Not sure where to begin?{" "}
+                        <Link
+                          href="/services"
+                          className="font-medium text-[#333] underline decoration-1 underline-offset-4 transition-colors hover:text-[#10b981] hover:decoration-[#10b981]"
+                        >
+                          Browse us
+                        </Link>
+                        {" "}or{" "}
+                        <Link
+                          href="/about"
+                          className="font-medium text-[#333] underline decoration-1 underline-offset-4 transition-colors hover:text-[#10b981] hover:decoration-[#10b981]"
+                        >
+                          Learn more about Us
+                        </Link>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          {/* NEW Top Navigation Search Bar (Positioned before Contact button) */}
+          <div className="ml-auto mr-6 hidden lg:flex items-center">
+            <div className="relative group">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="w-[200px] bg-[#f8f9fa] border border-gray-200 rounded-full py-1.5 pl-4 pr-10 text-[14px] text-[#333] placeholder-gray-400 outline-none focus:w-[240px] focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] focus:bg-white transition-all duration-300"
+              />
+              <button type="button" className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-[#10b981]">
+                <SearchIcon className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Action Button (Updated to Emerald) */}
+          <Link
+            href="/contact/"
+            className="hidden shrink-0 whitespace-nowrap bg-[#10b981] px-6 py-[11px] text-[14px] font-bold text-white no-underline transition hover:bg-[#059669] lg:inline-block rounded-sm shadow-sm"
+          >
+            Contact us
+          </Link>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            type="button"
+            className="ml-auto flex flex-col gap-[5px] lg:hidden p-2"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle menu"
+          >
+            <span className={`block h-[2.5px] w-[22px] bg-[#333] transition-all duration-300 ${isMobileMenuOpen ? "translate-y-2 rotate-45" : ""}`} />
+            <span className={`block h-[2.5px] w-[22px] bg-[#333] transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-[2.5px] w-[22px] bg-[#333] transition-all duration-300 ${isMobileMenuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+          </button>
+        </div>
+
+        {/* Mobile Accordion */}
+        <div
+          className={`absolute left-0 top-full z-[998] w-full bg-white pb-6 transition-all duration-300 shadow-xl border-t border-gray-200 lg:hidden ${isMobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible pointer-events-none -translate-y-2 opacity-0"
+            }`}
+        >
+          <div className="max-h-[75vh] overflow-y-auto">
+            <div className="p-4 border-b border-gray-100 bg-[#f8f9fa]">
+              <div className="relative w-full">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className="w-full bg-white border border-gray-300 rounded-sm py-2 pl-4 pr-10 text-[14px] text-[#333] outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981]"
+                />
+                <button type="button" className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  <SearchIcon className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+
+            {navSections.map((section) => {
+              const isOpen = openAccordion === section.id;
+              const flatCategories = section.columns.flat();
+
+              return (
+                <div key={section.id} className="border-b border-gray-100">
+                  <button
+                    type="button"
+                    onClick={() => toggleAccordion(section.id)}
+                    className={`flex w-full items-center justify-between px-6 py-4 text-left font-bold text-[#333] ${isOpen ? "bg-gray-50" : ""}`}
+                  >
+                    <span>{section.title}</span>
+                    <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+                  </button>
+
+                  <div className={`${isOpen ? "block" : "hidden"} bg-white pb-2`}>
+
+                    {section.promo && (
+                      <div className="px-6 py-4 mb-2 bg-gray-50 border-b border-gray-100">
+                        <div className="bg-[#3b434a] p-4 rounded-sm border-b-[5px] border-[#10b981] text-white flex flex-col gap-2">
+                          <span className="text-[11px] font-bold tracking-widest uppercase text-gray-200">
+                            {section.promo.badgeTopText}
+                          </span>
+                          <div className="border-t border-gray-500 w-full my-1"></div>
+                          <span className="text-[13px] font-bold text-center tracking-widest uppercase">
+                            {section.promo.badgeBottomText}
+                          </span>
+                        </div>
+                        <p className="text-[13px] text-gray-600 mt-4 leading-relaxed font-medium">
+                          {section.promo.heading}
+                        </p>
+                      </div>
+                    )}
+
+                    {flatCategories.map((category) => (
+                      <div key={category.title} className="px-6 py-3">
+                        <div className="mb-2">
+                          <h4 className="text-[14px] font-bold text-[#222] inline-block border-b-2 border-[#10b981] pb-0.5">
+                            {category.title}
+                          </h4>
+                        </div>
+                        <ul className="flex flex-col gap-2 pl-2 border-l border-gray-200 list-none m-0">
+                          {category.links.map((link) => (
+                            <li key={link.href}>
+                              <Link
+                                href={link.href}
+                                onClick={closeMobileMenu}
+                                className="block text-[14px] text-gray-600 no-underline py-0.5"
+                              >
+                                {link.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="p-4 text-center border-t border-gray-100 mt-2">
             <Link
               href="/contact/"
               onClick={closeMobileMenu}
-              className="block w-full rounded-[4px] bg-[#3F5CE0] px-6 py-3.5 text-center font-bold text-white no-underline"
+              className="block w-full bg-[#10b981] py-3 text-center font-bold text-white no-underline rounded-sm shadow-sm transition-colors hover:bg-[#059669]"
             >
-              Get a Proposal
+              Contact us
             </Link>
           </div>
         </div>

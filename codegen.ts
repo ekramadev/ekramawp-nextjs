@@ -7,7 +7,7 @@ loadEnvConfig(projectDir);
 const config: CodegenConfig = {
   overwrite: true,
   // UPDATED TO MATCH YOUR .ENV.LOCAL VARIABLE NAME
-  schema: process.env.NEXT_PUBLIC_WORDPRESS_API_URL, 
+  schema: process.env.NEXT_PUBLIC_WORDPRESS_API_URL,
   generates: {
     "src/gql/": {
       preset: "client",

@@ -8,7 +8,6 @@ const TABS = [
     label: "Headless architecture", 
     title: "Decoupled Data Ecosystems",
     image: "https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage-scaled.webp", 
-
     bullets: [
       "Eliminate monolithic security vulnerabilities by fully isolating your frontend from the backend database and CMS.",
       "Distribute static assets globally via edge networks to ensure instant data retrieval regardless of user location.",
@@ -105,80 +104,97 @@ const TABS = [
 export const ServicesTabs = () => {
   const [activeTab, setActiveTab] = useState("headless");
 
+  const currentTabContent = TABS.find((tab) => tab.id === activeTab) || TABS[0];
+
   return (
-    <section className="pt-10 pb-0 px-5 min-h-[5vh] flex items-center relative overflow-hidden bg-transparent">
-      
-      <div className="w-full mx-auto">
+    <section className="w-full py-24 md:py-32 bg-[#06080c] text-white overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 w-full">
         
-        {/* --- HEADER --- */}
-        <div className="text-center w-full flex flex-col items-center justify-center mb-10">
-          <h1 className="mb-6">
-            I Engineer Digital Growth with <br />
-            <span className="text-emerald-400">Modern Web Architecture</span>
-          </h1>
+        {/* --- MINIMALIST HEADER BAR --- */}
+        <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end border-b border-white/10 pb-10 mb-16 lg:mb-20 gap-6">
+          <div>
+            <span className="text-xs font-bold tracking-[0.25em] text-emerald-400 uppercase block mb-3">
+              Capabilities Matrix
+            </span>
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-none m-0">
+              I Engineer Digital Growth
+            </h1>
+          </div>
+          <p className="text-white/50 text-[16px] md:text-[18px] max-w-[420px] font-light leading-relaxed m-0">
+            Deploying resilient, hyper-optimized full-stack infrastructures built on modern web frameworks.
+          </p>
         </div>
 
-        {/* --- TAB NAVIGATION (No background or borders) --- */}
-        <div className="flex justify-center gap-4 lg:gap-6 mb-16 flex-wrap w-full mx-auto" role="tablist">
-          {TABS.map((tab) => {
-            return (
-              <button 
-                key={tab.id}
-                role="tab"
-                aria-selected={activeTab === tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-8 py-1.5 text-[18px] rounded-lg bg-emerald-600/60 outline-none border-none ${
-                  activeTab === tab.id 
-                    ? "text-white brightness-150" 
-                    : "text-white/100 hover:brightness-125"
-                }`} 
-              >
-                {tab.label}
-              </button>
-            );
-          })}
-        </div>
+        {/* --- CORE ASYMMETRIC GRID WORKSPACE --- */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start w-full">
+          
+          {/* LEFT SIDE: VERTICAL TRACK MENU (Fixes cutoff bugs) */}
+          <div className="col-span-1 lg:col-span-4 flex flex-col border-l border-white/10 space-y-2 w-full">
+            {TABS.map((tab, index) => {
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`group text-left py-3.5 pl-6 text-[16px] md:text-[18px] font-medium tracking-tight transition-all duration-300 relative outline-none border-none bg-transparent w-full ${
+                    isActive 
+                      ? "text-white font-semibold" 
+                      : "text-white/30 hover:text-white/70"
+                  }`}
+                >
+                  {/* Shopify Marker Line */}
+                  {isActive && (
+                    <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-emerald-400" />
+                  )}
+                  
+                  <span className="font-mono text-xs mr-4 opacity-40 group-hover:opacity-100 transition-opacity">
+                    0{index + 1}
+                  </span>
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
 
-        {/* --- TAB CONTENT WRAPPER --- */}
-        <div className="w-full">
-          {TABS.map((tab) => activeTab === tab.id && (
+          {/* RIGHT SIDE: INTERACTIVE DATA OUTPUT */}
+          <div className="col-span-1 lg:col-span-8 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-start animate-in fade-in duration-300">
             
-            /* --- APPLIED REQUESTED GRID STRING --- */
-            <div key={tab.id} className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center relative z-10">
+            {/* Descriptive Content */}
+            <div className="flex flex-col">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8 text-white">
+                {currentTabContent.title}
+              </h2>
               
-              <div className="flex flex-col text-center lg:text-left">
-                {/* Changed to H2 and removed typography classes */}
-                <h2 className="mb-6">
-                  {tab.title}
-                </h2>
-                
-                <ul className="w-full list-none p-0">
-                  {tab.bullets.map((bullet, index) => (
-                    <li key={index} className="relative pl-6 text-left mb-6">
-                      <span className="absolute left-0 top-1 text-emerald-400 font-bold">✓</span>
-                      {/* Removed typography classes. Inherits global P styles */}
-                      <p className="max-w-[600px] mx-auto lg:mx-0">
-                        {bullet}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="relative w-full aspect-[16/10] overflow-hidden bg-transparent">
-                <Image 
-                  src={tab.image}
-                  alt={tab.label} 
-                  fill
-                  unoptimized
-                  className="object-cover opacity-90 transition-opacity duration-500"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-
+              <ul className="flex flex-col gap-6 list-none p-0 m-0 w-full">
+                {currentTabContent.bullets.map((bullet, index) => (
+                  <li key={index} className="flex items-start gap-3 w-full">
+                    <span className="text-emerald-400 font-medium select-none mt-0.5 text-[15px]">
+                      —
+                    </span>
+                    <p className="text-white/60 text-[15px] leading-relaxed m-0 font-light">
+                      {bullet}
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-          ))}
+            {/* Completely Raw, Borderless Image Frame */}
+            <div className="relative w-full aspect-[16/11] lg:aspect-[4/3]">
+              <Image 
+                src={currentTabContent.image}
+                alt={currentTabContent.label} 
+                fill
+                unoptimized
+                className="object-contain opacity-90"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </div>
+
+          </div>
+
         </div>
 
       </div>
