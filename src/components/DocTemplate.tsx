@@ -59,7 +59,6 @@ async function getDocData(slug: string) {
 export default async function DocTemplate({ slug, expectedCategory }: DocTemplateProps) {
   const post = await getDocData(slug);
 
-  // If the post doesn't exist at all, throw a 404
   if (!post) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
@@ -69,10 +68,8 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
   }
 
   // --- STRICT CATEGORY VALIDATION CHECK ---
-  // Grab the slug from WordPress
   const wpCategorySlug = post.categories?.nodes[0]?.slug;
 
-  // If the folder they are in does NOT match the WordPress category, boot them to a 404
   if (wpCategorySlug !== expectedCategory) {
     notFound();
   }
@@ -92,7 +89,6 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
   const authorName = post.author?.node?.name || "Ekrama Taimuri";
   const avatarUrl = post.author?.node?.avatar?.url || `https://ui-avatars.com/api/?name=${authorName}&background=0D8B4E&color=fff`;
 
-  // Grab the first category attached to the post for the UI badge
   const categoryName = post.categories?.nodes[0]?.name || "Documentation";
 
   return (
@@ -148,8 +144,13 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
           prose-headings:text-slate-900 
           prose-strong:text-slate-900
           prose-a:text-emerald-600
-          prose-pre:bg-slate-900 prose-pre:text-slate-50 prose-pre:rounded-xl prose-pre:shadow-md
-          prose-code:text-emerald-600 prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none">
+          
+          prose-pre:bg-slate-900 prose-pre:text-white prose-pre:rounded-xl prose-pre:shadow-md
+          
+          prose-code:text-emerald-600 prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
+          
+          [&_pre_code]:bg-transparent [&_pre_code]:text-white [&_pre_code]:p-0
+          ">
           {parse(post.content)}
         </div>
       </div>
