@@ -1,8 +1,6 @@
 import parse from "html-react-parser";
-// 1. IMPORT NOTFOUND
 import { notFound } from "next/navigation";
 
-// 2. DEFINE THE INTERFACE
 interface DocTemplateProps {
   slug: string;
   expectedCategory: string;
@@ -19,7 +17,7 @@ async function getDocData(slug: string) {
         categories {
           nodes {
             name
-            slug # 3. WE MUST FETCH THE SLUG TO COMPARE IT TO THE URL FOLDER
+            slug
           }
         }
         author {
@@ -57,20 +55,21 @@ async function getDocData(slug: string) {
   }
 }
 
-// 4. UPDATE THE COMPONENT SIGNATURE TO USE THE INTERFACE
+// 2. THE COMPONENT
 export default async function DocTemplate({ slug, expectedCategory }: DocTemplateProps) {
   const post = await getDocData(slug);
 
+  // If the post doesn't exist at all, throw a 404
   if (!post) {
     return (
-      <div className="min-h-screen bg-transparent flex items-center justify-center">
-        <p className="text-black/50">Document not found in WordPress...</p>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <p className="text-slate-500">Document not found in WordPress...</p>
       </div>
     );
   }
 
-  // --- 5. THE STRICT CATEGORY VALIDATION CHECK ---
-  // We grab the WordPress category slug (e.g., "api-documentation")
+  // --- STRICT CATEGORY VALIDATION CHECK ---
+  // Grab the slug from WordPress
   const wpCategorySlug = post.categories?.nodes[0]?.slug;
 
   // If the folder they are in does NOT match the WordPress category, boot them to a 404
@@ -97,33 +96,33 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
   const categoryName = post.categories?.nodes[0]?.name || "Documentation";
 
   return (
-    <article className="w-full min-h-screen bg-transparent pt-12 pb-20 px-5 flex flex-col items-center">
+    <article className="w-full min-h-screen bg-white pt-12 pb-20 px-5 flex flex-col items-center">
       <div className="w-full max-w-[700px]">
 
         {/* --- 1. CATEGORY BADGE --- */}
         <div className="mb-4">
-          <span className="text-emerald-400 font-semibold tracking-wider uppercase text-sm">
+          <span className="text-emerald-600 font-semibold tracking-wider uppercase text-sm">
             {categoryName}
           </span>
         </div>
 
         {/* --- 2. THE OFFICIAL TITLE --- */}
-        <h1 className="text-4xl md:text-5xl font-bold text-black mb-8 leading-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight">
           {post.title}
         </h1>
 
         {/* --- 3. METADATA HEADER --- */}
-        <div className="w-full flex flex-col mb-10 border-b border-black/10 pb-6">
+        <div className="w-full flex flex-col mb-10 border-b border-slate-200 pb-6">
 
           <div className="flex items-center gap-3 mb-6">
-            <img src={avatarUrl} alt={authorName} className="w-10 h-10 rounded-full bg-black/10 object-cover" />
+            <img src={avatarUrl} alt={authorName} className="w-10 h-10 rounded-full bg-slate-100 object-cover" />
             <div className="flex flex-col justify-center">
-              <span className="text-black font-medium leading-tight">{authorName}</span>
-              <span className="text-black/50 text-sm">Author</span>
+              <span className="text-slate-900 font-medium leading-tight">{authorName}</span>
+              <span className="text-slate-500 text-sm">Author</span>
             </div>
           </div>
 
-          <div className="w-full flex justify-between items-center text-black/50 text-sm">
+          <div className="w-full flex justify-between items-center text-slate-500 text-sm">
             <div className="flex items-center gap-6">
               <span className="flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,7 +131,7 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
                 {readTime} min read
               </span>
 
-              <div className="flex items-center gap-2 text-blue-400 cursor-pointer hover:text-blue-300 transition-colors">
+              <div className="flex items-center gap-2 text-blue-600 cursor-pointer hover:text-blue-700 transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                 </svg>
@@ -144,10 +143,13 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
         </div>
 
         {/* --- 4. THE CONTENT --- */}
-        <div className="prose prose-invert prose-lg max-w-none 
-          prose-p:text-black/80 
-          prose-headings:text-black 
-          prose-a:text-emerald-400">
+        <div className="prose prose-lg max-w-none 
+          prose-p:text-slate-700 
+          prose-headings:text-slate-900 
+          prose-strong:text-slate-900
+          prose-a:text-emerald-600
+          prose-pre:bg-slate-900 prose-pre:text-slate-50 prose-pre:rounded-xl prose-pre:shadow-md
+          prose-code:text-emerald-600 prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none">
           {parse(post.content)}
         </div>
       </div>
