@@ -28,12 +28,12 @@ export const StatsSection = () => {
       <div className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center relative z-10">        
         {/* Left Side: Content */}
         <div className="flex flex-col">
-          <h1 className="text-white mb-6">
+          <h1 className="text-gray-900 mb-6">
             Performance Metrics You <br className="hidden md:block" />
             <span className="text-emerald-400">Cannot Ignore</span>
           </h1>
 
-          <p className="text-white/90 mb-0 lg:mb-2 max-w-[600px] mx-auto lg:mx-0">
+          <p className="text-gray-600 mb-0 lg:mb-2 max-w-[600px] mx-auto lg:mx-0">
             Our data-driven approach ensures your digital infrastructure is optimized for maximum speed, high conversion, and long-term search engine dominance. By replacing guesswork with concrete, evidence-based insights, we transform your digital presence into a measurable, high-performance asset. 
           </p>
         </div>
