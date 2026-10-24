@@ -11,7 +11,6 @@ const INTELLIGENCE_DATA = {
     ),
     desc: "Google's Core Web Vitals are now a critical success metric. React apps that score 100/100 on LightHouse rank higher and convert better.",
     label: "Performance",
-    image: "https://www.webfx.com/wp-content/uploads/2025/10/ai-seo-results-768x536.png",
   },
   2: {
     title: (
@@ -21,7 +20,6 @@ const INTELLIGENCE_DATA = {
     ),
     desc: "Traditional monoliths crash under high traffic. Decoupled architectures allow you to handle global spikes without server downtime.",
     label: "Scalability",
-    image: "https://www.webfx.com/wp-content/uploads/2025/10/ai-seo-results-768x536.png",
   },
   3: {
     title: (
@@ -31,7 +29,6 @@ const INTELLIGENCE_DATA = {
     ),
     desc: "Every 100ms of latency costs 1% in sales. My front-end code is optimized for 'Instant Load' via Edge Caching.",
     label: "Experience",
-    image: "https://www.webfx.com/wp-content/uploads/2025/10/ai-seo-results-768x536.png",
   },
   4: {
     title: (
@@ -41,7 +38,6 @@ const INTELLIGENCE_DATA = {
     ),
     desc: "Modern web apps must work on all devices. I implement strict WCAG accessibility standards, avoiding legal liabilities.",
     label: "Accessibility",
-    image: "https://www.webfx.com/wp-content/uploads/2025/10/ai-seo-results-1000x698.png",
   }
 };
 
@@ -65,10 +61,10 @@ export const MarketIntelligence = () => {
         
         {/* HEADER CONTENT */}
         <div className="col-span-full max-w-[800px] mx-auto w-full text-center relative z-20 flex flex-col items-center justify-center">
-          <h2 className="text-white text-4xl md:text-5xl">
+          <h2 className="text-gray-900 text-4xl md:text-5xl">
   <span className="text-emerald-500">Engineering</span> Ecosystem
 </h2>
-          <p className="text-gray-400 text-lg md:text-xl mb-16">
+          <p className="text-gray-600 text-lg md:text-xl mb-16">
             Hover over the architectural nodes below to explore our core insights. Our decoupled systems are engineered to maximize performance, scalability, and user revenue.
           </p>
         </div>
@@ -101,11 +97,18 @@ d="M 50 150 Q 400 -90 800 200 T 1550 50"
             {/* --- CENTRAL TV MOCKUP --- */}
             <div className="absolute left-[800px] top-[400px] -translate-x-1/2 -translate-y-1/2 w-[600px] z-10 transition-transform duration-500">
               <div className="w-full h-[280px] bg-black rounded-t-xl border-[6px] border-[#1f1f1f] shadow-[0_0_80px_rgba(0,0,0,0.8)] relative overflow-hidden flex flex-col z-10">
-                <img 
-                  src={INTELLIGENCE_DATA[activeId].image} 
-                  alt="Dashboard Data" 
-                  className={`w-full h-full object-cover opacity-80 transition-opacity duration-300 ${isFading ? 'opacity-0' : 'opacity-80'}`}
-                />
+                <div className={`w-full h-full bg-slate-950 p-8 text-left transition-opacity duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`} aria-label={`${INTELLIGENCE_DATA[activeId].label} dashboard illustration`} role="img">
+                  <div className="flex items-center justify-between border-b border-slate-700 pb-4 text-slate-200">
+                    <span className="text-lg font-semibold">{INTELLIGENCE_DATA[activeId].label} overview</span>
+                    <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs text-emerald-300">Live insight</span>
+                  </div>
+                  <div className="mt-8 flex h-28 items-end gap-4" aria-hidden="true">
+                    {[40, 62, 51, 75, 68, 90, 82].map((height, index) => (
+                      <div key={index} className="flex-1 rounded-t bg-gradient-to-t from-emerald-700 to-emerald-400" style={{ height: `${height}%` }} />
+                    ))}
+                  </div>
+                  <div className="mt-4 flex justify-between text-xs text-slate-400" aria-hidden="true"><span>Explore</span><span>Measure</span><span>Improve</span></div>
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none"></div>
               </div>
               <div className="w-[640px] h-[16px] bg-[#2a2a2a] -ml-[20px] rounded-b-xl border-t border-[#444] shadow-[0_30px_60px_rgba(0,0,0,0.8)] relative flex justify-center z-20">
@@ -131,8 +134,8 @@ d="M 50 150 Q 400 -90 800 200 T 1550 50"
                 </div>
 
                 <div className={`absolute flex flex-col w-[150px] ${node.labelAlign} pointer-events-none transition-opacity duration-300 ${activeId === node.id ? "opacity-0" : "opacity-60 group-hover:opacity-100"}`}>
-                  <span className="text-white">{INTELLIGENCE_DATA[node.id as 1|2|3|4].label}</span>
-                  <span className="text-emerald-500/70">Insight Data</span>
+                  <span className="text-gray-900">{INTELLIGENCE_DATA[node.id as 1|2|3|4].label}</span>
+                  <span className="text-emerald-800">Insight Data</span>
                 </div>
 
                 <div className={`absolute ${node.boxPos} ${node.width || 'w-[360px]'} pointer-events-none transition-all duration-500 ${activeId === node.id ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>                
