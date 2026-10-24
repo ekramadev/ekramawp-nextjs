@@ -45,15 +45,15 @@ export const GeoOverlapSection = () => {
                 {/* Cleaned up List Items */}
                 <li className="relative pl-7">
                   <span className="absolute left-0 text-emerald-400 font-bold top-0">→</span>
-                  <strong className="text-white">Excessive paint times:</strong> Legacy monolithic themes load massive, render-blocking scripts before displaying any text, pushing your Largest Contentful Paint (LCP) well past the 2.5-second threshold.
+                  <strong className="text-gray-900">Excessive paint times:</strong> Legacy monolithic themes load massive, render-blocking scripts before displaying any text, pushing your Largest Contentful Paint (LCP) well past the 2.5-second threshold.
                 </li>
                 <li className="relative pl-7">
                   <span className="absolute left-0 text-emerald-400 text-lg font-bold  top-0">→</span>
-                  <strong className="text-white">Tangled dependencies:</strong> In traditional setups, changing a single button's style can unpredictably break unrelated pages, extending quality assurance cycles from days to weeks.
+                  <strong className="text-gray-900">Tangled dependencies:</strong> In traditional setups, changing a single button's style can unpredictably break unrelated pages, extending quality assurance cycles from days to weeks.
                 </li>
                 <li className="relative pl-7">
                   <span className="absolute left-0 text-emerald-400 font-bold  top-0">→</span>
-                  <strong className="text-white">Client-side bottlenecks:</strong> Older single-page applications force mobile phone processors to parse megabytes of JavaScript before the site becomes usable, draining battery and frustrating users.
+                  <strong className="text-gray-900">Client-side bottlenecks:</strong> Older single-page applications force mobile phone processors to parse megabytes of JavaScript before the site becomes usable, draining battery and frustrating users.
                 </li>
               </ul>
 
@@ -79,44 +79,44 @@ export const GeoOverlapSection = () => {
             {/* Maintained micro-typography (text-[13px]) so they fit in the grid layout, but stripped line heights and weights */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-              <div className="bg-emerald-900/40 border border-emerald-500/20 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-800/50">
-                <h4 className="text-emerald-300 font-bold mb-1">Server-side rendering</h4>
-                <p className="text-white/80">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
+                <h4 className="text-emerald-800 font-bold mb-1">Server-side rendering</h4>
+                <p className="text-gray-700">
                   Delivers fully populated HTML directly from the server, improving initial load speeds and ensuring optimal indexing for search engines.
                 </p>
               </div>
 
-              <div className="bg-emerald-900/40 border border-emerald-500/20 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-800/50">
-                <h4 className="text-emerald-300 font-bold mb-1">Static site generation</h4>
-                <p className="text-white/80">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
+                <h4 className="text-emerald-800 font-bold mb-1">Static site generation</h4>
+                <p className="text-gray-700">
                   Pre-renders critical pages at build time to provide lightning-fast content delivery through global CDNs without expensive database hits.
                 </p>
               </div>
 
-              <div className="bg-emerald-900/40 border border-emerald-500/20 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-800/50">
-                <h4 className="text-emerald-300 font-bold mb-1">Incremental regeneration</h4>
-                <p className="text-white/80">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
+                <h4 className="text-emerald-800 font-bold mb-1">Incremental regeneration</h4>
+                <p className="text-gray-700">
                   Updates static content seamlessly in the background without needing a full site rebuild, keeping your dynamic data entirely fresh.
                 </p>
               </div>
 
-              <div className="bg-emerald-900/40 border border-emerald-500/20 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-800/50">
-                <h4 className="text-emerald-300 font-bold mb-1">Edge computing middleware</h4>
-                <p className="text-white/80">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
+                <h4 className="text-emerald-800 font-bold mb-1">Edge computing middleware</h4>
+                <p className="text-gray-700">
                   Executes routing, authentication, and personalized logic at the CDN level, reducing server latency to single-digit milliseconds globally.
                 </p>
               </div>
 
-              <div className="bg-emerald-900/40 border border-emerald-500/20 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-800/50">
-                <h4 className="text-emerald-300 font-bold mb-1">Atomic component design</h4>
-                <p className="text-white/80">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
+                <h4 className="text-emerald-800 font-bold mb-1">Atomic component design</h4>
+                <p className="text-gray-700">
                   Constructs interfaces using modular, reusable React components, ensuring high design consistency and drastically lower maintenance overhead.
                 </p>
               </div>
 
-              <div className="bg-emerald-900/40 border border-emerald-500/20 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-800/50">
-                <h4 className="text-emerald-300 font-bold mb-1">Core web vitals optimization</h4>
-                <p className="text-white/80">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
+                <h4 className="text-emerald-800 font-bold mb-1">Core web vitals optimization</h4>
+                <p className="text-gray-700">
                   Strictly monitors and optimizes Largest Contentful Paint and entirely eliminates Cumulative Layout Shift for a flawless user experience.
                 </p>
               </div>
@@ -128,7 +128,7 @@ export const GeoOverlapSection = () => {
 
         {/* --- FOOTER CTA --- */}
         <div className="text-center mt-6 lg:mt-10">
-          <a href="#audit" className="inline-block border border-white/40 text-white px-10 py-4 hover:bg-white hover:text-black transition-all duration-300 rounded-sm">
+          <a href="/contact/" className="inline-block border border-emerald-700 text-emerald-800 px-10 py-4 hover:bg-emerald-700 hover:text-white transition-all duration-300 rounded-sm">
             Audit my architecture
           </a>
         </div>
