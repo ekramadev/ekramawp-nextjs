@@ -44,12 +44,14 @@ import { HtmlSecondContent } from "./HtmlSecondContent";
 import { HtmlCheatsheet } from "./HtmlCheatsheet";
 import { Logoatfirst } from "./Logoatfirst";
 import { CaseStudyCard } from "./CaseStudyCard";
+import type { WorkflowHeroContent } from "@/content/workflowHeroes";
 
 interface Props {
   htmlContent: string;
+  workflowHero: WorkflowHeroContent;
 }
 
-export const BlockRenderer = ({ htmlContent }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -108,7 +110,7 @@ export const BlockRenderer = ({ htmlContent }: Props) => {
         if (classes.includes("section-ThreeColumnBar")) return <ThreeColumnBar />;
         if (classes.includes("section-FiveCirclesBox")) return <FiveCirclesBox />;
         if (classes.includes("section-BigTabsData")) return <BigTabsData />;
-        if (classes.includes("section-WptwoPageVisual")) return <WptwoPageVisual />;
+        if (classes.includes("section-WptwoPageVisual")) return <WptwoPageVisual content={workflowHero} />;
         if (classes.includes("section-Shutterupanddown")) return <Shutterupanddown />;
         if (classes.includes("section-Contentdouble")) return <Contentdouble />;
         if (classes.includes("section-HeadlessfiveElements")) return <HeadlessfiveElements />;

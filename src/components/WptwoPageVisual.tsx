@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useId, useRef } from 'react';
+import type { WorkflowHeroContent } from '@/content/workflowHeroes';
 
-export const WptwoPageVisual = () => {
+export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) => {
+    const instanceId = useId().replace(/:/g, "");
     const engineRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -15,44 +17,12 @@ export const WptwoPageVisual = () => {
         const CONFIG = {
             cx: 400, cy: 400,
             rOuter: 215, rInner: 150, rIcon: 215, gap: 6,
-            sectors: [
-                {
-                    id: 'int', label: 'ChatGPT', color: '#10a37f', type: 'L',
-                    img: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg',
-                    subImg1: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg',
-                    subImg2: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg'
-                },
-                {
-                    id: 'ret', label: 'Copilot', color: '#0078d4', type: 'S',
-                    img: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
-                    subImg1: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg',
-                    subImg2: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg'
-                },
-                {
-                    id: 'nur', label: 'Jasper', color: '#ff6c37', type: 'L',
-                    img: 'https://upload.wikimedia.org/wikipedia/en/3/31/JasperPlace_Logo.svg',
-                    subImg1: 'https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg',
-                    subImg2: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg'
-                },
-                {
-                    id: 'acq', label: 'Gemini', color: '#4285F4', type: 'L',
-                    img: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg',
-                    subImg1: 'https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg',
-                    subImg2: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg'
-                },
-                {
-                    id: 'con', label: 'Claude', color: '#d97757', type: 'S',
-                    img: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Anthropic_logo.svg',
-                    subImg1: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg',
-                    subImg2: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg'
-                },
-                {
-                    id: 'rev', label: 'Perplexity', color: '#2e7d32', type: 'L',
-                    img: 'https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg',
-                    subImg1: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg',
-                    subImg2: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg'
-                }
-            ] as const
+            sectors: content.steps.map(([label], index) => ({
+                id: ['int', 'ret', 'nur', 'acq', 'con', 'rev'][index],
+                label,
+                color: ['#047857', '#0369a1', '#9a3412', '#1d4ed8', '#6d28d9', '#166534'][index],
+                type: (index === 1 || index === 4 ? 'S' : 'L') as 'S' | 'L',
+            }))
         };
 
         const qLayer = root.querySelector('.ma-quadrants-layer');
@@ -90,7 +60,7 @@ export const WptwoPageVisual = () => {
 
             // 2. Curved Label
             const labelR = (CONFIG.rOuter + CONFIG.rInner) / 2 + 1;
-            const pathId = `txtPath-${sec.id}`;
+            const pathId = `txtPath-${instanceId}-${sec.id}`;
             const arcPath = ["M", CONFIG.cx + labelR * Math.cos(s), CONFIG.cy + labelR * Math.sin(s), "A", labelR, labelR, 0, 0, 1, CONFIG.cx + labelR * Math.cos(e), CONFIG.cy + labelR * Math.sin(e)].join(" ");
             const defPath = createSVG('path');
             defPath.setAttribute('id', pathId);
@@ -116,44 +86,15 @@ export const WptwoPageVisual = () => {
             bgCircle.setAttribute('r', '23');
             bgCircle.setAttribute('class', 'ma-icon-bg');
             iG.appendChild(bgCircle);
-            const mainImg = createSVG('image');
-            mainImg.setAttribute('href', sec.img);
-            mainImg.setAttribute('x', '-11');
-            mainImg.setAttribute('y', '-11');
-            mainImg.setAttribute('width', '22');
-            mainImg.setAttribute('height', '22');
-            iG.appendChild(mainImg);
+            const number = createSVG('text');
+            number.setAttribute('text-anchor', 'middle');
+            number.setAttribute('dominant-baseline', 'central');
+            number.setAttribute('fill', sec.color);
+            number.setAttribute('font-size', '15');
+            number.setAttribute('font-weight', '700');
+            number.textContent = String(i + 1).padStart(2, '0');
+            iG.appendChild(number);
             g.appendChild(iG);
-
-            // 4. Sub Icons
-            const visualEdgeR = CONFIG.rInner - 14;
-            const spreadAngle = 5;
-            const bG = createSVG('g');
-            bG.setAttribute('class', 'ma-bottom-icons-container');
-            const createSubIcon = (angleOffset: number, imgUrl: string) => {
-                const a = (midA + angleOffset) * rad - Math.PI / 2;
-                const p = { x: CONFIG.cx + visualEdgeR * Math.cos(a), y: CONFIG.cy + visualEdgeR * Math.sin(a) };
-                const sG = createSVG('g');
-                sG.setAttribute('transform', `translate(${p.x}, ${p.y})`);
-                sG.setAttribute('class', 'ma-sub-icon-group');
-                const sC = createSVG('circle');
-                sC.setAttribute('r', '10');
-                sC.setAttribute('fill', '#fff');
-                sC.setAttribute('stroke', sec.color);
-                sC.setAttribute('stroke-width', '1.5');
-                sG.appendChild(sC);
-                const sI = createSVG('image');
-                sI.setAttribute('href', imgUrl);
-                sI.setAttribute('x', '-7');
-                sI.setAttribute('y', '-7');
-                sI.setAttribute('width', '14');
-                sI.setAttribute('height', '14');
-                sG.appendChild(sI);
-                return sG;
-            };
-            bG.appendChild(createSubIcon(-spreadAngle, sec.subImg1));
-            bG.appendChild(createSubIcon(spreadAngle, sec.subImg2));
-            g.appendChild(bG);
             if (qLayer) qLayer.appendChild(g);
 
             // 5. Arrows
@@ -163,7 +104,6 @@ export const WptwoPageVisual = () => {
             let d = `M ${p1_arr.x} ${p1_arr.y} L ${p2_arr.x} ${p2_arr.y}`;
             let tipPos = { x: p2_arr.x, y: p2_arr.y };
 
-            // @ts-ignore
             if (sec.type === 'L') {
                 const pivotR = startR + 45;
                 const pivot = { x: CONFIG.cx + pivotR * Math.cos(midA * rad - Math.PI / 2), y: CONFIG.cy + pivotR * Math.sin(midA * rad - Math.PI / 2) };
@@ -233,7 +173,7 @@ export const WptwoPageVisual = () => {
         setActiveState(0);
         startAutoPlay();
         return () => stopAutoPlay();
-    }, []);
+    }, [content.steps, instanceId]);
 
     return (
         <section id="ek-ai-hero" className="relative w-full bg-[#020617] flex items-center overflow-hidden box-border">
@@ -312,20 +252,15 @@ export const WptwoPageVisual = () => {
             max-width: 90%; 
         }
         
-        .form__proposal { 
-            background: rgba(255, 255, 255, 0.03); 
-            padding: 8px; 
-            border-radius: 12px; 
-            display: flex;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
-            max-width: 480px;
-            width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
+        #ek-ai-hero .workflow-cta {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: fit-content; max-width: 100%; padding: 14px 24px;
+            border-radius: 8px; background: #2563eb; color: #fff;
+            font-weight: 600; line-height: 1.5; text-decoration: none;
+            transition: background 0.2s ease;
         }
-        .form__proposal input { flex: 1; background: transparent; border: none; padding: 12px 16px; outline: none; font-size: 1rem; color: #fff; min-width: 0; }
-        .form__proposal button { background: #2563eb; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; white-space: nowrap; }
-        .form__proposal button:hover { background: #1d4ed8; }
+        #ek-ai-hero .workflow-cta:hover { background: #1d4ed8; }
+        #ek-ai-hero .workflow-cta:focus-visible { outline: 3px solid #93c5fd; outline-offset: 4px; }
 
         /* VISUAL ZONE (RIGHT COLUMN - 45%) */
         .visual-combined-zone {
@@ -460,42 +395,25 @@ export const WptwoPageVisual = () => {
                             marginBottom: '20px'
                         }}
                     >
-                        Headless WordPress Architecture
+                        {content.eyebrow}
                     </span>
-                    <h1>The Ultimate Headless Stack</h1>
-                    <p>Decouple your architecture. Combine the best-in-class content management of WordPress with the incredible performance and scalability of Next.js and GraphQL.</p>
-                    <form className="form__proposal">
-                        <input placeholder="Enter your WP Site URL..." type="url" required />
-                        <button type="submit">Analyze Stack</button>
-                    </form>
+                    <h1>{content.title}</h1>
+                    <p>{content.description}</p>
+                    <a className="workflow-cta" href="/contact/">{content.cta}</a>
                 </div>
 
                 {/* RIGHT COLUMN: Visual (45%) */}
                 <div className="visual-combined-zone">
                     <div id="mixed-arrow-engine" ref={engineRef}>
                         <div className="ma-container-box">
-                            {/* LABELS */}
-                            <div className="ma-content-block ma-pos-rev" data-id="int">
-                                <h4 className="ma-heading">ChatGPT</h4><p className="ma-desc">AI-driven insights to uncover hidden opportunities.</p>
-                            </div>
-                            <div className="ma-content-block ma-pos-int" data-id="ret" >
-                                <h4 className="ma-heading">Copilot</h4><p className="ma-desc">Accelerate deal cycles with automated workflows.</p>
-                            </div>
-                            <div className="ma-content-block ma-pos-ret" data-id="nur" >
-                                <h4 className="ma-heading">Jasper</h4><p className="ma-desc">Personalized engagement to warm up cold leads.</p>
-                            </div>
-                            <div className="ma-content-block ma-pos-nur" data-id="acq">
-                                <h4 className="ma-heading">Gemini</h4><p className="ma-desc">Target high-value accounts with precision outreach.</p>
-                            </div>
-                            <div className="ma-content-block ma-pos-acq" data-id="con" >
-                                <h4 className="ma-heading">Claude</h4><p className="ma-desc">Turn interested prospects into loyal customers.</p>
-                            </div>
-                            <div className="ma-content-block ma-pos-con active" data-id="rev">
-                                <h4 className="ma-heading">Perplexity</h4><p className="ma-desc">Predictive pipeline analysis for accurate forecasting.</p>
-                            </div>
+                            {content.steps.map(([label, description], index) => (
+                                <div key={label} className={`ma-content-block ${['ma-pos-rev', 'ma-pos-int', 'ma-pos-ret', 'ma-pos-nur', 'ma-pos-acq', 'ma-pos-con'][index]}`} data-id={['int', 'ret', 'nur', 'acq', 'con', 'rev'][index]}>
+                                    <h4 className="ma-heading">{label}</h4><p className="ma-desc">{description}</p>
+                                </div>
+                            ))}
 
                             {/* SVG LAYER */}
-                            <svg className="ma-svg-layer" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+                            <svg role="img" aria-label={`${content.eyebrow}: ${content.steps.map(([label]) => label).join(", ")}`} className="ma-svg-layer" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
                                     <path id="ma-top-path" d="M 145, 400 a 255, 255 0 0, 1 510, 0" />
                                     <path id="ma-bottom-path" d="M 655, 400 a 255, 255 0 0, 1 -510, 0" />
@@ -507,10 +425,10 @@ export const WptwoPageVisual = () => {
                                     <circle cx="400" cy="400" r="255" className="ma-orbit-track-near" />
                                     <g className="ma-red-orbit-spin-ccw"> <circle cx="400" cy="655" r="4" fill="#2213f2" /> </g>
                                     <text className="ma-orbit-text">
-                                        <textPath href="#ma-top-path" startOffset="50%" textAnchor="middle">Acquisition & Traffic / Nurture & CRM / AI Intelligence</textPath>
+                                        <textPath href="#ma-top-path" startOffset="50%" textAnchor="middle">{content.steps.slice(0, 3).map(([label]) => label).join(" / ")}</textPath>
                                     </text>
                                     <text className="ma-orbit-text">
-                                        <textPath href="#ma-bottom-path" startOffset="50%" textAnchor="middle">Repeatable Growth / Predictive Pipeline / Revenue</textPath>
+                                        <textPath href="#ma-bottom-path" startOffset="50%" textAnchor="middle">{content.steps.slice(3).map(([label]) => label).join(" / ")}</textPath>
                                     </text>
                                 </g>
 
@@ -526,8 +444,8 @@ export const WptwoPageVisual = () => {
 
                                 <g transform="translate(400,400)">
                                     <circle r="95" fill="transparent" stroke="#1A73E8" strokeWidth="3" filter="drop-shadow(0 15px 35px rgba(247, 247, 248, 0.25))"></circle>
-                                    <text y="-5" textAnchor="middle" className="ma-hub-val">$10B+</text>
-                                    <text y="25" textAnchor="middle" style={{ fontSize: '12px', fontWeight: 900, fill: '#efefef', letterSpacing: '1.5px' }}>Revenue Generated</text>
+                                    <text y="-5" textAnchor="middle" className="ma-hub-val" style={{ fontSize: content.hubLabel.length > 6 ? 26 : 38 }}>{content.hubLabel}</text>
+                                    <text y="25" textAnchor="middle" style={{ fontSize: '12px', fontWeight: 900, fill: '#efefef', letterSpacing: '1.5px' }}>{content.hubCaption}</text>
                                 </g>
                             </svg>
                         </div>
