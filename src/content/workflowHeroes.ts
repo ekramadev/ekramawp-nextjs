@@ -219,9 +219,10 @@ export const workflowHeroes: Record<string, WorkflowHeroContent> = {
   ]),
 };
 
-export function getWorkflowHeroContent(path: string, pageTitle = 'Business Software Development'): WorkflowHeroContent {
+export function getWorkflowHeroContent(path: string, pageTitle?: string | null): WorkflowHeroContent {
   const normalized = `/${path.split('/').filter(Boolean).join('/')}/`;
-  return workflowHeroes[normalized] ?? hero(pageTitle, pageTitle, `Discuss the requirements, workflows, and integrations for your ${pageTitle.toLowerCase()} project.`, 'WORKFLOW', 'Discuss your project', [
+  const title = pageTitle?.trim() || 'Business Software Development';
+  return workflowHeroes[normalized] ?? hero(title, title, `Discuss the requirements, workflows, and integrations for your ${title.toLowerCase()} project.`, 'WORKFLOW', 'Discuss your project', [
     ['Discovery', 'Clarify the business process and the people who use it.'],
     ['Requirements', 'Agree on the capabilities and constraints the project must address.'],
     ['Design', 'Organize interfaces and information around the intended tasks.'],
