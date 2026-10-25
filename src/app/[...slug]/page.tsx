@@ -6,6 +6,7 @@ import { BlockRenderer } from "@/components/BlockRenderer";
 import { Metadata } from "next";
 import { getWorkflowHeroContent } from "@/content/workflowHeroes";
 import { getMarketIntelligenceContent } from "@/content/marketIntelligence";
+import { getGeoOverlapContent, getGeoOverlapWordPressUri } from "@/content/geoOverlap";
 
 // 1. DYNAMIC QUERY
 const PAGE_QUERY = gql`
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params; 
   const uri = `/${slug.join("/")}/`; 
   
-  const data = await fetchGraphQL(print(PAGE_QUERY), { uri });
+  const data = await fetchGraphQL(print(PAGE_QUERY), { uri: getGeoOverlapWordPressUri(uri) });
   
   if (!data?.nodeByUri?.seo) return { title: "Ekrama" };
   return {
@@ -50,7 +51,7 @@ export default async function DynamicPage({ params }: Props) {
   const { slug } = await params;
   const uri = `/${slug.join("/")}/`;
 
-  const data = await fetchGraphQL(print(PAGE_QUERY), { uri });
+  const data = await fetchGraphQL(print(PAGE_QUERY), { uri: getGeoOverlapWordPressUri(uri) });
 
   if (!data || !data.nodeByUri) return notFound();
 
@@ -67,6 +68,7 @@ export default async function DynamicPage({ params }: Props) {
           htmlContent={safeContent}
           workflowHero={getWorkflowHeroContent(uri, data.nodeByUri.title)}
           marketIntelligence={getMarketIntelligenceContent(uri, data.nodeByUri.title)}
+          geoOverlap={getGeoOverlapContent(uri, data.nodeByUri.title)}
         />
       </div>
     </main>

@@ -1,18 +1,19 @@
 "use client";
 import React from "react";
+import type { GeoOverlapContent } from "@/content/geoOverlap";
 
-export const GeoOverlapSection = () => {
+export const GeoOverlapSection = ({ content }: { content: GeoOverlapContent }) => {
   return (
-    <section className="pt-10 pb-0 px-5 min-h-[5vh] flex items-center relative overflow-hidden">
+    <section data-component="geo-overlap" className="pt-10 pb-0 px-5 min-h-[5vh] flex items-center relative overflow-hidden bg-transparent">
 
       <div className="max-w-[1200px] w-full mx-auto flex flex-col relative z-10">
 
         {/* --- HEADER --- */}
         <div className="text-center max-w-[900px] mx-auto mb-8">
-          {/* Removed hardcoded fonts. Inherits global H1 */}
+          {/* Preserve the original heading structure and typography. */}
           <h1 className="mb-6">
-            Legacy Frontends Are Dead.<br />
-            Here is <span className="text-emerald-400">The Modern Stack.</span>
+            {content.headingSubject}<br />
+            <span className="text-emerald-800">{content.tagline}</span>
           </h1>
         </div>
 
@@ -22,43 +23,33 @@ export const GeoOverlapSection = () => {
           {/* --- LEFT COLUMN --- */}
           <div className="w-full lg:w-[45%] flex flex-col z-20">
             <div>
-              {/* Changed to H2 and removed hardcoded fonts */}
-              <h3 className="mb-2">
-                Users Demand <span className="text-emerald-400">Instant Interactions</span>
+              <h3 className="mb-2 text-black">
+                Understand <span className="text-black">{content.subject}</span>
               </h3>
-              {/* Removed hardcoded fonts. Inherits global P */}
-              <p className="mb-6 lg:mb-10 max-w-[600px] mx-auto lg:mx-0">
-                Modern users refuse to wait for page reloads. If your application feels sluggish due to heavy legacy frameworks or bloated themes, you are actively losing user engagement and search engine rankings.
+              <p className="mb-6 lg:mb-10 max-w-[600px] mx-auto lg:mx-0 text-gray-700">
+                {content.intro}
               </p>
             </div>
 
             <div>
-              {/* Changed to H2 and removed hardcoded fonts */}
-              <h3 className="mb-2">
-                Technical Debt is <span className="text-emerald-400">Costing You Money.</span>
+              <h3 className="mb-2 text-black">
+                Plan <span className="text-black">{content.subject} Workflows</span>
               </h3>
-              <p className="mb-6 max-w-[600px] mx-auto lg:mx-0">
-                Your competitors are shipping features rapidly using React and Next.js. Meanwhile, your legacy codebase forces your engineering team to spend all their time in maintenance mode rather than innovating.
+              <p className="mb-6 max-w-[600px] mx-auto lg:mx-0 text-gray-700">
+                {content.workflow}
               </p>
 
               <ul className="space-y-4 lg:space-y-6 mb-6 lg:mb-10 max-w-[600px] mx-auto lg:mx-0">
-                {/* Cleaned up List Items */}
-                <li className="relative pl-7">
-                  <span className="absolute left-0 text-emerald-400 font-bold top-0">→</span>
-                  <strong className="text-gray-900">Excessive paint times:</strong> Legacy monolithic themes load massive, render-blocking scripts before displaying any text, pushing your Largest Contentful Paint (LCP) well past the 2.5-second threshold.
-                </li>
-                <li className="relative pl-7">
-                  <span className="absolute left-0 text-emerald-400 text-lg font-bold  top-0">→</span>
-                  <strong className="text-gray-900">Tangled dependencies:</strong> In traditional setups, changing a single button's style can unpredictably break unrelated pages, extending quality assurance cycles from days to weeks.
-                </li>
-                <li className="relative pl-7">
-                  <span className="absolute left-0 text-emerald-400 font-bold  top-0">→</span>
-                  <strong className="text-gray-900">Client-side bottlenecks:</strong> Older single-page applications force mobile phone processors to parse megabytes of JavaScript before the site becomes usable, draining battery and frustrating users.
-                </li>
+                {content.checks.map(([title, description], index) => (
+                  <li key={title} className="relative pl-7 text-gray-700">
+                    <span aria-hidden="true" className={`absolute left-0 text-emerald-800 font-bold top-0${index === 1 ? " text-lg" : ""}`}>→</span>
+                    <strong className="text-black">{title}:</strong> {description}
+                  </li>
+                ))}
               </ul>
 
-              <p className="mb-2 lg:mb-10 max-w-[600px] mx-auto lg:mx-0">
-                Without a component-driven architecture, scaling your digital presence is nearly impossible. You need a complete shift in engineering strategy.
+              <p className="mb-2 lg:mb-10 max-w-[600px] mx-auto lg:mx-0 text-gray-700">
+                {content.closing}
               </p>
             </div>
           </div>
@@ -66,60 +57,25 @@ export const GeoOverlapSection = () => {
           {/* --- RIGHT COLUMN --- */}
           <div className="w-full lg:w-[55%] z-10">
 
-            {/* Changed to H2 and removed hardcoded fonts */}
-            <h3 className="mb-2 text-center lg:text-left">
-              We Build <span className="text-emerald-400">Atomic Systems</span>
+            <h3 className="mb-2 text-center lg:text-left text-black">
+              Build for <span className="text-black">{content.subject}</span>
             </h3>
 
-            <p className="mb-8 max-w-[600px] mx-auto lg:mx-0 text-center lg:text-left">
-              We replace outdated code with type-safe, headless architectures. Here are the core pillars of our front-end engineering methodology.
+            <p className="mb-8 max-w-[600px] mx-auto lg:mx-0 text-center lg:text-left text-gray-700">
+              {content.capabilitiesIntro}
             </p>
 
-            {/* --- 8 DETAILED TABS / CARDS --- */}
-            {/* Maintained micro-typography (text-[13px]) so they fit in the grid layout, but stripped line heights and weights */}
+            {/* Preserve the original six-card grid. */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
-                <h4 className="text-emerald-800 font-bold mb-1">Server-side rendering</h4>
-                <p className="text-gray-700">
-                  Delivers fully populated HTML directly from the server, improving initial load speeds and ensuring optimal indexing for search engines.
-                </p>
-              </div>
-
-              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
-                <h4 className="text-emerald-800 font-bold mb-1">Static site generation</h4>
-                <p className="text-gray-700">
-                  Pre-renders critical pages at build time to provide lightning-fast content delivery through global CDNs without expensive database hits.
-                </p>
-              </div>
-
-              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
-                <h4 className="text-emerald-800 font-bold mb-1">Incremental regeneration</h4>
-                <p className="text-gray-700">
-                  Updates static content seamlessly in the background without needing a full site rebuild, keeping your dynamic data entirely fresh.
-                </p>
-              </div>
-
-              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
-                <h4 className="text-emerald-800 font-bold mb-1">Edge computing middleware</h4>
-                <p className="text-gray-700">
-                  Executes routing, authentication, and personalized logic at the CDN level, reducing server latency to single-digit milliseconds globally.
-                </p>
-              </div>
-
-              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
-                <h4 className="text-emerald-800 font-bold mb-1">Atomic component design</h4>
-                <p className="text-gray-700">
-                  Constructs interfaces using modular, reusable React components, ensuring high design consistency and drastically lower maintenance overhead.
-                </p>
-              </div>
-
-              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-300 hover:bg-emerald-100">
-                <h4 className="text-emerald-800 font-bold mb-1">Core web vitals optimization</h4>
-                <p className="text-gray-700">
-                  Strictly monitors and optimizes Largest Contentful Paint and entirely eliminates Cumulative Layout Shift for a flawless user experience.
-                </p>
-              </div>
+              {content.cards.map(([title, description]) => (
+                <div key={title} className="bg-transparent border border-emerald-200 rounded-lg p-4 transition-all duration-300">
+                  <h4 className="text-black font-bold mb-1">{title}</h4>
+                  <p className="text-gray-700">
+                    {description}
+                  </p>
+                </div>
+              ))}
 
             </div>
           </div>
@@ -128,8 +84,8 @@ export const GeoOverlapSection = () => {
 
         {/* --- FOOTER CTA --- */}
         <div className="text-center mt-6 lg:mt-10">
-          <a href="/contact/" className="inline-block border border-emerald-700 text-emerald-800 px-10 py-4 hover:bg-emerald-700 hover:text-white transition-all duration-300 rounded-sm">
-            Audit my architecture
+          <a href="/contact/" className="inline-block border border-emerald-700 text-emerald-800 px-10 py-4 bg-transparent hover:text-emerald-900 transition-all duration-300 rounded-sm">
+            {content.cta}
           </a>
         </div>
 
