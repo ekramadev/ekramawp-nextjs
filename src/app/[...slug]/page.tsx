@@ -6,6 +6,7 @@ import { BlockRenderer } from "@/components/BlockRenderer";
 import { Metadata } from "next";
 import { getWorkflowHeroContent } from "@/content/workflowHeroes";
 import { getMarketIntelligenceContent } from "@/content/marketIntelligence";
+import { getGeoOverlapContent } from "@/content/geoOverlap";
 
 // 1. DYNAMIC QUERY
 const PAGE_QUERY = gql`
@@ -67,6 +68,7 @@ export default async function DynamicPage({ params }: Props) {
           htmlContent={safeContent}
           workflowHero={getWorkflowHeroContent(uri, data.nodeByUri.title)}
           marketIntelligence={getMarketIntelligenceContent(uri, data.nodeByUri.title)}
+          geoOverlap={getGeoOverlapContent(uri, data.nodeByUri.title)}
         />
       </div>
     </main>

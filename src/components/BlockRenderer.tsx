@@ -46,14 +46,16 @@ import { Logoatfirst } from "./Logoatfirst";
 import { CaseStudyCard } from "./CaseStudyCard";
 import type { WorkflowHeroContent } from "@/content/workflowHeroes";
 import type { MarketIntelligenceContent } from "@/content/marketIntelligence";
+import type { GeoOverlapContent } from "@/content/geoOverlap";
 
 interface Props {
   htmlContent: string;
   workflowHero: WorkflowHeroContent;
   marketIntelligence: MarketIntelligenceContent;
+  geoOverlap: GeoOverlapContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -87,7 +89,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence }:
 
         // 4. INTELLIGENCE & GEO
         if (classes.includes("section-market-intel")) return <MarketIntelligence content={marketIntelligence} />;
-        if (classes.includes("section-geo-overlap")) return <GeoOverlapSection />;
+        if (classes.includes("section-geo-overlap")) return <GeoOverlapSection content={geoOverlap} />;
         if (classes.includes("section-pentagon-growth")) return <PentagonGrowthEngine />;
 
         // 5. ENGINEERING SERIES
