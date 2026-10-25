@@ -13,7 +13,7 @@ export const GeoOverlapSection = ({ content }: { content: GeoOverlapContent }) =
           {/* Preserve the original heading structure and typography. */}
           <h1 className="mb-6">
             {content.headingSubject}<br />
-            <span className="text-emerald-800">{content.tagline}</span>
+            <span className="text-brand-emerald">{content.tagline}</span>
           </h1>
         </div>
 
@@ -42,7 +42,7 @@ export const GeoOverlapSection = ({ content }: { content: GeoOverlapContent }) =
               <ul className="space-y-4 lg:space-y-6 mb-6 lg:mb-10 max-w-[600px] mx-auto lg:mx-0">
                 {content.checks.map(([title, description], index) => (
                   <li key={title} className="relative pl-7 text-gray-700">
-                    <span aria-hidden="true" className={`absolute left-0 text-emerald-800 font-bold top-0${index === 1 ? " text-lg" : ""}`}>→</span>
+                    <span aria-hidden="true" className={`absolute left-0 text-brand-emerald font-bold top-0${index === 1 ? " text-lg" : ""}`}>→</span>
                     <strong className="text-black">{title}:</strong> {description}
                   </li>
                 ))}
@@ -84,7 +84,7 @@ export const GeoOverlapSection = ({ content }: { content: GeoOverlapContent }) =
 
         {/* --- FOOTER CTA --- */}
         <div className="text-center mt-6 lg:mt-10">
-          <a href="/contact/" className="inline-block border border-emerald-700 text-emerald-800 px-10 py-4 bg-transparent hover:text-emerald-900 transition-all duration-300 rounded-sm">
+          <a href="/contact/" className="inline-block border border-emerald-700 text-brand-emerald px-10 py-4 bg-transparent hover:text-brand-emerald transition-all duration-300 rounded-sm">
             {content.cta}
           </a>
         </div>

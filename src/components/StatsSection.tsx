@@ -30,7 +30,7 @@ export const StatsSection = () => {
         <div className="flex flex-col">
           <h1 className="text-gray-900 mb-6">
             Performance Metrics You <br className="hidden md:block" />
-            <span className="text-emerald-400">Cannot Ignore</span>
+            <span className="text-brand-emerald">Cannot Ignore</span>
           </h1>
 
           <p className="text-gray-600 mb-0 lg:mb-2 max-w-[600px] mx-auto lg:mx-0">

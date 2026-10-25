@@ -64,7 +64,7 @@ export const MarketIntelligence = ({ content }: { content: MarketIntelligenceCon
                 <div className={`w-full h-full bg-slate-950 p-8 text-left transition-opacity duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`} aria-label={`${areaFor(activeId).label} work area illustration`} role="img">
                   <div className="flex items-center justify-between border-b border-slate-700 pb-4 text-slate-200">
                     <span className="text-lg font-semibold">{areaFor(activeId).label} overview</span>
-                    <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs text-emerald-300">Illustration</span>
+                    <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs text-brand-emerald">Illustration</span>
                   </div>
                   <div className="mt-8 flex h-28 items-end gap-4" aria-hidden="true">
                     {[40, 62, 51, 75, 68, 90, 82].map((height, index) => (
@@ -104,7 +104,7 @@ export const MarketIntelligence = ({ content }: { content: MarketIntelligenceCon
 
                 <div className={`absolute flex flex-col w-[150px] ${node.labelAlign} pointer-events-none transition-opacity duration-300 ${activeId === node.id ? "opacity-0" : "opacity-100"}`}>
                   <span className="text-gray-900">{areaFor(node.id as AreaId).label}</span>
-                  <span className="text-emerald-800">Focus area</span>
+                  <span className="text-brand-emerald">Focus area</span>
                 </div>
 
                 <div className={`absolute ${node.boxPos} ${node.width || 'w-[360px]'} ${activeId === node.id ? "pointer-events-auto" : "pointer-events-none"} transition-all duration-500 ${activeId === node.id ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
@@ -115,7 +115,7 @@ export const MarketIntelligence = ({ content }: { content: MarketIntelligenceCon
                     <p className="text-gray-300" title={areaFor(node.id as AreaId).description}>
                       {areaFor(node.id as AreaId).summary}
                     </p>
-                    <a href="/contact/" tabIndex={activeId === node.id ? 0 : -1} className="text-emerald-300 text-xs hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300">
+                    <a href="/contact/" tabIndex={activeId === node.id ? 0 : -1} className="text-brand-emerald text-xs hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300">
                       {content.cta} →
                     </a>
                   </div>

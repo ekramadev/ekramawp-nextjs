@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        "brand-emerald": "var(--wpfe-emerald)",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },

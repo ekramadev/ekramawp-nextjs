@@ -89,7 +89,7 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
             const number = createSVG('text');
             number.setAttribute('text-anchor', 'middle');
             number.setAttribute('dominant-baseline', 'central');
-            number.setAttribute('fill', sec.color);
+            number.setAttribute('fill', 'var(--wpfe-emerald)');
             number.setAttribute('font-size', '15');
             number.setAttribute('font-weight', '700');
             number.textContent = String(i + 1).padStart(2, '0');
