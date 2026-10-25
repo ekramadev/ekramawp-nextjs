@@ -22,22 +22,22 @@ export const ThreeColumnBar = () => {
           {/* Column 1: WPFEDEV (Transparent) */}
           <div className="flex flex-col h-full p-[35px_25px] bg-transparent">
             <div className="min-h-[60px] mb-[25px] flex items-center">
-              <div className="text-[26px] font-black tracking-[-1px] text-white">
+              <div className="text-[26px] font-black tracking-[-1px] text-gray-900">
                 WPFEDEV<span className="text-[#10B981]">.com</span>
               </div>
             </div>
             <ul className="list-none p-0 m-0 grow">
               <li className="flex items-start mb-[25px]">
                 <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Dedicated account manager, interfacing with a team of 500+ digital marketing experts</p>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Dedicated account manager, interfacing with a team of 500+ digital marketing experts</p>
               </li>
               <li className="flex items-start mb-[25px]">
                 <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">RevenueCloudFX access for optimizing, measuring, and reporting ROI</p>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">RevenueCloudFX access for optimizing, measuring, and reporting ROI</p>
               </li>
               <li className="flex items-start">
                 <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">In-depth analysis of your business goals, industry, and competitors</p>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">In-depth analysis of your business goals, industry, and competitors</p>
               </li>
             </ul>
           </div>
@@ -73,15 +73,15 @@ export const ThreeColumnBar = () => {
             <ul className="list-none p-0 m-0 grow">
               <li className="flex items-start mb-[25px]">
                 <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Dedicated account manager responsible for strategy, but will need your help implementing solutions</p>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Dedicated account manager responsible for strategy, but will need your help implementing solutions</p>
               </li>
               <li className="flex items-start mb-[25px]">
                 <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-[#cf2e2e]/15 text-[#cf2e2e]">✘</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Third-party tracking and analysis with subscription costs passed to you</p>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Third-party tracking and analysis with subscription costs passed to you</p>
               </li>
               <li className="flex items-start">
                 <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-[#cf2e2e]/15 text-[#cf2e2e]">✘</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Cookie-cutter checklists and solutions for optimizing your campaigns</p>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Cookie-cutter checklists and solutions for optimizing your campaigns</p>
               </li>
             </ul>
           </div>

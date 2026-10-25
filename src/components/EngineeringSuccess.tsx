@@ -46,11 +46,11 @@ export const EngineeringSuccess = () => {
   <div className="max-w-[1400px] mx-auto px-5 relative z-10 flex flex-col items-center justify-center text-center">
     <h2 className="text-[#10B981] font-black text-3xl md:text-5xl mb-4">
       Building the Future of <br className="hidden md:block" />
-      <span className="relative inline-block px-2 z-10 text-[#FFFFFF] mt-2 md:mt-0">
+      <span className="relative inline-block px-2 z-10 text-gray-900 mt-2 md:mt-0">
         Digital Experiences.
       </span>
     </h2>
-    <p className="max-w-2xl mx-auto text-gray-300 text-lg mb-20 mt-10">
+    <p className="max-w-2xl mx-auto text-gray-600 text-lg mb-20 mt-10">
       Expertly crafted interfaces meeting high-performance engineering. 
       I specialize in bridging the gap between complex backend logic 
       and fluid, user-centric frontends.
@@ -70,8 +70,8 @@ export const EngineeringSuccess = () => {
                   p-[18px_20px] text-left text-[16px] font-bold border-l-4 transition-all duration-300 rounded-r-lg
                   ${
                     activeTab === tab.id
-                      ? "text-[#10B981] border-[#10B981] bg-white/10"
-                      : "text-[#94a3b8] border-transparent hover:text-white hover:bg-white/5"
+                      ? "text-emerald-800 border-emerald-600 bg-emerald-50"
+                      : "text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50"
                   }
                 `}
               >

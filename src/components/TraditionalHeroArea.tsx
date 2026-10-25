@@ -83,11 +83,11 @@ const renderFloatingIcons = (count: number, seedOffset: number) => {
         
         {/* --- LEFT COLUMN --- */}
         <div className="flex-1 max-w-[500px] z-20">
-          <h2 className="mb-6 text-white">
+          <h2 className="mb-6 text-gray-900">
             Bespoke WordPress Themes <br/>
             <span className="text-emerald-500">Without the Bloat.</span>
           </h2>
-          <p className="text-[#A9B4BC] text-[1.05rem] leading-[1.7] mb-8 pr-0 md:pr-4">
+          <p className="text-gray-600 text-[1.05rem] leading-[1.7] mb-8 pr-0 md:pr-4">
             We architect high-performance, custom WordPress websites from the ground up. 
             By avoiding heavy page builders and relying on clean PHP, Advanced Custom Fields (ACF), 
             and optimized CSS/JS, we deliver fully editable backends with lightning-fast frontends.

@@ -110,10 +110,10 @@ export const MasterServices = () => {
         
         {/* HEADING */}
         <div className="text-center lg:mb-[180px]">
-          <h2 className="font-black text-white">
+          <h2 className="font-black text-gray-900">
             Mastering <span className="text-emerald-400">Modern Web</span>
           </h2>
-          <p className="text-slate-400  max-w-[800px] mx-auto m-0">
+          <p className="text-gray-600 max-w-[800px] mx-auto m-0">
             A complete suite of engineering services designed to maximize performance, scalability, and user experience.
           </p>
         </div>
@@ -122,7 +122,7 @@ export const MasterServices = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start relative w-full gap-[50px] lg:gap-[60px] overflow-visible">
           
           {/* TABS COLUMN */}
-          <div className="flex flex-row lg:flex-col w-full lg:w-[280px] flex-none border-b lg:border-b-0 lg:border-l border-white/10 z-20 pl-0 overflow-x-auto lg:overflow-visible overflow-y-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex flex-row lg:flex-col w-full lg:w-[280px] flex-none border-b lg:border-b-0 lg:border-l border-gray-200 z-20 pl-0 overflow-x-auto lg:overflow-visible overflow-y-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {SERVICES_DATA.map((service, index) => {
               const isActive = activeTab === index;
               return (
@@ -130,8 +130,8 @@ export const MasterServices = () => {
                   key={service.id}
                   className={`flex flex-none items-center gap-4 py-4 px-5 lg:py-6 lg:px-[30px] cursor-pointer transition-all duration-300 bg-transparent border-b-2 lg:border-b-0 lg:border-l-2 select-none  ${
                     isActive 
-                      ? 'text-white border-emerald-500 bg-gradient-to-t lg:bg-gradient-to-r from-emerald-500/5 to-transparent' 
-                      : 'text-slate-500 border-transparent hover:text-slate-300 hover:border-white/30 lg:hover:border-b-transparent'
+                      ? 'text-emerald-800 border-emerald-600 bg-gradient-to-t lg:bg-gradient-to-r from-emerald-500/10 to-transparent'
+                      : 'text-gray-600 border-transparent hover:text-gray-900 hover:border-gray-300 lg:hover:border-b-transparent'
                   }`}
                   onClick={() => setActiveTab(index)}
                 >
@@ -158,16 +158,16 @@ export const MasterServices = () => {
                       <img 
                         src={service.img} 
                         alt={service.title} 
-                        className={`w-full h-[240px] lg:h-[280px] rounded-xl border border-white/10 object-cover shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] block transition-transform duration-700 ${isActive ? 'animate-img-scale-in' : ''}`}
+                        className={`w-full h-[240px] lg:h-[280px] rounded-xl border border-gray-200 object-cover shadow-[0_25px_50px_-12px_rgba(0,0,0,0.2)] block transition-transform duration-700 ${isActive ? 'animate-img-scale-in' : ''}`}
                       />
                     </div>
-                    <div className="text-white pt-0 lg:pt-[180px] max-w-[850px] mx-auto">
+                    <div className="text-gray-900 pt-0 lg:pt-[180px] max-w-[850px] mx-auto">
                       <span className="inline-block text-emerald-500 text-[0.85rem] font-bold uppercase tracking-[2px] mb-3">{service.kicker}</span>
-                      <h3 className="text-[38px] font-black m-0 mb-6 text-white ">{service.title}</h3>
-                      <p className="text-slate-300 text-[18px] font-normal mb-10">{service.desc}</p>
+                      <h3 className="text-[38px] font-black m-0 mb-6 text-gray-900">{service.title}</h3>
+                      <p className="text-gray-600 text-[18px] font-normal mb-10">{service.desc}</p>
                       <ul className="list-none m-0 p-0 grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {service.bullets.map((bullet, idx) => (
-                          <li key={idx} className="flex items-start text-slate-200 m-0 before:content-['—'] before:text-emerald-500 before:font-black">
+                          <li key={idx} className="flex items-start text-gray-700 m-0 before:content-['—'] before:text-emerald-700 before:font-black">
                             {bullet}
                           </li>
                         ))}
