@@ -377,3 +377,11 @@ export function getGeoOverlapContent(path: string, pageTitle?: string | null): G
     [['Project users', `Identify the people and roles involved in ${subject.toLowerCase()}.`], ['Project records', `Agree the information needed by the ${subject.toLowerCase()} workflow.`], ['Project review', `Define how stakeholders will assess the ${subject.toLowerCase()} requirements.`]],
     [['Requirements', `Document the intended tasks and outcomes for ${subject.toLowerCase()}.`], ['Record structure', `Map the business information used in ${subject.toLowerCase()}.`], ['User permissions', `Define approved actions for the roles using ${subject.toLowerCase()}.`], ['System exchanges', `Identify the application connections required by ${subject.toLowerCase()}.`], ['Validation', `Check the agreed behavior of ${subject.toLowerCase()} before release.`], ['Handover', `Prepare ownership and operating guidance for ${subject.toLowerCase()}.`]]);
 }
+
+// Two URL spellings in the page plan differ from their existing WordPress slugs.
+// Resolve their existing content without changing the requested URL or navigation.
+export function getGeoOverlapWordPressUri(uri: string): string {
+  if (uri === '/php-Engineers/') return '/php-engineers/';
+  if (uri === '/go-Engineers/') return '/go-engineers/';
+  return uri;
+}
