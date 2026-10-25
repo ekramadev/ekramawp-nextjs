@@ -20,15 +20,15 @@ export const MarketIntelligence = ({ content }: { content: MarketIntelligenceCon
   };
 
   return (
-   <section data-component="market-intelligence" className="w-full pt-2 pb-0 relative overflow-hidden bg-white">
+   <section data-component="market-intelligence" className="w-full pt-2 pb-0 relative overflow-hidden bg-transparent">
       <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
 
         {/* HEADER CONTENT */}
         <div className="col-span-full max-w-[800px] mx-auto w-full text-center relative z-20 flex flex-col items-center justify-center">
-          <h2 className="text-gray-900 text-4xl md:text-5xl">
+          <h2 className="text-black text-4xl md:text-5xl">
             {content.title}
           </h2>
-          <p className="text-gray-600 text-lg md:text-xl mb-16">
+          <p className="text-gray-700 text-lg md:text-xl mb-16">
             {content.description}
           </p>
         </div>
@@ -108,14 +108,14 @@ export const MarketIntelligence = ({ content }: { content: MarketIntelligenceCon
                 </div>
 
                 <div className={`absolute ${node.boxPos} ${node.width || 'w-[360px]'} ${activeId === node.id ? "pointer-events-auto" : "pointer-events-none"} transition-all duration-500 ${activeId === node.id ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
-                  <div className={`bg-[#0c131f]/90 backdrop-blur-xl rounded-2xl p-7 shadow-[0_40px_80px_rgba(0,0,0,0.9)] z-30 transition-all duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
-                    <h4 className="text-white text-2xl" aria-label={areaFor(node.id as AreaId).title}>
+                  <div className={`bg-transparent backdrop-blur-xl rounded-2xl p-7 shadow-[0_40px_80px_rgba(0,0,0,0.9)] z-30 transition-all duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
+                    <h4 className="text-black text-2xl" aria-label={areaFor(node.id as AreaId).title}>
                       {areaFor(node.id as AreaId).label}
                     </h4>
-                    <p className="text-gray-300" title={areaFor(node.id as AreaId).description}>
+                    <p className="text-gray-700" title={areaFor(node.id as AreaId).description}>
                       {areaFor(node.id as AreaId).summary}
                     </p>
-                    <a href="/contact/" tabIndex={activeId === node.id ? 0 : -1} className="text-brand-emerald text-xs hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300">
+                    <a href="/contact/" tabIndex={activeId === node.id ? 0 : -1} className="text-brand-emerald text-xs hover:text-brand-emerald transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300">
                       {content.cta} →
                     </a>
                   </div>
