@@ -1,159 +1,74 @@
 "use client";
-import React, { useState } from "react";
 
-// --- DATA ---
-const INTELLIGENCE_DATA = {
-  1: {
-    title: (
-      <>
-        Performance is the <span className="text-emerald-500">New Standard</span>
-      </>
-    ),
-    desc: "Google's Core Web Vitals are now a critical success metric. React apps that score 100/100 on LightHouse rank higher and convert better.",
-    label: "Performance",
-  },
-  2: {
-    title: (
-      <>
-        Headless CMS <span className="text-emerald-500">Scalability</span>
-      </>
-    ),
-    desc: "Traditional monoliths crash under high traffic. Decoupled architectures allow you to handle global spikes without server downtime.",
-    label: "Scalability",
-  },
-  3: {
-    title: (
-      <>
-        User Experience <span className="text-emerald-500">= Revenue</span>
-      </>
-    ),
-    desc: "Every 100ms of latency costs 1% in sales. My front-end code is optimized for 'Instant Load' via Edge Caching.",
-    label: "Experience",
-  },
-  4: {
-    title: (
-      <>
-        Global <span className="text-emerald-500">Accessibility</span>
-      </>
-    ),
-    desc: "Modern web apps must work on all devices. I implement strict WCAG accessibility standards, avoiding legal liabilities.",
-    label: "Accessibility",
-  }
-};
+import React, { useId, useState } from "react";
+import type { MarketIntelligenceContent } from "@/content/marketIntelligence";
 
-export const MarketIntelligence = () => {
-  const [activeId, setActiveId] = useState<1 | 2 | 3 | 4>(3);
-  const [isFading, setIsFading] = useState(false);
-
-  const handleInteraction = (id: 1 | 2 | 3 | 4) => {
-    if (id === activeId) return;
-    setIsFading(true);
-    setTimeout(() => {
-      setActiveId(id);
-      setIsFading(false);
-    }, 200);
-  };
+export const MarketIntelligence = ({ content }: { content: MarketIntelligenceContent }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const instanceId = useId().replace(/:/g, "");
+  const headingId = `intelligence-heading-${instanceId}`;
+  const diagramId = `intelligence-diagram-${instanceId}`;
 
   return (
-   <section className="w-full pt-2 pb-0 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center
-">
-        
-        {/* HEADER CONTENT */}
-        <div className="col-span-full max-w-[800px] mx-auto w-full text-center relative z-20 flex flex-col items-center justify-center">
-          <h2 className="text-gray-900 text-4xl md:text-5xl">
-  <span className="text-emerald-500">Engineering</span> Ecosystem
-</h2>
-          <p className="text-gray-600 text-lg md:text-xl mb-16">
-            Hover over the architectural nodes below to explore our core insights. Our decoupled systems are engineered to maximize performance, scalability, and user revenue.
-          </p>
+    <section data-component="market-intelligence" aria-labelledby={headingId} className="relative w-full bg-white py-12 text-slate-900 sm:py-16">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+        <div className="mx-auto mb-10 max-w-4xl text-center">
+          <h2 id={headingId} className="text-3xl leading-tight text-slate-900 sm:text-4xl lg:text-5xl">{content.title}</h2>
+          <p className="mx-auto mb-0 text-lg leading-relaxed text-slate-600">{content.description}</p>
         </div>
 
-        {/* RESPONSIVE SCALING WRAPPER */}
-        <div className="col-span-full relative w-full h-[130px] sm:h-[190px] md:h-[300px] lg:h-[450px] xl:h-[600px]">
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[1600px] h-[900px] scale-[0.22] sm:scale-[0.35] md:scale-[0.5] lg:scale-[0.75] xl:scale-[0.9] origin-top z-10">
-            
-            <svg width="1600" height="900" viewBox="0 0 1600 900" className="absolute inset-0 pointer-events-none z-0">
-              {/* CURVY DOT LINE - Moved to the upper side (Y values around 100-300) */}
-              <path 
-d="M 50 150 Q 400 -90 800 200 T 1550 50"
-                fill="none" 
-                stroke="#10B981" 
-                strokeWidth="2" 
-                strokeDasharray="8 12" 
-                opacity="0.25" 
-              />
-              
-              {/* MAIN ORBIT */}
-              <path 
-                d="M 350 500 A 450 450 0 0 1 1250 500" 
-                fill="none" 
-                stroke="#10B981" 
-                strokeWidth="8" 
-                opacity="0.5" 
-              />
-            </svg>
-
-            {/* --- CENTRAL TV MOCKUP --- */}
-            <div className="absolute left-[800px] top-[400px] -translate-x-1/2 -translate-y-1/2 w-[600px] z-10 transition-transform duration-500">
-              <div className="w-full h-[280px] bg-black rounded-t-xl border-[6px] border-[#1f1f1f] shadow-[0_0_80px_rgba(0,0,0,0.8)] relative overflow-hidden flex flex-col z-10">
-                <div className={`w-full h-full bg-slate-950 p-8 text-left transition-opacity duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`} aria-label={`${INTELLIGENCE_DATA[activeId].label} dashboard illustration`} role="img">
-                  <div className="flex items-center justify-between border-b border-slate-700 pb-4 text-slate-200">
-                    <span className="text-lg font-semibold">{INTELLIGENCE_DATA[activeId].label} overview</span>
-                    <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs text-emerald-300">Live insight</span>
-                  </div>
-                  <div className="mt-8 flex h-28 items-end gap-4" aria-hidden="true">
-                    {[40, 62, 51, 75, 68, 90, 82].map((height, index) => (
-                      <div key={index} className="flex-1 rounded-t bg-gradient-to-t from-emerald-700 to-emerald-400" style={{ height: `${height}%` }} />
-                    ))}
-                  </div>
-                  <div className="mt-4 flex justify-between text-xs text-slate-400" aria-hidden="true"><span>Explore</span><span>Measure</span><span>Improve</span></div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none"></div>
-              </div>
-              <div className="w-[640px] h-[16px] bg-[#2a2a2a] -ml-[20px] rounded-b-xl border-t border-[#444] shadow-[0_30px_60px_rgba(0,0,0,0.8)] relative flex justify-center z-20">
-                <div className="w-[70px] h-[4px] bg-[#111] rounded-b-md"></div>
-              </div>
-            </div>
-
-            {/* --- NODES & HOVER BOXES --- */}
-            {[
-              { id: 1, x: 350, y: 500, boxPos: "right-[calc(100%-20px)] bottom-[calc(100%+20px)]", width: "w-[230px]"},
-              { id: 2, x: 575, y: 110, labelAlign: "-top-[65px] left-1/2 -translate-x-1/2 text-center", boxPos: "bottom-[calc(100%-190px)] right-[calc(100%+140px)]", width: "w-[280px]"},
-              { id: 3, x: 1025, y: 110, labelAlign: "-top-[65px] left-1/2 -translate-x-1/2 text-center", boxPos: "bottom-[calc(100%-190px)] left-[calc(100%+140px)]", width: "w-[280px]" },
-              { id: 4, x: 1250, y: 500, boxPos: "left-[calc(100%-20px)] bottom-[calc(100%+20px)]", width: "w-[230px]"}
-            ].map((node) => (
-              <div 
-                key={node.id}
-                className="absolute -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer group"
-                style={{ left: node.x, top: node.y }}
-                onMouseEnter={() => handleInteraction(node.id as 1 | 2 | 3 | 4)}
-              >
-                <div className={`w-14 h-14 rounded-full border-[3px] flex items-center justify-center text-2xl transition-all duration-300 relative z-20 ${activeId === node.id ? "border-emerald-500 bg-emerald-500 text-[#0f172a] scale-110 shadow-[0_0_30px_rgba(16,185,129,0.6)]" : "border-emerald-500/70 bg-[#0c131f] text-white group-hover:border-emerald-400 group-hover:scale-105"}`}>
-                  +
-                </div>
-
-                <div className={`absolute flex flex-col w-[150px] ${node.labelAlign} pointer-events-none transition-opacity duration-300 ${activeId === node.id ? "opacity-0" : "opacity-60 group-hover:opacity-100"}`}>
-                  <span className="text-gray-900">{INTELLIGENCE_DATA[node.id as 1|2|3|4].label}</span>
-                  <span className="text-emerald-800">Insight Data</span>
-                </div>
-
-                <div className={`absolute ${node.boxPos} ${node.width || 'w-[360px]'} pointer-events-none transition-all duration-500 ${activeId === node.id ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>                
-                  <div className={`bg-[#0c131f]/90 backdrop-blur-xl rounded-2xl p-7 shadow-[0_40px_80px_rgba(0,0,0,0.9)] z-30 transition-all duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
-                    <h4 className="text-white text-2xl">
-                      {INTELLIGENCE_DATA[node.id as 1|2|3|4].title}
-                    </h4>
-                    <p className="text-gray-300">
-                      {INTELLIGENCE_DATA[node.id as 1|2|3|4].desc}
-                    </p>
-                    <button className="text-emerald-400 text-xs hover:text-white transition-colors">
-                      Audit Metric →
+        <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:items-start lg:gap-12">
+          <div className="min-w-0">
+            <p className="mb-4 text-sm font-medium leading-relaxed text-slate-600">Select a focus area to highlight it in the workflow.</p>
+            <div className="space-y-4">
+              {content.areas.map((area, index) => (
+                <article key={area.label} className={`rounded-2xl border p-5 sm:p-6 ${activeIndex === index ? "border-emerald-700 bg-emerald-50" : "border-slate-200 bg-white"}`}>
+                  <h3 className="mb-3 text-xl leading-snug text-slate-900 sm:text-2xl">
+                    <button
+                      type="button"
+                      aria-pressed={activeIndex === index}
+                      aria-controls={diagramId}
+                      onClick={() => setActiveIndex(index)}
+                      className="flex min-h-11 w-full items-start gap-3 rounded-md text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700"
+                    >
+                      <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-800 text-sm font-semibold text-white">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="min-w-0 break-words">{area.title}</span>
                     </button>
-                  </div>
-                </div>
-              </div>
-            ))}
+                  </h3>
+                  <p className="mb-0 text-base leading-relaxed text-slate-600">{area.description}</p>
+                </article>
+              ))}
+            </div>
           </div>
+
+          <figure id={diagramId} className="min-w-0 rounded-3xl border border-slate-200 bg-slate-50 p-5 sm:p-8 lg:sticky lg:top-8">
+            <figcaption className="mb-5">
+              <span className="text-sm font-semibold uppercase tracking-wide text-emerald-800">Connected work areas</span>
+              <p className="mb-0 mt-2 text-sm leading-relaxed text-slate-600">Workflow illustration. Select the numbered headings to explore each area.</p>
+            </figcaption>
+            <svg viewBox="0 0 440 430" className="block h-auto w-full" role="img" aria-labelledby={`${diagramId}-title ${diagramId}-description`}>
+              <title id={`${diagramId}-title`}>{`${content.title}: workflow illustration`}</title>
+              <desc id={`${diagramId}-description`}>{`${content.areas.map(area => area.label).join(" → ")}. Highlighted area: ${content.areas[activeIndex].label}.`}</desc>
+              <path d="M220 80 V350" fill="none" stroke="#a7f3d0" strokeWidth="4" />
+              {content.areas.map((area, index) => {
+                const selected = activeIndex === index;
+                const y = 20 + index * 104;
+                return (
+                  <g key={area.label}>
+                    <rect x="12" y={y} width="416" height="80" rx="16" fill={selected ? "#065f46" : "#ffffff"} stroke={selected ? "#065f46" : "#cbd5e1"} strokeWidth="2" />
+                    <circle cx="48" cy={y + 40} r="19" fill={selected ? "#d1fae5" : "#ecfdf5"} />
+                    <text x="48" y={y + 46} textAnchor="middle" fontSize="17" fontWeight="600" fill="#065f46">{String(index + 1).padStart(2, "0")}</text>
+                    <text x="82" y={y + 47} fontSize="23" fontWeight={selected ? "600" : "400"} fill={selected ? "#ffffff" : "#0f172a"}>{area.label}</text>
+                  </g>
+                );
+              })}
+            </svg>
+            <p className="mb-0 mt-3 text-base font-medium leading-relaxed text-emerald-900" aria-live="polite" aria-atomic="true">Focus: {content.areas[activeIndex].label}</p>
+          </figure>
+        </div>
+
+        <div className="mt-10 text-center">
+          <a href="/contact/" className="inline-flex min-h-12 max-w-full items-center justify-center rounded-full bg-emerald-800 px-6 py-3 text-base font-medium leading-normal text-white transition-colors hover:bg-emerald-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700 motion-reduce:transition-none">{content.cta}<span aria-hidden="true" className="ml-2">→</span></a>
         </div>
       </div>
     </section>

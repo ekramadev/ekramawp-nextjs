@@ -45,13 +45,15 @@ import { HtmlCheatsheet } from "./HtmlCheatsheet";
 import { Logoatfirst } from "./Logoatfirst";
 import { CaseStudyCard } from "./CaseStudyCard";
 import type { WorkflowHeroContent } from "@/content/workflowHeroes";
+import type { MarketIntelligenceContent } from "@/content/marketIntelligence";
 
 interface Props {
   htmlContent: string;
   workflowHero: WorkflowHeroContent;
+  marketIntelligence: MarketIntelligenceContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -84,7 +86,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero }: Props) => {
         if (classes.includes("section-evolution")) return <EvolutionServices />;
 
         // 4. INTELLIGENCE & GEO
-        if (classes.includes("section-market-intel")) return <MarketIntelligence />;
+        if (classes.includes("section-market-intel")) return <MarketIntelligence content={marketIntelligence} />;
         if (classes.includes("section-geo-overlap")) return <GeoOverlapSection />;
         if (classes.includes("section-pentagon-growth")) return <PentagonGrowthEngine />;
 
