@@ -124,7 +124,7 @@ export const FiveCirclesBox = () => {
         {/* --- HEADER --- */}
         <header className="max-w-[980px] mx-auto mb-8">
           <h2>
-            Uniquely Positioned to <span style={{ color: activePillar.color }} className="transition-colors duration-500">Power Real Revenue Growth</span>
+            Uniquely Positioned to <span style={{ color: "var(--wpfe-emerald)" }} className="transition-colors duration-500">Power Real Revenue Growth</span>
           </h2>
           <div className="mt-4 max-w-[860px] mx-auto">
             Every result we deliver is powered by five connected pillars — each one working together to create 
@@ -203,7 +203,7 @@ export const FiveCirclesBox = () => {
                 <div className={`absolute top-[88px] w-[130px] text-center transition-all duration-500 ${isActive ? 'opacity-0 translate-y-3 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
                   <span 
                     className="text-[0.85rem] font-extrabold leading-tight drop-shadow-sm"
-                    style={{ color: item.color }}
+                    style={{ color: "var(--wpfe-emerald)" }}
                   >
                     {item.label}
                   </span>
@@ -223,7 +223,7 @@ export const FiveCirclesBox = () => {
                 style={{ 
                   backgroundColor: activeIndex === idx ? item.color : '#fff',
                   borderColor: item.color,
-                  color: activeIndex === idx ? '#fff' : item.color
+                  color: activeIndex === idx ? '#fff' : 'var(--wpfe-emerald)'
                 }}
              >
                 {item.label}
@@ -258,7 +258,7 @@ export const FiveCirclesBox = () => {
               <a 
                 href="#" 
                 className="inline-flex items-center gap-3 no-underline font-extrabold text-[1.05rem] group transition-all"
-                style={{ color: activePillar.color }}
+                style={{ color: "var(--wpfe-emerald)" }}
               >
                 <span>{activePillar.cta}</span>
                 <svg className="w-5 h-5 transition-transform group-hover:translate-x-1.5" viewBox="0 0 19 16" fill="currentColor">

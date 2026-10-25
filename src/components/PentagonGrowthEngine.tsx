@@ -107,7 +107,7 @@ export const PentagonGrowthEngine = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`relative flex items-center gap-2 lg:gap-4 px-2.5 lg:px-6 py-3 lg:py-4 rounded-full lg:rounded-lg transition-all duration-300 shrink-0 snap-start text-left border-none outline-none w-auto lg:w-full ${
                     isActive 
-                      ? 'text-emerald-400 opacity-100' 
+                      ? 'text-brand-emerald opacity-100'
                       : 'text-white opacity-40 hover:opacity-100'
                   }`}
                 >

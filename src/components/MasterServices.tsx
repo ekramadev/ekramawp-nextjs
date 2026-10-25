@@ -111,7 +111,7 @@ export const MasterServices = () => {
         {/* HEADING */}
         <div className="text-center lg:mb-[180px]">
           <h2 className="font-black text-gray-900">
-            Mastering <span className="text-emerald-400">Modern Web</span>
+            Mastering <span className="text-brand-emerald">Modern Web</span>
           </h2>
           <p className="text-gray-600 max-w-[800px] mx-auto m-0">
             A complete suite of engineering services designed to maximize performance, scalability, and user experience.
@@ -130,7 +130,7 @@ export const MasterServices = () => {
                   key={service.id}
                   className={`flex flex-none items-center gap-4 py-4 px-5 lg:py-6 lg:px-[30px] cursor-pointer transition-all duration-300 bg-transparent border-b-2 lg:border-b-0 lg:border-l-2 select-none  ${
                     isActive 
-                      ? 'text-emerald-800 border-emerald-600 bg-gradient-to-t lg:bg-gradient-to-r from-emerald-500/10 to-transparent'
+                      ? 'text-brand-emerald border-emerald-600 bg-gradient-to-t lg:bg-gradient-to-r from-emerald-500/10 to-transparent'
                       : 'text-gray-600 border-transparent hover:text-gray-900 hover:border-gray-300 lg:hover:border-b-transparent'
                   }`}
                   onClick={() => setActiveTab(index)}
@@ -167,7 +167,7 @@ export const MasterServices = () => {
                       <p className="text-gray-600 text-[18px] font-normal mb-10">{service.desc}</p>
                       <ul className="list-none m-0 p-0 grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {service.bullets.map((bullet, idx) => (
-                          <li key={idx} className="flex items-start text-gray-700 m-0 before:content-['—'] before:text-emerald-700 before:font-black">
+                          <li key={idx} className="flex items-start text-gray-700 m-0 before:content-['—'] before:text-brand-emerald before:font-black">
                             {bullet}
                           </li>
                         ))}

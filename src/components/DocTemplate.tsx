@@ -97,7 +97,7 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
 
         {/* --- 1. CATEGORY BADGE --- */}
         <div className="mb-4">
-          <span className="text-emerald-600 font-semibold tracking-wider uppercase text-sm">
+          <span className="text-brand-emerald font-semibold tracking-wider uppercase text-sm">
             {categoryName}
           </span>
         </div>
@@ -143,11 +143,11 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
           prose-p:text-slate-700 
           prose-headings:text-slate-900 
           prose-strong:text-slate-900
-          prose-a:text-emerald-600
+          prose-a:text-brand-emerald
           
           prose-pre:bg-slate-900 prose-pre:text-white prose-pre:rounded-xl prose-pre:shadow-md
           
-          prose-code:text-emerald-600 prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
+          prose-code:text-brand-emerald prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
           
           [&_pre_code]:bg-transparent [&_pre_code]:text-white [&_pre_code]:p-0
           ">

@@ -113,7 +113,7 @@ export const ServicesTabs = () => {
         {/* --- MINIMALIST HEADER BAR --- */}
         <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end border-b border-white/10 pb-10 mb-16 lg:mb-20 gap-6">
           <div>
-            <span className="text-xs font-bold tracking-[0.25em] text-emerald-400 uppercase block mb-3">
+            <span className="text-xs font-bold tracking-[0.25em] text-brand-emerald uppercase block mb-3">
               Capabilities Matrix
             </span>
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-none m-0">
@@ -170,7 +170,7 @@ export const ServicesTabs = () => {
               <ul className="flex flex-col gap-6 list-none p-0 m-0 w-full">
                 {currentTabContent.bullets.map((bullet, index) => (
                   <li key={index} className="flex items-start gap-3 w-full">
-                    <span className="text-emerald-400 font-medium select-none mt-0.5 text-[15px]">
+                    <span className="text-brand-emerald font-medium select-none mt-0.5 text-[15px]">
                       —
                     </span>
                     <p className="text-white/60 text-[15px] leading-relaxed m-0 font-light">

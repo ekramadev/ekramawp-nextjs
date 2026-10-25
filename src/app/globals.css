@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --wpfe-emerald: #10b981;
   --primary-darkest-gray: #1a1a1a;
   /* Used for headings */
   --gray-08: #fefefe;

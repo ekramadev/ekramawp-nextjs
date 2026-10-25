@@ -70,7 +70,7 @@ export const EngineeringSuccess = () => {
                   p-[18px_20px] text-left text-[16px] font-bold border-l-4 transition-all duration-300 rounded-r-lg
                   ${
                     activeTab === tab.id
-                      ? "text-emerald-800 border-emerald-600 bg-emerald-50"
+                      ? "text-brand-emerald border-emerald-600 bg-emerald-50"
                       : "text-gray-600 border-transparent hover:text-gray-900 hover:bg-gray-50"
                   }
                 `}

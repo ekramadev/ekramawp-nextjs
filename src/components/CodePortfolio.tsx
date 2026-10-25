@@ -86,8 +86,8 @@ export const CodePortfolio = () => {
               </p>
 
               <div className="flex justify-between items-center mt-auto">
-                {/* Replaced blue hover state with dark emerald */}
-                <span className="text-[#10B981] font-bold text-sm group-hover:text-[#059669] transition-colors">
+                {/* Keep the brand emerald on hover */}
+                <span className="text-[#10B981] font-bold text-sm group-hover:text-brand-emerald transition-colors">
                   Run Simulator →
                 </span>
               </div>

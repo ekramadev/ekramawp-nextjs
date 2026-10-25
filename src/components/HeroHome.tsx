@@ -1143,7 +1143,7 @@ export const HeroHome = () => {
                   <button
                     key={index}
                     onClick={() => setActiveTab(index)}
-                    className={`relative px-2 py-4 text-left font-semibold text-[18px] transition-colors duration-300 ${isActive ? 'text-emerald-700' : 'text-slate-500 hover:text-slate-800'
+                    className={`relative px-2 py-4 text-left font-semibold text-[18px] transition-colors duration-300 ${isActive ? 'text-brand-emerald' : 'text-slate-500 hover:text-slate-800'
                       }`}
                   >
                     {label}
