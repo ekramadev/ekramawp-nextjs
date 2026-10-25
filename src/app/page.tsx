@@ -5,6 +5,7 @@ import { fetchGraphQL } from "@/lib/wordpress";
 import { BlockRenderer } from "@/components/BlockRenderer";
 import { Metadata } from "next";
 import { getWorkflowHeroContent } from "@/content/workflowHeroes";
+import { getMarketIntelligenceContent } from "@/content/marketIntelligence";
 
 // 1. TARGET THE EXACT HOME PAGE (ID 8)
 // We stop guessing slugs or URIs. We ask for ID 8 directly.
@@ -44,7 +45,11 @@ export default async function Home() {
 
   return (
     <main className="w-full min-h-screen bg-[#0E1623]">
-      <BlockRenderer htmlContent={data.page.content} workflowHero={getWorkflowHeroContent('/', data.page.title)} />
+      <BlockRenderer
+        htmlContent={data.page.content}
+        workflowHero={getWorkflowHeroContent('/', data.page.title)}
+        marketIntelligence={getMarketIntelligenceContent('/', data.page.title)}
+      />
     </main>
   );
 }

@@ -5,6 +5,7 @@ import { fetchGraphQL } from "@/lib/wordpress";
 import { BlockRenderer } from "@/components/BlockRenderer";
 import { Metadata } from "next";
 import { getWorkflowHeroContent } from "@/content/workflowHeroes";
+import { getMarketIntelligenceContent } from "@/content/marketIntelligence";
 
 // 1. DYNAMIC QUERY
 const PAGE_QUERY = gql`
@@ -62,7 +63,11 @@ export default async function DynamicPage({ params }: Props) {
     <main className="w-full min-h-screen bg-[#0E1623]">
       <div className="w-full">
         {/* Pass the safe, non-null content string */}
-        <BlockRenderer htmlContent={safeContent} workflowHero={getWorkflowHeroContent(uri, data.nodeByUri.title)} />
+        <BlockRenderer
+          htmlContent={safeContent}
+          workflowHero={getWorkflowHeroContent(uri, data.nodeByUri.title)}
+          marketIntelligence={getMarketIntelligenceContent(uri, data.nodeByUri.title)}
+        />
       </div>
     </main>
   );
