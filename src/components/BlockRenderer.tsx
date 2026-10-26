@@ -48,14 +48,19 @@ import type { WorkflowHeroContent } from "@/content/workflowHeroes";
 import type { MarketIntelligenceContent } from "@/content/marketIntelligence";
 import type { GeoOverlapContent } from "@/content/geoOverlap";
 
+import type { FiveCirclesContent } from "@/content/fiveCircles";
+import type { ContentDoubleContent } from "@/content/contentDouble";
+
 interface Props {
   htmlContent: string;
   workflowHero: WorkflowHeroContent;
   marketIntelligence: MarketIntelligenceContent;
   geoOverlap: GeoOverlapContent;
+  fiveCircles: FiveCirclesContent;
+  contentDouble: ContentDoubleContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -112,11 +117,11 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         if (classes.includes("section-TraditionalHeroArea")) return <TraditionalHeroArea />;
         if (classes.includes("section-Boxesimage")) return <Boxesimage />;
         if (classes.includes("section-ThreeColumnBar")) return <ThreeColumnBar />;
-        if (classes.includes("section-FiveCirclesBox")) return <FiveCirclesBox />;
+        if (classes.includes("section-FiveCirclesBox")) return <FiveCirclesBox content={fiveCircles} />;
         if (classes.includes("section-BigTabsData")) return <BigTabsData />;
         if (classes.includes("section-WptwoPageVisual")) return <WptwoPageVisual content={workflowHero} />;
         if (classes.includes("section-Shutterupanddown")) return <Shutterupanddown />;
-        if (classes.includes("section-Contentdouble")) return <Contentdouble />;
+        if (classes.includes("section-Contentdouble")) return <Contentdouble content={contentDouble} />;
         if (classes.includes("section-HeadlessfiveElements")) return <HeadlessfiveElements />;
         if (classes.includes("section-Headwpcarousal")) return <Headwpcarousal />;
         if (classes.includes("section-Fourblockswphead")) return <Fourblockswphead />;

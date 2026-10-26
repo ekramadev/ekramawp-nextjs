@@ -1,3 +1,5 @@
+import { getFiveCirclesContent } from "@/content/fiveCircles";
+import { getContentDoubleContent } from "@/content/contentDouble";
 import { notFound } from "next/navigation";
 import { print } from "graphql/language/printer";
 import gql from "graphql-tag";
@@ -69,6 +71,8 @@ export default async function DynamicPage({ params }: Props) {
           workflowHero={getWorkflowHeroContent(uri, data.nodeByUri.title)}
           marketIntelligence={getMarketIntelligenceContent(uri, data.nodeByUri.title)}
           geoOverlap={getGeoOverlapContent(uri, data.nodeByUri.title)}
+          fiveCircles={getFiveCirclesContent(uri, data.nodeByUri.title)}
+          contentDouble={getContentDoubleContent(uri, data.nodeByUri.title)}
         />
       </div>
     </main>

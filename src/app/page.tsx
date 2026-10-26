@@ -1,3 +1,5 @@
+import { getFiveCirclesContent } from "@/content/fiveCircles";
+import { getContentDoubleContent } from "@/content/contentDouble";
 import { notFound } from "next/navigation";
 import { print } from "graphql/language/printer";
 import gql from "graphql-tag";
@@ -51,6 +53,8 @@ export default async function Home() {
         workflowHero={getWorkflowHeroContent('/', data.page.title)}
         marketIntelligence={getMarketIntelligenceContent('/', data.page.title)}
         geoOverlap={getGeoOverlapContent('/', data.page.title)}
+        fiveCircles={getFiveCirclesContent('/', data.page.title)}
+        contentDouble={getContentDoubleContent('/', data.page.title)}
       />
     </main>
   );
