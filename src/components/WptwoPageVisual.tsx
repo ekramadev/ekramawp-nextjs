@@ -176,7 +176,7 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
     }, [content.steps, instanceId]);
 
     return (
-        <section id="ek-ai-hero" className="relative w-full bg-[#020617] flex items-center overflow-hidden box-border">
+        <section id="ek-ai-hero" className="relative w-full bg-transparent flex items-center overflow-hidden box-border">
             {/* External Resources */}
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
@@ -189,23 +189,21 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
             width: 100%; 
             min-height: 600px;
             height: auto;
-            background-color: #0E1623;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px);
+            background-color: transparent;
+            background-image: none;
             background-size: 50px 50px;
             display: flex;
             align-items: center; 
             padding: 20px 20px 60px 20px; 
             box-sizing: border-box;
-            color: #f8fafc;
+            color: #374151;
         }
 
         #ek-ai-hero::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 50% 50%, transparent 10%, #020617 85%);
+            background: transparent;
             pointer-events: none;
             z-index: 1;
         }
@@ -240,14 +238,14 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
             line-height: 1.1; 
             font-weight: 800; 
             margin-bottom: 24px; 
-            color: #ffffff;
+            color: #000000;
             letter-spacing: -1px;
         }
 
         .hero-zone-a p { 
             font-size: 1.125rem; 
             line-height: 1.6; 
-            color: #94a3b8; 
+            color: #374151;
             margin-bottom: 40px; 
             max-width: 90%; 
         }
@@ -255,11 +253,11 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
         #ek-ai-hero .workflow-cta {
             display: inline-flex; align-items: center; justify-content: center;
             width: fit-content; max-width: 100%; padding: 14px 24px;
-            border-radius: 8px; background: #2563eb; color: #fff;
+            border-radius: 8px; background: transparent; color: var(--wpfe-emerald);
             font-weight: 600; line-height: 1.5; text-decoration: none;
             transition: background 0.2s ease;
         }
-        #ek-ai-hero .workflow-cta:hover { background: #1d4ed8; }
+        #ek-ai-hero .workflow-cta:hover { background: transparent; }
         #ek-ai-hero .workflow-cta:focus-visible { outline: 3px solid #93c5fd; outline-offset: 4px; }
 
         /* VISUAL ZONE (RIGHT COLUMN - 45%) */
@@ -316,8 +314,8 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
         #mixed-arrow-engine .ma-pos-ret, #mixed-arrow-engine .ma-pos-int, #mixed-arrow-engine .ma-pos-nur { text-align: right; padding-left: 0; padding-right: 18px; }
         #mixed-arrow-engine .ma-pos-ret::before, #mixed-arrow-engine .ma-pos-int::before, #mixed-arrow-engine .ma-pos-nur::before { left: auto; right: 0; }
 
-        #mixed-arrow-engine .ma-heading { font-size: 14px; font-weight: 800; text-transform: uppercase; margin: 0 0 6px 0; line-height: 1.1; letter-spacing: 0.5px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-        #mixed-arrow-engine .ma-desc { font-size: 10px; color: #f7f8f9; margin: 0; line-height: 1.4; font-weight: 500; }
+        #mixed-arrow-engine .ma-heading { font-size: 14px; font-weight: 800; text-transform: uppercase; margin: 0 0 6px 0; line-height: 1.1; letter-spacing: 0.5px; color: #000000; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        #mixed-arrow-engine .ma-desc { font-size: 10px; color: #374151; margin: 0; line-height: 1.4; font-weight: 500; }
 
         #mixed-arrow-engine .ma-pos-con { top:15%; left: 8%; transform: translateY(-50%); text-align: left;  width: 125px;}
         #mixed-arrow-engine .ma-pos-ret { top: 70%; right: 10%; transform: translateY(-50%); text-align: right;  width: 125px;}
@@ -347,7 +345,7 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
             font-size: 8px; 
             font-weight: 400; 
             text-transform: uppercase; 
-            fill: #ffffff; 
+            fill: #374151;
             letter-spacing: 2px; 
             pointer-events: none; 
             stroke: none; 
@@ -369,7 +367,7 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
             stroke-linecap: round; 
             stroke-linejoin: round; 
         }
-        #mixed-arrow-engine .ma-hub-val { font-size: 46px; font-weight: 900; fill: #1A73E8; letter-spacing: -1px; }
+        #mixed-arrow-engine .ma-hub-val { font-size: 46px; font-weight: 900; fill: var(--wpfe-emerald); letter-spacing: -1px; }
 
         @media (max-width: 850px) {
             #mixed-arrow-engine .ma-content-block { display: none; }
@@ -382,8 +380,8 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
                     <span
                         className="kicker"
                         style={{
-                            background: 'rgba(37, 99, 235, 0.2)',
-                            color: '#60a5fa',
+                            background: 'transparent',
+                            color: 'var(--wpfe-emerald)',
                             padding: '4px 12px',
                             borderRadius: '4px',
                             textTransform: 'uppercase',
@@ -445,7 +443,7 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
                                 <g transform="translate(400,400)">
                                     <circle r="95" fill="transparent" stroke="#1A73E8" strokeWidth="3" filter="drop-shadow(0 15px 35px rgba(247, 247, 248, 0.25))"></circle>
                                     <text y="-5" textAnchor="middle" className="ma-hub-val" style={{ fontSize: content.hubLabel.length > 6 ? 26 : 38 }}>{content.hubLabel}</text>
-                                    <text y="25" textAnchor="middle" style={{ fontSize: '12px', fontWeight: 900, fill: '#efefef', letterSpacing: '1.5px' }}>{content.hubCaption}</text>
+                                    <text y="25" textAnchor="middle" style={{ fontSize: '12px', fontWeight: 900, fill: '#374151', letterSpacing: '1.5px' }}>{content.hubCaption}</text>
                                 </g>
                             </svg>
                         </div>
