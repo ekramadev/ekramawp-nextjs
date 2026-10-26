@@ -1,4 +1,5 @@
 import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
+import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
 import { getArchitectureTabsContent, getEngineeringCarouselContent } from "@/content/architectureSections";
 import { getFiveCirclesContent } from "@/content/fiveCircles";
 import { getContentDoubleContent } from "@/content/contentDouble";
@@ -61,6 +62,8 @@ export default async function Home() {
         engineeringCarousel={getEngineeringCarouselContent('/', data.page.title)}
         htmlExpertise={getHtmlExpertiseContent('/', data.page.title)}
         htmlCapabilities={getHtmlCapabilitiesContent('/', data.page.title)}
+        traditionalHero={getTraditionalHeroContent('/', data.page.title)}
+        htmlCheatsheet={getHtmlCheatsheetContent('/')}
       />
     </main>
   );

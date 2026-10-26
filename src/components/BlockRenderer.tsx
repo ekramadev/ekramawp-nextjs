@@ -54,6 +54,7 @@ import type { ContentDoubleContent } from "@/content/contentDouble";
 import type { ArchitectureTabsContent, EngineeringCarouselContent } from "@/content/architectureSections";
 
 import type { HtmlExpertiseContent, HtmlCapabilitiesContent } from "@/content/htmlSections";
+import type { TraditionalHeroContent, HtmlCheatsheetContent } from "@/content/serviceShowcases";
 
 interface Props {
   htmlContent: string;
@@ -66,9 +67,11 @@ interface Props {
   engineeringCarousel: EngineeringCarouselContent;
   htmlExpertise: HtmlExpertiseContent;
   htmlCapabilities: HtmlCapabilitiesContent;
+  traditionalHero: TraditionalHeroContent;
+  htmlCheatsheet: HtmlCheatsheetContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -122,7 +125,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         if (classes.includes("section-Simple-Content")) return <SimpleContentSection />;
         if (classes.includes("section-Four-Boxes")) return <FourBoxes />;
         if (classes.includes("section-FAQ")) return <FAQSection />;
-        if (classes.includes("section-TraditionalHeroArea")) return <TraditionalHeroArea />;
+        if (classes.includes("section-TraditionalHeroArea")) return <TraditionalHeroArea content={traditionalHero} />;
         if (classes.includes("section-Boxesimage")) return <Boxesimage />;
         if (classes.includes("section-ThreeColumnBar")) return <ThreeColumnBar />;
         if (classes.includes("section-FiveCirclesBox")) return <FiveCirclesBox content={fiveCircles} />;
@@ -137,6 +140,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         if (classes.includes("section-FAQheadlesswp")) return <FAQheadlesswp />;
         if (classes.includes("section-HtmlContent")) return <HtmlContent content={htmlExpertise} />;
         if (classes.includes("section-HtmlSecondContent")) return <HtmlSecondContent content={htmlCapabilities} />;
+        if (classes.includes("section-HtmlCheatsheet")) return <HtmlCheatsheet content={htmlCheatsheet} />;
         if (classes.includes("section-Logoatfirst")) return <Logoatfirst />;
         if (classes.includes("section-CaseStudyCard")) return <CaseStudyCard />;
 
