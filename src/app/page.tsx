@@ -1,3 +1,4 @@
+import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getArchitectureTabsContent, getEngineeringCarouselContent } from "@/content/architectureSections";
 import { getFiveCirclesContent } from "@/content/fiveCircles";
 import { getContentDoubleContent } from "@/content/contentDouble";
@@ -58,6 +59,8 @@ export default async function Home() {
         contentDouble={getContentDoubleContent('/', data.page.title)}
         architectureTabs={getArchitectureTabsContent('/', data.page.title)}
         engineeringCarousel={getEngineeringCarouselContent('/', data.page.title)}
+        htmlExpertise={getHtmlExpertiseContent('/', data.page.title)}
+        htmlCapabilities={getHtmlCapabilitiesContent('/', data.page.title)}
       />
     </main>
   );

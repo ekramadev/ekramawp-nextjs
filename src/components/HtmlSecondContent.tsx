@@ -1,15 +1,16 @@
 "use client";
 import React from 'react';
+import type { HtmlCapabilitiesContent } from '@/content/htmlSections';
 
-export const HtmlSecondContent = () => {
+export const HtmlSecondContent = ({ content }: { content: HtmlCapabilitiesContent }) => {
   return (
-    <section className="w-full bg-[#020617] py-24 px-5 box-border font-['Inter',sans-serif]">
+    <section data-component="html-capabilities" className="w-full bg-transparent py-24 px-5 box-border font-['Inter',sans-serif]">
       {/* SCOPED CSS */}
       <style dangerouslySetInnerHTML={{ __html: `
         .html-grid-container {
             max-width: 1400px;
             margin: 0 auto;
-            color: #ffffff;
+            color: #374151;
             display: flex;
             flex-direction: column;
             gap: 60px;
@@ -25,19 +26,19 @@ export const HtmlSecondContent = () => {
         .html-heading-top h2 {
             font-size: clamp(2.5rem, 4vw, 3.8rem);
             font-weight: 900;
-            color: #ffffff;
+            color: #000000;
             line-height: 1.1;
             letter-spacing: -0.04em;
             margin-bottom: 20px;
         }
 
         .html-highlight-text {
-            color: #207DE9;
+            color: #10b981;
         }
 
         .html-heading-top p {
             font-size: 1.15rem;
-            color: #94a3b8;
+            color: #374151;
             line-height: 1.7;
             margin: 0;
         }
@@ -70,7 +71,7 @@ export const HtmlSecondContent = () => {
             flex-direction: column;
             gap: 16px;
             padding: 24px;
-            background: rgba(255, 255, 255, 0.02);
+            background: transparent;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: transform 0.3s ease, background 0.3s ease;
@@ -78,7 +79,7 @@ export const HtmlSecondContent = () => {
         }
 
         .html-feature-item:hover {
-            background: rgba(255, 255, 255, 0.04);
+            background: transparent;
             transform: translateY(-4px);
             border-color: rgba(32, 125, 233, 0.3);
         }
@@ -101,7 +102,7 @@ export const HtmlSecondContent = () => {
         .html-feature-item h3 {
             font-size: 1.4rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #000000;
             margin: 0;
             line-height: 1.2;
             letter-spacing: -0.01em;
@@ -109,7 +110,7 @@ export const HtmlSecondContent = () => {
 
         .html-feature-item p {
             font-size: 1rem;
-            color: #cbd5e1;
+            color: #374151;
             line-height: 1.7;
             margin: 0;
             font-weight: 400;
@@ -153,11 +154,11 @@ export const HtmlSecondContent = () => {
 
         /* Fake Code Editor Header */
         .html-gif-display::before {
-            content: "● ● ● \A0\A0\A0 structure.html";
+            content: "● ● ● \A0\A0\A0 ${content.editorFilename}";
             white-space: pre;
             display: block;
             background-color: #1a2333;
-            color: #64748b;
+            color: #cbd5e1;
             font-size: 13px;
             font-weight: 600;
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -181,10 +182,8 @@ export const HtmlSecondContent = () => {
         
         {/* TOP HEADING */}
         <div className="html-heading-top">
-          <h2>Beyond the <span className="html-highlight-text">Tags</span></h2>
-          <p>
-            Mastering HTML is more than knowing syntax; it’s understanding how machines read human intent. It is the invisible scaffolding that dictates pure performance, perfect accessibility, and raw search ranking power.
-          </p>
+          <h2>{content.titleLead} <span className="html-highlight-text">{content.titleAccent}</span></h2>
+          <p>{content.intro}</p>
         </div>
 
         {/* 3-COLUMN GRID */}
@@ -195,10 +194,8 @@ export const HtmlSecondContent = () => {
             <div className="html-feature-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
             </div>
-            <h3>Microdata & Rich Semantics</h3>
-            <p>
-              I embed deep semantics using Microdata, JSON-LD, and Schema.org vocabularies directly into the DOM. This transforms a flat document into a structured data graph, allowing search engines and aggregators to instantly understand the exact context of your content.
-            </p>
+            <h3>{content.features[0].title}</h3>
+            <p>{content.features[0].description}</p>
           </div>
 
           {/* Row 1, Column 2 */}
@@ -206,10 +203,8 @@ export const HtmlSecondContent = () => {
             <div className="html-feature-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             </div>
-            <h3>Advanced Form Engineering</h3>
-            <p>
-              Forms are the critical conversion bottlenecks of the web. I leverage native HTML5 Constraint Validation APIs to provide robust, accessible, and instantaneous client-side feedback before a single line of JavaScript executes, ensuring strict data integrity.
-            </p>
+            <h3>{content.features[1].title}</h3>
+            <p>{content.features[1].description}</p>
           </div>
 
           {/* Row 1, Column 3 */}
@@ -217,10 +212,8 @@ export const HtmlSecondContent = () => {
             <div className="html-feature-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
             </div>
-            <h3>Responsive & Performant Media</h3>
-            <p>
-              Serving the exact right asset to the right device is crucial. I architect complex <code>&lt;picture&gt;</code> elements and utilize strict <code>srcset</code> attributes to deliver highly optimized images, guaranteeing rapid rendering paths and perfect Core Web Vitals.
-            </p>
+            <h3>{content.features[2].title}</h3>
+            <p>{content.features[2].beforeCode}<code>{content.features[2].firstCode}</code>{content.features[2].betweenCode}<code>{content.features[2].secondCode}</code>{content.features[2].afterCode}</p>
           </div>
 
           {/* Row 2, Column 1 */}
@@ -228,10 +221,8 @@ export const HtmlSecondContent = () => {
             <div className="html-feature-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             </div>
-            <h3>Standards Compliance</h3>
-            <p>
-              Writing bulletproof HTML means respecting the living standard while anticipating browser edge cases. I ensure strict HTML5 compliance, forcing browsers into strict standards mode to guarantee predictable rendering across the entire fragmented landscape of devices.
-            </p>
+            <h3>{content.features[3].title}</h3>
+            <p>{content.features[3].description}</p>
           </div>
 
           {/* Row 2, Columns 2 & 3: THE GIF */}
@@ -239,7 +230,7 @@ export const HtmlSecondContent = () => {
             <div className="html-gif-display">
               <img 
                 src="https://admin.wpfedev.com/wp-content/uploads/2026/02/GIFHTML.gif" 
-                alt="HTML Code Typing Animation" 
+                alt={content.visualAlt}
               />
             </div>
           </div>

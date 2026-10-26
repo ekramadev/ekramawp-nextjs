@@ -1,3 +1,4 @@
+import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getArchitectureTabsContent, getEngineeringCarouselContent } from "@/content/architectureSections";
 import { getFiveCirclesContent } from "@/content/fiveCircles";
 import { getContentDoubleContent } from "@/content/contentDouble";
@@ -76,6 +77,8 @@ export default async function DynamicPage({ params }: Props) {
           contentDouble={getContentDoubleContent(uri, data.nodeByUri.title)}
           architectureTabs={getArchitectureTabsContent(uri, data.nodeByUri.title)}
           engineeringCarousel={getEngineeringCarouselContent(uri, data.nodeByUri.title)}
+          htmlExpertise={getHtmlExpertiseContent(uri, data.nodeByUri.title)}
+          htmlCapabilities={getHtmlCapabilitiesContent(uri, data.nodeByUri.title)}
         />
       </div>
     </main>

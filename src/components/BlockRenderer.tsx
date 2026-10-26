@@ -53,6 +53,8 @@ import type { ContentDoubleContent } from "@/content/contentDouble";
 
 import type { ArchitectureTabsContent, EngineeringCarouselContent } from "@/content/architectureSections";
 
+import type { HtmlExpertiseContent, HtmlCapabilitiesContent } from "@/content/htmlSections";
+
 interface Props {
   htmlContent: string;
   workflowHero: WorkflowHeroContent;
@@ -62,9 +64,11 @@ interface Props {
   contentDouble: ContentDoubleContent;
   architectureTabs: ArchitectureTabsContent;
   engineeringCarousel: EngineeringCarouselContent;
+  htmlExpertise: HtmlExpertiseContent;
+  htmlCapabilities: HtmlCapabilitiesContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -131,8 +135,8 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         if (classes.includes("section-Fourblockswphead")) return <Fourblockswphead />;
         if (classes.includes("section-HeadlessWpTabs")) return <HeadlessWpTabs content={architectureTabs} />;
         if (classes.includes("section-FAQheadlesswp")) return <FAQheadlesswp />;
-        if (classes.includes("section-HtmlContent")) return <HtmlContent />;
-        if (classes.includes("section-HtmlSecondContent")) return <HtmlSecondContent />;
+        if (classes.includes("section-HtmlContent")) return <HtmlContent content={htmlExpertise} />;
+        if (classes.includes("section-HtmlSecondContent")) return <HtmlSecondContent content={htmlCapabilities} />;
         if (classes.includes("section-Logoatfirst")) return <Logoatfirst />;
         if (classes.includes("section-CaseStudyCard")) return <CaseStudyCard />;
 
