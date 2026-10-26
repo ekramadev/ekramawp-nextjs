@@ -7,66 +7,9 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// --- DATA ---
-const headlessExpertiseData = [
-  {
-    challenge: "Slow Load Times",
-    solution: "Static Site Generation (SSG)",
-    points: [
-      "Pre-renders pages at build time into static HTML.",
-      "Serves content globally via edge CDNs like Vercel.",
-      "Drastically improves Core Web Vitals and SEO rankings."
-    ],
-    statValue: "<1s",
-    statLabel: "Page Load Speed"
-  },
-  {
-    challenge: "Security Vulnerabilities",
-    solution: "Decoupled Architecture",
-    points: [
-      "Hides WP Admin and database from the public internet.",
-      "Eliminates traditional theme and plugin attack vectors.",
-      "Zero-trust frontend deployment with no database connection."
-    ],
-    statValue: "99.9%",
-    statLabel: "Threat Mitigation"
-  },
-  {
-    challenge: "Restrictive UI/UX",
-    solution: "Next.js & React Frontends",
-    points: [
-      "Breaks free from rigid PHP templates and theme constraints.",
-      "Enables app-like page transitions and micro-interactions.",
-      "Fully bespoke, highly interactive component design."
-    ],
-    statValue: "∞",
-    statLabel: "Design Flexibility"
-  },
-  {
-    challenge: "API Bottlenecks",
-    solution: "WPGraphQL Integration",
-    points: [
-      "Replaces bloated REST API payloads with precise queries.",
-      "Fetches all required relational data in a single network call.",
-      "Accelerates frontend rendering and reduces bandwidth usage."
-    ],
-    statValue: "1",
-    statLabel: "Query Per View"
-  },
-  {
-    challenge: "Multichannel Publishing",
-    solution: "Omnichannel Content Hub",
-    points: [
-      "Write content once in WordPress, publish everywhere.",
-      "Feeds web, iOS, Android, and digital displays simultaneously.",
-      "Maintains a strict, centralized source of truth."
-    ],
-    statValue: "360°",
-    statLabel: "Content Reach"
-  }
-];
+import type { EngineeringCarouselContent } from "@/content/architectureSections";
 
-export const Headwpcarousal = () => {
+export const Headwpcarousal = ({ content }: { content: EngineeringCarouselContent }) => {
   const settings = {
     slidesToShow: 2,
     slidesToScroll: 1,
@@ -94,17 +37,17 @@ export const Headwpcarousal = () => {
   };
 
   return (
-    <section id="ek-strategy-carousel-section">
-      {/* Scoped CSS for Dark Mode */}
+    <section id="ek-strategy-carousel-section" data-component="engineering-carousel">
+      {/* Scoped component palette */}
       <style dangerouslySetInnerHTML={{ __html: `
         #ek-strategy-carousel-section {
-            /* Updated variables for dark mode */
-            --brand-color: #3b82f6;      /* Brighter blue that pops on black */
-            --heading-color: #ffffff;    /* Pure white for main headings */
-            --dark-text: #f8fafc;        /* Almost white for sub-headings inside cards */
-            --gray-text: #94a3b8;        /* Soft gray for paragraph/list text */
+            /* Shared light-page typography and transparent content surfaces */
+            --brand-color: #10b981;
+            --heading-color: #000000;
+            --dark-text: #000000;
+            --gray-text: #374151;
             
-            --card-bg: #121212;          /* Deep dark gray for the cards */
+            --card-bg: transparent;
             --card-border: rgba(255, 255, 255, 0.1); /* Subtle light border */
             --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Deeper shadow for dark mode */
             
@@ -172,7 +115,7 @@ export const Headwpcarousal = () => {
             position: absolute;
             left: 0; right: 0; bottom: 8px;
             height: 12px; 
-            background-color: rgba(59, 130, 246, 0.25); /* Adjusted for dark mode */
+            background-color: transparent;
             opacity: 1;
             z-index: -1;
             transform: skewX(-10deg);
@@ -222,9 +165,8 @@ export const Headwpcarousal = () => {
             right: 0;
             margin: 0;
             padding: 16px 15px;
-            /* Gradient looks great on dark mode */
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            color: #ffffff;
+            background: transparent;
+            color: var(--brand-color);
             font-size: 13px;
             font-weight: 800;
             text-transform: uppercase;
@@ -243,7 +185,7 @@ export const Headwpcarousal = () => {
             left: 25%;
             width: 50%;
             height: 3px;
-            background: rgba(255,255,255,0.35);
+            background: transparent;
             border-radius: 10px 10px 0 0;
         }
 
@@ -381,13 +323,13 @@ export const Headwpcarousal = () => {
 
       <div className="custom-single-carousel-wrapper">
         <div className="king-heading-wrap">
-          <span className="king-kicker">Tailored Engineering</span>
-          <h2>Solving <span className="blue-scratch">Monolithic Problems</span></h2>
-          <p>Real decoupled solutions for common WordPress bottlenecks.</p>
+          <span className="king-kicker">{content.kicker}</span>
+          <h2>{content.titleLead} <span className="blue-scratch">{content.titleAccent}</span></h2>
+          <p>{content.description}</p>
         </div>
 
         <Slider {...settings}>
-          {headlessExpertiseData.map((item, index) => (
+          {content.cards.map((item, index) => (
             <div key={index}>
               <div className="strategy-box">
                 <p className="heading-badge">{item.challenge}</p>

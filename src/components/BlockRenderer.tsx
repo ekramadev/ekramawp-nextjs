@@ -51,6 +51,8 @@ import type { GeoOverlapContent } from "@/content/geoOverlap";
 import type { FiveCirclesContent } from "@/content/fiveCircles";
 import type { ContentDoubleContent } from "@/content/contentDouble";
 
+import type { ArchitectureTabsContent, EngineeringCarouselContent } from "@/content/architectureSections";
+
 interface Props {
   htmlContent: string;
   workflowHero: WorkflowHeroContent;
@@ -58,9 +60,11 @@ interface Props {
   geoOverlap: GeoOverlapContent;
   fiveCircles: FiveCirclesContent;
   contentDouble: ContentDoubleContent;
+  architectureTabs: ArchitectureTabsContent;
+  engineeringCarousel: EngineeringCarouselContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -123,9 +127,9 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         if (classes.includes("section-Shutterupanddown")) return <Shutterupanddown />;
         if (classes.includes("section-Contentdouble")) return <Contentdouble content={contentDouble} />;
         if (classes.includes("section-HeadlessfiveElements")) return <HeadlessfiveElements />;
-        if (classes.includes("section-Headwpcarousal")) return <Headwpcarousal />;
+        if (classes.includes("section-Headwpcarousal")) return <Headwpcarousal content={engineeringCarousel} />;
         if (classes.includes("section-Fourblockswphead")) return <Fourblockswphead />;
-        if (classes.includes("section-HeadlessWpTabs")) return <HeadlessWpTabs />;
+        if (classes.includes("section-HeadlessWpTabs")) return <HeadlessWpTabs content={architectureTabs} />;
         if (classes.includes("section-FAQheadlesswp")) return <FAQheadlesswp />;
         if (classes.includes("section-HtmlContent")) return <HtmlContent />;
         if (classes.includes("section-HtmlSecondContent")) return <HtmlSecondContent />;

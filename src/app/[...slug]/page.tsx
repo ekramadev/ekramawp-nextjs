@@ -1,3 +1,4 @@
+import { getArchitectureTabsContent, getEngineeringCarouselContent } from "@/content/architectureSections";
 import { getFiveCirclesContent } from "@/content/fiveCircles";
 import { getContentDoubleContent } from "@/content/contentDouble";
 import { notFound } from "next/navigation";
@@ -73,6 +74,8 @@ export default async function DynamicPage({ params }: Props) {
           geoOverlap={getGeoOverlapContent(uri, data.nodeByUri.title)}
           fiveCircles={getFiveCirclesContent(uri, data.nodeByUri.title)}
           contentDouble={getContentDoubleContent(uri, data.nodeByUri.title)}
+          architectureTabs={getArchitectureTabsContent(uri, data.nodeByUri.title)}
+          engineeringCarousel={getEngineeringCarouselContent(uri, data.nodeByUri.title)}
         />
       </div>
     </main>
