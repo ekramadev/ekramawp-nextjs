@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import type { SimpleDeliveryContent } from '@/content/deliverySections';
 
 // --- SVG Icons for Infographic ---
 // Updated text-black classes in the nodesData to text-white to pop against the Emerald background
@@ -11,29 +12,29 @@ const GearIcon = ({ className }: { className?: string }) => <svg className={clas
 const ChartIcon = ({ className }: { className?: string }) => <svg className={className} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>;
 
 const nodesData = [
-  { id: '01', title: 'Ideation', desc: 'Conceptualize and refine core application logic.', icon: <LightbulbIcon className="w-5 h-5 md:w-6 md:h-6 text-white" /> },
-  { id: '02', title: 'Targeting', desc: 'Identify user demographics and specific needs.', icon: <TargetIcon className="w-5 h-5 md:w-6 md:h-6 text-white" /> },
-  { id: '03', title: 'Investment', desc: 'Allocate resources for maximum design ROI.', icon: <MoneyIcon className="w-5 h-5 md:w-6 md:h-6 text-white" /> },
-  { id: '04', title: 'Development', desc: 'Build scalable architectures with Next.js.', icon: <GearIcon className="w-5 h-5 md:w-6 md:h-6 text-white" /> },
-  { id: '05', title: 'Growth', desc: 'Scale systems dynamically for peak traffic.', icon: <ChartIcon className="w-5 h-5 md:w-6 md:h-6 text-white" /> }
+  { id: '01', icon: <LightbulbIcon className="w-5 h-5 md:w-6 md:h-6 text-white" /> },
+  { id: '02', icon: <TargetIcon className="w-5 h-5 md:w-6 md:h-6 text-white" /> },
+  { id: '03', icon: <MoneyIcon className="w-5 h-5 md:w-6 md:h-6 text-white" /> },
+  { id: '04', icon: <GearIcon className="w-5 h-5 md:w-6 md:h-6 text-white" /> },
+  { id: '05', icon: <ChartIcon className="w-5 h-5 md:w-6 md:h-6 text-white" /> }
 ];
 
-export const SimpleContentSection = () => {
+export const SimpleContentSection = ({ content }: { content: SimpleDeliveryContent }) => {
   return (
-    <section className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
+    <section data-component="simple-delivery" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
       <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
 
         {/* --- TOP CENTERED HEADER --- */}
         <div className="flex flex-col items-center text-center max-w-[800px] mx-auto mb-16 lg:mb-16">
           {/* Changed text-white to text-gray-900 */}
-          <h2 className="text-gray-900 mb-6 font-bold">
-            Component-Driven<br />
-            <span className="text-[#10B981]">Systems That Scale</span>
+          <h2 className="text-black mb-6 font-bold">
+            {content.title[0]}<br />
+            <span className="text-brand-emerald">{content.title[1]}</span>
           </h2>
 
           {/* Changed text-white/70 to text-gray-600 */}
-          <p className="text-gray-600 text-[18px]">
-            We move beyond simple page building to engineer robust, atomic design systems. By leveraging the advanced rendering capabilities of modern React and Next.js, we ensure your enterprise application is highly modular, deeply maintainable, and built for instantaneous user interactions with absolutely zero technical debt.
+          <p className="text-gray-700 text-[18px]">
+            {content.intro}
           </p>
         </div>
 
@@ -51,8 +52,8 @@ export const SimpleContentSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-gray-900 font-bold mb-2 text-lg">Atomic Design Implementation</h3>
-                  <p className="text-[16px] text-gray-600">We rigorously isolate UI logic into reusable atoms, molecules, and organisms, guaranteeing absolute visual consistency and preventing code duplication.</p>
+                  <h3 className="text-black font-bold mb-2 text-lg">{content.features[0].title}</h3>
+                  <p className="text-[16px] text-gray-700">{content.features[0].body}</p>
                 </div>
               </div>
 
@@ -63,8 +64,8 @@ export const SimpleContentSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-gray-900 font-bold mb-2 text-lg">State Management Optimization</h3>
-                  <p className="text-[16px] text-gray-600">Implementing efficient data flow strategies. We eliminate unnecessary React re-renders to ensure your interface reacts instantly to user input.</p>
+                  <h3 className="text-black font-bold mb-2 text-lg">{content.features[1].title}</h3>
+                  <p className="text-[16px] text-gray-700">{content.features[1].body}</p>
                 </div>
               </div>
 
@@ -75,29 +76,29 @@ export const SimpleContentSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-gray-900 font-bold mb-2 text-lg">Performance First Metrics</h3>
-                  <p className="text-[16px] text-gray-600">Strict adherence to Core Web Vitals. We optimize JS bundles and prevent Cumulative Layout Shifts to guarantee sub-100ms interaction times.</p>
+                  <h3 className="text-black font-bold mb-2 text-lg">{content.features[2].title}</h3>
+                  <p className="text-[16px] text-gray-700">{content.features[2].body}</p>
                 </div>
               </div>
             </div>
 
             <button className="w-fit flex items-center gap-3 bg-[#10B981] text-white font-bold px-8 py-4 rounded-full text-[16px] transition-all duration-300 hover:bg-[#059669] hover:shadow-[0_10px_25px_rgba(16,185,129,0.3)] hover:-translate-y-1 mb-12 mt-6">
-              Explore Our Tech Stack
+              {content.cta}
               <span className="text-xl">&rarr;</span>
             </button>
 
             <div className="grid grid-cols-3 gap-6 border-t border-gray-200 pt-8">
               <div className="flex flex-col">
-                <span className="text-[30px] lg:text-[36px] font-black text-gray-900 mb-2">99<span className="text-[#10B981]">%</span></span>
-                <span className="text-[11px] lg:text-[12px] text-gray-500 font-bold uppercase tracking-wider">Lighthouse<br />Performance</span>
+                <span className="text-[30px] lg:text-[36px] font-black text-black mb-2">{content.cues[0][0]}<span className="text-brand-emerald">{''}</span></span>
+                <span className="text-[11px] lg:text-[12px] text-gray-700 font-bold uppercase tracking-wider">{content.cues[0][1]}<br />{content.cues[0][2]}</span>
               </div>
               <div className="flex flex-col border-l border-gray-200 pl-6">
-                <span className="text-[30px] lg:text-[36px] font-black text-gray-900 mb-2"><span className="text-[#10B981]">&lt;</span>100<span className="text-[#10B981]">ms</span></span>
-                <span className="text-[11px] lg:text-[12px] text-gray-500 font-bold uppercase tracking-wider">Time to<br />Interactive</span>
+                <span className="text-[30px] lg:text-[36px] font-black text-black mb-2"><span className="text-brand-emerald">{''}</span>{content.cues[1][0]}<span className="text-brand-emerald">{''}</span></span>
+                <span className="text-[11px] lg:text-[12px] text-gray-700 font-bold uppercase tracking-wider">{content.cues[1][1]}<br />{content.cues[1][2]}</span>
               </div>
               <div className="flex flex-col border-l border-gray-200 pl-6">
-                <span className="text-[30px] lg:text-[36px] font-black text-gray-900 mb-2">100<span className="text-[#10B981]">%</span></span>
-                <span className="text-[11px] lg:text-[12px] text-gray-500 font-bold uppercase tracking-wider">Type-Safe<br />Codebase</span>
+                <span className="text-[30px] lg:text-[36px] font-black text-black mb-2">{content.cues[2][0]}<span className="text-brand-emerald">{''}</span></span>
+                <span className="text-[11px] lg:text-[12px] text-gray-700 font-bold uppercase tracking-wider">{content.cues[2][1]}<br />{content.cues[2][2]}</span>
               </div>
             </div>
 
@@ -121,7 +122,7 @@ export const SimpleContentSection = () => {
               <div className="absolute left-0 lg:left-[2%] top-[50%] -translate-y-1/2 w-[38%] max-w-[280px] aspect-square rounded-full bg-[#10B981] z-10 flex flex-col items-center justify-center shadow-[0_0_50px_rgba(16,185,129,0.3)] ring-[12px] md:ring-[16px] ring-[#10B981]/20 transition-transform duration-700 group-hover:scale-105">
                 <GlobeIcon className="w-10 h-10 md:w-14 md:h-14 text-white mb-3" />
                 <div className="text-white font-bold text-[14px] md:text-[18px] lg:text-[20px] text-center">
-                  Business<br />Infographic
+                  {content.hub[0]}<br />{content.hub[1]}
                 </div>
                 {/* Dotted Divider - changed to white/40 */}
                 <div className="flex gap-[4px] my-4">
@@ -130,7 +131,7 @@ export const SimpleContentSection = () => {
                   ))}
                 </div>
                 <p className="text-white/90 font-medium text-[10px] md:text-[12px] lg:text-[13px] text-center px-6 md:px-10">
-                  Engineered for scale, speed, and absolute reliability.
+                  {content.hubBody}
                 </p>
               </div>
 
@@ -155,17 +156,17 @@ export const SimpleContentSection = () => {
                     <div className="ml-[40px] md:ml-[54px] lg:ml-[66px] w-[calc(100%-40px)] md:w-[calc(100%-54px)] lg:w-[calc(100%-66px)] relative flex items-center min-h-[60px] md:min-h-[80px] lg:min-h-[95px]">
 
                       {/* Arrow Clipped Background - Light theme gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-50 shadow-md border border-gray-200 transition-all duration-300 group-hover/node:shadow-lg"
+                      <div className="absolute inset-0 bg-transparent shadow-md border border-gray-200 transition-all duration-300 group-hover/node:shadow-lg"
                         style={{ clipPath: 'polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%)' }}>
                       </div>
 
                       {/* Text Content - Dark Gray */}
                       <div className="relative z-10 pl-[38px] md:pl-[48px] lg:pl-[56px] pr-[15%] py-3 flex flex-col justify-center">
-                        <h4 className="text-gray-900 font-bold mb-[4px] transition-colors group-hover/node:text-[#10B981]">
-                          {node.title}
+                        <h4 className="text-black font-bold mb-[4px] transition-colors group-hover/node:text-[#10B981]">
+                          {content.nodes[i].title}
                         </h4>
-                        <p className="text-gray-600 font-medium text-[10px] md:text-[12px] lg:text-[13px]">
-                          {node.desc}
+                        <p className="text-gray-700 font-medium text-[10px] md:text-[12px] lg:text-[13px]">
+                          {content.nodes[i].body}
                         </p>
                       </div>
 

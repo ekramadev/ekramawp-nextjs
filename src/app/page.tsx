@@ -1,6 +1,7 @@
 import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
 import { getAiShiftContent, getPentagonGrowthContent } from "@/content/decisionSections";
+import { getSimpleDeliveryContent, getDeliveryComparisonContent } from "@/content/deliverySections";
 import { getArchitectureTabsContent, getEngineeringCarouselContent } from "@/content/architectureSections";
 import { getFiveCirclesContent } from "@/content/fiveCircles";
 import { getContentDoubleContent } from "@/content/contentDouble";
@@ -67,6 +68,8 @@ export default async function Home() {
         htmlCheatsheet={getHtmlCheatsheetContent('/')}
         aiShift={getAiShiftContent('/', data.page.title)}
         pentagonGrowth={getPentagonGrowthContent('/', data.page.title)}
+        simpleDelivery={getSimpleDeliveryContent('/')}
+        deliveryComparison={getDeliveryComparisonContent('/')}
       />
     </main>
   );
