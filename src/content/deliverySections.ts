@@ -31,7 +31,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Build analytics around the business question, source records and reporting periods that give a result its meaning.",
     features: [p("Trace the Source Records", "Identify where each dataset comes from, what a record represents and which transformations prepare it for analysis."), p("Define Comparable Measures", "Agree on units, populations and time windows before comparing operational activity or presenting a trend."), p("Explain the Result", "Present findings with definitions and interpretation limits so users can distinguish an observation from an assumption.")],
     hub: ["Analytics", "Workflow"], hubBody: "Connect source context to analytical decisions.",
-    nodes: [p("Question", "Define the business question and the decision it supports."), p("Records", "Locate relevant fields, owners and reporting periods."), p("Preparation", "Check missing values and document transformation rules."), p("Analysis", "Compare measures on a consistent analytical basis."), p("Review", "Trace findings to the records and assumptions behind them.")],
+    nodes: [p("Question", "Define the business question behind analysis."), p("Records", "Identify sources, fields and reporting dates."), p("Preparation", "Document cleanup and transformation choices."), p("Analysis", "Compare measures on the same analytical basis."), p("Review", "Trace each finding to its supporting records.")],
     cta: "Plan Data Analytics", cues: [["Data", "Source", "Context"], ["SQL", "Query", "Logic"], ["Use", "Decision", "Support"]],
   },
   "/services/data-science/": {
@@ -39,7 +39,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Plan statistical and predictive work around a defined question, suitable data and an evaluation process that reflects the intended use.",
     features: [p("Frame the Analytical Problem", "Specify the outcome being investigated, available observations and the assumptions that shape a useful analytical approach."), p("Prepare Modeling Data", "Review target definitions, missing records and possible leakage before selecting features or separating evaluation data."), p("Evaluate in Context", "Compare model behavior with a suitable baseline and document where the available evidence does not support a conclusion.")],
     hub: ["Science", "Workflow"], hubBody: "Keep data, modeling choices and evaluation connected.",
-    nodes: [p("Problem", "Translate the research question into an analytical task."), p("Evidence", "Review observations, labels and collection limitations."), p("Features", "Prepare inputs without leaking evaluation information."), p("Model", "Fit an approach suited to the problem and available data."), p("Evaluation", "Inspect errors and record the limits of the findings.")],
+    nodes: [p("Problem", "Frame the statistical or predictive question."), p("Evidence", "Check observations, labels and data limits."), p("Features", "Prepare model inputs without data leakage."), p("Model", "Fit models suited to the available evidence."), p("Evaluation", "Inspect prediction errors and research limits.")],
     cta: "Plan Data Science", cues: [["Data", "Modeling", "Inputs"], ["ML", "Predictive", "Methods"], ["QA", "Evaluation", "Review"]],
   },
   "/secure-portals/": {
@@ -47,7 +47,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect B2B and B2C portal journeys to explicit roles, protected records and understandable account and service workflows.",
     features: [p("Model Portal Responsibilities", "Define what customers, partners and internal staff can view or change before building shared account screens."), p("Connect Protected Services", "Place authorization and input checks at the service boundaries that read or update protected portal records."), p("Review the Complete Journey", "Check sign-in, account recovery, submissions and unsuccessful states alongside the expected portal workflow.")],
     hub: ["Portal", "Workflow"], hubBody: "Connect user roles to protected application tasks.",
-    nodes: [p("Users", "Identify the people and organizations using the portal."), p("Roles", "Assign explicit visibility and action responsibilities."), p("Records", "Connect each view to the appropriate account data."), p("Actions", "Validate protected changes at the service boundary."), p("Sessions", "Review access, recovery and session-ending behavior.")],
+    nodes: [p("Users", "Identify portal users and their organizations."), p("Roles", "Assign record visibility and action rights."), p("Records", "Link views to the correct account records."), p("Actions", "Validate changes to protected portal data."), p("Sessions", "Review sign-in, recovery and session closure.")],
     cta: "Plan a Secure Portal", cues: [["Role", "Access", "Rules"], ["API", "Protected", "Actions"], ["Log", "Activity", "Context"]],
   },
   "/services/digital-transformation/": {
@@ -55,7 +55,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Turn manual handoffs and disconnected business tools into a practical sequence of workflow, data and system changes.",
     features: [p("Map Work Before Automation", "Document current decisions, handoffs and exceptions with the teams responsible for completing the work."), p("Connect the Operating Systems", "Define how information should move between existing tools and where responsibility for each record belongs."), p("Introduce Change in Stages", "Sequence delivery around operational dependencies and review adoption with the people using each new workflow.")],
     hub: ["Digital", "Workflow"], hubBody: "Coordinate business change with the teams doing the work.",
-    nodes: [p("Current State", "Document manual work and disconnected system handoffs."), p("Target Tasks", "Define the operation that a digital change must support."), p("Dependencies", "Identify the tools, records and teams affected."), p("Delivery", "Introduce testable changes in a manageable sequence."), p("Adoption", "Review usage, exceptions and remaining manual steps.")],
+    nodes: [p("Current State", "Map the existing operational process."), p("Target Tasks", "Identify records needed across departments."), p("Dependencies", "Define interfaces between connected systems."), p("Delivery", "Sequence changes around business priorities."), p("Adoption", "Review digital handoffs with their owners.")],
     cta: "Plan Digital Change", cues: [["Map", "Operating", "Workflow"], ["API", "System", "Exchange"], ["Ops", "Team", "Adoption"]],
   },
   "/crm-engineering/": {
@@ -63,7 +63,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Bring customer records, team activity and service handoffs into CRM workflows that reflect how the business manages relationships.",
     features: [p("Structure Customer Information", "Define accounts, contacts and relationship links so staff can understand which records belong to the same customer context."), p("Coordinate Team Activity", "Connect notes, tasks, opportunities and service events to clear owners and the next relevant action."), p("Integrate Without Losing Meaning", "Map external customer updates to explicit field rules, duplicate handling and reviewable synchronization outcomes.")],
     hub: ["CRM", "Workflow"], hubBody: "Keep customer records and team actions connected.",
-    nodes: [p("Accounts", "Model customer organizations and their relationships."), p("Contacts", "Link people to the accounts and records they concern."), p("Activities", "Record relevant conversations, tasks and follow-ups."), p("Handoffs", "Assign the next sales or service action clearly."), p("Exchange", "Review customer updates arriving from connected tools.")],
+    nodes: [p("Accounts", "Structure contacts and company relationships."), p("Contacts", "Define pipeline stages and sales activities."), p("Activities", "Set conditions for CRM automation actions."), p("Handoffs", "Connect CRM records to external services."), p("Exchange", "Trace customer-record and workflow changes.")],
     cta: "Plan CRM Engineering", cues: [["CRM", "Customer", "Records"], ["API", "Contact", "Exchange"], ["Ops", "Team", "Handoffs"]],
   },
   "/computer-vision/": {
@@ -71,7 +71,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect image data, detection logic and operator review so a visual inspection system supports the task around each result.",
     features: [p("Define the Visual Task", "Specify the objects, defects or image conditions the system needs to identify and the situations that require human review."), p("Prepare Representative Images", "Review image sources, annotation rules and variations in lighting, angle or capture conditions before evaluation."), p("Connect Results to Review", "Present detections with source images and relevant uncertainty so operators can inspect exceptions in context.")],
     hub: ["Vision", "Workflow"], hubBody: "Link image evidence to inspection and review actions.",
-    nodes: [p("Capture", "Identify image sources and relevant capture conditions."), p("Annotation", "Define consistent labels for the inspection task."), p("Training", "Prepare image sets around the intended visual problem."), p("Inspection", "Connect model output to the original visual evidence."), p("Exceptions", "Route uncertain or unexpected detections for review.")],
+    nodes: [p("Capture", "Identify image sources and capture conditions."), p("Annotation", "Define labels for the visual inspection task."), p("Training", "Prepare representative training images."), p("Inspection", "Link detections to their source images."), p("Exceptions", "Review uncertain or unexpected detections.")],
     cta: "Plan Visual Inspection", cues: [["Img", "Visual", "Evidence"], ["ML", "Detection", "Logic"], ["QA", "Operator", "Review"]],
   },
   "/services/machine-learning/": {
@@ -79,7 +79,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Develop ML workflows with clear inputs, evaluation criteria and an application path for using or reviewing model output.",
     features: [p("Specify the Prediction Task", "Define the decision a prediction supports, the information available at that point and the outcomes that matter."), p("Check the Model Against Use", "Separate training and evaluation data appropriately and examine errors in the operating conditions the application will face."), p("Connect Predictions to Actions", "Give downstream services explicit output contracts, failure handling and a review path for cases the model cannot resolve.")],
     hub: ["ML", "Workflow"], hubBody: "Connect model behavior to the decision it supports.",
-    nodes: [p("Decision", "Identify the operational decision behind a prediction."), p("Inputs", "Check what information is available when it is needed."), p("Learning", "Train candidate models with documented data choices."), p("Errors", "Evaluate failures against the intended operating context."), p("Use", "Connect predictions to reviewable application actions.")],
+    nodes: [p("Decision", "Define the decision a prediction supports."), p("Inputs", "Check inputs available at prediction time."), p("Learning", "Train models with documented data choices."), p("Errors", "Evaluate errors in the intended use context."), p("Use", "Connect predictions to reviewable actions.")],
     cta: "Plan an ML Workflow", cues: [["ML", "Prediction", "Task"], ["QA", "Model", "Evaluation"], ["API", "Output", "Contract"]],
   },
   "/marketing-software/": {
@@ -87,7 +87,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Build audience, campaign and automation tools around defined data, approval steps and useful reporting context.",
     features: [p("Organize Campaign Records", "Connect audience segments, content versions, channels and schedules so operators can follow a campaign from draft to delivery."), p("Make Automation Explicit", "Define trigger conditions, eligibility rules and exits before connecting automated campaign actions to customer records."), p("Explain Marketing Measures", "Keep event definitions, source coverage and attribution assumptions visible when presenting campaign activity.")],
     hub: ["Campaign", "Workflow"], hubBody: "Bring audience, content and campaign actions together.",
-    nodes: [p("Audience", "Define segments and communication preferences clearly."), p("Content", "Manage campaign material through draft and review states."), p("Schedule", "Connect channels and timing to the intended campaign."), p("Automation", "Record trigger conditions and automated action history."), p("Measures", "Explain reporting events and attribution assumptions.")],
+    nodes: [p("Audience", "Define audience segments and contact choices."), p("Content", "Manage campaign drafts and review states."), p("Schedule", "Coordinate campaign channels and schedules."), p("Automation", "Record trigger rules and campaign actions."), p("Measures", "Explain event and attribution definitions.")],
     cta: "Plan Marketing Tools", cues: [["CRM", "Audience", "Context"], ["Ops", "Campaign", "Actions"], ["BI", "Reporting", "Measures"]],
   },
   "/services/business-intelligence/": {
@@ -95,7 +95,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect dashboard requirements, consistent measures and reporting ownership so business teams can interpret the information they receive.",
     features: [p("Start with Reporting Questions", "Agree on the users, decisions and reporting cadence before selecting dashboard charts or building a data model."), p("Make Measures Consistent", "Define calculation rules and relationships so totals, comparisons and filtered views describe the same business concepts."), p("Prepare Reports for Use", "Review navigation, filter context and refresh expectations with the people responsible for interpreting the reports.")],
     hub: ["BI", "Workflow"], hubBody: "Connect reporting definitions to everyday business use.",
-    nodes: [p("Requirements", "Record the decisions and users each BI report supports."), p("Definitions", "Agree on calculation rules and reporting terminology."), p("Model", "Connect records at an explicitly defined level of detail."), p("Reports", "Present measures with clear periods and filter context."), p("Ownership", "Assign report review, refresh and maintenance duties.")],
+    nodes: [p("Requirements", "Define reporting questions and business users."), p("Definitions", "Agree on measures and reporting terminology."), p("Model", "Connect records at a defined reporting grain."), p("Reports", "Show periods, filters and calculation context."), p("Ownership", "Assign report maintenance and refresh duties.")],
     cta: "Plan BI Reporting", cues: [["BI", "Business", "Measures"], ["SQL", "Data", "Model"], ["Ops", "Report", "Ownership"]],
   },
   "/power-bi-dashboards/": {
@@ -103,7 +103,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Build Power BI reports around connected sources, defined semantic models and a publishing and refresh process the team can maintain.",
     features: [p("Connect and Prepare Sources", "Identify required source tables, access dependencies and preparation steps before shaping the report dataset."), p("Validate Model Measures", "Review relationships, date context and calculations against source examples, including filtered and aggregated results."), p("Plan Sharing and Refresh", "Match report distribution, data visibility and refresh responsibilities to the intended audience and source environment.")],
     hub: ["Power BI", "Workflow"], hubBody: "Join source preparation, model logic and report delivery.",
-    nodes: [p("Connect", "Identify Power BI sources and connection dependencies."), p("Prepare", "Shape source records into the required reporting fields."), p("Measures", "Validate semantic-model calculations and relationships."), p("Explore", "Give readers clear visual, slicer and detail context."), p("Refresh", "Assign refresh checks and review data freshness.")],
+    nodes: [p("Connect", "Identify Power BI sources and dependencies."), p("Prepare", "Shape records for the reporting dataset."), p("Measures", "Check model relationships and calculations."), p("Explore", "Explain report visuals, slicers and detail."), p("Refresh", "Review data freshness and refresh outcomes.")],
     cta: "Plan Power BI Views", cues: [["BI", "Semantic", "Model"], ["DAX", "Measure", "Logic"], ["Ops", "Refresh", "Review"]],
   },
   "/digital-retail/": {
@@ -111,7 +111,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect product information and purchase journeys to the inventory, order and service workflows that support each retail channel.",
     features: [p("Keep Product Context Together", "Structure catalog attributes, media and availability so channels can present coherent product information."), p("Connect the Purchase Journey", "Coordinate cart, checkout, payment status and order confirmation with explicit behavior for unsuccessful or interrupted steps."), p("Support Retail Operations", "Give fulfillment and service teams relevant order, stock and customer context when a purchase needs follow-up.")],
     hub: ["Retail", "Workflow"], hubBody: "Connect the storefront to stock and order operations.",
-    nodes: [p("Products", "Structure the catalog information each channel needs."), p("Availability", "Connect displayed stock context to operational records."), p("Purchase", "Coordinate cart and checkout states across the journey."), p("Fulfillment", "Link orders to packing, dispatch and service activity."), p("Follow-up", "Keep returns and customer questions tied to the order.")],
+    nodes: [p("Products", "Structure product information for channels."), p("Availability", "Connect stock displays to inventory records."), p("Purchase", "Coordinate cart and checkout outcomes."), p("Fulfillment", "Link orders to packing and service work."), p("Follow-up", "Track returns and questions by order.")],
     cta: "Plan Digital Retail", cues: [["SKU", "Product", "Context"], ["API", "Channel", "Exchange"], ["Ops", "Order", "Follow-up"]],
   },
   "/telecom-tech/": {
@@ -119,7 +119,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Bring service events, network information and support tasks into telecom workflows with clear responsibilities and operational states.",
     features: [p("Model Telecom Service Context", "Connect customer services and network-facing records so operations teams can identify what an event affects."), p("Coordinate Incident Work", "Define incident states, routing rules and ownership so investigations retain their history across team handoffs."), p("Integrate Operational Platforms", "Set explicit data contracts and exception paths between network, service and customer-support systems.")],
     hub: ["Telecom", "Workflow"], hubBody: "Connect service context to network and support tasks.",
-    nodes: [p("Service", "Identify the customer service affected by an event."), p("Signals", "Bring relevant network information into the workflow."), p("Incidents", "Record investigation state and resolution ownership."), p("Handoffs", "Keep context with work moving between telecom teams."), p("Interfaces", "Review data exchanged with operational platforms.")],
+    nodes: [p("Service", "Identify the service affected by an event."), p("Signals", "Connect network signals to service context."), p("Incidents", "Track incident state and resolution owners."), p("Handoffs", "Keep context across telecom team handoffs."), p("Interfaces", "Review operational-platform data exchange.")],
     cta: "Plan Telecom Systems", cues: [["OSS", "Service", "Operations"], ["API", "Platform", "Exchange"], ["Log", "Incident", "History"]],
   },
   "/retail-banking-it/": {
@@ -127,7 +127,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Build customer banking tasks around clear account context, service boundaries and reviewable access and transaction behavior.",
     features: [p("Clarify the Banking Journey", "Organize account, payment and service-request steps so customers understand the available action and its current status."), p("Place Controls at Service Boundaries", "Apply identity, permission and input checks where sensitive banking information is retrieved or changed."), p("Keep Actions Reviewable", "Record significant state changes and exceptions with the context operations teams need for investigation.")],
     hub: ["Banking", "Workflow"], hubBody: "Connect customer actions to controlled banking services.",
-    nodes: [p("Account", "Present the account context relevant to the task."), p("Identity", "Connect sensitive actions to the required identity checks."), p("Request", "Validate inputs and service action responsibilities."), p("Outcome", "Explain pending, completed and unsuccessful results."), p("Review", "Keep important banking actions available for review.")],
+    nodes: [p("Account", "Present account details relevant to the task."), p("Identity", "Apply identity checks to sensitive actions."), p("Request", "Validate banking requests and permissions."), p("Outcome", "Explain pending and completed action states."), p("Review", "Keep significant banking actions reviewable.")],
     cta: "Plan Banking Software", cues: [["ID", "Customer", "Access"], ["API", "Banking", "Actions"], ["Log", "Control", "History"]],
   },
   "/services/software-modernization/": {
@@ -135,7 +135,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Plan legacy-system improvements around essential behavior, known dependencies and staged migration or replacement work.",
     features: [p("Understand the Existing System", "Identify business-critical behavior, integration dependencies and data ownership before deciding what to retain or replace."), p("Sequence the Modernization Work", "Break architecture, interface and data changes into increments that can be reviewed against operational requirements."), p("Support the New Operating Model", "Include deployment, diagnostics and maintenance responsibilities in the modernization plan rather than treating them as later additions.")],
     hub: ["Renewal", "Workflow"], hubBody: "Preserve essential behavior while changing the platform.",
-    nodes: [p("Baseline", "Document existing behavior and integration dependencies."), p("Boundaries", "Isolate the capability or service being modernized."), p("Migration", "Plan data movement and compatibility requirements."), p("Checks", "Compare each increment with essential system behavior."), p("Operation", "Prepare deployment, diagnostics and support handover.")],
+    nodes: [p("Baseline", "Map legacy behavior and system dependencies."), p("Boundaries", "Isolate the capability being modernized."), p("Migration", "Plan data movement and compatibility checks."), p("Checks", "Compare changes with essential behavior."), p("Operation", "Prepare deployment and support handover.")],
     cta: "Plan Modernization", cues: [["Map", "Legacy", "Behavior"], ["API", "Service", "Boundaries"], ["Ops", "Migration", "Handover"]],
   },
   "/services/ai-development/": {
@@ -143,7 +143,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Develop AI application capabilities around the inputs, service actions and human review needed for a specific enterprise task.",
     features: [p("Define the AI Responsibility", "Specify which part of the workflow the AI capability supports and which decisions remain with users or other application services."), p("Connect Data and Tool Boundaries", "Plan input handling, external model or tool calls and permissions as explicit application interfaces."), p("Evaluate Useful Outcomes", "Review representative tasks, unsuccessful outputs and fallback behavior before assessing whether a capability is ready for its intended use.")],
     hub: ["AI", "Workflow"], hubBody: "Connect AI output to application controls and review.",
-    nodes: [p("Task", "Define the enterprise task and the AI capability's role."), p("Inputs", "Select relevant data and validate submitted content."), p("Services", "Connect model and tool calls through explicit contracts."), p("Evaluation", "Review outputs and failures on representative tasks."), p("Fallback", "Provide a clear path when the capability cannot proceed.")],
+    nodes: [p("Task", "Define the task assigned to the AI service."), p("Inputs", "Select relevant data and validate inputs."), p("Services", "Set contracts for model and tool calls."), p("Evaluation", "Review results on representative tasks."), p("Fallback", "Explain recovery when AI cannot proceed.")],
     cta: "Plan AI Development", cues: [["AI", "Defined", "Task"], ["API", "Tool", "Boundary"], ["QA", "Output", "Review"]],
   },
   "/services/it-project-management/": {
@@ -151,7 +151,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect scope, dependencies and delivery milestones so project teams can follow decisions, progress and the work still ahead.",
     features: [p("Agree on the Delivery Scope", "Define project outcomes, acceptance expectations and the people responsible for scope decisions before scheduling implementation."), p("Track Work and Dependencies", "Keep milestones, blockers and cross-team dependencies connected to the work they affect and the owner who can act."), p("Make Changes Reviewable", "Record decisions, risks and scope changes so stakeholders can understand why a delivery plan has changed.")],
     hub: ["Project", "Workflow"], hubBody: "Connect delivery plans to owners, decisions and progress.",
-    nodes: [p("Outcomes", "Agree on project outcomes and acceptance expectations."), p("Plan", "Sequence milestones and identify delivery dependencies."), p("Ownership", "Assign decisions, work items and escalation paths."), p("Progress", "Review completed work, blockers and remaining tasks."), p("Changes", "Record scope and schedule decisions with their context.")],
+    nodes: [p("Outcomes", "Agree on outcomes and acceptance criteria."), p("Plan", "Sequence milestones and dependencies."), p("Ownership", "Assign work, decisions and escalation owners."), p("Progress", "Review completed work and delivery blockers."), p("Changes", "Record scope and schedule decisions.")],
     cta: "Plan IT Delivery", cues: [["Plan", "Delivery", "Milestones"], ["Ops", "Work", "Ownership"], ["Log", "Decision", "History"]],
   },
   "/services/agile-consulting/": {
@@ -159,7 +159,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Review how teams plan, build and release software, then shape working practices around dependencies, feedback and delivery responsibilities.",
     features: [p("Understand the Current Workflow", "Examine how work enters the backlog, moves between teams and reaches release before recommending process changes."), p("Make Planning Usable", "Connect priorities, acceptance examples and team capacity so planning describes work that can be discussed and reviewed."), p("Use Feedback to Adapt", "Bring delivery observations and retrospective actions into the next planning cycle, with an owner for each agreed improvement.")],
     hub: ["Agile", "Workflow"], hubBody: "Connect team planning to delivery feedback and learning.",
-    nodes: [p("Observe", "Map the team's current planning and release practices."), p("Prioritize", "Connect backlog choices to business and user needs."), p("Coordinate", "Identify dependencies and responsibilities between teams."), p("Review", "Inspect working increments against acceptance examples."), p("Adapt", "Assign and revisit practical process improvements.")],
+    nodes: [p("Observe", "Map current planning and release practices."), p("Prioritize", "Tie backlog priorities to user needs."), p("Coordinate", "Identify cross-team dependencies and owners."), p("Review", "Review increments against acceptance examples."), p("Adapt", "Revisit agreed process improvements.")],
     cta: "Review Agile Delivery", cues: [["Team", "Working", "Practices"], ["Ops", "Delivery", "Flow"], ["QA", "Feedback", "Cycle"]],
   },
   "/services/artificial-intelligence/": {
@@ -167,7 +167,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Plan cognitive services, text processing and automation around the records, permissions and review points of the business workflow.",
     features: [p("Choose a Defined Use Case", "Identify the information an AI service should interpret and the operational action that may follow its output."), p("Set Information Boundaries", "Specify which records and services the capability may use, including access rules and handling of sensitive inputs."), p("Design Review and Recovery", "Evaluate representative cases and define what users should see when output is incomplete, unsuitable or unavailable.")],
     hub: ["Enterprise", "AI Flow"], hubBody: "Connect cognitive services to operational decisions.",
-    nodes: [p("Use Case", "Define the business process and intended AI assistance."), p("Knowledge", "Identify relevant records and their access boundaries."), p("Processing", "Connect text or cognitive services to workflow inputs."), p("Decisions", "Keep automated actions within agreed operational rules."), p("Recovery", "Route unsuitable output to review or an alternate path.")],
+    nodes: [p("Use Case", "Define the process and intended AI support."), p("Knowledge", "Set knowledge sources and access limits."), p("Processing", "Connect cognitive services to business inputs."), p("Decisions", "Keep AI actions within operational rules."), p("Recovery", "Route unsuitable output to review.")],
     cta: "Plan Enterprise AI", cues: [["AI", "Cognitive", "Services"], ["API", "Controlled", "Actions"], ["QA", "Human", "Review"]],
   },
   "/services/compliance-services/": {
@@ -175,7 +175,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Translate applicable information-handling requirements into system settings, review responsibilities and evidence that teams can inspect.",
     features: [p("Map Requirements to Systems", "Identify the obligations relevant to the system, its information and its operating environment before selecting controls."), p("Review Configuration Choices", "Connect access, retention and logging settings to documented requirements and the people responsible for maintaining them."), p("Organize Control Evidence", "Keep review records, exceptions and remediation work connected to the requirement they address.")],
     hub: ["Controls", "Workflow"], hubBody: "Link requirements, system settings and review evidence.",
-    nodes: [p("Requirements", "Identify applicable information-handling obligations."), p("Controls", "Map requirements to specific system configurations."), p("Evidence", "Collect records that explain control operation."), p("Exceptions", "Assign review and remediation of identified gaps."), p("Reassessment", "Revisit controls when systems or requirements change.")],
+    nodes: [p("Requirements", "Identify applicable information requirements."), p("Controls", "Map requirements to system settings."), p("Evidence", "Collect evidence of control operation."), p("Exceptions", "Assign remediation of identified gaps."), p("Reassessment", "Revisit controls when requirements change.")],
     cta: "Review System Controls", cues: [["Map", "Control", "Scope"], ["Log", "Review", "Evidence"], ["Ops", "Remediation", "Work"]],
   },
   "/data-science-ops/": {
@@ -183,7 +183,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Organize analytical data preparation and model execution so teams can trace the inputs, versions and operating conditions behind each result.",
     features: [p("Prepare Repeatable Data Steps", "Document cleanup, transformation and validation rules so analytical datasets can be prepared and inspected consistently."), p("Track Model Execution Context", "Connect model artifacts, configuration and dataset versions to training, evaluation and operational runs."), p("Plan Operational Follow-up", "Define run checks, failure handling and ownership for investigating changes in inputs or model behavior.")],
     hub: ["Data Ops", "Workflow"], hubBody: "Trace analytical work from source records to model runs.",
-    nodes: [p("Records", "Check source data and document cleanup decisions."), p("Pipelines", "Sequence preparation and validation operations."), p("Versions", "Associate datasets, model artifacts and configuration."), p("Runs", "Record execution results and unsuccessful processing."), p("Monitoring", "Review data changes and operating exceptions.")],
+    nodes: [p("Records", "Check records and document cleanup rules."), p("Pipelines", "Sequence data preparation and validation."), p("Versions", "Link datasets, artifacts and configurations."), p("Runs", "Record model runs and processing failures."), p("Monitoring", "Review changing inputs and model behavior.")],
     cta: "Plan Data Science Ops", cues: [["Data", "Prepared", "Records"], ["ML", "Versioned", "Artifacts"], ["Ops", "Run", "Follow-up"]],
   },
   "/ml-engineering/": {
@@ -191,7 +191,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect model training and evaluation to the services, deployment steps and operating checks required to use predictions in an application.",
     features: [p("Build the Training Pipeline", "Define feature preparation, training configuration and artifact storage around the model's intended prediction task."), p("Package the Prediction Contract", "Specify input formats, output interpretation and error responses for the services that consume the model."), p("Review Production Behavior", "Plan deployment checks, model-version changes and investigation of prediction or data issues after release.")],
     hub: ["ML Eng", "Workflow"], hubBody: "Connect training artifacts to operating prediction services.",
-    nodes: [p("Features", "Prepare model inputs through documented transformations."), p("Training", "Record training settings and resulting model artifacts."), p("Validation", "Evaluate errors on data suited to the intended use."), p("Serving", "Expose predictions through a defined service contract."), p("Operations", "Review deployments, inputs and prediction exceptions.")],
+    nodes: [p("Features", "Document model-input transformations."), p("Training", "Record training settings and artifacts."), p("Validation", "Evaluate errors against intended use."), p("Serving", "Define the prediction-service contract."), p("Operations", "Review model releases and input exceptions.")],
     cta: "Plan ML Engineering", cues: [["ML", "Training", "Pipeline"], ["API", "Prediction", "Service"], ["Ops", "Model", "Delivery"]],
   },
   "/saas-architecture/": {
@@ -199,7 +199,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Shape multi-tenant applications around account isolation, shared-service responsibilities and an operating model suited to the product.",
     features: [p("Define the Tenant Model", "Map organizations, users and account relationships before choosing data partitioning and tenant-context rules."), p("Connect Shared Capabilities", "Identify which services are shared and how permissions, configuration and background work retain the correct tenant context."), p("Plan Product Operations", "Consider onboarding, account changes and deployment responsibilities alongside the application's core service boundaries.")],
     hub: ["SaaS", "Workflow"], hubBody: "Keep tenant context connected across the application.",
-    nodes: [p("Tenants", "Define account relationships and tenant identifiers."), p("Data", "Review partitioning and cross-tenant access boundaries."), p("Services", "Pass tenant context through shared application work."), p("Lifecycle", "Model onboarding, configuration and account changes."), p("Delivery", "Plan deployment and support for the tenant model.")],
+    nodes: [p("Tenants", "Define tenant identifiers and account links."), p("Data", "Review data partitioning and access rules."), p("Services", "Pass tenant context through shared services."), p("Lifecycle", "Model onboarding and account changes."), p("Delivery", "Plan tenant-aware deployment and support.")],
     cta: "Plan SaaS Architecture", cues: [["Org", "Tenant", "Context"], ["API", "Shared", "Services"], ["Ops", "Account", "Lifecycle"]],
   },
   "/node-js-experts/": {
@@ -207,7 +207,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Build server-side JavaScript around explicit API contracts, asynchronous work and the database or event systems the application uses.",
     features: [p("Structure Service Responsibilities", "Separate request handling, business rules and persistence concerns so each Node.js service has a clear purpose."), p("Handle Asynchronous Work", "Plan event handling, background jobs and failure paths around the work that must complete outside an immediate request."), p("Review the Runtime Journey", "Check validation, database interactions and unsuccessful responses together with deployment and diagnostic requirements.")],
     hub: ["Node.js", "Workflow"], hubBody: "Connect requests, events and persistence in the runtime.",
-    nodes: [p("Requests", "Define routes, input validation and response contracts."), p("Logic", "Organize the application rules behind service actions."), p("Storage", "Connect database operations to request responsibilities."), p("Events", "Handle asynchronous jobs and unsuccessful processing."), p("Runtime", "Review service configuration and diagnostic context.")],
+    nodes: [p("Requests", "Define Node.js routes and response contracts."), p("Logic", "Organize business rules behind API actions."), p("Storage", "Link database work to service responsibilities."), p("Events", "Handle background jobs and event failures."), p("Runtime", "Review runtime settings and diagnostics.")],
     cta: "Plan Node.js Services", cues: [["API", "Request", "Contracts"], ["JS", "Runtime", "Logic"], ["Ops", "Event", "Handling"]],
   },
   "/adobe-commerce-tech/": {
@@ -215,7 +215,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect Adobe Commerce catalogs, customer journeys and order integrations to the rules that govern the storefront and back office.",
     features: [p("Organize Commerce Data", "Model product attributes, catalog relationships and store-specific information around how shoppers find and evaluate products."), p("Review Checkout Behavior", "Connect cart rules, payment states and order placement with clear handling of interrupted or unsuccessful purchases."), p("Coordinate Back-office Exchange", "Define how inventory, fulfillment and transaction records move between Adobe Commerce and operational systems.")],
     hub: ["Commerce", "Workflow"], hubBody: "Link the catalog and checkout to order operations.",
-    nodes: [p("Catalog", "Structure product data for the intended store views."), p("Cart", "Apply purchase and pricing rules to the order context."), p("Checkout", "Coordinate payment states and order confirmation."), p("Exchange", "Connect inventory and fulfillment system records."), p("Support", "Keep transaction context available for service tasks.")],
+    nodes: [p("Catalog", "Structure products for the store views."), p("Cart", "Apply pricing rules to the cart context."), p("Checkout", "Coordinate payment and order states."), p("Exchange", "Connect inventory and fulfillment records."), p("Support", "Retain transaction details for service work.")],
     cta: "Plan Adobe Commerce", cues: [["SKU", "Catalog", "Records"], ["API", "Order", "Exchange"], ["Ops", "Store", "Support"]],
   },
   "/custom-erp/": {
@@ -223,7 +223,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect enterprise resources, financial records and material movement through shared definitions and explicit department responsibilities.",
     features: [p("Map Department Processes", "Document how requests, materials and financial entries move between teams before translating them into ERP workflows."), p("Agree on Shared Records", "Define master records and transaction relationships so departments can interpret the same resource and activity consistently."), p("Build Reviewable Handoffs", "Make approvals, posting states and exceptions visible to the teams responsible for completing each enterprise process.")],
     hub: ["ERP", "Workflow"], hubBody: "Connect resources, department actions and shared records.",
-    nodes: [p("Processes", "Map resource and finance work across departments."), p("Records", "Define shared items, accounts and transaction context."), p("Approvals", "Assign responsibility for requests and posting actions."), p("Movement", "Track materials and resources through process states."), p("Review", "Connect exceptions to their originating ERP records.")],
+    nodes: [p("Processes", "Map department resource and finance tasks."), p("Records", "Define shared items and account records."), p("Approvals", "Assign request and posting responsibilities."), p("Movement", "Track materials through ERP process states."), p("Review", "Trace ERP exceptions to source records.")],
     cta: "Plan Custom ERP", cues: [["ERP", "Shared", "Records"], ["Ops", "Department", "Handoffs"], ["Log", "Posting", "History"]],
   },
   "/transportation-management/": {
@@ -231,7 +231,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Coordinate cargo, vehicle schedules and route choices with the transit events dispatchers need to follow each shipment.",
     features: [p("Match Loads to Transport", "Connect shipment dimensions, cargo requirements and vehicle availability before preparing a transport assignment."), p("Coordinate Routes and Schedules", "Record stops, timing constraints and route changes with the context dispatchers and drivers need to act."), p("Keep Transit Events Together", "Link departure, delay and arrival updates to the shipment so operations can review progress and unresolved exceptions.")],
     hub: ["Transport", "Workflow"], hubBody: "Connect cargo plans to dispatch and transit records.",
-    nodes: [p("Loads", "Record cargo requirements and shipment destinations."), p("Vehicles", "Match available transport to the planned load."), p("Routes", "Coordinate stops, schedules and routing constraints."), p("Transit", "Track departure, delay and arrival events by shipment."), p("Exceptions", "Keep dispatch changes and unresolved issues in view.")],
+    nodes: [p("Loads", "Record cargo needs and shipment destinations."), p("Vehicles", "Match available vehicles to planned loads."), p("Routes", "Coordinate stops and route constraints."), p("Transit", "Track shipment departure and arrival events."), p("Exceptions", "Review dispatch changes and transit issues.")],
     cta: "Plan Transport Software", cues: [["Load", "Cargo", "Context"], ["Ops", "Dispatch", "Planning"], ["Log", "Transit", "Events"]],
   },
   "/supply-chain-tech/": {
@@ -239,7 +239,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect purchasing, inventory and warehouse activity so teams can follow materials and the records that explain each handoff.",
     features: [p("Trace Supply Records", "Connect suppliers, items and purchase references to the stock and fulfillment processes that depend on them."), p("Coordinate Inventory Movement", "Represent receipts, transfers and reservations with explicit quantities, locations and transaction states."), p("Review Fulfillment Exceptions", "Keep shortages, mismatched records and delayed handoffs connected to the order or material they affect.")],
     hub: ["Supply", "Workflow"], hubBody: "Trace materials through purchasing and fulfillment.",
-    nodes: [p("Sources", "Identify suppliers, items and purchase references."), p("Receipts", "Connect incoming materials to expected quantities."), p("Inventory", "Track item locations, reservations and transfers."), p("Fulfillment", "Link warehouse work to the required order lines."), p("Exceptions", "Review shortages and mismatches with their source.")],
+    nodes: [p("Sources", "Identify suppliers and purchase references."), p("Receipts", "Match material receipts to expected amounts."), p("Inventory", "Track locations, reservations and transfers."), p("Fulfillment", "Connect warehouse tasks to order lines."), p("Exceptions", "Review stock shortages and record mismatches.")],
     cta: "Plan Supply Chain Tools", cues: [["Item", "Material", "Records"], ["Ops", "Stock", "Movement"], ["Log", "Handoff", "History"]],
   },
   "/wms-solutions/": {
@@ -247,7 +247,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect bin locations, inventory records and packing checks so warehouse teams can follow each item through the fulfillment process.",
     features: [p("Identify Stock and Locations", "Define item identifiers, bin records and inventory states that match the warehouse's receiving and storage work."), p("Guide Fulfillment Tasks", "Connect pick, pack and dispatch actions to the order lines and quantities they are intended to fulfill."), p("Handle Inventory Exceptions", "Record count differences and unsuccessful checks with the location and transaction context needed for follow-up.")],
     hub: ["Warehouse", "Workflow"], hubBody: "Connect bin records to picking and packing checks.",
-    nodes: [p("Receive", "Match incoming stock to the expected receipt records."), p("Store", "Assign inventory to defined warehouse locations."), p("Pick", "Connect requested items and quantities to pick tasks."), p("Pack", "Verify packing records against the order contents."), p("Reconcile", "Investigate location counts and inventory differences.")],
+    nodes: [p("Receive", "Match incoming stock to receipt records."), p("Store", "Assign stock to defined warehouse bins."), p("Pick", "Connect order quantities to picking tasks."), p("Pack", "Verify packing against order contents."), p("Reconcile", "Investigate bin counts and stock differences.")],
     cta: "Plan Warehouse Software", cues: [["Bin", "Location", "Records"], ["SKU", "Inventory", "Identity"], ["Ops", "Packing", "Checks"]],
   },
   "/enterprise-asset-management/": {
@@ -255,7 +255,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect asset records, operating observations and maintenance work so teams can follow equipment from registration to retirement.",
     features: [p("Define the Asset Record", "Bring identifiers, location, ownership and relevant equipment details into a record that supports maintenance and operational work."), p("Coordinate Maintenance Tasks", "Connect service schedules, inspection findings and work orders to the equipment and people responsible for acting."), p("Keep Lifecycle Context", "Record changes in condition, assignment and operating status so asset decisions retain their supporting history.")],
     hub: ["Assets", "Workflow"], hubBody: "Connect equipment records to maintenance decisions.",
-    nodes: [p("Register", "Identify equipment, ownership and operating location."), p("Observe", "Associate condition readings with the relevant asset."), p("Schedule", "Plan inspections and maintenance responsibilities."), p("Service", "Record work orders, findings and service outcomes."), p("Lifecycle", "Track assignment changes and retirement decisions.")],
+    nodes: [p("Register", "Identify equipment, owners and locations."), p("Observe", "Link condition readings to asset records."), p("Schedule", "Plan maintenance and inspection duties."), p("Service", "Record service findings and work outcomes."), p("Lifecycle", "Track assignments and asset retirement.")],
     cta: "Plan Asset Management", cues: [["ID", "Equipment", "Record"], ["Ops", "Service", "Schedule"], ["Log", "Lifecycle", "History"]],
   },
   "/procurement/": {
@@ -263,7 +263,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Coordinate requisitions, supplier bids and purchase approvals with clear records for each step in the corporate buying process.",
     features: [p("Clarify Purchase Requests", "Capture requested items, quantities and business context so approvers can review a requisition against its intended purpose."), p("Compare Supplier Proposals", "Present bid details, terms and supporting documents on a consistent basis without hiding differences in the offer."), p("Connect Approval to Ordering", "Link purchase decisions and order states to the original request, supplier and responsible team.")],
     hub: ["Buying", "Workflow"], hubBody: "Connect requisitions, supplier choices and purchase orders.",
-    nodes: [p("Request", "Record the items and context behind a requisition."), p("Bids", "Collect supplier proposals and relevant purchase terms."), p("Approval", "Route buying decisions to the responsible reviewers."), p("Order", "Connect approved requests to formal purchase records."), p("Follow-up", "Track order status and unresolved supplier questions.")],
+    nodes: [p("Request", "Record requisition items and business needs."), p("Bids", "Collect supplier bids and purchase terms."), p("Approval", "Route purchase decisions to reviewers."), p("Order", "Link approvals to purchase orders."), p("Follow-up", "Track order status and supplier questions.")],
     cta: "Plan Procurement Tools", cues: [["Req", "Purchase", "Request"], ["PO", "Approved", "Order"], ["Log", "Decision", "Trail"]],
   },
   "/enterprise-pm/": {
@@ -271,7 +271,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Bring project schedules, unit responsibilities and progress measures together so enterprise teams can review work across business boundaries.",
     features: [p("Connect Project Measures", "Agree on milestone definitions, reporting periods and progress measures before combining project information across units."), p("Expose Cross-unit Dependencies", "Link deliverables and resource responsibilities to the teams they depend on so handoffs can be discussed in context."), p("Keep Portfolio Reviews Actionable", "Present schedule changes, blockers and decisions with the owner and follow-up task required to move the work forward.")],
     hub: ["Portfolio", "Workflow"], hubBody: "Connect project dashboards to cross-unit delivery work.",
-    nodes: [p("Projects", "Define the projects and business units in the view."), p("Measures", "Agree on milestone and progress reporting rules."), p("Dependencies", "Connect deliverables across participating teams."), p("Decisions", "Record changes, blockers and accountable owners."), p("Follow-up", "Track the actions agreed in portfolio reviews.")],
+    nodes: [p("Projects", "Define projects and participating units."), p("Measures", "Agree on progress and milestone measures."), p("Dependencies", "Connect deliverables across business teams."), p("Decisions", "Record blockers and accountable owners."), p("Follow-up", "Track actions from portfolio reviews.")],
     cta: "Plan Enterprise PM", cues: [["Plan", "Portfolio", "Scope"], ["BI", "Progress", "Measures"], ["Ops", "Unit", "Handoffs"]],
   },
   "/logistics-fleet/": {
@@ -279,7 +279,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect driver records, vehicle telemetry and route updates so fleet teams can interpret operational events and coordinate follow-up.",
     features: [p("Keep Fleet Records Connected", "Associate drivers, vehicles and required operating documents with the assignments they support."), p("Interpret Vehicle Signals", "Present fuel and telemetry readings with their source, time and vehicle context rather than as isolated dashboard numbers."), p("Coordinate Operational Changes", "Keep route adjustments, vehicle issues and dispatcher decisions linked to the active assignment and responsible person.")],
     hub: ["Fleet", "Workflow"], hubBody: "Connect vehicle signals to driver and dispatch activity.",
-    nodes: [p("Drivers", "Track driver profiles and relevant operating records."), p("Vehicles", "Connect vehicle details to active fleet assignments."), p("Telemetry", "Associate fuel readings and signals with time and source."), p("Routes", "Record route changes and their dispatch context."), p("Follow-up", "Assign review of vehicle and driver exceptions.")],
+    nodes: [p("Drivers", "Track driver profiles and operating records."), p("Vehicles", "Link vehicles to active fleet assignments."), p("Telemetry", "Record fuel and telemetry source context."), p("Routes", "Keep route changes with dispatch records."), p("Follow-up", "Assign driver and vehicle follow-up.")],
     cta: "Plan Fleet Software", cues: [["ID", "Driver", "Records"], ["IoT", "Vehicle", "Signals"], ["Ops", "Route", "Updates"]],
   },
   "/enterprise-commerce/": {
@@ -287,7 +287,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Build wholesale ordering around company accounts, agreed pricing and the billing and invoice workflows that follow a purchase.",
     features: [p("Model Company Purchasing", "Connect buyer roles, account permissions and purchase requirements to the organization placing an order."), p("Apply Contract Pricing Context", "Represent company-specific prices and terms explicitly so buyers can understand the commercial basis of a purchase."), p("Connect Orders and Invoices", "Keep order, billing and reconciliation records linked so finance and service teams can investigate differences.")],
     hub: ["Wholesale", "Workflow"], hubBody: "Connect company buying terms to ordering and invoicing.",
-    nodes: [p("Accounts", "Define company buyers and purchasing responsibilities."), p("Terms", "Connect contract prices and billing rules to the buyer."), p("Orders", "Capture wholesale quantities and purchase references."), p("Invoices", "Link billing records to the originating order."), p("Matching", "Review invoice and order differences with context.")],
+    nodes: [p("Accounts", "Define company buyers and purchasing roles."), p("Terms", "Link contract prices to company accounts."), p("Orders", "Capture quantities and purchase references."), p("Invoices", "Connect invoices to originating orders."), p("Matching", "Review order and invoice differences.")],
     cta: "Plan B2B Commerce", cues: [["B2B", "Company", "Accounts"], ["PO", "Purchase", "Context"], ["Log", "Invoice", "Matching"]],
   },
   "/headless-cms/": {
@@ -295,7 +295,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect structured content, media and publishing states to the APIs and frontend applications that present them.",
     features: [p("Model Reusable Content", "Define content types, relationships and media fields around editorial needs and the channels that will consume the records."), p("Connect Preview and Publishing", "Give editors a clear route from draft review to published content, including the frontend's refresh expectations."), p("Define Delivery Contracts", "Specify how frontend clients request content and handle missing records, media alternatives and unpublished material.")],
     hub: ["Content", "Workflow"], hubBody: "Connect editorial records to frontend content delivery.",
-    nodes: [p("Models", "Structure content fields and editorial relationships."), p("Media", "Connect assets, descriptions and content references."), p("Preview", "Review draft content in the intended frontend context."), p("Publish", "Coordinate content state with delivery and refresh."), p("Channels", "Serve content through explicit API contracts.")],
+    nodes: [p("Models", "Define content fields and relationships."), p("Media", "Link media assets and their descriptions."), p("Preview", "Review drafts in the frontend context."), p("Publish", "Coordinate publishing and frontend refresh."), p("Channels", "Define API delivery for each channel.")],
     cta: "Plan Headless Content", cues: [["CMS", "Editorial", "Models"], ["API", "Content", "Delivery"], ["Ops", "Publish", "Workflow"]],
   },
   "/corporate-intranets/": {
@@ -303,7 +303,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Organize company documents, communications and employee resources around the access and publishing responsibilities of internal teams.",
     features: [p("Structure Internal Information", "Connect resource categories, document ownership and employee directory fields to the tasks people need to complete."), p("Define Staff Access", "Set visibility and contribution rules for internal information, including sensitive resources and department-specific material."), p("Keep Communications Current", "Give authors and reviewers clear publishing and update responsibilities for announcements, policies and shared resources.")],
     hub: ["Intranet", "Workflow"], hubBody: "Connect staff access to documents and company resources.",
-    nodes: [p("Resources", "Organize company information around staff tasks."), p("Directory", "Connect employee details to relevant team context."), p("Access", "Define internal visibility and contribution rules."), p("Publishing", "Route documents and announcements through review."), p("Updates", "Assign ownership for keeping resources current.")],
+    nodes: [p("Resources", "Organize resources around employee tasks."), p("Directory", "Connect directory entries to team context."), p("Access", "Set internal visibility and editing rules."), p("Publishing", "Route documents through publishing review."), p("Updates", "Assign ownership of resource updates.")],
     cta: "Plan an Intranet", cues: [["Docs", "Internal", "Resources"], ["ID", "Staff", "Access"], ["Ops", "Content", "Ownership"]],
   },
   "/financial-planning-analyses/": {
@@ -311,7 +311,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect forecasts, expense scenarios and budget tracking to the source figures and assumptions finance teams need to review.",
     features: [p("Define Planning Inputs", "Organize actual figures, budget categories and time periods before building a forecast or comparing financial scenarios."), p("Make Scenario Logic Explicit", "Keep assumptions and variable changes visible so reviewers can understand why projected expenses or balances differ."), p("Connect Plans to Reviews", "Present budget variances with their calculation basis and assign follow-up to the people responsible for the underlying activity.")],
     hub: ["FP&A", "Workflow"], hubBody: "Connect financial projections to their planning assumptions.",
-    nodes: [p("Inputs", "Identify source figures and financial planning periods."), p("Assumptions", "Record variables and rules behind each scenario."), p("Forecast", "Calculate projections from the selected planning inputs."), p("Variance", "Compare planned and actual figures on the same basis."), p("Review", "Assign investigation of material planning differences.")],
+    nodes: [p("Inputs", "Identify source figures and planning periods."), p("Assumptions", "Record scenario variables and assumptions."), p("Forecast", "Calculate projections from planning inputs."), p("Variance", "Compare budgets and actuals consistently."), p("Review", "Assign review of financial differences.")],
     cta: "Plan Financial Tools", cues: [["Plan", "Budget", "Inputs"], ["BI", "Scenario", "Context"], ["Log", "Variance", "Review"]],
   },
   "/transaction-systems/": {
@@ -319,7 +319,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect payment events, ledger records and settlement status so teams can trace transaction processing and handle exceptions with context.",
     features: [p("Model Transaction States", "Define how a request moves through validation, processing and completion, including repeated or unsuccessful submissions."), p("Keep Ledger Events Connected", "Associate transaction identifiers and relevant accounting events so balances and status changes can be investigated."), p("Review Settlement Exceptions", "Connect provider responses and settlement records to the originating transaction, including unresolved or mismatched outcomes.")],
     hub: ["Payments", "Workflow"], hubBody: "Trace transaction requests through processing and settlement.",
-    nodes: [p("Request", "Validate the payment request and its business context."), p("Identity", "Associate identifiers across transaction services."), p("Processing", "Track pending, completed and unsuccessful outcomes."), p("Ledger", "Connect financial events to transaction records."), p("Settlement", "Review provider and settlement reconciliation states.")],
+    nodes: [p("Request", "Validate payment requests and their context."), p("Identity", "Connect identifiers across payment services."), p("Processing", "Track pending and unsuccessful outcomes."), p("Ledger", "Link ledger events to transaction records."), p("Settlement", "Review settlement reconciliation states.")],
     cta: "Plan Transaction Tools", cues: [["Txn", "Processing", "States"], ["API", "Provider", "Exchange"], ["Log", "Settlement", "Review"]],
   },
   "/enterprise-accounting/": {
@@ -327,7 +327,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Build bookkeeping workflows around defined posting rules, currency context and a traceable relationship between entries and source records.",
     features: [p("Define Posting Responsibilities", "Connect journals, account structures and approval roles so each accounting entry has a clear origin and review path."), p("Keep Currency Context Visible", "Associate amounts with currencies, applicable rates and calculation periods when preparing balances or consolidated views."), p("Trace Changes and Reconciliation", "Retain source references and change history so finance teams can review adjustments and investigate balance differences.")],
     hub: ["Accounts", "Workflow"], hubBody: "Connect source entries to balances and accounting reviews.",
-    nodes: [p("Sources", "Link accounting entries to their originating records."), p("Posting", "Apply account rules and review responsibilities."), p("Currency", "Retain currency and rate context for amounts."), p("Balances", "Calculate account totals for the selected period."), p("Audit Trail", "Trace adjustments and reconciliation decisions.")],
+    nodes: [p("Sources", "Link entries to source accounting records."), p("Posting", "Apply posting rules and approval duties."), p("Currency", "Retain currency and exchange-rate context."), p("Balances", "Calculate totals for the selected period."), p("Audit Trail", "Trace adjustments and reconciliation work.")],
     cta: "Plan Accounting Tools", cues: [["GL", "Ledger", "Entries"], ["FX", "Currency", "Context"], ["Log", "Adjustment", "History"]],
   },
   "/business-intelligence/": {
@@ -335,7 +335,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect commercial questions to query pipelines and dashboards that explain the data, measures and assumptions behind a decision.",
     features: [p("Frame the Commercial Question", "Identify the investment or operating decision a dashboard supports before choosing the data and comparisons it will show."), p("Build Traceable Query Paths", "Document source relationships and transformations so a displayed measure can be followed back to the relevant records."), p("Make Interpretation Clear", "Present reporting periods, filters and calculation definitions alongside the visual information used in commercial reviews.")],
     hub: ["Insight", "Workflow"], hubBody: "Connect commercial decisions to explainable reporting data.",
-    nodes: [p("Decision", "Specify the commercial question behind the dashboard."), p("Sources", "Identify records relevant to the business comparison."), p("Queries", "Document how records become reporting measures."), p("Views", "Show findings with periods, filters and definitions."), p("Discussion", "Keep assumptions visible during investment reviews.")],
+    nodes: [p("Decision", "Define the dashboard's commercial question."), p("Sources", "Identify records for the business comparison."), p("Queries", "Trace queries to reporting measures."), p("Views", "Show periods, filters and measure definitions."), p("Discussion", "Keep assumptions visible in investment review.")],
     cta: "Plan Business Insights", cues: [["BI", "Commercial", "Questions"], ["SQL", "Query", "Trace"], ["Use", "Investment", "Context"]],
   },
   "/applied-ai/": {
@@ -343,7 +343,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect document interpretation and conversational assistance to the business records, interfaces and review actions people already use.",
     features: [p("Ground the Application Task", "Define the document field, user question or interface action the AI capability supports and the information needed to answer it."), p("Connect Output to Context", "Keep extracted text or generated responses connected to their source material and the relevant application record."), p("Keep Review in the Workflow", "Provide a way to inspect uncertain extraction, unsuitable responses and unsuccessful service calls before acting on them.")],
     hub: ["Applied AI", "Workflow"], hubBody: "Connect text and conversation to reviewable business work.",
-    nodes: [p("Material", "Identify documents or questions for the business task."), p("Interpret", "Extract or generate information in the required context."), p("Sources", "Keep output associated with relevant source records."), p("Interface", "Present assistance within the user's existing task."), p("Confirm", "Review uncertain results before subsequent actions.")],
+    nodes: [p("Material", "Identify documents and business questions."), p("Interpret", "Interpret information for the selected task."), p("Sources", "Associate AI output with source records."), p("Interface", "Present assistance within the user's task."), p("Confirm", "Review uncertain results before acting.")],
     cta: "Plan Applied AI", cues: [["Text", "Source", "Material"], ["AI", "Task", "Assistance"], ["QA", "Result", "Confirmation"]],
   },
   "/hris-software/": {
@@ -351,7 +351,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect recruiting, employee records, payroll inputs and leave balances through clear roles and consistent personnel information.",
     features: [p("Connect the Employee Record", "Organize candidate and employee information with explicit relationships between recruitment, employment and payroll profiles."), p("Model HR Actions Clearly", "Define approval and effective-date rules for leave requests, personnel changes and payroll-related updates."), p("Review Sensitive Changes", "Keep access responsibilities and change history connected to the HR records that require administrative follow-up.")],
     hub: ["HRIS", "Workflow"], hubBody: "Connect personnel records to recruitment and HR actions.",
-    nodes: [p("Recruitment", "Track candidates and hiring-stage responsibilities."), p("People", "Maintain the employee profile and employment context."), p("Payroll", "Connect approved personnel data to payroll inputs."), p("Leave", "Record requests, approvals and balance calculations."), p("History", "Review sensitive changes with their effective dates.")],
+    nodes: [p("Recruitment", "Track candidates and hiring-stage owners."), p("People", "Maintain employee and employment records."), p("Payroll", "Connect approved data to payroll inputs."), p("Leave", "Track leave approvals and balance rules."), p("History", "Review changes and their effective dates.")],
     cta: "Plan HR Information", cues: [["HR", "Personnel", "Records"], ["Ops", "Approval", "Steps"], ["Log", "Effective", "Changes"]],
   },
   "/corporate-lms/": {
@@ -359,7 +359,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect learning tracks, participation records and qualification reviews so teams can organize employee training and follow progress.",
     features: [p("Structure Learning Tracks", "Define courses, required activities and track relationships around the professional-development program being delivered."), p("Connect Learners and Progress", "Associate assignments, participation and completion records with the relevant employee and training requirements."), p("Review Qualification Evidence", "Keep assessment rules and results connected to the learning activity rather than treating a score as a standalone credential.")],
     hub: ["Learning", "Workflow"], hubBody: "Connect training activities to participation and assessment.",
-    nodes: [p("Tracks", "Organize courses and required learning activities."), p("Assignment", "Connect employees to the relevant training program."), p("Activity", "Record participation and progress through the material."), p("Assessment", "Apply documented rules to qualification checks."), p("Review", "Show completion evidence and follow-up learning needs.")],
+    nodes: [p("Tracks", "Organize courses and learning activities."), p("Assignment", "Assign employees to relevant training."), p("Activity", "Track participation through learning material."), p("Assessment", "Apply documented assessment rules."), p("Review", "Review completion and further learning needs.")],
     cta: "Plan Corporate Learning", cues: [["LMS", "Learning", "Tracks"], ["Ops", "Training", "Progress"], ["QA", "Assessment", "Evidence"]],
   },
   "/med-devices-software/": {
@@ -367,7 +367,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect embedded device requirements, diagnostic calculations and verification work to the intended operating conditions and review responsibilities.",
     features: [p("Specify Device Responsibilities", "Define inputs, outputs and operating states alongside the hardware and clinical context in which the software will be used."), p("Trace Calculation Requirements", "Keep diagnostic logic, units and boundary conditions connected to documented requirements and review examples."), p("Plan Verification Evidence", "Organize checks, observed failures and configuration records around the device behavior being evaluated.")],
     hub: ["Device", "Workflow"], hubBody: "Connect embedded behavior to requirements and checks.",
-    nodes: [p("Purpose", "Document the device's intended software responsibilities."), p("Signals", "Define input units, ranges and interface conditions."), p("Logic", "Trace calculations and device states to requirements."), p("Verification", "Evaluate behavior and record observed exceptions."), p("Configuration", "Associate reviewed software with its device setup.")],
+    nodes: [p("Purpose", "Define the device's software responsibilities."), p("Signals", "Specify signal units and operating ranges."), p("Logic", "Trace calculations to device requirements."), p("Verification", "Record checks and observed device failures."), p("Configuration", "Link reviewed software to device settings.")],
     cta: "Plan Device Software", cues: [["Spec", "Device", "Behavior"], ["QA", "Verification", "Evidence"], ["Log", "Version", "Context"]],
   },
   "/behavioral-health-it/": {
@@ -375,7 +375,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Organize patient portal tasks, treatment milestones and consultation schedules around appropriate record access and care-team responsibilities.",
     features: [p("Connect Patient and Care Records", "Structure relevant patient information and treatment milestones so authorized teams can follow the care workflow."), p("Coordinate Consultation Tasks", "Link appointments, scheduling changes and patient communications to the consultation they support."), p("Review Access and Record Changes", "Define visibility and update permissions for sensitive information and keep significant changes available for review.")],
     hub: ["Care", "Workflow"], hubBody: "Connect patient access, milestones and consultations.",
-    nodes: [p("Patients", "Connect portal tasks to the appropriate patient record."), p("Access", "Define care-team and patient information visibility."), p("Milestones", "Record treatment milestones in their care context."), p("Visits", "Coordinate consultation scheduling and changes."), p("Follow-up", "Assign administrative and care-workflow follow-up.")],
+    nodes: [p("Patients", "Connect portal tasks to patient records."), p("Access", "Define patient and care-team visibility."), p("Milestones", "Record milestones in their treatment context."), p("Visits", "Coordinate consultation schedules and changes."), p("Follow-up", "Assign care-workflow and administrative tasks.")],
     cta: "Plan Care Workflows", cues: [["Care", "Treatment", "Context"], ["ID", "Record", "Access"], ["Ops", "Visit", "Coordination"]],
   },
   "/lab-info-systems/": {
@@ -383,7 +383,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect specimen locations, experimental records and instrument exchange so laboratory teams can follow material and its analytical context.",
     features: [p("Track Specimen Identity", "Associate specimen identifiers, storage locations and movement records with the relevant laboratory work."), p("Structure Experimental Records", "Keep procedures, observations and result context linked to the sample and experiment that produced them."), p("Connect Instrument Interfaces", "Define the formats, identifiers and exception handling needed when analytical equipment exchanges information with the system.")],
     hub: ["Lab", "Workflow"], hubBody: "Connect specimen records to experiments and instruments.",
-    nodes: [p("Specimens", "Assign identifiers and relevant sample information."), p("Storage", "Record locations and specimen movement history."), p("Experiments", "Connect procedures and observations to laboratory work."), p("Instruments", "Match equipment outputs to the correct sample records."), p("Review", "Investigate missing context and analytical exceptions.")],
+    nodes: [p("Specimens", "Assign specimen identifiers and sample context."), p("Storage", "Track storage locations and sample movement."), p("Experiments", "Link observations to laboratory procedures."), p("Instruments", "Match instrument outputs to sample records."), p("Review", "Review missing context and lab exceptions.")],
     cta: "Plan Laboratory Systems", cues: [["ID", "Specimen", "Identity"], ["Lab", "Experiment", "Records"], ["API", "Instrument", "Exchange"]],
   },
   "/pharma-biotech/": {
@@ -391,7 +391,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Organize biostatistical data, study-phase records and compound information with clear relationships and access responsibilities.",
     features: [p("Structure Research Datasets", "Define variables, units and study context so analytical records retain the information needed for review."), p("Track Study and Compound Records", "Connect phase milestones, compound identifiers and supporting documents without losing their originating context."), p("Control Research Information", "Set access and change responsibilities for sensitive study material and keep relevant processing history available.")],
     hub: ["Research", "Workflow"], hubBody: "Connect study context to compounds and analytical records.",
-    nodes: [p("Studies", "Define study identifiers and research-phase context."), p("Compounds", "Associate compound records and supporting material."), p("Variables", "Document analytical fields, units and definitions."), p("Processing", "Trace transformations applied to research datasets."), p("Review", "Keep access decisions and research changes reviewable.")],
+    nodes: [p("Studies", "Define study identifiers and phase context."), p("Compounds", "Link compounds to supporting material."), p("Variables", "Document research fields and measurement units."), p("Processing", "Trace research-data transformations."), p("Review", "Review access and study-record changes.")],
     cta: "Plan Research Software", cues: [["Data", "Study", "Variables"], ["ID", "Compound", "Records"], ["Log", "Research", "Changes"]],
   },
   "/medtech-startups/": {
@@ -399,7 +399,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Plan health-technology interfaces around a defined initial product, integration needs and the delivery decisions a startup must make.",
     features: [p("Define the Initial Product", "Identify the intended users, core health workflow and review requirements before choosing the first implementation scope."), p("Plan Interoperable Interfaces", "Document the records, formats and access expectations of the health systems the product needs to exchange information with."), p("Sequence Startup Delivery", "Connect implementation increments to available resources and decision points while recording requirements for later work.")],
     hub: ["MedTech", "Workflow"], hubBody: "Connect product scope to health-system integration work.",
-    nodes: [p("Scope", "Define users and the initial health-product workflow."), p("Interfaces", "Identify exchange formats and integration dependencies."), p("Access", "Plan handling of sensitive product information."), p("Delivery", "Sequence implementation around startup priorities."), p("Review", "Inspect increments against the agreed product scope.")],
+    nodes: [p("Scope", "Define the initial health-product task."), p("Interfaces", "Map exchange formats and dependencies."), p("Access", "Plan access to sensitive health information."), p("Delivery", "Sequence work around startup priorities."), p("Review", "Review increments against product scope.")],
     cta: "Plan a MedTech Product", cues: [["MVP", "Product", "Scope"], ["API", "Health", "Interfaces"], ["Plan", "Delivery", "Increments"]],
   },
   "/public-health-systems/": {
@@ -407,7 +407,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect community reporting, diagnostic logs and health-service information with documented definitions and appropriate data access.",
     features: [p("Define Community Measures", "Agree on reporting populations, time periods and geographic units before aggregating public-health trends."), p("Connect Reporting Sources", "Keep diagnostic-log fields and incoming reports associated with their source, collection context and validation rules."), p("Support Information Access", "Organize service links and reporting views around the responsibilities of public-health teams and the people using the information.")],
     hub: ["Health", "Workflow"], hubBody: "Connect community records to reporting and service access.",
-    nodes: [p("Sources", "Identify community reports and diagnostic-log inputs."), p("Definitions", "Set population, period and geographic reporting rules."), p("Aggregation", "Prepare trend data with its collection context."), p("Services", "Connect relevant health-service access information."), p("Review", "Check reporting exceptions and interpretation limits.")],
+    nodes: [p("Sources", "Identify community and diagnostic-log inputs."), p("Definitions", "Define population, period and area rules."), p("Aggregation", "Keep collection context with trend data."), p("Services", "Connect health-service access information."), p("Review", "Review coverage and reporting exceptions.")],
     cta: "Plan Public Health IT", cues: [["Data", "Community", "Records"], ["BI", "Trend", "Context"], ["Ops", "Reporting", "Review"]],
   },
   "/wellness-apps/": {
@@ -415,7 +415,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect workout, biometric and habit records to understandable mobile journeys and the information users choose to share.",
     features: [p("Organize Activity Records", "Define the exercises, measurements and habit entries the app records, including units and the context of each observation."), p("Make Progress Understandable", "Present activity history and trends with clear periods and definitions rather than implying medical conclusions from isolated readings."), p("Respect User Data Choices", "Connect account settings and information-sharing choices to the collection and use of personal wellness records.")],
     hub: ["Wellness", "Workflow"], hubBody: "Connect personal activity records to useful app views.",
-    nodes: [p("Activity", "Capture workouts and relevant activity details."), p("Measures", "Keep biometric observations associated with their units."), p("Habits", "Record routines and user-entered habit history."), p("Progress", "Explain trends with their time periods and context."), p("Choices", "Connect data-sharing settings to the user's records.")],
+    nodes: [p("Activity", "Capture workout details and activity context."), p("Measures", "Keep biometric values associated with units."), p("Habits", "Record user routines and habit history."), p("Progress", "Explain progress periods and trend context."), p("Choices", "Connect sharing choices to personal records.")],
     cta: "Plan a Wellness App", cues: [["App", "Activity", "Journey"], ["Log", "Personal", "History"], ["ID", "Sharing", "Choices"]],
   },
   "/insurtech/": {
@@ -423,7 +423,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect claim information, risk inputs and reconciliation tasks so insurance teams can inspect the rules and evidence behind processing steps.",
     features: [p("Structure Claim Evidence", "Associate submitted documents, damage information and validation findings with the claim and review stage they support."), p("Make Calculation Inputs Visible", "Document the variables and rule versions used in premium or risk calculations so their results can be checked."), p("Connect Reconciliation Work", "Keep claim decisions, payment status and unresolved differences linked for administrative follow-up.")],
     hub: ["Insurance", "Workflow"], hubBody: "Connect claim evidence to rules and reconciliation work.",
-    nodes: [p("Claims", "Organize submitted claim details and source evidence."), p("Validation", "Record information checks and missing material."), p("Risk", "Apply documented inputs and calculation rules."), p("Decisions", "Keep review outcomes connected to their basis."), p("Reconcile", "Investigate claim and payment-record differences.")],
+    nodes: [p("Claims", "Organize claim details and source evidence."), p("Validation", "Record validation checks and missing material."), p("Risk", "Apply documented risk-calculation rules."), p("Decisions", "Connect decisions to their review basis."), p("Reconcile", "Review claim and payment differences.")],
     cta: "Plan Insurance Tools", cues: [["Data", "Claim", "Evidence"], ["Rule", "Risk", "Inputs"], ["Log", "Decision", "Context"]],
   },
   "/wealth-management-tech/": {
@@ -431,7 +431,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect fund balances, asset-allocation scenarios and tax records with the valuation dates and assumptions needed for portfolio review.",
     features: [p("Explain Portfolio Balances", "Associate holdings and fund values with their source, currency and valuation date before presenting a combined view."), p("Keep Allocation Changes Explicit", "Record proposed asset-distribution changes and their assumptions separately from completed transactions."), p("Connect Supporting Records", "Keep tax-related information and transaction history linked to portfolio records for review by the responsible team.")],
     hub: ["Portfolio", "Workflow"], hubBody: "Connect holdings and allocation scenarios to source records.",
-    nodes: [p("Holdings", "Identify fund and asset records in the portfolio."), p("Valuation", "Show the source and date behind reported balances."), p("Allocation", "Model proposed distribution changes with assumptions."), p("Records", "Connect transactions and relevant tax information."), p("Review", "Keep portfolio changes available for authorized review.")],
+    nodes: [p("Holdings", "Identify fund and asset holdings."), p("Valuation", "Show balance sources and valuation dates."), p("Allocation", "Record allocation scenarios and assumptions."), p("Records", "Link transactions to relevant tax records."), p("Review", "Review authorized portfolio changes.")],
     cta: "Plan Wealth Platforms", cues: [["Fund", "Holding", "Context"], ["BI", "Allocation", "Scenarios"], ["Log", "Portfolio", "Records"]],
   },
   "/digital-lending/": {
@@ -439,7 +439,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Coordinate credit inputs, lending documents and repayment records through explicit application states and review responsibilities.",
     features: [p("Connect Application Information", "Organize applicant details, supporting documents and outstanding requests around the loan application they belong to."), p("Trace Credit Calculations", "Keep input variables, calculation rules and review outcomes connected so authorized teams can inspect the assessment process."), p("Follow Repayment Records", "Associate schedules, received payments and outstanding balances with their applicable dates and transaction context.")],
     hub: ["Lending", "Workflow"], hubBody: "Connect lending applications to assessment and repayment.",
-    nodes: [p("Application", "Capture applicant information and requested loan context."), p("Documents", "Track supporting records and missing submissions."), p("Assessment", "Review credit inputs and documented calculation rules."), p("Decision", "Record the application outcome and review history."), p("Repayment", "Connect due amounts, payment records and balances.")],
+    nodes: [p("Application", "Capture applicants and requested loan context."), p("Documents", "Track loan documents and missing submissions."), p("Assessment", "Review credit inputs and calculation rules."), p("Decision", "Record lending outcomes and review history."), p("Repayment", "Connect due amounts, payments and balances.")],
     cta: "Plan Digital Lending", cues: [["Loan", "Application", "Context"], ["QA", "Credit", "Review"], ["Log", "Repayment", "Records"]],
   },
   "/fintech-engineering/": {
@@ -447,7 +447,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect banking interfaces, asset ledgers and transaction validation through explicit service contracts and reviewable financial states.",
     features: [p("Define Financial Service Contracts", "Specify request fields, identity context and response states for the banking and financial interfaces the application uses."), p("Keep Ledger Changes Consistent", "Associate asset movements and balance entries with their transaction context and the rules governing a state change."), p("Design Exception Handling", "Plan repeated requests, unavailable services and reconciliation paths alongside expected transaction behavior.")],
     hub: ["FinTech", "Workflow"], hubBody: "Connect financial interfaces to ledgers and validation.",
-    nodes: [p("Interfaces", "Define financial-service inputs and response contracts."), p("Validation", "Check requests and required authorization context."), p("Processing", "Track transaction changes across service boundaries."), p("Ledgers", "Associate asset entries with their originating events."), p("Exceptions", "Review retries, mismatches and unresolved outcomes.")],
+    nodes: [p("Interfaces", "Define financial-service request contracts."), p("Validation", "Check inputs and authorization context."), p("Processing", "Track transactions across service boundaries."), p("Ledgers", "Link asset entries to financial events."), p("Exceptions", "Review retries and unresolved ledger outcomes.")],
     cta: "Plan FinTech Engineering", cues: [["API", "Financial", "Contracts"], ["GL", "Asset", "Entries"], ["QA", "Transaction", "Checks"]],
   },
   "/payment-gateways/": {
@@ -455,7 +455,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect merchant payment requests, token references and provider responses through clear processing states and settlement follow-up.",
     features: [p("Define the Payment Exchange", "Specify merchant identifiers, payment references and the information exchanged with each processing provider."), p("Handle Provider States", "Connect authorization, unsuccessful responses and repeated notifications to the correct payment without losing processing history."), p("Review Settlement Records", "Match provider and merchant records with the transaction references needed to investigate outstanding settlement differences.")],
     hub: ["Gateway", "Workflow"], hubBody: "Connect payment references to provider and settlement states.",
-    nodes: [p("Merchant", "Associate each payment request with merchant context."), p("Tokens", "Use the token references required by the provider."), p("Provider", "Track authorization and processing responses."), p("Events", "Connect notifications and retries to the payment."), p("Settlement", "Match processing outcomes to settlement records.")],
+    nodes: [p("Merchant", "Connect payments to merchant records."), p("Tokens", "Use provider-defined token references."), p("Provider", "Track authorization and payment responses."), p("Events", "Match notifications and retries to payments."), p("Settlement", "Reconcile payments with settlement records.")],
     cta: "Plan Payment Interfaces", cues: [["Pay", "Merchant", "Request"], ["API", "Provider", "States"], ["Log", "Settlement", "Matching"]],
   },
   "/smart-manufacturing/": {
@@ -463,7 +463,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect assembly signals, operating temperatures and fault observations with the equipment and production context needed for operational decisions.",
     features: [p("Identify Production Signals", "Associate sensor readings with equipment, units and capture times so manufacturing data can be interpreted in context."), p("Connect Conditions and Events", "Bring operating measurements and reported faults together without treating a single reading as a confirmed diagnosis."), p("Plan Alert Follow-up", "Define how rules or predictive outputs lead to inspection tasks, including ownership and review of uncertain conditions.")],
     hub: ["Factory", "Workflow"], hubBody: "Connect assembly signals to equipment review actions.",
-    nodes: [p("Equipment", "Identify the production asset behind each signal."), p("Capture", "Record sensor units, timestamps and source context."), p("Conditions", "Connect temperature and operating-state observations."), p("Alerts", "Apply documented rules or reviewed predictive logic."), p("Inspection", "Route fault observations to responsible operators.")],
+    nodes: [p("Equipment", "Identify production assets behind signals."), p("Capture", "Record sensor units and timestamps."), p("Conditions", "Connect operating and temperature readings."), p("Alerts", "Apply reviewed fault rules or model logic."), p("Inspection", "Assign inspection of reported conditions.")],
     cta: "Plan Factory Software", cues: [["IoT", "Assembly", "Signals"], ["Data", "Operating", "Context"], ["Ops", "Fault", "Follow-up"]],
   },
   "/logistics-software/": {
@@ -471,7 +471,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect intermodal loading, supplier delivery records and fulfillment activity so operations can trace cargo through each planned handoff.",
     features: [p("Structure Cargo Plans", "Record cargo units, loading constraints and transport legs with the identifiers needed to follow an intermodal shipment."), p("Connect Delivery Updates", "Associate supplier dispatch and arrival information with the shipment and fulfillment work it affects."), p("Review Handoff Exceptions", "Keep missed events, quantity differences and unresolved delivery issues attached to the cargo record and responsible team.")],
     hub: ["Logistics", "Workflow"], hubBody: "Connect cargo loading to delivery and fulfillment records.",
-    nodes: [p("Cargo", "Identify shipment units and loading requirements."), p("Legs", "Connect transport stages and intermodal handoffs."), p("Suppliers", "Track delivery updates against expected consignments."), p("Fulfillment", "Associate received cargo with downstream order work."), p("Exceptions", "Review missed events and cargo-record differences.")],
+    nodes: [p("Cargo", "Identify cargo units and loading needs."), p("Legs", "Connect stages and intermodal handoffs."), p("Suppliers", "Match supplier updates to consignments."), p("Fulfillment", "Link arrivals to fulfillment work."), p("Exceptions", "Review missed events and cargo differences.")],
     cta: "Plan Logistics Software", cues: [["Load", "Cargo", "Plan"], ["Ops", "Intermodal", "Handoffs"], ["Log", "Delivery", "Updates"]],
   },
   "/energy-utilities/": {
@@ -479,7 +479,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect meter transmissions, grid usage records and maintenance dispatch so utility teams can review information and coordinate field work.",
     features: [p("Explain Usage Records", "Associate consumption values with meter identifiers, units and reporting periods before preparing operational views."), p("Follow Transmission Status", "Keep received, missing and unsuccessful meter messages visible with the source context needed for investigation."), p("Coordinate Field Maintenance", "Connect reported issues and work locations to crew assignments, task states and maintenance outcomes.")],
     hub: ["Utilities", "Workflow"], hubBody: "Connect meter information to grid and field activity.",
-    nodes: [p("Meters", "Identify meter sources and relevant measurement units."), p("Messages", "Review received and missing transmission events."), p("Usage", "Calculate consumption for defined reporting periods."), p("Dispatch", "Assign field work with issue and location context."), p("Maintenance", "Record crew updates and outstanding service tasks.")],
+    nodes: [p("Meters", "Identify meter sources and measurement units."), p("Messages", "Review received and missing transmissions."), p("Usage", "Calculate usage for defined periods."), p("Dispatch", "Assign field work with location context."), p("Maintenance", "Track crew updates and service tasks.")],
     cta: "Plan Utility Software", cues: [["IoT", "Meter", "Messages"], ["BI", "Usage", "Periods"], ["Ops", "Crew", "Dispatch"]],
   },
   "/professional-services-it/": {
@@ -487,7 +487,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Organize engagement time, case information and consultant assignments around the work and responsibilities of professional-service teams.",
     features: [p("Connect Engagement Records", "Define clients, projects or cases and the relationships that give time entries and supporting documents their context."), p("Track Time and Assignment", "Associate recorded effort and consultant availability with the relevant engagement, period and approval responsibility."), p("Prepare Operational Reviews", "Present utilization and work status with clear calculation definitions so managers can investigate the underlying records.")],
     hub: ["Services", "Workflow"], hubBody: "Connect engagements, recorded effort and team assignments.",
-    nodes: [p("Engagements", "Define the project or case behind the service work."), p("Time", "Associate effort entries with periods and activities."), p("People", "Connect consultant assignments and availability."), p("Approval", "Route time and record changes for the required review."), p("Utilization", "Explain workload measures using their source records.")],
+    nodes: [p("Engagements", "Define the project or case behind the work."), p("Time", "Link time entries to activities and periods."), p("People", "Track consultant assignments and availability."), p("Approval", "Route time and record changes for approval."), p("Utilization", "Explain workload using effort records.")],
     cta: "Plan Service Operations", cues: [["Case", "Engagement", "Context"], ["Log", "Recorded", "Effort"], ["Ops", "Team", "Assignments"]],
   },
   "/real-estate/": {
@@ -495,7 +495,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect property listings, contract records and broker schedules so teams can coordinate inquiries and the work behind a transaction.",
     features: [p("Structure Property Information", "Organize residential and commercial listing fields, availability and supporting material around the property being presented."), p("Connect Inquiry and Scheduling", "Keep prospect requests, viewing arrangements and broker responsibilities associated with the relevant listing."), p("Follow Contract Work", "Track agreement documents, review stages and outstanding actions without separating them from the property and parties involved.")],
     hub: ["Property", "Workflow"], hubBody: "Connect listings, broker tasks and agreement records.",
-    nodes: [p("Listings", "Maintain property details and availability context."), p("Inquiries", "Associate prospect questions with the relevant listing."), p("Viewings", "Coordinate broker assignments and viewing schedules."), p("Contracts", "Connect agreement records to properties and parties."), p("Follow-up", "Track review stages and outstanding transaction tasks.")],
+    nodes: [p("Listings", "Maintain listing details and availability."), p("Inquiries", "Link inquiries to their property listings."), p("Viewings", "Coordinate brokers and viewing schedules."), p("Contracts", "Link agreements to properties and parties."), p("Follow-up", "Track outstanding property-transaction tasks.")],
     cta: "Plan Property Software", cues: [["Prop", "Listing", "Records"], ["Ops", "Broker", "Scheduling"], ["Log", "Agreement", "Progress"]],
   },
   "/construction-it/": {
@@ -503,7 +503,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect project schematics, resource estimates and inspection records with the site and version context needed for construction coordination.",
     features: [p("Organize Project Documents", "Associate drawings, revisions and site records with the project areas and responsibilities they describe."), p("Trace Resource Estimates", "Keep quantities, units and estimate assumptions visible so changes can be reviewed against their underlying inputs."), p("Connect Inspection Follow-up", "Record checklist findings, supporting evidence and assigned actions alongside the location and work package being inspected.")],
     hub: ["Site", "Workflow"], hubBody: "Connect construction documents to estimates and inspections.",
-    nodes: [p("Documents", "Identify schematics and the applicable project revision."), p("Resources", "Record quantities and material-estimate assumptions."), p("Site Work", "Connect work packages to locations and responsibilities."), p("Inspection", "Store checklist findings with supporting site context."), p("Actions", "Assign and review follow-up on construction findings.")],
+    nodes: [p("Documents", "Identify drawings and project revisions."), p("Resources", "Record material quantities and assumptions."), p("Site Work", "Connect work packages to site locations."), p("Inspection", "Store checklist findings with site evidence."), p("Actions", "Assign follow-up on construction findings.")],
     cta: "Plan Construction IT", cues: [["Docs", "Drawing", "Revisions"], ["Qty", "Estimate", "Inputs"], ["Ops", "Inspection", "Follow-up"]],
   },
   "/hospitality-tech/": {
@@ -511,7 +511,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect room reservations, dining records and guest profiles so multi-site teams can coordinate service activity with the right operational context.",
     features: [p("Coordinate Reservation States", "Associate bookings with property, room and date information, including changes, cancellations and outstanding requests."), p("Connect Dining Transactions", "Keep service checks, charges and settlement status linked to the outlet or guest context they belong to."), p("Organize Guest Information", "Define profile access and update responsibilities so staff can use relevant service information appropriately across locations.")],
     hub: ["Guest", "Workflow"], hubBody: "Connect reservations, dining and guest-service records.",
-    nodes: [p("Properties", "Identify the site and service location for each record."), p("Bookings", "Coordinate room reservations, dates and status changes."), p("Dining", "Connect checks and charges to the relevant outlet."), p("Profiles", "Organize guest information and staff access rules."), p("Service", "Track guest requests and unresolved operational tasks.")],
+    nodes: [p("Properties", "Identify properties and service locations."), p("Bookings", "Track reservation dates and state changes."), p("Dining", "Connect dining charges to their outlet."), p("Profiles", "Define guest-profile access responsibilities."), p("Service", "Track guest requests and service tasks.")],
     cta: "Plan Hospitality Tools", cues: [["Stay", "Booking", "Context"], ["POS", "Dining", "Records"], ["Ops", "Guest", "Service"]],
   },
   "/wep-app-front-end/": {
@@ -519,7 +519,7 @@ export const simpleDeliveryContent: Readonly<Record<string, SimpleDeliveryConten
     intro: "Connect reusable interface components, application state and service responses so users can follow a task through loading, success and recovery.",
     features: [p("Model Interface Responsibilities", "Organize components around clear user tasks, shared interaction patterns and the data each view needs to present."), p("Connect State and Service Work", "Keep user input, asynchronous requests and application state coordinated when data loads, changes or cannot be retrieved."), p("Review the User Journey", "Check navigation within the task, validation feedback and recovery states alongside the expected application flow.")],
     hub: ["Web App", "Workflow"], hubBody: "Connect interface components to state and service actions.",
-    nodes: [p("Tasks", "Define the user action supported by each interface view."), p("Components", "Share interface patterns with clear responsibilities."), p("State", "Coordinate local input and application data changes."), p("Services", "Handle loading, results and unsuccessful requests."), p("Recovery", "Keep validation and retry paths understandable.")],
+    nodes: [p("Tasks", "Define the user action behind each view."), p("Components", "Share components with clear responsibilities."), p("State", "Coordinate input and application data."), p("Services", "Handle loading and service-request outcomes."), p("Recovery", "Explain validation and retry paths.")],
     cta: "Plan a Web Frontend", cues: [["UI", "Component", "Patterns"], ["API", "Service", "States"], ["QA", "Journey", "Review"]],
   },
 };
