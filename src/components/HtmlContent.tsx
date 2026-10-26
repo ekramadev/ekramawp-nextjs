@@ -1,15 +1,16 @@
 "use client";
 import React from 'react';
+import type { HtmlExpertiseContent } from '@/content/htmlSections';
 
-export const HtmlContent = () => {
+export const HtmlContent = ({ content }: { content: HtmlExpertiseContent }) => {
   return (
-    <section className="w-full bg-[#020617] py-20 px-5 box-border font-['Inter',sans-serif]">
+    <section data-component="html-expertise" className="w-full bg-transparent py-20 px-5 box-border font-['Inter',sans-serif]">
       {/* SCOPED CSS */}
       <style dangerouslySetInnerHTML={{ __html: `
         .html-expertise-container {
             max-width: 1200px;
             margin: 0 auto;
-            color: #ffffff;
+            color: #374151;
             display: grid;
             grid-template-columns: 1fr;
             gap: 60px;
@@ -32,21 +33,21 @@ export const HtmlContent = () => {
         .html-heading-wrapper h2 {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 900;
-            color: #ffffff;
+            color: #000000;
             line-height: 1.1;
             letter-spacing: -0.04em;
             margin-bottom: 20px;
         }
 
         .html-highlight {
-            color: #207DE9;
+            color: #10b981;
             position: relative;
             display: inline-block;
         }
 
         .html-heading-wrapper p {
             font-size: 1.25rem;
-            color: #94a3b8;
+            color: #374151;
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.6;
@@ -66,7 +67,7 @@ export const HtmlContent = () => {
         .html-section-block h3 {
             font-size: 1.5rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #000000;
             margin-bottom: 16px;
             display: flex;
             align-items: center;
@@ -84,7 +85,7 @@ export const HtmlContent = () => {
 
         .html-section-block p {
             font-size: 1.1rem;
-            color: #cbd5e1;
+            color: #374151;
             line-height: 1.8;
             margin-bottom: 16px;
         }
@@ -136,48 +137,34 @@ export const HtmlContent = () => {
         
         {/* HEADER FULL WIDTH */}
         <div className="html-heading-wrapper">
-          <h2>Architecting the <span className="html-highlight">Semantic Web</span></h2>
-          <p>HTML is the skeleton of the internet. Before the styling, before the logic, there is the structure. I build pixel-perfect, accessible, and deeply semantic markup.</p>
+          <h2>{content.titleLead} <span className="html-highlight">{content.titleAccent}</span></h2>
+          <p>{content.intro}</p>
         </div>
 
         {/* LEFT COLUMN: EXPERTISE CONTENT */}
         <div className="html-content-col">
           
           <div className="html-section-block">
-            <h3>The Foundation of the Web</h3>
-            <p>
-              HyperText Markup Language (HTML) isn't just about throwing tags onto a page; it’s about defining meaning. While CSS dictates how a page looks and JavaScript determines how it behaves, HTML dictates what the content actually <em>is</em>. 
-            </p>
-            <p>
-              By utilizing proper semantic elements—like <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;aside&gt;</code> instead of a sea of meaningless <code>&lt;div&gt;</code> tags—I ensure that browsers, screen readers, and search engine crawlers understand the exact hierarchy and context of your data.
-            </p>
+            <h3>{content.foundationTitle}</h3>
+            <p>{content.foundationIntro[0]}<em>{content.foundationIntro[1]}</em>{content.foundationIntro[2]}</p>
+            <p>{content.foundationDetail[0]}<code>{content.foundationCode[0]}</code>{content.foundationDetail[1]}<code>{content.foundationCode[1]}</code>{content.foundationDetail[2]}<code>{content.foundationCode[2]}</code>{content.foundationDetail[3]}<code>{content.foundationCode[3]}</code>{content.foundationDetail[4]}</p>
           </div>
 
           <div className="html-section-block">
-            <h3>Accessibility (a11y) First</h3>
-            <p>
-              Writing expert-level HTML means writing inclusive code. A beautifully designed website is useless if a portion of your audience cannot navigate it. 
-            </p>
-            <p>
-              I architect DOM structures with strict adherence to WCAG guidelines. This involves proper heading hierarchies, ARIA attributes when native HTML falls short, explicit form labeling, and keyboard-navigable focus states. Good HTML ensures your site is usable by everyone, regardless of how they access the web.
-            </p>
+            <h3>{content.accessibilityTitle}</h3>
+            <p>{content.accessibilityBody[0]}</p>
+            <p>{content.accessibilityBody[1]}</p>
           </div>
 
           <div className="html-section-block">
-            <h3>Technical SEO at the Root</h3>
-            <p>
-              Search engines don't "see" your website's design; they read your markup. My approach to HTML is heavily optimized for technical SEO.
-            </p>
-            <p>
-              This includes strategic placement of meta tags, proper implementation of microdata and schema markup for rich snippets, and ensuring a flat, crawlable link structure. By delivering clean, bloat-free HTML, I help guarantee faster parsing times and higher relevance scores from Google.
-            </p>
+            <h3>{content.deliveryTitle}</h3>
+            <p>{content.deliveryBody[0]}</p>
+            <p>{content.deliveryBody[1]}</p>
           </div>
 
           <div className="html-section-block">
-            <h3>Modern HTML5 Standards</h3>
-            <p>
-              The web platform evolves rapidly. I leverage the full power of modern HTML5 APIs. From native form validation and optimized responsive image loading via the <code>&lt;picture&gt;</code> element, to embedding rich media directly into the document tree without relying on heavy third-party scripts. 
-            </p>
+            <h3>{content.platformTitle}</h3>
+            <p>{content.platformBody[0]}<code>{content.platformBody[1]}</code>{content.platformBody[2]}</p>
           </div>
 
         </div>
@@ -188,7 +175,7 @@ export const HtmlContent = () => {
             {/* Using a high-quality coding GIF representation */}
             <img 
               src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif" 
-              alt="HTML Coding Animation" 
+              alt={content.visualAlt}
             />
           </div>
         </div>
