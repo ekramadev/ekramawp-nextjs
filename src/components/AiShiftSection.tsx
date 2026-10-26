@@ -1,16 +1,16 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import type { AiShiftContent } from '@/content/decisionSections';
 
 // Define the expected props from your WordPress block renderer
-interface AiShiftSectionProps {
-  title?: string;
-  body?: string;
-}
+type AiShiftSectionProps = Partial<AiShiftContent>;
 
 export function AiShiftSection({
   title = "The Evolution of Front-End",
-  body = "Hover your mouse over the image below to explore the difference between a fragmented traditional workflow and a modern, AI-accelerated architecture. Click anywhere on the image to lock the slider in place."
+  body = "Hover your mouse over the image below to explore the difference between a fragmented traditional workflow and a modern, AI-assisted architecture. Click anywhere on the image to lock the slider in place.",
+  modernAlt = "AI-assisted front-end workflow illustration",
+  traditionalAlt = "Fragmented front-end workflow illustration"
 }: AiShiftSectionProps) {
 
   // ==========================================
@@ -55,7 +55,7 @@ export function AiShiftSection({
   const isActivelyTracking = isHovered && !isPinned;
 
   return (
-    <section className="w-full py-12 md:py-16 bg-transparent overflow-hidden">
+    <section data-component="ai-shift" className="w-full py-12 md:py-16 bg-transparent overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ========================================================= */}
@@ -64,14 +64,13 @@ export function AiShiftSection({
         {(title || body) && (
           <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto relative z-30">
             {title && (
-              // Changed text-[#001a36] to text-[#10b981] for Emerald Green
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#10b981] tracking-tight mb-4">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-black tracking-tight mb-4">
                 {title}
               </h2>
             )}
             {body && (
               <div
-                className="text-lg leading-relaxed"
+                className="text-lg leading-relaxed text-gray-700"
                 dangerouslySetInnerHTML={{ __html: body }}
               />
             )}
@@ -134,7 +133,7 @@ export function AiShiftSection({
           >
             <img
               src="https://admin.wpfedev.com/wp-content/uploads/2026/03/Your-paragraph-text-11.png"
-              alt="AI-Powered Front-End"
+              alt={modernAlt}
               className="absolute inset-0 w-full h-full object-contain p-8 md:p-16"
               loading="lazy"
             />
@@ -149,7 +148,7 @@ export function AiShiftSection({
           >
             <img
               src="https://admin.wpfedev.com/wp-content/uploads/2026/03/Your-paragraph-text.png"
-              alt="Traditional Front-End"
+              alt={traditionalAlt}
               className="absolute inset-0 w-full h-full object-contain p-8 md:p-16"
               loading="lazy"
             />

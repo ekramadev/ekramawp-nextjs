@@ -1,5 +1,6 @@
 import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
+import { getAiShiftContent, getPentagonGrowthContent } from "@/content/decisionSections";
 import { getArchitectureTabsContent, getEngineeringCarouselContent } from "@/content/architectureSections";
 import { getFiveCirclesContent } from "@/content/fiveCircles";
 import { getContentDoubleContent } from "@/content/contentDouble";
@@ -82,6 +83,8 @@ export default async function DynamicPage({ params }: Props) {
           htmlCapabilities={getHtmlCapabilitiesContent(uri, data.nodeByUri.title)}
           traditionalHero={getTraditionalHeroContent(uri, data.nodeByUri.title)}
           htmlCheatsheet={getHtmlCheatsheetContent(uri)}
+          aiShift={getAiShiftContent(uri, data.nodeByUri.title)}
+          pentagonGrowth={getPentagonGrowthContent(uri, data.nodeByUri.title)}
         />
       </div>
     </main>
