@@ -55,6 +55,7 @@ import type { ArchitectureTabsContent, EngineeringCarouselContent } from "@/cont
 
 import type { HtmlExpertiseContent, HtmlCapabilitiesContent } from "@/content/htmlSections";
 import type { TraditionalHeroContent, HtmlCheatsheetContent } from "@/content/serviceShowcases";
+import type { AiShiftContent, PentagonGrowthContent } from "@/content/decisionSections";
 
 interface Props {
   htmlContent: string;
@@ -69,9 +70,11 @@ interface Props {
   htmlCapabilities: HtmlCapabilitiesContent;
   traditionalHero: TraditionalHeroContent;
   htmlCheatsheet: HtmlCheatsheetContent;
+  aiShift: AiShiftContent;
+  pentagonGrowth: PentagonGrowthContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -96,7 +99,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
 
         // 2. STATS & AI SHIFT
         if (classes.includes("section-stats")) return <StatsSection />;
-        if (classes.includes("section-ai-shift")) return <AiShiftSection />;
+        if (classes.includes("section-ai-shift")) return <AiShiftSection {...aiShift} />;
 
         // 3. SERVICES & TABS
         if (classes.includes("section-services-tabs")) return <ServicesTabs />;
@@ -106,7 +109,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         // 4. INTELLIGENCE & GEO
         if (classes.includes("section-market-intel")) return <MarketIntelligence content={marketIntelligence} />;
         if (classes.includes("section-geo-overlap")) return <GeoOverlapSection content={geoOverlap} />;
-        if (classes.includes("section-pentagon-growth")) return <PentagonGrowthEngine />;
+        if (classes.includes("section-pentagon-growth")) return <PentagonGrowthEngine content={pentagonGrowth} />;
 
         // 5. ENGINEERING SERIES
         if (classes.includes("section-engineering-success")) return <EngineeringSuccess />;
