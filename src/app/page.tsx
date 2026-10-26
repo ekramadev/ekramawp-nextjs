@@ -1,3 +1,4 @@
+import { getArchitectureTabsContent, getEngineeringCarouselContent } from "@/content/architectureSections";
 import { getFiveCirclesContent } from "@/content/fiveCircles";
 import { getContentDoubleContent } from "@/content/contentDouble";
 import { notFound } from "next/navigation";
@@ -55,6 +56,8 @@ export default async function Home() {
         geoOverlap={getGeoOverlapContent('/', data.page.title)}
         fiveCircles={getFiveCirclesContent('/', data.page.title)}
         contentDouble={getContentDoubleContent('/', data.page.title)}
+        architectureTabs={getArchitectureTabsContent('/', data.page.title)}
+        engineeringCarousel={getEngineeringCarouselContent('/', data.page.title)}
       />
     </main>
   );
