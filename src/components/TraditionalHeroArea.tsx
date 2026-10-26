@@ -1,7 +1,8 @@
 "use client";
 import React from 'react';
+import type { TraditionalHeroContent } from '@/content/serviceShowcases';
 
-export const TraditionalHeroArea = () => {
+export const TraditionalHeroArea = ({ content }: { content: TraditionalHeroContent }) => {
   // Helper to render the dense floating icons inside each glass box
 const renderFloatingIcons = (count: number, seedOffset: number) => {
       return Array.from({ length: count }).map((_, i) => {
@@ -55,7 +56,7 @@ const renderFloatingIcons = (count: number, seedOffset: number) => {
   };
 
   return (
-    <section className="w-full pt-2 relative overflow-hidden">
+    <section data-component="traditional-hero-area" className="w-full pt-2 relative overflow-hidden bg-transparent">
       {/* Custom Keyframes */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes float-bubble {
@@ -83,17 +84,15 @@ const renderFloatingIcons = (count: number, seedOffset: number) => {
         
         {/* --- LEFT COLUMN --- */}
         <div className="flex-1 max-w-[500px] z-20">
-          <h2 className="mb-6 text-gray-900">
-            Bespoke WordPress Themes <br/>
-            <span className="text-emerald-500">Without the Bloat.</span>
+          <h2 className="mb-6 text-black">
+            {content.titleLead} <br/>
+            <span className="text-brand-emerald">{content.titleAccent}</span>
           </h2>
-          <p className="text-gray-600 text-[1.05rem] leading-[1.7] mb-8 pr-0 md:pr-4">
-            We architect high-performance, custom WordPress websites from the ground up. 
-            By avoiding heavy page builders and relying on clean PHP, Advanced Custom Fields (ACF), 
-            and optimized CSS/JS, we deliver fully editable backends with lightning-fast frontends.
+          <p className="text-gray-700 text-[1.05rem] leading-[1.7] mb-8 pr-0 md:pr-4">
+            {content.intro}
           </p>
           <a href="#contact" className="bg-emerald-500 text-white py-[14px] px-[28px] font-bold text-[0.95rem] rounded-lg inline-block transition-transform duration-200 hover:-translate-y-[2px] hover:shadow-[0_10px_20px_rgba(16,185,129,0.3)] decoration-none">
-            Explore Our WP Services
+            {content.ctaLabel}
           </a>
         </div>
 
@@ -106,30 +105,30 @@ const renderFloatingIcons = (count: number, seedOffset: number) => {
           <div className="relative w-full max-w-[700px] h-[500px]">
             
             {/* Main Center Card (Sits on top of the overlaps z-30) */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] md:w-[320px] bg-[#0E1623]/80 backdrop-blur-xl rounded-[24px] border border-emerald-500 px-5 py-3 shadow-[0_0_40px_rgba(16,185,129,0.15)] z-30 flex flex-col justify-between">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] md:w-[320px] bg-transparent backdrop-blur-xl rounded-[24px] border border-emerald-500 px-5 py-3 shadow-[0_0_40px_rgba(16,185,129,0.15)] z-30 flex flex-col justify-between">
               
               <div className="flex justify-between items-center mb-2 opacity-60">
-                <div className="flex items-center gap-1.5 text-white">
+                <div className="flex items-center gap-1.5 text-black">
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-emerald-500">
                     <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-2 14H8V8h2v8zm6 0h-4v-2h4v2zm0-3h-4v-2h4v2zm0-3h-4V8h4v2z" />
                   </svg>
-                  <span className="text-[0.65rem] font-medium italic tracking-wide">elementor</span>
-                  <span className="bg-white/20 px-1 py-[1px] rounded-[3px] text-[0.55rem] font-bold">Pro</span>
+                  <span className="text-[0.65rem] font-medium italic tracking-wide">{content.leftLabel}</span>
+                  <span className="bg-transparent px-1 py-[1px] rounded-[3px] text-[0.55rem] font-bold">{content.leftBadge}</span>
                 </div>
-                <div className="flex items-center gap-1 text-white">
+                <div className="flex items-center gap-1 text-black">
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-emerald-500">
                     <path d="M12 2L2 22h20L12 2zm0 5l5 10H7l5-10z" />
                   </svg>
-                  <span className="text-[0.7rem] font-medium tracking-wide">Avada</span>
+                  <span className="text-[0.7rem] font-medium tracking-wide">{content.rightLabel}</span>
                 </div>
               </div>
 
               <div className="text-center">
-                <h3 className="text-white mb-3">
-                  Advanced Builder<br/>Philosophy
+                <h3 className="text-black mb-3">
+                  {content.centerTitle.split('\n').map((line, index) => <React.Fragment key={line}>{index > 0 && <br/>}{line}</React.Fragment>)}
                 </h3>
-                <p className="text-[#A9B4BC] text-[0.8rem] leading-[1.6] m-0 px-1">
-                  Utilize advanced WordPress page builders—such as Elementor Pro, Avada, and Divi—paired with professional frontend expertise to build either modular, reusable UI components or full-scale, custom websites from scratch.
+                <p className="text-gray-700 text-[0.8rem] leading-[1.6] m-0 px-1">
+                  {content.centerBody}
                 </p>
               </div>
 
@@ -138,12 +137,12 @@ const renderFloatingIcons = (count: number, seedOffset: number) => {
                   <path d="M12 2L2 22h20L12 2zm0 5l5 10H7l5-10z" />
                 </svg>
                 <div className="w-6 h-6 rounded-full border border-emerald-500 flex items-center justify-center text-emerald-500 font-bold text-[0.6rem]">
-                  D
+                  {content.footerMark}
                 </div>
               </div>
 
-              <div className="absolute top-[40%] -right-4 w-7 h-7 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/5 opacity-50">
-                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 text-white"><path d="M12 2L2 22h20L12 2zm0 5l5 10H7l5-10z" /></svg>
+              <div className="absolute top-[40%] -right-4 w-7 h-7 rounded-full bg-transparent flex items-center justify-center backdrop-blur-sm border border-black/10 opacity-50">
+                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 text-black"><path d="M12 2L2 22h20L12 2zm0 5l5 10H7l5-10z" /></svg>
               </div>
             </div>
 
@@ -151,19 +150,19 @@ const renderFloatingIcons = (count: number, seedOffset: number) => {
             <div className="absolute top-[-2%] left-[-2%] md:left-[3%] w-[140px] h-[140px] md:w-[170px] md:h-[170px] [perspective:1000px] group z-20 animate-float-1">
               <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer group-hover:[transform:rotateY(180deg)]">
                 
-                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] bg-[#0E1623]/80 backdrop-blur-xl border border-emerald-500 rounded-[24px] overflow-hidden flex flex-col items-center justify-center shadow-[0_15px_35px_rgba(0,0,0,0.5)]">
-                  <div className="absolute inset-0 z-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] bg-transparent backdrop-blur-xl border border-emerald-500 rounded-[24px] overflow-hidden flex flex-col items-center justify-center shadow-[0_15px_35px_rgba(0,0,0,0.5)]">
+                  <div className="absolute inset-0 z-0 bg-transparent"></div>
                   <div className="absolute inset-0 z-0">{renderFloatingIcons(15, 1)}</div>
                   <div className="relative z-10 text-center drop-shadow-md">
-                    <span className="text-3xl font-black text-emerald-500 block leading-none">99%</span>
-                    <span className="text-white mt-2 font-bold tracking-widest uppercase block">Performance</span>
+                    <span className="text-3xl font-black text-brand-emerald block leading-none">{content.cards[0].metric}</span>
+                    <span className="text-black mt-2 font-bold tracking-widest uppercase block">{content.cards[0].label}</span>
                   </div>
                 </div>
 
-                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#0E1623]/95 backdrop-blur-2xl border border-emerald-500 rounded-[24px] flex flex-col items-center justify-center p-4 text-center shadow-[0_15px_35px_rgba(16,185,129,0.2)]">
-                  <h4 className="text-emerald-500 mb-1.5 uppercase">Top Speeds</h4>
-                  <p className="text-[#A9B4BC] text-[0.7rem] leading-relaxed m-0">
-                    Lightning fast load times mapped closely to Core Web Vitals.
+                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:rotateY(180deg)] bg-transparent backdrop-blur-2xl border border-emerald-500 rounded-[24px] flex flex-col items-center justify-center p-4 text-center shadow-[0_15px_35px_rgba(16,185,129,0.2)]">
+                  <h4 className="text-black mb-1.5 uppercase">{content.cards[0].title}</h4>
+                  <p className="text-gray-700 text-[0.7rem] leading-relaxed m-0">
+                    {content.cards[0].body}
                   </p>
                 </div>
 
@@ -174,19 +173,19 @@ const renderFloatingIcons = (count: number, seedOffset: number) => {
             <div className="absolute bottom-[2%] md:bottom-[5%] left-[-2%] md:left-[6%] w-[140px] h-[140px] md:w-[170px] md:h-[170px] [perspective:1000px] group z-20 animate-float-2">
               <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer group-hover:[transform:rotateY(180deg)]">
                 
-                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] bg-[#0E1623]/80 backdrop-blur-xl border border-emerald-500 rounded-[24px] overflow-hidden flex flex-col items-center justify-center shadow-[0_15px_35px_rgba(0,0,0,0.5)]">
-                  <div className="absolute inset-0 z-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] bg-transparent backdrop-blur-xl border border-emerald-500 rounded-[24px] overflow-hidden flex flex-col items-center justify-center shadow-[0_15px_35px_rgba(0,0,0,0.5)]">
+                  <div className="absolute inset-0 z-0 bg-transparent"></div>
                   <div className="absolute inset-0 z-0">{renderFloatingIcons(15, 5)}</div>
                   <div className="relative z-10 text-center drop-shadow-md">
-                    <span className="text-3xl font-black text-emerald-500 block leading-none">100%</span>
-                    <span className="text-white  mt-2 font-bold tracking-widest uppercase block">Custom</span>
+                    <span className="text-3xl font-black text-brand-emerald block leading-none">{content.cards[1].metric}</span>
+                    <span className="text-black  mt-2 font-bold tracking-widest uppercase block">{content.cards[1].label}</span>
                   </div>
                 </div>
 
-                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#0E1623]/95 backdrop-blur-2xl border border-emerald-500 rounded-[24px] flex flex-col items-center justify-center p-4 text-center shadow-[0_15px_35px_rgba(16,185,129,0.2)]">
-                  <h4 className="text-emerald-500 mb-1.5 uppercase">Bespoke</h4>
-                  <p className="text-[#A9B4BC] text-[0.7rem] leading-relaxed m-0">
-                    Total architectural control over every single pixel and template.
+                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:rotateY(180deg)] bg-transparent backdrop-blur-2xl border border-emerald-500 rounded-[24px] flex flex-col items-center justify-center p-4 text-center shadow-[0_15px_35px_rgba(16,185,129,0.2)]">
+                  <h4 className="text-black mb-1.5 uppercase">{content.cards[1].title}</h4>
+                  <p className="text-gray-700 text-[0.7rem] leading-relaxed m-0">
+                    {content.cards[1].body}
                   </p>
                 </div>
 
@@ -197,19 +196,19 @@ const renderFloatingIcons = (count: number, seedOffset: number) => {
             <div className="absolute top-[8%] right-[-2%] md:right-[3%] w-[140px] h-[140px] md:w-[170px] md:h-[170px] [perspective:1000px] group z-20 animate-float-3">
               <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer group-hover:[transform:rotateY(180deg)]">
                 
-                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] bg-[#0E1623]/80 backdrop-blur-xl border border-emerald-500 rounded-[24px] overflow-hidden flex flex-col items-center justify-center shadow-[0_15px_35px_rgba(0,0,0,0.5)]">
-                  <div className="absolute inset-0 z-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] bg-transparent backdrop-blur-xl border border-emerald-500 rounded-[24px] overflow-hidden flex flex-col items-center justify-center shadow-[0_15px_35px_rgba(0,0,0,0.5)]">
+                  <div className="absolute inset-0 z-0 bg-transparent"></div>
                   <div className="absolute inset-0 z-0">{renderFloatingIcons(15, 9)}</div>
                   <div className="relative z-10 text-center drop-shadow-md">
-                    <span className="text-3xl font-black text-emerald-500 block leading-none">3x</span>
-                    <span className="text-white mt-2 font-bold tracking-widest uppercase block">Faster Dev</span>
+                    <span className="text-3xl font-black text-brand-emerald block leading-none">{content.cards[2].metric}</span>
+                    <span className="text-black mt-2 font-bold tracking-widest uppercase block">{content.cards[2].label}</span>
                   </div>
                 </div>
 
-                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#0E1623]/95 backdrop-blur-2xl border border-emerald-500 rounded-[24px] flex flex-col items-center justify-center p-4 text-center shadow-[0_15px_35px_rgba(16,185,129,0.2)]">
-                  <h4 className="text-emerald-500 mb-1.5 uppercase">Speed</h4>
-                  <p className="text-[#A9B4BC] text-[0.7rem] leading-relaxed m-0">
-                    Modular components drastically speed up deployment timelines.
+                <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:rotateY(180deg)] bg-transparent backdrop-blur-2xl border border-emerald-500 rounded-[24px] flex flex-col items-center justify-center p-4 text-center shadow-[0_15px_35px_rgba(16,185,129,0.2)]">
+                  <h4 className="text-black mb-1.5 uppercase">{content.cards[2].title}</h4>
+                  <p className="text-gray-700 text-[0.7rem] leading-relaxed m-0">
+                    {content.cards[2].body}
                   </p>
                 </div>
 
