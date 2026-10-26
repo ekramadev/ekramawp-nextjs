@@ -96,7 +96,7 @@ export const fiveCirclesContent: Record<string, FiveCirclesContent> = {
   "/enterprise-pm/": section("Connect project work", "across business units", "Structure project scope, schedules, ownership, progress updates, and portfolio reporting around a shared delivery plan.", "project", [
     ["Work structure", "Break delivery into defined tasks", ["Organize programs, projects, and work packages.", "Give each task a clear scope.", "Connect tasks with agreed delivery milestones."]],
     ["Schedules", "Include dependencies in the delivery plan", ["Record planned dates and task handoffs.", "Review resource availability before assigning work.", "Show the effect of schedule changes."]],
-    ["Ownership", "Make delivery responsibilities explicit", ["Assign task owners and review responsibilities.", "Define how teams escalate blocked work.", "Keep decisions linked to the relevant project."]],
+    ["Ownership", "Make delivery roles explicit", ["Assign task owners and review responsibilities.", "Define how teams escalate blocked work.", "Keep decisions linked to the relevant project."]],
     ["Progress records", "Tie status updates to actual activity", ["Capture completed work and current blockers.", "Keep supporting updates with the task.", "Record decisions that change the delivery plan."]],
     ["Portfolio views", "Compare projects using shared definitions", ["Review milestones across business units.", "Make workload and project risks visible.", "Keep summary views linked to project-level context."]],
   ]),
@@ -108,7 +108,7 @@ export const fiveCirclesContent: Record<string, FiveCirclesContent> = {
     ["Invoice links", "Keep billing connected to the order", ["Associate invoice references with order lines.", "Retain the relevant contract terms.", "Support review of unmatched billing records."]],
   ]),
   "/corporate-intranets/": section("Connect internal resources", "with the teams using them", "Organize employee access, documents, announcements, people directories, and publishing responsibilities around internal information needs.", "intranet", [
-    ["Employee access", "Match resources to employee responsibilities", ["Define sign-in and department permissions.", "Identify restricted internal information.", "Review access when responsibilities change."]],
+    ["Employee access", "Match resources to employee roles", ["Define sign-in and department permissions.", "Identify restricted internal information.", "Review access when responsibilities change."]],
     ["Document libraries", "Give shared guidance a clear home", ["Organize documents with useful categories.", "Assign owners and review responsibilities.", "Keep current guidance distinguishable from older versions."]],
     ["Company updates", "Publish messages for defined audiences", ["Plan leadership and operational announcements.", "Select the teams each update should reach.", "Keep publishing responsibility explicit."]],
     ["People directory", "Help employees find the right contacts", ["Maintain profiles and department references.", "Connect people with relevant resource links.", "Define visibility and profile-update rules."]],
@@ -121,14 +121,14 @@ export const fiveCirclesContent: Record<string, FiveCirclesContent> = {
     ["Access controls", "Control sensitive transaction actions", ["Map permissions to operational responsibilities.", "Keep significant actions in an audit history.", "Define review steps for exceptional activity."]],
     ["Settlement", "Follow provider records through completion", ["Track provider references, currencies, and fees.", "Record settlement status changes.", "Assign unmatched settlement records for follow-up."]],
   ]),
-  "/hris-software/": section("Connect employee administration", "through consistent records", "Plan recruitment, employee profiles, payroll inputs, leave requests, and HR access around clear responsibilities.", "HRIS", [
+  "/hris-software/": section("Connect HR records", "through consistent records", "Plan recruitment, employee profiles, payroll inputs, leave requests, and HR access around clear responsibilities.", "HRIS", [
     ["Recruitment", "Follow applicants through the hiring process", ["Organize applications and interview stages.", "Record hiring decisions with relevant context.", "Limit recruiting records to appropriate users."]],
     ["Employee profiles", "Maintain a dependable employment record", ["Connect role, department, and employment details.", "Keep supporting documents with the profile.", "Define who can approve record changes."]],
     ["Payroll inputs", "Prepare approved information for payroll review", ["Structure the profile fields payroll needs.", "Record approved changes to employee information.", "Define validation before transferring payroll inputs."]],
     ["Leave records", "Make requests and balances understandable", ["Apply the organization’s leave categories.", "Define request and approval responsibilities.", "Record balance adjustments with supporting context."]],
     ["HR access", "Keep sensitive administration controlled", ["Map permissions to HR responsibilities.", "Retain a history of important changes.", "Define review and retention rules for employee records."]],
   ]),
-  "/corporate-lms/": section("Connect employee learning", "with qualification records", "Plan learning paths, course materials, assessments, progress tracking, and completion records around your training policy.", "learning", [
+  "/corporate-lms/": section("Connect employee learning", "with training records", "Plan learning paths, course materials, assessments, progress tracking, and completion records around your training policy.", "learning", [
     ["Learning paths", "Arrange training around roles and goals", ["Define audiences for each learning assignment.", "Connect required modules and prerequisites.", "Keep course sequences understandable for learners."]],
     ["Course delivery", "Give learning materials a clear structure", ["Organize lessons and supporting resources.", "Match navigation to the training format.", "Define how materials are reviewed and updated."]],
     ["Assessments", "Make completion criteria explicit", ["Define the checks each course requires.", "Keep assessment rules visible to coordinators.", "Record outcomes against the relevant learner."]],
