@@ -1,91 +1,13 @@
 "use client";
 import React, { useState } from 'react';
 
-// 5-Pillar Dataset
-const pillarData = [
-  {
-    id: 0,
-    color: '#10B981', // Emerald 500
-    bgLight: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05))',
-    label: 'Revenue Platform',
-    title: 'Attributable ROI From Marketing',
-    bullets: [
-      'We integrate RevenueCloudFX with your existing CRM or FSM with our team handling 100% of the setup for you.',
-      'Our marketing efforts are tied directly to pipeline and ROI so that you get greater transparency into our data-backed recommendations.',
-      'Clients who connect their systems see an average of 15% higher marketing ROI within the first 6 months.'
-    ],
-    cta: 'Discover RevenueCloudFX',
-    icon: 'https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage.webp',
-    mediaType: 'image',
-    mediaSrc: 'https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage.webp'
-  },
-  {
-    id: 1,
-    color: '#059669', // Emerald 600
-    bgLight: 'linear-gradient(135deg, rgba(5, 150, 105, 0.15), rgba(5, 150, 105, 0.05))',
-    label: 'Strategic Execution',
-    title: 'Turning Traffic into Leads & Pipeline',
-    bullets: [
-      'Your dedicated team of FXers leverage the data within our revenue platform to make data-driven decisions about your strategy.',
-      'Your dedicated team will comprise of channel and industry experts that will help prioritize actions to keep your business ahead.',
-      'With weekly updates and monthly calls, your team will remain informed on exactly what we\'re working on to drive performance.'
-    ],
-    cta: 'See Our Approach',
-    icon: 'https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage.webp',
-    mediaType: 'image',
-    mediaSrc: 'https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage.webp'
-  },
-  {
-    id: 2,
-    color: '#34D399', // Emerald 400
-    bgLight: 'linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(52, 211, 153, 0.05))',
-    label: 'AI-Powered Intelligence',
-    title: 'Smarter Decisions at Scale',
-    bullets: [
-      'AI analyzes performance patterns across industries and campaigns to surface opportunities humans might miss.',
-      'AI insights are used to prioritize optimizations, not replace strategy or execution.',
-      'AI integration allows our team to focus on what’s working, where to invest next, and how to compound revenue over time.'
-    ],
-    cta: 'Explore Our Case Studies',
-    icon: 'https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage.webp',
-    mediaType: 'image',
-    mediaSrc: 'https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage.webp'
-  },
-  {
-    id: 3,
-    color: '#047857', // Emerald 700
-    bgLight: 'linear-gradient(135deg, rgba(4, 120, 87, 0.15), rgba(4, 120, 87, 0.05))',
-    label: 'Market Intelligence',
-    title: 'Focused Market Strategy',
-    bullets: [
-      'Define where to compete, what to prioritize, and how to sequence efforts for the biggest return.',
-      'Translate research into a practical roadmap your team can actually follow without losing speed.',
-      'Create alignment across messaging, targeting, offers, and long-term expansion decisions.'
-    ],
-    cta: 'View Strategy Model',
-    icon: 'https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage.webp',
-    mediaType: 'image',
-    mediaSrc: 'https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage.webp'
-  },
-  {
-    id: 4,
-    color: '#6EE7B7', // Emerald 300
-    bgLight: 'linear-gradient(135deg, rgba(110, 231, 183, 0.15), rgba(110, 231, 183, 0.05))',
-    label: 'Process Automation',
-    title: 'Continuous Growth Optimization',
-    bullets: [
-      'Use live performance signals to improve conversion paths, budget allocation, and messaging effectiveness over time.',
-      'Continuously test, learn, and refine so growth compounds instead of resetting every quarter.',
-      'Make optimization part of the system, not a last-minute fix when numbers fall short.'
-    ],
-    cta: 'See Optimization Plan',
-    icon: 'https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage.webp',
-    mediaType: 'image',
-    mediaSrc: 'https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage.webp'
-  }
-];
+import type { FiveCirclesContent } from '@/content/fiveCircles';
 
-export const FiveCirclesBox = () => {
+const mediaSrc = 'https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage.webp';
+const pillarAppearance = ['#10B981', '#059669', '#34D399', '#047857', '#6EE7B7'].map(color => ({ color, icon: mediaSrc, mediaType: 'image', mediaSrc }));
+
+export const FiveCirclesBox = ({ content }: { content: FiveCirclesContent }) => {
+  const pillarData = content.pillars.map((pillar, id) => ({ ...pillar, id, ...pillarAppearance[id] }));
   const [activeIndex, setActiveIndex] = useState(0);
   const [isStepping, setIsStepping] = useState(false);
   
@@ -118,17 +40,16 @@ export const FiveCirclesBox = () => {
   };
 
   return (
-    <section className="w-full pt-2 pb-16 relative overflow-hidden">
+    <section data-component="five-circles" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
       <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
         
         {/* --- HEADER --- */}
         <header className="max-w-[980px] mx-auto mb-8">
-          <h2>
-            Uniquely Positioned to <span style={{ color: "var(--wpfe-emerald)" }} className="transition-colors duration-500">Power Real Revenue Growth</span>
+          <h2 className="text-black">
+            {content.titleLead} <span style={{ color: "var(--wpfe-emerald)" }} className="transition-colors duration-500">{content.titleAccent}</span>
           </h2>
-          <div className="mt-4 max-w-[860px] mx-auto">
-            Every result we deliver is powered by five connected pillars — each one working together to create 
-            clearer strategy, stronger execution, better intelligence, and scalable growth.
+          <div className="mt-4 max-w-[860px] mx-auto text-gray-700">
+            {content.intro}
           </div>
         </header>
 
@@ -221,7 +142,7 @@ export const FiveCirclesBox = () => {
                 onClick={() => handleSetActive(idx)}
                 className="px-5 py-2.5 rounded-full border-[2.5px] font-bold text-[0.85rem] transition-colors shadow-sm"
                 style={{ 
-                  backgroundColor: activeIndex === idx ? item.color : '#fff',
+                  backgroundColor: activeIndex === idx ? item.color : 'transparent',
                   borderColor: item.color,
                   color: activeIndex === idx ? '#fff' : 'var(--wpfe-emerald)'
                 }}
@@ -234,18 +155,18 @@ export const FiveCirclesBox = () => {
         {/* --- DYNAMIC PILLAR CONTENT PANEL --- */}
         <div 
           className="relative rounded-[22px] p-8 lg:p-[64px_48px] pt-16 lg:pt-[70px] z-10 transition-all duration-500 shadow-[0_22px_60px_rgba(17,45,84,0.06)]"
-          style={{ background: activePillar.bgLight }}
+          style={{ background: 'transparent' }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-[40px] items-center text-left">
             
             <div className="animate-fade-in" key={`content-${activeIndex}`}>
-              <h3 className="mb-6">
+              <h3 className="mb-6 text-black">
                 {activePillar.title}
               </h3>
               
               <ul className="grid gap-5 mb-8 list-none p-0">
                 {activePillar.bullets.map((bullet, i) => (
-                  <li key={i} className="relative pl-7 text-[1.05rem] leading-relaxed">
+                  <li key={i} className="relative pl-7 text-[1.05rem] leading-relaxed text-gray-700">
                     <span 
                       className="absolute left-0 top-[0.6em] w-2.5 h-2.5 rounded-full"
                       style={{ backgroundColor: activePillar.color }}
@@ -256,7 +177,7 @@ export const FiveCirclesBox = () => {
               </ul>
 
               <a 
-                href="#" 
+                href="/contact/"
                 className="inline-flex items-center gap-3 no-underline font-extrabold text-[1.05rem] group transition-all"
                 style={{ color: "var(--wpfe-emerald)" }}
               >

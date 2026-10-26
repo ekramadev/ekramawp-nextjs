@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import type { ContentDoubleContent } from '@/content/contentDouble';
 
-export const Contentdouble = () => {
+export const Contentdouble = ({ content }: { content: ContentDoubleContent }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -14,7 +15,7 @@ export const Contentdouble = () => {
     }, []);
 
     return (
-        <section className="contentdouble-wrapper">
+        <section data-component="content-double" className="contentdouble-wrapper">
             {/* External Font Import */}
             <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
 
@@ -25,9 +26,9 @@ export const Contentdouble = () => {
             --bg-color: transparent; /* Inherit global white background */
             --text-main: #1a1a1a; /* Darkest gray for headings */
             --text-muted: #4b5563; /* Slate gray for paragraphs */
-            --card-bg: #ffffff; /* White card */
+            --card-bg: transparent; /* Shared page background */
             --card-border: #e5e7eb; /* Light gray border */
-            --backdrop-bg: #d1fae5; /* Soft emerald backdrop */
+            --backdrop-bg: transparent; /* Shared page background */
             --check-color: #10B981; /* Emerald green checks */
             
             font-family: 'Inter', sans-serif;
@@ -125,6 +126,7 @@ export const Contentdouble = () => {
         }
 
         .contentdouble-wrapper .expertise-card h2 {
+            color: #000000;
             font-family: 'Poppins', sans-serif;
             font-size: 2.25rem;
             font-weight: 800;
@@ -194,21 +196,21 @@ export const Contentdouble = () => {
                 <div className="layout-grid">
 
                     <div className={`content-left fade-up ${isVisible ? 'visible' : ''}`}>
-                        <h1>Headless WordPress<br />Architecture</h1>
-                        <p>Traditional WordPress ties your frontend design directly to your backend database. Headless WordPress decouples them. By using WordPress solely as a Content Management System (CMS) via the REST API or GraphQL, we unlock limitless possibilities.</p>
-                        <p>We build lightning-fast, ultra-secure frontends using modern JavaScript frameworks like React, Next.js, and Vue. This approach gives you the familiar WordPress editing experience with the performance of a cutting-edge web application:</p>
+                        <h1>{content.titleLines[0]}<br />{content.titleLines[1]}</h1>
+                        <p>{content.intro}</p>
+                        <p>{content.approach}</p>
 
                         <ul className="checklist">
-                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Next.js & React integrations</li>
-                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> GraphQL & REST API mastery</li>
-                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Sub-second page load speeds</li>
-                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Static Site Generation (SSG)</li>
-                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Omnichannel content delivery</li>
-                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Seamless third-party API connections</li>
-                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Enterprise-grade security architecture</li>
+                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> {content.checks[0]}</li>
+                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> {content.checks[1]}</li>
+                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> {content.checks[2]}</li>
+                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> {content.checks[3]}</li>
+                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> {content.checks[4]}</li>
+                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> {content.checks[5]}</li>
+                            <li><svg className="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> {content.checks[6]}</li>
                         </ul>
 
-                        <p>This decoupled infrastructure future-proofs your digital presence, allowing your frontend to evolve independently of your backend content repository.</p>
+                        <p>{content.closing}</p>
                     </div>
 
                     <div
@@ -217,22 +219,22 @@ export const Contentdouble = () => {
                     >
                         <div className="backdrop-shape"></div>
                         <div className="expertise-card">
-                            <h2>The Headless Advantage</h2>
-                            <p>Transitioning to a headless architecture solves the most common bottlenecks associated with traditional monolithic CMS setups.</p>
+                            <h2>{content.cardTitle}</h2>
+                            <p>{content.cardIntro}</p>
 
                             <div className="tip-item">
-                                <strong>Unmatched Performance & SEO</strong>
-                                By delivering pre-rendered static pages via a global CDN, load times are drastically reduced. This eliminates database lag, providing a superior user experience and effortlessly passing Google's Core Web Vitals.
+                                <strong>{content.tips[0][0]}</strong>
+                                {content.tips[0][1]}
                             </div>
 
                             <div className="tip-item">
-                                <strong>Bulletproof Security</strong>
-                                Because the frontend is completely decoupled, your WordPress admin panel and database are hidden from public access. This effectively removes the attack surface for common vulnerabilities, DDoS attacks, and malicious plugins.
+                                <strong>{content.tips[1][0]}</strong>
+                                {content.tips[1][1]}
                             </div>
 
                             <div className="tip-item">
-                                <strong>Ultimate Creative Flexibility</strong>
-                                Break free from PHP templates and theme constraints. We build bespoke, app-like user interfaces tailored exactly to your brand using the latest front-end technologies, creating highly interactive experiences.
+                                <strong>{content.tips[2][0]}</strong>
+                                {content.tips[2][1]}
                             </div>
                         </div>
                     </div>
