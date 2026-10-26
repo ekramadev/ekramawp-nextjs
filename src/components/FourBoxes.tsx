@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useRef } from 'react';
+import type { FourBoxesContent } from '@/content/serviceCapabilities';
 
-export const FourBoxes = () => {
+export const FourBoxes = ({ content }: { content: FourBoxesContent }) => {
   // Ref for the card that needs to blink
   const blinkingCardRef = useRef<HTMLElement>(null);
 
@@ -36,7 +37,7 @@ export const FourBoxes = () => {
   }, []);
 
   return (
-    <section className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
+    <section data-component="four-capabilities" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
       {/* Dynamic Keyframes: Tuned to shift seamlessly from light gray boundaries to Emerald accents */}
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -60,23 +61,21 @@ export const FourBoxes = () => {
 
         {/* --- Header --- */}
         <div className="max-w-[800px] mx-auto mb-[60px] text-center">
-          <h2 className="text-[#10B981] mb-[24px] m-0 font-black">
-            Architecting <span className="text-gray-900">Scalable Systems</span>
+          <h2 className="text-black mb-[24px] m-0 font-black">
+            {content.titleLead} <span className="text-brand-emerald">{content.titleAccent}</span>
           </h2>
-          <p className="text-[1.1rem] text-gray-600 font-normal leading-[1.6] m-0">
-            From reducing Time-to-Interactive (TTI) to ensuring strict type safety, we engineer robust front-end architectures that drive high-performance user experiences.
-          </p>
+          <p className="text-[1.1rem] text-gray-700 font-normal leading-[1.6] m-0">{content.intro}</p>
         </div>
 
         {/* --- Grid --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px] text-left">
 
           {/* Card 1: Performance */}
-          <article className="border border-gray-200 bg-white shadow-sm rounded-[12px] p-[40px] flex flex-col transition-transform duration-300 hover:-translate-y-[5px]">
+          <article className="border border-gray-200 bg-transparent shadow-sm rounded-[12px] p-[40px] flex flex-col transition-transform duration-300 hover:-translate-y-[5px]">
             <div className="flex justify-between items-start mb-[30px]">
               <div>
-                <h3 className="text-gray-900 font-bold m-0 mb-[12px] text-xl">High-Performance Rendering</h3>
-                <p className="text-[0.95rem] text-gray-600 leading-[1.5] m-0 max-w-[90%] font-normal">Optimize Core Web Vitals by implementing advanced rendering strategies. We ensure your application loads instantly and remains responsive.</p>
+                <h3 className="text-black font-bold m-0 mb-[12px] text-xl">{content.cards[0].title}</h3>
+                <p className="text-[0.95rem] text-gray-700 leading-[1.5] m-0 max-w-[90%] font-normal">{content.cards[0].description}</p>
               </div>
               <div className="shrink-0 w-[50px] h-[50px] bg-[#10B981]/10 rounded-[8px] flex items-center justify-center ml-[15px]">
                 <svg className="w-[28px] h-[28px] text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -87,29 +86,29 @@ export const FourBoxes = () => {
             <div className="w-full h-[1px] bg-gray-200 mb-[25px]"></div>
             <div className="grid grid-cols-1 min-[500px]:grid-cols-2 gap-[15px]">
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Server-Side Rendering (SSR)
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[0]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Static Site Gen (SSG)
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[1]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Code Splitting & Lazy Loading
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[2]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Edge Caching Strategies
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[3]}
               </div>
             </div>
           </article>
 
           {/* Card 2: Scalability (BLINKING BLOCK) */}
           <article
-            className="relative border border-gray-200 bg-white shadow-sm rounded-[12px] p-[40px] flex flex-col transition-transform duration-300 hover:-translate-y-[5px]"
+            className="relative border border-gray-200 bg-transparent shadow-sm rounded-[12px] p-[40px] flex flex-col transition-transform duration-300 hover:-translate-y-[5px]"
             ref={blinkingCardRef}
           >
             <div className="flex justify-between items-start mb-[30px]">
               <div>
-                <h3 className="text-gray-900 font-bold m-0 mb-[12px] text-xl">Scalable Component Logic</h3>
-                <p className="text-[0.95rem] text-gray-600 leading-[1.5] m-0 max-w-[90%] font-normal">Deconstruct complex UIs into atomic, reusable components. We build design systems that maintain consistency as your app grows.</p>
+                <h3 className="text-black font-bold m-0 mb-[12px] text-xl">{content.cards[1].title}</h3>
+                <p className="text-[0.95rem] text-gray-700 leading-[1.5] m-0 max-w-[90%] font-normal">{content.cards[1].description}</p>
               </div>
               <div className="shrink-0 w-[50px] h-[50px] bg-[#10B981]/10 rounded-[8px] flex items-center justify-center ml-[15px]">
                 <svg className="w-[28px] h-[28px] text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -120,26 +119,26 @@ export const FourBoxes = () => {
             <div className="w-full h-[1px] bg-gray-200 mb-[25px]"></div>
             <div className="grid grid-cols-1 min-[500px]:grid-cols-2 gap-[15px]">
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Atomic Design Methodology
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[0]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Custom React Hooks
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[1]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Global State (Redux/Zustand)
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[2]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Strict TypeScript Interfaces
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[3]}
               </div>
             </div>
           </article>
 
           {/* Card 3: Modern Ecosystem */}
-          <article className="border border-gray-200 bg-white shadow-sm rounded-[12px] p-[40px] flex flex-col transition-transform duration-300 hover:-translate-y-[5px]">
+          <article className="border border-gray-200 bg-transparent shadow-sm rounded-[12px] p-[40px] flex flex-col transition-transform duration-300 hover:-translate-y-[5px]">
             <div className="flex justify-between items-start mb-[30px]">
               <div>
-                <h3 className="text-gray-900 font-bold m-0 mb-[12px] text-xl">Modern Build Ecosystems</h3>
-                <p className="text-[0.95rem] text-gray-600 leading-[1.5] m-0 max-w-[90%] font-normal">Leverage the power of Next.js and Vite. We configure robust CI/CD pipelines to automate testing and deployment.</p>
+                <h3 className="text-black font-bold m-0 mb-[12px] text-xl">{content.cards[2].title}</h3>
+                <p className="text-[0.95rem] text-gray-700 leading-[1.5] m-0 max-w-[90%] font-normal">{content.cards[2].description}</p>
               </div>
               <div className="shrink-0 w-[50px] h-[50px] bg-[#10B981]/10 rounded-[8px] flex items-center justify-center ml-[15px]">
                 <svg className="w-[28px] h-[28px] text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -150,26 +149,26 @@ export const FourBoxes = () => {
             <div className="w-full h-[1px] bg-gray-200 mb-[25px]"></div>
             <div className="grid grid-cols-1 min-[500px]:grid-cols-2 gap-[15px]">
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Next.js App Router
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[0]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Turborepo Integration
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[1]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Automated Unit Testing
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[2]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> End-to-End Testing
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[3]}
               </div>
             </div>
           </article>
 
           {/* Card 4: UX & Accessibility */}
-          <article className="border border-gray-200 bg-white shadow-sm rounded-[12px] p-[40px] flex flex-col transition-transform duration-300 hover:-translate-y-[5px]">
+          <article className="border border-gray-200 bg-transparent shadow-sm rounded-[12px] p-[40px] flex flex-col transition-transform duration-300 hover:-translate-y-[5px]">
             <div className="flex justify-between items-start mb-[30px]">
               <div>
-                <h3 className="text-gray-900 font-bold m-0 mb-[12px] text-xl">Interactive UX & Accessibility</h3>
-                <p className="text-[0.95rem] text-gray-600 leading-[1.5] m-0 max-w-[90%] font-normal">Ensure your application is accessible to all users (a11y) while providing fluid, physics-based micro-interactions.</p>
+                <h3 className="text-black font-bold m-0 mb-[12px] text-xl">{content.cards[3].title}</h3>
+                <p className="text-[0.95rem] text-gray-700 leading-[1.5] m-0 max-w-[90%] font-normal">{content.cards[3].description}</p>
               </div>
               <div className="shrink-0 w-[50px] h-[50px] bg-[#10B981]/10 rounded-[8px] flex items-center justify-center ml-[15px]">
                 <svg className="w-[28px] h-[28px] text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -181,16 +180,16 @@ export const FourBoxes = () => {
             <div className="w-full h-[1px] bg-gray-200 mb-[25px]"></div>
             <div className="grid grid-cols-1 min-[500px]:grid-cols-2 gap-[15px]">
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> WCAG 2.1 Compliance
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[0]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Framer Motion Animations
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[1]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Responsive Layouts
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[2]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> Keyboard Navigation
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[3]}
               </div>
             </div>
           </article>

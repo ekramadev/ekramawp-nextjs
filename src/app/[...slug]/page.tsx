@@ -2,6 +2,8 @@ import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/h
 import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
 import { getAiShiftContent, getPentagonGrowthContent } from "@/content/decisionSections";
 import { getSimpleDeliveryContent, getDeliveryComparisonContent } from "@/content/deliverySections";
+import { getFourBoxesContent } from "@/content/serviceCapabilities";
+import { getLeftColumnContent } from "@/content/agencyCarousels";
 import { getArchitectureTabsContent, getEngineeringCarouselContent } from "@/content/architectureSections";
 import { getFiveCirclesContent } from "@/content/fiveCircles";
 import { getContentDoubleContent } from "@/content/contentDouble";
@@ -88,6 +90,8 @@ export default async function DynamicPage({ params }: Props) {
           pentagonGrowth={getPentagonGrowthContent(uri, data.nodeByUri.title)}
           simpleDelivery={getSimpleDeliveryContent(uri)}
           deliveryComparison={getDeliveryComparisonContent(uri)}
+          fourBoxes={getFourBoxesContent(uri)}
+          leftColumn={getLeftColumnContent(uri)}
         />
       </div>
     </main>

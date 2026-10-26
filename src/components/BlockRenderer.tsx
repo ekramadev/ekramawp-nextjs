@@ -57,6 +57,8 @@ import type { HtmlExpertiseContent, HtmlCapabilitiesContent } from "@/content/ht
 import type { TraditionalHeroContent, HtmlCheatsheetContent } from "@/content/serviceShowcases";
 import type { AiShiftContent, PentagonGrowthContent } from "@/content/decisionSections";
 import type { SimpleDeliveryContent, DeliveryComparisonContent } from "@/content/deliverySections";
+import type { FourBoxesContent } from "@/content/serviceCapabilities";
+import type { LeftColumnContent } from "@/content/agencyCarousels";
 
 interface Props {
   htmlContent: string;
@@ -75,9 +77,11 @@ interface Props {
   pentagonGrowth: PentagonGrowthContent;
   simpleDelivery: SimpleDeliveryContent;
   deliveryComparison: DeliveryComparisonContent;
+  fourBoxes: FourBoxesContent;
+  leftColumn: LeftColumnContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -126,10 +130,10 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
 
         // 7. BOOKS & EXTRAS
         if (classes.includes("section-aifrontendeveloper-book")) return <AIfrontendeveloperBook />;
-        if (classes.includes("section-Leftcolumn-tab")) return <Leftcolumntab />;
+        if (classes.includes("section-Leftcolumn-tab")) return <Leftcolumntab content={leftColumn} />;
         if (classes.includes("section-Threecolumn-arch")) return <Threecolumnarch />;
         if (classes.includes("section-Simple-Content")) return <SimpleContentSection content={simpleDelivery} />;
-        if (classes.includes("section-Four-Boxes")) return <FourBoxes />;
+        if (classes.includes("section-Four-Boxes")) return <FourBoxes content={fourBoxes} />;
         if (classes.includes("section-FAQ")) return <FAQSection />;
         if (classes.includes("section-TraditionalHeroArea")) return <TraditionalHeroArea content={traditionalHero} />;
         if (classes.includes("section-Boxesimage")) return <Boxesimage />;
