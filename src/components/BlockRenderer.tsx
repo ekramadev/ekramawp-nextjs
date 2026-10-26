@@ -56,6 +56,7 @@ import type { ArchitectureTabsContent, EngineeringCarouselContent } from "@/cont
 import type { HtmlExpertiseContent, HtmlCapabilitiesContent } from "@/content/htmlSections";
 import type { TraditionalHeroContent, HtmlCheatsheetContent } from "@/content/serviceShowcases";
 import type { AiShiftContent, PentagonGrowthContent } from "@/content/decisionSections";
+import type { SimpleDeliveryContent, DeliveryComparisonContent } from "@/content/deliverySections";
 
 interface Props {
   htmlContent: string;
@@ -72,9 +73,11 @@ interface Props {
   htmlCheatsheet: HtmlCheatsheetContent;
   aiShift: AiShiftContent;
   pentagonGrowth: PentagonGrowthContent;
+  simpleDelivery: SimpleDeliveryContent;
+  deliveryComparison: DeliveryComparisonContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -125,12 +128,12 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         if (classes.includes("section-aifrontendeveloper-book")) return <AIfrontendeveloperBook />;
         if (classes.includes("section-Leftcolumn-tab")) return <Leftcolumntab />;
         if (classes.includes("section-Threecolumn-arch")) return <Threecolumnarch />;
-        if (classes.includes("section-Simple-Content")) return <SimpleContentSection />;
+        if (classes.includes("section-Simple-Content")) return <SimpleContentSection content={simpleDelivery} />;
         if (classes.includes("section-Four-Boxes")) return <FourBoxes />;
         if (classes.includes("section-FAQ")) return <FAQSection />;
         if (classes.includes("section-TraditionalHeroArea")) return <TraditionalHeroArea content={traditionalHero} />;
         if (classes.includes("section-Boxesimage")) return <Boxesimage />;
-        if (classes.includes("section-ThreeColumnBar")) return <ThreeColumnBar />;
+        if (classes.includes("section-ThreeColumnBar")) return <ThreeColumnBar content={deliveryComparison} />;
         if (classes.includes("section-FiveCirclesBox")) return <FiveCirclesBox content={fiveCircles} />;
         if (classes.includes("section-BigTabsData")) return <BigTabsData />;
         if (classes.includes("section-WptwoPageVisual")) return <WptwoPageVisual content={workflowHero} />;

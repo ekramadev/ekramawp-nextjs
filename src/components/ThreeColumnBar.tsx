@@ -1,19 +1,20 @@
 "use client";
 import React from 'react';
+import type { DeliveryComparisonContent } from '@/content/deliverySections';
 
-export const ThreeColumnBar = () => {
+export const ThreeColumnBar = ({ content }: { content: DeliveryComparisonContent }) => {
   return (
-    <section className="w-full pt-2 pb-16 relative overflow-hidden">
+    <section data-component="delivery-comparison" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
       <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
         
         {/* Heading Section */}
-        <h2 className="mb-[20px]">
-          Unlock a <span className="text-[#10B981]">10% increase</span> in organic traffic with our content marketing firm
+        <h2 className="mb-[20px] text-black">
+          {content.title[0]} <span className="text-[#10B981]">{content.title[1]}</span> {content.title[2]}
         </h2>
         
         {/* Title Body Content */}
-        <div className="max-w-[800px] mx-auto mb-[70px]">
-          Our performance-driven approach ensures that your content doesn't just look good—it drives real, measurable revenue. Compare how our dedicated expertise stacks up against in-house teams and standard agencies.
+        <div className="max-w-[800px] mx-auto mb-[70px] text-gray-700">
+          {content.intro}
         </div>
 
         {/* Features Comparison Table */}
@@ -22,88 +23,88 @@ export const ThreeColumnBar = () => {
           {/* Column 1: WPFEDEV (Transparent) */}
           <div className="flex flex-col h-full p-[35px_25px] bg-transparent">
             <div className="min-h-[60px] mb-[25px] flex items-center">
-              <div className="text-[26px] font-black tracking-[-1px] text-gray-900">
+              <div className="text-[26px] font-black tracking-[-1px] text-black">
                 WPFEDEV<span className="text-[#10B981]">.com</span>
               </div>
             </div>
             <ul className="list-none p-0 m-0 grow">
               <li className="flex items-start mb-[25px]">
                 <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
-                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Dedicated account manager, interfacing with a team of 500+ digital marketing experts</p>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[0][0]}</p>
               </li>
               <li className="flex items-start mb-[25px]">
                 <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
-                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">RevenueCloudFX access for optimizing, measuring, and reporting ROI</p>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[0][1]}</p>
               </li>
               <li className="flex items-start">
                 <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
-                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">In-depth analysis of your business goals, industry, and competitors</p>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[0][2]}</p>
               </li>
             </ul>
           </div>
 
-          {/* Column 2: In-House (EMERALD GRADIENT + SHADOW) */}
-          <div className="flex flex-col h-full rounded-[20px] p-[35px_25px] bg-gradient-to-br from-[#10B981] to-[#064e3b] shadow-[0_20px_50px_rgba(16,185,129,0.3)]">
+          {/* Column 2: Required inputs */}
+          <div className="flex flex-col h-full rounded-[20px] p-[35px_25px] bg-transparent shadow-[0_20px_50px_rgba(16,185,129,0.3)]">
             <div className="min-h-[60px] mb-[25px] flex items-center">
               {/* Added font-bold */}
-              <p className="text-white font-bold">In-House Marketing</p>
+              <p className="text-black font-bold">{content.columnTitles[0]}</p>
             </div>
             <ul className="list-none p-0 m-0 grow">
               <li className="flex items-start mb-[25px]">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-white/20 text-white">✘</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">One or two team members trying to keep up with fast-paced marketing advancements</p>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-white/20 text-gray-700">✘</div>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[1][0]}</p>
               </li>
               <li className="flex items-start mb-[25px]">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-white/20 text-white">✘</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Analytics suite for measuring and improving campaign performance</p>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-white/20 text-gray-700">✘</div>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[1][1]}</p>
               </li>
               <li className="flex items-start">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-white/20 text-white">✔</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">S.M.A.R.T. goals, but limited resources needed to execute</p>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-white/20 text-brand-emerald">✔</div>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[1][2]}</p>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Typical Agency (Transparent) */}
+          {/* Column 3: Scope boundaries */}
           <div className="flex flex-col h-full p-[35px_25px] bg-transparent">
             <div className="min-h-[60px] mb-[25px] flex items-center">
               {/* Added font-bold */}
-              <p className="font-bold">Typical Marketing Agency</p>
+              <p className="font-bold text-black">{content.columnTitles[1]}</p>
             </div>
             <ul className="list-none p-0 m-0 grow">
               <li className="flex items-start mb-[25px]">
                 <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
-                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Dedicated account manager responsible for strategy, but will need your help implementing solutions</p>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[2][0]}</p>
               </li>
               <li className="flex items-start mb-[25px]">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-[#cf2e2e]/15 text-[#cf2e2e]">✘</div>
-                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Third-party tracking and analysis with subscription costs passed to you</p>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-[#cf2e2e]/15 text-gray-700">✘</div>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[2][1]}</p>
               </li>
               <li className="flex items-start">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-[#cf2e2e]/15 text-[#cf2e2e]">✘</div>
-                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Cookie-cutter checklists and solutions for optimizing your campaigns</p>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-[#cf2e2e]/15 text-gray-700">✘</div>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[2][2]}</p>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Standard Agency (EMERALD GRADIENT + SHADOW) */}
-          <div className="flex flex-col h-full rounded-[20px] p-[35px_25px] bg-gradient-to-br from-[#10B981] to-[#064e3b] shadow-[0_20px_50px_rgba(16,185,129,0.3)]">
+          {/* Column 4: Review points */}
+          <div className="flex flex-col h-full rounded-[20px] p-[35px_25px] bg-transparent shadow-[0_20px_50px_rgba(16,185,129,0.3)]">
             <div className="min-h-[60px] mb-[25px] flex items-center">
               {/* Swapped class for className to match React standards and kept it bold */}
-              <p className="text-white font-bold">Standard Agency</p>
+              <p className="text-black font-bold">{content.columnTitles[2]}</p>
             </div>
             <ul className="list-none p-0 m-0 grow">
               <li className="flex items-start mb-[25px]">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-white/20 text-white">✔</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Dedicated account manager responsible for strategy, but will need your help implementing solutions</p>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-white/20 text-brand-emerald">✔</div>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[3][0]}</p>
               </li>
               <li className="flex items-start mb-[25px]">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-white/20 text-white">✘</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Third-party tracking and analysis with subscription costs passed to you</p>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-white/20 text-gray-700">✘</div>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[3][1]}</p>
               </li>
               <li className="flex items-start">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-white/20 text-white">✘</div>
-                <p className="text-white/90 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">Cookie-cutter checklists and solutions for optimizing your campaigns</p>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[10px] bg-white/20 text-gray-700">✘</div>
+                <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[3][2]}</p>
               </li>
             </ul>
           </div>
