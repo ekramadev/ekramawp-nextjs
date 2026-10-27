@@ -135,6 +135,17 @@ main,
   max-width: var(--wpfe-header-width) !important;
 }
 
+/* Fit the existing carousel viewport beside its 400px column and original gap. */
+:root body [data-wpfe-carousel-viewport] {
+  width: 100% !important;
+}
+
+@media (min-width: 1024px) {
+  :root body [data-wpfe-carousel-viewport] {
+    width: calc(100% - 400px - clamp(40px, 6vw, 100px)) !important;
+  }
+}
+
 /* A WordPress group around complete sections must not add a second page gutter. */
 :root body [data-wpfe-container="raw"]:has([data-wpfe-section]) {
   max-width: none !important;

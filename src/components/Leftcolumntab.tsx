@@ -44,7 +44,7 @@ export const Leftcolumntab = ({ content }: { content: LeftColumnContent }) => {
       <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 flex flex-col lg:flex-row items-center justify-between text-center lg:text-left gap-[clamp(40px,6vw,100px)] w-full">
 
         {/* CAROUSEL ON LEFT */}
-        <div className="shrink-0 grow-0 relative w-[100vw] lg:w-[calc(100%-450px)] max-w-[850px]">
+        <div data-wpfe-carousel-viewport="" className="shrink-0 grow-0 relative w-[100vw] lg:w-[calc(100%-450px)] max-w-[850px]">
           <div className="w-full overflow-hidden py-[80px] px-4 lg:px-0 relative">
 
             <div
