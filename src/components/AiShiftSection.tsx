@@ -55,8 +55,8 @@ export function AiShiftSection({
   const isActivelyTracking = isHovered && !isPinned;
 
   return (
-    <section data-component="ai-shift" className="w-full py-12 md:py-16 bg-transparent overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section data-wpfe-section="" data-component="ai-shift" className="w-full py-12 md:py-16 bg-transparent overflow-hidden">
+      <div data-wpfe-container="content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ========================================================= */}
         {/* THE TEXT ZONE (Normal, selectable, non-interactive text)  */}

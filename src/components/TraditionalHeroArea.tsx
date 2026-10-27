@@ -56,7 +56,7 @@ const renderFloatingIcons = (count: number, seedOffset: number) => {
   };
 
   return (
-    <section data-component="traditional-hero-area" className="w-full pt-2 relative overflow-hidden bg-transparent">
+    <section data-wpfe-section="" data-component="traditional-hero-area" className="w-full pt-2 relative overflow-hidden bg-transparent">
       {/* Custom Keyframes */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes float-bubble {
@@ -80,7 +80,7 @@ const renderFloatingIcons = (count: number, seedOffset: number) => {
         .animate-float-3 { animation: float-bubble 9s ease-in-out infinite 0.7s; }
       `}} />
 
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center flex flex-col lg:flex-row gap-[50px] lg:justify-between lg:text-left">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center flex flex-col lg:flex-row gap-[50px] lg:justify-between lg:text-left">
         
         {/* --- LEFT COLUMN --- */}
         <div className="flex-1 max-w-[500px] z-20">

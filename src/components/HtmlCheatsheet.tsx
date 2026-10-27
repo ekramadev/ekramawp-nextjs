@@ -4,7 +4,7 @@ import type { HtmlCheatsheetContent } from '@/content/serviceShowcases';
 
 export const HtmlCheatsheet = ({ content }: { content: HtmlCheatsheetContent }) => {
   return (
-    <section data-component="html-cheatsheet" className="w-full bg-transparent py-24 px-5 box-border font-['Inter',sans-serif]">
+    <section data-wpfe-section="" data-component="html-cheatsheet" className="w-full bg-transparent py-24 px-5 box-border font-['Inter',sans-serif]">
       {/* SCOPED CSS */}
       <style dangerouslySetInnerHTML={{ __html: `
         .cheatsheet-container {
@@ -120,7 +120,7 @@ export const HtmlCheatsheet = ({ content }: { content: HtmlCheatsheetContent }) 
         }
       `}} />
 
-      <div className="cheatsheet-container">
+      <div data-wpfe-container="content" className="cheatsheet-container">
         
         {/* HEADER */}
         <div className="cheatsheet-heading-wrap">

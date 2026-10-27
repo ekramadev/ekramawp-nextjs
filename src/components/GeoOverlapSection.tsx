@@ -4,9 +4,9 @@ import type { GeoOverlapContent } from "@/content/geoOverlap";
 
 export const GeoOverlapSection = ({ content }: { content: GeoOverlapContent }) => {
   return (
-    <section data-component="geo-overlap" className="pt-10 pb-0 px-5 min-h-[5vh] flex items-center relative overflow-hidden bg-transparent">
+    <section data-wpfe-section="" data-component="geo-overlap" className="pt-10 pb-0 px-5 min-h-[5vh] flex items-center relative overflow-hidden bg-transparent">
 
-      <div className="max-w-[1200px] w-full mx-auto flex flex-col relative z-10">
+      <div data-wpfe-container="content" className="max-w-[1200px] w-full mx-auto flex flex-col relative z-10">
 
         {/* --- HEADER --- */}
         <div className="text-center max-w-[900px] mx-auto mb-8">

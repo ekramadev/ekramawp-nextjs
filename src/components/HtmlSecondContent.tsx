@@ -4,7 +4,7 @@ import type { HtmlCapabilitiesContent } from '@/content/htmlSections';
 
 export const HtmlSecondContent = ({ content }: { content: HtmlCapabilitiesContent }) => {
   return (
-    <section data-component="html-capabilities" className="w-full bg-transparent py-24 px-5 box-border font-['Inter',sans-serif]">
+    <section data-wpfe-section="" data-component="html-capabilities" className="w-full bg-transparent py-24 px-5 box-border font-['Inter',sans-serif]">
       {/* SCOPED CSS */}
       <style dangerouslySetInnerHTML={{ __html: `
         .html-grid-container {
@@ -178,7 +178,7 @@ export const HtmlSecondContent = ({ content }: { content: HtmlCapabilitiesConten
 
       `}} />
 
-      <div className="html-grid-container">
+      <div data-wpfe-container="content" className="html-grid-container">
         
         {/* TOP HEADING */}
         <div className="html-heading-top">

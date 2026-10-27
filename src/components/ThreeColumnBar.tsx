@@ -4,8 +4,8 @@ import type { DeliveryComparisonContent } from '@/content/deliverySections';
 
 export const ThreeColumnBar = ({ content }: { content: DeliveryComparisonContent }) => {
   return (
-    <section data-component="delivery-comparison" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
+    <section data-wpfe-section="" data-component="delivery-comparison" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
         
         {/* Heading Section */}
         <h2 className="mb-[20px] text-black">

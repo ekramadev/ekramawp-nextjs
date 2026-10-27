@@ -106,7 +106,7 @@ const ExpertiseCard = ({ data }: { data: typeof expertiseData[0] }) => {
 // --- MAIN COMPONENT ---
 export const Shutterupanddown = () => {
   return (
-    <section className="shutter-wrapper">
+    <section data-wpfe-section="" className="shutter-wrapper">
       {/* Scoped CSS */}
       <style dangerouslySetInnerHTML={{ __html: `
         .shutter-wrapper {
@@ -272,7 +272,7 @@ export const Shutterupanddown = () => {
         }
       `}} />
 
-      <div className="container">
+      <div data-wpfe-container="content" className="container">
         <div className="grid">
           {expertiseData.map((data) => (
             <ExpertiseCard key={data.id} data={data} />

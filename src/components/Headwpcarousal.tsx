@@ -37,7 +37,7 @@ export const Headwpcarousal = ({ content }: { content: EngineeringCarouselConten
   };
 
   return (
-    <section id="ek-strategy-carousel-section" data-component="engineering-carousel">
+    <section data-wpfe-section="" id="ek-strategy-carousel-section" data-component="engineering-carousel">
       {/* Scoped component palette */}
       <style dangerouslySetInnerHTML={{ __html: `
         #ek-strategy-carousel-section {
@@ -321,7 +321,7 @@ export const Headwpcarousal = ({ content }: { content: EngineeringCarouselConten
         }
       `}} />
 
-      <div className="custom-single-carousel-wrapper">
+      <div data-wpfe-container="content" className="custom-single-carousel-wrapper">
         <div className="king-heading-wrap">
           <span className="king-kicker">{content.kicker}</span>
           <h2>{content.titleLead} <span className="blue-scratch">{content.titleAccent}</span></h2>

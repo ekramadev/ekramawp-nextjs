@@ -4,7 +4,7 @@ import type { HtmlExpertiseContent } from '@/content/htmlSections';
 
 export const HtmlContent = ({ content }: { content: HtmlExpertiseContent }) => {
   return (
-    <section data-component="html-expertise" className="w-full bg-transparent py-20 px-5 box-border font-['Inter',sans-serif]">
+    <section data-wpfe-section="" data-component="html-expertise" className="w-full bg-transparent py-20 px-5 box-border font-['Inter',sans-serif]">
       {/* SCOPED CSS */}
       <style dangerouslySetInnerHTML={{ __html: `
         .html-expertise-container {
@@ -133,7 +133,7 @@ export const HtmlContent = ({ content }: { content: HtmlExpertiseContent }) => {
 
       `}} />
 
-      <div className="html-expertise-container">
+      <div data-wpfe-container="content" className="html-expertise-container">
         
         {/* HEADER FULL WIDTH */}
         <div className="html-heading-wrapper">

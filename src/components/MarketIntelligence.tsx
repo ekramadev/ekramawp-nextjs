@@ -20,8 +20,8 @@ export const MarketIntelligence = ({ content }: { content: MarketIntelligenceCon
   };
 
   return (
-   <section data-component="market-intelligence" className="w-full pt-2 pb-0 relative overflow-hidden bg-transparent">
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
+   <section data-wpfe-section="" data-component="market-intelligence" className="w-full pt-2 pb-0 relative overflow-hidden bg-transparent">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
 
         {/* HEADER CONTENT */}
         <div className="col-span-full max-w-[800px] mx-auto w-full text-center relative z-20 flex flex-col items-center justify-center">

@@ -106,3 +106,49 @@ main,
   background-color: transparent !important;
   background-image: none !important;
 }
+
+/* Shared outer spacing, measured from WebFX's content and header containers.
+   Opt-in attributes keep card, control, illustration and reading-width rules intact. */
+:root {
+  --wpfe-content-width: 1366px;
+  --wpfe-header-width: 1800px;
+  --wpfe-page-gutter: 24px;
+}
+
+:root body [data-wpfe-section],
+:root body [data-wpfe-inset] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+:root body [data-wpfe-container] {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: var(--wpfe-content-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--wpfe-page-gutter) !important;
+  padding-right: var(--wpfe-page-gutter) !important;
+}
+
+:root body [data-wpfe-container="header"] {
+  max-width: var(--wpfe-header-width) !important;
+}
+
+/* Fit the existing carousel viewport beside its 400px column and original gap. */
+:root body [data-wpfe-carousel-viewport] {
+  width: 100% !important;
+}
+
+@media (min-width: 1024px) {
+  :root body [data-wpfe-carousel-viewport] {
+    width: calc(100% - 400px - clamp(40px, 6vw, 100px)) !important;
+  }
+}
+
+/* A WordPress group around complete sections must not add a second page gutter. */
+:root body [data-wpfe-container="raw"]:has([data-wpfe-section]) {
+  max-width: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}

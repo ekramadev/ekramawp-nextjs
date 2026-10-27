@@ -43,8 +43,8 @@ export const CodePortfolio = () => {
   }, [codeString]);
 
   return (
-    <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
-      <section className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
+    <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
+      <section data-wpfe-section="" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
 
         <header className="mb-16">
           <h2 className="font-black text-[#10B981]">

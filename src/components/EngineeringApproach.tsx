@@ -48,8 +48,8 @@ export const EngineeringApproach = () => {
   const activeContent = approachData[activeTab as keyof typeof approachData] || approachData.performance;
 
   return (
-    <section className="w-full pb-16 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-5 box-border relative z-10">
+    <section data-wpfe-section="" className="w-full pb-16 relative overflow-hidden">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 box-border relative z-10">
 
         {/* --- SECTION HEADER --- */}
         <div className="text-center max-w-[900px] mx-auto mb-[10px]">

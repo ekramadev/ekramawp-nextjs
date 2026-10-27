@@ -12,8 +12,8 @@ export const Threecolumnarch = ({ content }: { content: ArchitecturePhasesConten
   const phases = content.phases;
 
   return (
-    <section className="w-full pt-2 pb-16 relative overflow-hidden flex justify-center bg-transparent">
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 flex flex-col items-center justify-center text-center w-full">
+    <section data-wpfe-section="" className="w-full pt-2 pb-16 relative overflow-hidden flex justify-center bg-transparent">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 flex flex-col items-center justify-center text-center w-full">
 
         {/* --- INTRO SECTION (Light Theme Updates) --- */}
         <div className="text-center mb-[100px] max-w-[800px] mx-auto">

@@ -427,7 +427,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-[1000] w-full bg-white text-[#333] border-b border-gray-200 shadow-sm">
       {/* Top Utility Bar */}
       <div className="hidden h-6 bg-[#f8f9fa] text-[13px] border-b border-gray-200 lg:block">
-        <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-6">
+        <div data-wpfe-container="header" className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-6">
           <div className="flex items-center gap-5 text-gray-600 font-medium">
             <a href="#" className="hover:text-[#0056b3] transition-colors">WPFEDEV Healthcare</a>
             <a href="#" className="hover:text-[#0056b3] transition-colors">WPFEDEV Finance</a>
@@ -445,7 +445,7 @@ export default function Navbar() {
       </div>
 
       <nav className="relative bg-white">
-        <div className="mx-auto flex h-[55px] max-w-[1400px] items-center px-6">
+        <div data-wpfe-container="header" className="mx-auto flex h-[55px] max-w-[1400px] items-center px-6">
           {/* Logo */}
           <div className="z-[1001] flex flex-1 flex-col leading-none">
             <Link href="/" className="no-underline">
@@ -486,7 +486,7 @@ export default function Navbar() {
 
                 <div className="pointer-events-none invisible absolute left-0 top-full z-[999] w-full bg-white opacity-0 shadow-[0_15px_35px_rgba(0,0,0,0.08)] transition-all duration-200 ease-out group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 border-t border-gray-200">
                   {/* Strict Fixed Height Wrapper (450px) */}
-                  <div className="mx-auto flex w-full max-w-[1400px] flex-col h-[450px]">
+                  <div data-wpfe-container="header" className="mx-auto flex w-full max-w-[1400px] flex-col h-[450px]">
 
                     {/* Scrolling Content Layer */}
                     <div className="flex w-full flex-1 overflow-hidden">

@@ -3,7 +3,7 @@ import React from 'react';
 
 export const WpHeroVisual = () => {
   return (
-    <section
+    <section data-wpfe-section=""
       id="ek-ai-hero"
       className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent"
       style={{
@@ -14,7 +14,7 @@ export const WpHeroVisual = () => {
       {/* External Resources */}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center flex flex-col lg:flex-row gap-[2rem] lg:justify-between w-full box-border">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center flex flex-col lg:flex-row gap-[2rem] lg:justify-between w-full box-border">
 
         {/* FLUID LEFT COLUMN */}
         <div className="flex-[1.2] flex flex-col justify-center lg:pr-[2rem] z-[100] w-full items-center lg:items-start lg:text-left">

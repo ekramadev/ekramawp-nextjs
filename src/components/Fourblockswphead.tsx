@@ -5,7 +5,7 @@ import type { PageResourcesContent } from '@/content/phaseResources';
 
 export const Fourblockswphead = ({ content }: { content: PageResourcesContent }) => {
   return (
-    <section className="fourblocks-wrapper">
+    <section data-wpfe-section="" className="fourblocks-wrapper">
       <style dangerouslySetInnerHTML={{ __html: `
         .fourblocks-wrapper {
             font-family: inherit;
@@ -242,7 +242,7 @@ export const Fourblockswphead = ({ content }: { content: PageResourcesContent })
         }
       `}} />
 
-      <div className="container">
+      <div data-wpfe-container="content" className="container">
         
         <div className="sidebar">
           <img 

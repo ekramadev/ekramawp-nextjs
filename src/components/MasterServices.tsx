@@ -89,7 +89,7 @@ export const MasterServices = () => {
   ];
 
   return (
-    <section className="section-container">
+    <section data-wpfe-section="" className="section-container">
       <div className="global-grid-layout"></div>
     <div className="w-full bg-transparent overflow-visible">
       {/* Required for standardizing the custom animations without editing tailwind.config.js */}
@@ -106,7 +106,7 @@ export const MasterServices = () => {
         .animate-img-scale-in { animation: img-scale-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
       `}} />
 
-      <div className="box-border w-full max-w-[1400px] mx-auto bg-transparent overflow-visible">
+      <div data-wpfe-container="content" className="box-border w-full max-w-[1400px] mx-auto bg-transparent overflow-visible">
         
         {/* HEADING */}
         <div className="text-center lg:mb-[180px]">

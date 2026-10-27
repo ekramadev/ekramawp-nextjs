@@ -86,8 +86,8 @@ export const PentagonGrowthEngine = ({ content }: { content: PentagonGrowthConte
   const activeData = tabsData.find(t => t.id === activeTab) || tabsData[0];
 
   return (
-    <section data-component="pentagon-growth" className="py-16 px-6 lg:px-10  text-gray-700 bg-transparent overflow-hidden">
-      <div className="max-w-[1300px] mx-auto">
+    <section data-wpfe-section="" data-component="pentagon-growth" className="py-16 px-6 lg:px-10  text-gray-700 bg-transparent overflow-hidden">
+      <div data-wpfe-container="content" className="max-w-[1300px] mx-auto">
         
         {/* --- 1. HEADING --- */}
         <div className="text-center mb-10 lg:mb-14">

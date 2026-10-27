@@ -107,8 +107,8 @@ export const BigTabsData = () => {
   const activeContent = tabsData.find(tab => tab.id === activeTabId) || tabsData[0];
 
   return (
-    <section className="w-full pt-2 pb-12 relative overflow-hidden bg-transparent">
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 flex flex-col items-center justify-center text-center">
+    <section data-wpfe-section="" className="w-full pt-2 pb-12 relative overflow-hidden bg-transparent">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 flex flex-col items-center justify-center text-center">
 
         {/* Title Body Content Added */}
         <div className="max-w-3xl mb-8">
