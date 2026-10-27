@@ -55,7 +55,7 @@ export const EngineeringApproach = ({ content }: { content: EngineeringApproachC
         <div className="bg-gradient-to-br from-[#10B981]/15 to-[#10B981]/20 backdrop-blur-md border border-white/10 rounded-[24px] p-[40px_20px] md:p-[50px] flex flex-col lg:flex-row gap-[50px] items-center min-h-[480px] text-center lg:text-left transition-all duration-300 shadow-2xl relative overflow-hidden">          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
 
           <div className="flex-[1.2] w-full relative z-10">
-            <h3 key={activeContent.title + "-title"} className="animate-fade-in-right font-black ">
+            <h3 key={activeContent.title + "-title"} className="animate-fade-in-right font-black text-black">
               {activeContent.title}
             </h3>
 
