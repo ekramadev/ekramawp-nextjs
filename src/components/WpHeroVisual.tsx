@@ -1,13 +1,14 @@
 "use client";
 import React from 'react';
+import type { WpHeroContent } from '@/content/engineeringSections';
 
-export const WpHeroVisual = () => {
+export const WpHeroVisual = ({ content }: { content: WpHeroContent }) => {
   return (
     <section data-wpfe-section=""
       id="ek-ai-hero"
       className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent"
       style={{
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.05) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1.5px, transparent 1.5px)',
+        backgroundImage: 'none',
         backgroundSize: '50px 50px'
       }}
     >
@@ -19,16 +20,16 @@ export const WpHeroVisual = () => {
         {/* FLUID LEFT COLUMN */}
         <div className="flex-[1.2] flex flex-col justify-center lg:pr-[2rem] z-[100] w-full items-center lg:items-start lg:text-left">
           <h1 className="mb-6 text-gray-900 font-bold">
-            Be the Only Answer Buyers Find on ChatGPT
+            {content.title}
           </h1>
 
-          <p className="text-[1.1rem] text-gray-600 mb-8 max-w-[100%] lg:max-w-[95%] leading-[1.6]">
-            You will earn more commissions when your name becomes the primary source for AI-driven property searches.
+          <p className="text-gray-700 mb-8 max-w-[100%] lg:max-w-[95%] leading-[1.6]">
+            {content.intro}
           </p>
 
           <form className="bg-white p-2.5 rounded-[14px] flex shadow-[0_15px_40px_rgba(0,0,0,0.08)] max-w-[500px] w-full border border-gray-200">
             <input
-              placeholder="Enter your website URL..."
+              placeholder={content.placeholder}
               type="url"
               required
               className="flex-1 bg-transparent border-none py-3 px-5 outline-none text-base text-gray-900 placeholder:text-gray-400"
@@ -37,7 +38,7 @@ export const WpHeroVisual = () => {
               type="submit"
               className="bg-[#10B981] text-white font-bold border-none px-8 rounded-[10px] cursor-pointer transition-all duration-300 hover:bg-[#059669] shadow-md shadow-emerald-500/20"
             >
-              Analyze Now
+              {content.submitLabel}
             </button>
           </form>
         </div>
@@ -83,8 +84,8 @@ export const WpHeroVisual = () => {
               <foreignObject x="-100" y="-80" width="200" height="160">
                 <div className="h-full flex flex-col items-center justify-center text-center">
                   <div className="text-gray-900 text-[38px] font-extrabold">WP<span className="text-[#10B981]">FEDEV</span></div>
-                  <div className="text-gray-600 font-bold text-[25px]">Architecture</div>
-                  <div className="text-[20px] text-[#10B981] font-bold mt-[5px] bg-[#10B981]/10 py-[4px] px-[12px] rounded-[12px]">99.9% Uptime</div>
+                  <div className="text-gray-700 font-bold text-[25px]">{content.hubTitle}</div>
+                  <div className="text-[20px] text-[#10B981] font-bold mt-[5px] bg-[#10B981]/10 py-[4px] px-[12px] rounded-[12px]">{content.hubCue}</div>
                 </div>
               </foreignObject>
               <g strokeWidth="90" strokeLinecap="round" fill="none">
@@ -96,10 +97,10 @@ export const WpHeroVisual = () => {
             </g>
 
             <g className="fill-[#FFFFFF] pointer-events-none font-extrabold text-[28px]">
-              <text dominantBaseline="middle" textAnchor="middle"><textPath href="#text-path-tl" startOffset="50%">Frontend</textPath></text>
-              <text dominantBaseline="middle" textAnchor="middle"><textPath href="#text-path-tr" startOffset="50%">Backend</textPath></text>
-              <text dominantBaseline="middle" textAnchor="middle"><textPath href="#text-path-br" startOffset="50%">Database</textPath></text>
-              <text dominantBaseline="middle" textAnchor="middle"><textPath href="#text-path-bl" startOffset="50%">DevOps</textPath></text>
+              <text dominantBaseline="middle" textAnchor="middle"><textPath href="#text-path-tl" startOffset="50%">{content.sectors[0]}</textPath></text>
+              <text dominantBaseline="middle" textAnchor="middle"><textPath href="#text-path-tr" startOffset="50%">{content.sectors[1]}</textPath></text>
+              <text dominantBaseline="middle" textAnchor="middle"><textPath href="#text-path-br" startOffset="50%">{content.sectors[2]}</textPath></text>
+              <text dominantBaseline="middle" textAnchor="middle"><textPath href="#text-path-bl" startOffset="50%">{content.sectors[3]}</textPath></text>
             </g>
 
             {/* PROCESS NODES - FIXED: translateZ(0) and perspective forces hardware acceleration to eliminate font blurriness */}
@@ -110,11 +111,11 @@ export const WpHeroVisual = () => {
                 {/* Front Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-white border border-gray-200 shadow-md [backface-visibility:hidden] [transform:translateZ(0)]">
                   <div className="w-[44px] h-[44px] rounded-full flex items-center justify-center text-white absolute z-[1100] -top-[22px] left-1/2 -translate-x-1/2 shadow-md bg-[#10B981]"><i className="fas fa-laptop-code"></i></div>
-                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">Next.js & Tailwind</p>
+                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">{content.nodes[0].label}</p>
                 </div>
                 {/* Back Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-[#10B981]/10 border border-[#10B981]/30 [backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(1px)] px-5">
-                  <p className="text-gray-900 text-[14px] leading-snug font-medium">Blazing fast UI rendering and scalable utility-first styling.</p>
+                  <p className="text-gray-700 text-[14px] leading-snug font-medium">{content.nodes[0].description}</p>
                 </div>
               </div>
             </foreignObject>
@@ -125,11 +126,11 @@ export const WpHeroVisual = () => {
                 {/* Front Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-white border border-gray-200 shadow-md [backface-visibility:hidden] [transform:translateZ(0)]">
                   <div className="w-[44px] h-[44px] rounded-full flex items-center justify-center text-white absolute z-[1100] -top-[22px] left-1/2 -translate-x-1/2 shadow-md bg-[#4DC1B9]"><i className="fas fa-server"></i></div>
-                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">GraphQL & Node.js</p>
+                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">{content.nodes[1].label}</p>
                 </div>
                 {/* Back Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-[#4DC1B9]/10 border border-[#4DC1B9]/30 [backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(1px)] px-5">
-                  <p className="text-gray-900 text-[14px] leading-snug font-medium">Efficient data fetching with a flexible, high-performance backend.</p>
+                  <p className="text-gray-700 text-[14px] leading-snug font-medium">{content.nodes[1].description}</p>
                 </div>
               </div>
             </foreignObject>
@@ -140,11 +141,11 @@ export const WpHeroVisual = () => {
                 {/* Front Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-white border border-gray-200 shadow-md [backface-visibility:hidden] [transform:translateZ(0)]">
                   <div className="w-[44px] h-[44px] rounded-full flex items-center justify-center text-white absolute z-[1100] -top-[22px] left-1/2 -translate-x-1/2 shadow-md bg-[#4DC1B9]"><i className="fas fa-database"></i></div>
-                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">PostgreSQL & Redis</p>
+                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">{content.nodes[2].label}</p>
                 </div>
                 {/* Back Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-[#4DC1B9]/10 border border-[#4DC1B9]/30 [backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(1px)] px-5">
-                  <p className="text-gray-900 text-[14px] leading-snug font-medium">Relational data integrity paired with lightning-fast caching.</p>
+                  <p className="text-gray-700 text-[14px] leading-snug font-medium">{content.nodes[2].description}</p>
                 </div>
               </div>
             </foreignObject>
@@ -155,11 +156,11 @@ export const WpHeroVisual = () => {
                 {/* Front Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-white border border-gray-200 shadow-md [backface-visibility:hidden] [transform:translateZ(0)]">
                   <div className="w-[44px] h-[44px] rounded-full flex items-center justify-center text-white absolute z-[1100] -top-[22px] left-1/2 -translate-x-1/2 shadow-md bg-[#5e35b1]"><i className="fas fa-brain"></i></div>
-                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">Vercel AI & OpenAI</p>
+                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">{content.nodes[3].label}</p>
                 </div>
                 {/* Back Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-[#5e35b1]/10 border border-[#5e35b1]/30 [backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(1px)] px-5">
-                  <p className="text-gray-900 text-[14px] leading-snug font-medium">Intelligent processing and natural language generation at scale.</p>
+                  <p className="text-gray-700 text-[14px] leading-snug font-medium">{content.nodes[3].description}</p>
                 </div>
               </div>
             </foreignObject>
@@ -170,11 +171,11 @@ export const WpHeroVisual = () => {
                 {/* Front Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-white border border-gray-200 shadow-md [backface-visibility:hidden] [transform:translateZ(0)]">
                   <div className="w-[44px] h-[44px] rounded-full flex items-center justify-center text-white absolute z-[1100] -top-[22px] left-1/2 -translate-x-1/2 shadow-md bg-[#41D48C]"><i className="fas fa-cloud-upload-alt"></i></div>
-                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">Kubernetes & Docker</p>
+                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">{content.nodes[4].label}</p>
                 </div>
                 {/* Back Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-[#41D48C]/10 border border-[#41D48C]/30 [backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(1px)] px-5">
-                  <p className="text-gray-900 text-[14px] leading-snug font-medium">Containerized deployment for infinite, reliable application scaling.</p>
+                  <p className="text-gray-700 text-[14px] leading-snug font-medium">{content.nodes[4].description}</p>
                 </div>
               </div>
             </foreignObject>
@@ -185,11 +186,11 @@ export const WpHeroVisual = () => {
                 {/* Front Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-white border border-gray-200 shadow-md [backface-visibility:hidden] [transform:translateZ(0)]">
                   <div className="w-[44px] h-[44px] rounded-full flex items-center justify-center text-white absolute z-[1100] -top-[22px] left-1/2 -translate-x-1/2 shadow-md bg-[#AF3FAC]"><i className="fas fa-shield-alt"></i></div>
-                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">JWT & Auth.js</p>
+                  <p className="text-gray-900 m-0 leading-tight font-bold text-[22px]">{content.nodes[5].label}</p>
                 </div>
                 {/* Back Face */}
                 <div className="absolute inset-0 rounded-full flex flex-col justify-center items-center text-center box-border bg-[#AF3FAC]/10 border border-[#AF3FAC]/30 [backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(1px)] px-5">
-                  <p className="text-gray-900 text-[14px] leading-snug font-medium">Robust authentication and secure, stateless session management.</p>
+                  <p className="text-gray-700 text-[14px] leading-snug font-medium">{content.nodes[5].description}</p>
                 </div>
               </div>
             </foreignObject>

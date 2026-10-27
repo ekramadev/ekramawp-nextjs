@@ -1,47 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import type { EngineeringApproachContent } from "@/content/engineeringSections";
 
-const approachData = {
-  performance: {
-    id: "performance",
-    label: "Peak Performance",
-    title: "Velocity & Optimization",
-    desc: "Speed isn't just a metric; it's a feature. We engineer applications that load instantly by leveraging Server-Side Rendering (SSR), Edge Caching, and code-splitting strategies to keep users engaged.",
-    list: [
-      "Core Web Vitals Optimization",
-      "Zero-Bundle-Size Architectures",
-      "Next.js / React Server Components",
-    ],
-    img: "https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage-scaled.webp",
-  },
-  scalability: {
-    id: "scalability",
-    label: "Scalable Systems",
-    title: "Modular Architecture",
-    desc: "We don't just write code; we build systems. By using atomic design principles and strict TypeScript typing, we create maintainable codebases that scale effortlessly as your product grows.",
-    list: [
-      "Atomic Component Design",
-      "Strict TypeScript Typing",
-      "CI/CD Automated Pipelines",
-    ],
-    img: "https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage-scaled.webp",
-  },
-  ux: {
-    id: "ux",
-    label: "Accessible UX",
-    title: "Inclusive Design",
-    desc: "Great engineering is invisible. We prioritize semantic HTML and WCAG compliance to ensure your application delivers a seamless, accessible experience for every user, on every device.",
-    list: [
-      "WCAG 2.1 AA Compliance",
-      "Semantic HTML Structure",
-      "Adaptive Responsive Layouts",
-    ],
-    img: "https://admin.wpfedev.com/wp-content/uploads/2026/01/Sampleimage-scaled.webp",
-  },
-};
-
-export const EngineeringApproach = () => {
+export const EngineeringApproach = ({ content }: { content: EngineeringApproachContent }) => {
+  const approachData = content.tabs;
   const [activeTab, setActiveTab] = useState("performance");
 
   // FIXED: Added proper line breaks and safety check
@@ -55,16 +18,16 @@ export const EngineeringApproach = () => {
         <div className="text-center max-w-[900px] mx-auto mb-[10px]">
 
           {/* The H2 Heading */}
-          <h2 className="text-[#10B981] font-black mb-3"> {/* Added mb-6 for space below the heading */}
-            How We Engineer <br className="hidden md:block" />
-            <span className="relative inline-block px-2 z-10 text-[#020101]">
-              Digital Results
+          <h2 className="text-black font-black mb-3"> {/* Added mb-6 for space below the heading */}
+            {content.titleLead} <br className="hidden md:block" />
+            <span className="relative inline-block px-2 z-10 text-black">
+              {content.titleAccent}
             </span>
           </h2>
 
           {/* The Paragraph (Moved outside the H2) */}
-          <p className=" opacity-80 mt-6 text-base md:text-lg font-normal">
-            It uses authoritative sources of system data and models to create a "digital thread," connecting data to applications in an efficient, repeatable, and auditable manner.
+          <p className=" opacity-80 mt-6 font-normal text-gray-700">
+            {content.intro}
           </p>
 
         </div>
@@ -96,14 +59,14 @@ export const EngineeringApproach = () => {
               {activeContent.title}
             </h3>
 
-            <p key={activeContent.desc} className="animate-fade-in-right text-[#1b1717] ">
+            <p key={activeContent.desc} className="animate-fade-in-right text-gray-700 ">
               {activeContent.desc}
             </p>
 
             <ul key={activeContent.title + "-list"} className="animate-fade-in-right list-none p-0 m-0 flex flex-col items-center lg:items-start">
               {activeContent.list.map((item, index) => (
-                <li key={index} className="mb-[12px] font-bold flex items-center gap-[10px]">
-                  <span className="text-[#3F5CE0] font-black">→</span> {item}
+                <li key={index} className="mb-[12px] font-bold flex items-center gap-[10px] text-gray-700">
+                  <span className="text-brand-emerald font-black">→</span> {item}
                 </li>
               ))}
             </ul>
@@ -114,7 +77,7 @@ export const EngineeringApproach = () => {
               <Image
                 key={activeContent.img}
                 src={activeContent.img}
-                alt={activeContent.title}
+                alt={activeContent.imageAlt}
                 fill
                 className="object-cover animate-fade-in-right opacity-90 hover:opacity-100 transition-opacity duration-300"
                 sizes="(max-width: 768px) 100vw, 400px"

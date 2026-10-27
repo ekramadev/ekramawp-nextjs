@@ -17,6 +17,7 @@ import { Metadata } from "next";
 import { getWorkflowHeroContent } from "@/content/workflowHeroes";
 import { getMarketIntelligenceContent } from "@/content/marketIntelligence";
 import { getGeoOverlapContent, getGeoOverlapWordPressUri } from "@/content/geoOverlap";
+import { getWpHeroContent, getEngineeringApproachContent } from "@/content/engineeringSections";
 
 // 1. DYNAMIC QUERY
 const PAGE_QUERY = gql`
@@ -95,6 +96,8 @@ export default async function DynamicPage({ params }: Props) {
           leftColumn={getLeftColumnContent(uri)}
           architecturePhases={getArchitecturePhasesContent(uri)}
           pageResources={getPageResourcesContent(uri)}
+          wpHero={getWpHeroContent(uri)}
+          engineeringApproach={getEngineeringApproachContent(uri)}
         />
       </div>
     </main>

@@ -60,6 +60,7 @@ import type { SimpleDeliveryContent, DeliveryComparisonContent } from "@/content
 import type { FourBoxesContent } from "@/content/serviceCapabilities";
 import type { LeftColumnContent } from "@/content/agencyCarousels";
 import type { ArchitecturePhasesContent, PageResourcesContent } from "@/content/phaseResources";
+import type { WpHeroContent, EngineeringApproachContent } from "@/content/engineeringSections";
 
 interface Props {
   htmlContent: string;
@@ -82,9 +83,11 @@ interface Props {
   leftColumn: LeftColumnContent;
   architecturePhases: ArchitecturePhasesContent;
   pageResources: PageResourcesContent;
+  wpHero: WpHeroContent;
+  engineeringApproach: EngineeringApproachContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -101,7 +104,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         if (
           classes.includes("section-Wphero-visual") ||
           classes.includes("section-WpHeroVisual")
-        ) return <WpHeroVisual />;
+        ) return <WpHeroVisual content={wpHero} />;
 
         // ⬇️ PRIORITY 2: Check for the standard home hero LAST
         if (classes.includes("home-hero")) return <HeroHome />;
@@ -123,7 +126,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
 
         // 5. ENGINEERING SERIES
         if (classes.includes("section-engineering-success")) return <EngineeringSuccess />;
-        if (classes.includes("section-engineering-approach")) return <EngineeringApproach />;
+        if (classes.includes("section-engineering-approach")) return <EngineeringApproach content={engineeringApproach} />;
         if (classes.includes("section-engineering-process")) return <EngineeringProcess />;
 
         // 6. PORTFOLIO & CAROUSELS
