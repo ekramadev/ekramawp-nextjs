@@ -8,7 +8,7 @@ export const Fourblockswphead = ({ content }: { content: PageResourcesContent })
     <section className="fourblocks-wrapper">
       <style dangerouslySetInnerHTML={{ __html: `
         .fourblocks-wrapper {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: inherit;
             background-color: transparent; /* Inherits your dark background */
             color: #374151; /* Forces white text */
             line-height: 1.5;
@@ -95,7 +95,7 @@ export const Fourblockswphead = ({ content }: { content: PageResourcesContent })
             background-color: rgba(255, 255, 255, 0.05);
             color: #374151;
             font-size: 14px;
-            font-family: 'Inter', sans-serif;
+            font-family: inherit;
             outline: none;
         }
         
@@ -133,18 +133,20 @@ export const Fourblockswphead = ({ content }: { content: PageResourcesContent })
         }
 
         .fourblocks-wrapper .header-section h1 {
-            font-size: 36px;
+            font-size: clamp(3rem, 5vw, 3.4375rem);
             color: #000000;
-            font-weight: 800;
+            font-weight: 400;
+            line-height: clamp(3.42rem, 6vw, 4rem);
             margin-bottom: 15px;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.025em;
         }
 
         .fourblocks-wrapper .header-section p {
-            font-size: 16px;
+            font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+            font-weight: 300;
             color: #374151;
             max-width: 800px;
-            line-height: 1.6;
+            line-height: clamp(1.41rem, 2vw, 1.75rem);
         }
 
         .fourblocks-wrapper .header-section strong {
@@ -236,9 +238,6 @@ export const Fourblockswphead = ({ content }: { content: PageResourcesContent })
         @media (max-width: 480px) {
             .fourblocks-wrapper .grid {
                 grid-template-columns: 1fr;
-            }
-            .fourblocks-wrapper .header-section h1 {
-                font-size: 28px;
             }
         }
       `}} />
