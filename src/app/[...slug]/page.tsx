@@ -1,3 +1,4 @@
+import { getArchitecturePhasesContent, getPageResourcesContent } from "@/content/phaseResources";
 import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
 import { getAiShiftContent, getPentagonGrowthContent } from "@/content/decisionSections";
@@ -92,6 +93,8 @@ export default async function DynamicPage({ params }: Props) {
           deliveryComparison={getDeliveryComparisonContent(uri)}
           fourBoxes={getFourBoxesContent(uri)}
           leftColumn={getLeftColumnContent(uri)}
+          architecturePhases={getArchitecturePhasesContent(uri)}
+          pageResources={getPageResourcesContent(uri)}
         />
       </div>
     </main>

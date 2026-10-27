@@ -1,3 +1,4 @@
+import { getArchitecturePhasesContent, getPageResourcesContent } from "@/content/phaseResources";
 import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
 import { getAiShiftContent, getPentagonGrowthContent } from "@/content/decisionSections";
@@ -74,6 +75,8 @@ export default async function Home() {
         deliveryComparison={getDeliveryComparisonContent('/')}
         fourBoxes={getFourBoxesContent('/')}
         leftColumn={getLeftColumnContent('/')}
+        architecturePhases={getArchitecturePhasesContent('/')}
+        pageResources={getPageResourcesContent('/')}
       />
     </main>
   );

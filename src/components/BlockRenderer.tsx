@@ -59,6 +59,7 @@ import type { AiShiftContent, PentagonGrowthContent } from "@/content/decisionSe
 import type { SimpleDeliveryContent, DeliveryComparisonContent } from "@/content/deliverySections";
 import type { FourBoxesContent } from "@/content/serviceCapabilities";
 import type { LeftColumnContent } from "@/content/agencyCarousels";
+import type { ArchitecturePhasesContent, PageResourcesContent } from "@/content/phaseResources";
 
 interface Props {
   htmlContent: string;
@@ -79,9 +80,11 @@ interface Props {
   deliveryComparison: DeliveryComparisonContent;
   fourBoxes: FourBoxesContent;
   leftColumn: LeftColumnContent;
+  architecturePhases: ArchitecturePhasesContent;
+  pageResources: PageResourcesContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn }: Props) => {
+export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -131,7 +134,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         // 7. BOOKS & EXTRAS
         if (classes.includes("section-aifrontendeveloper-book")) return <AIfrontendeveloperBook />;
         if (classes.includes("section-Leftcolumn-tab")) return <Leftcolumntab content={leftColumn} />;
-        if (classes.includes("section-Threecolumn-arch")) return <Threecolumnarch />;
+        if (classes.includes("section-Threecolumn-arch")) return <Threecolumnarch content={architecturePhases} />;
         if (classes.includes("section-Simple-Content")) return <SimpleContentSection content={simpleDelivery} />;
         if (classes.includes("section-Four-Boxes")) return <FourBoxes content={fourBoxes} />;
         if (classes.includes("section-FAQ")) return <FAQSection />;
@@ -145,7 +148,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         if (classes.includes("section-Contentdouble")) return <Contentdouble content={contentDouble} />;
         if (classes.includes("section-HeadlessfiveElements")) return <HeadlessfiveElements />;
         if (classes.includes("section-Headwpcarousal")) return <Headwpcarousal content={engineeringCarousel} />;
-        if (classes.includes("section-Fourblockswphead")) return <Fourblockswphead />;
+        if (classes.includes("section-Fourblockswphead")) return <Fourblockswphead content={pageResources} />;
         if (classes.includes("section-HeadlessWpTabs")) return <HeadlessWpTabs content={architectureTabs} />;
         if (classes.includes("section-FAQheadlesswp")) return <FAQheadlesswp />;
         if (classes.includes("section-HtmlContent")) return <HtmlContent content={htmlExpertise} />;

@@ -1,15 +1,16 @@
 "use client";
 
 import React from 'react';
+import type { PageResourcesContent } from '@/content/phaseResources';
 
-export const Fourblockswphead = () => {
+export const Fourblockswphead = ({ content }: { content: PageResourcesContent }) => {
   return (
     <section className="fourblocks-wrapper">
       <style dangerouslySetInnerHTML={{ __html: `
         .fourblocks-wrapper {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background-color: transparent; /* Inherits your dark background */
-            color: #ffffff; /* Forces white text */
+            color: #374151; /* Forces white text */
             line-height: 1.5;
             padding: 60px 20px;
             width: 100%;
@@ -50,7 +51,7 @@ export const Fourblockswphead = () => {
         }
 
         .fourblocks-wrapper .cta-card {
-            background-color: #1a1a24; /* Dark sleek background */
+            background-color: transparent; /* Dark sleek background */
             border: 1px solid rgba(255, 255, 255, 0.1);
             width: 100%;
             border-radius: 12px;
@@ -61,7 +62,7 @@ export const Fourblockswphead = () => {
         }
 
         .fourblocks-wrapper .cta-card h2 {
-            color: #ffffff;
+            color: #000000;
             font-size: 28px;
             text-align: center;
             margin-bottom: 15px;
@@ -69,12 +70,12 @@ export const Fourblockswphead = () => {
         }
 
         .fourblocks-wrapper .cta-card h2 span {
-            color: #ffffff;
+            color: #10B981;
             font-weight: 400;
         }
 
         .fourblocks-wrapper .cta-card p {
-            color: #ffffff;
+            color: #374151;
             font-size: 14px;
             text-align: center;
             margin-bottom: 25px;
@@ -92,14 +93,14 @@ export const Fourblockswphead = () => {
             border-radius: 6px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             background-color: rgba(255, 255, 255, 0.05);
-            color: #ffffff;
+            color: #374151;
             font-size: 14px;
             font-family: 'Inter', sans-serif;
             outline: none;
         }
         
         .fourblocks-wrapper .form-group input::placeholder {
-            color: #ffffff;
+            color: #374151;
             opacity: 0.6;
         }
 
@@ -133,7 +134,7 @@ export const Fourblockswphead = () => {
 
         .fourblocks-wrapper .header-section h1 {
             font-size: 36px;
-            color: #ffffff;
+            color: #000000;
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: -0.5px;
@@ -141,13 +142,13 @@ export const Fourblockswphead = () => {
 
         .fourblocks-wrapper .header-section p {
             font-size: 16px;
-            color: #ffffff;
+            color: #374151;
             max-width: 800px;
             line-height: 1.6;
         }
 
         .fourblocks-wrapper .header-section strong {
-            color: #ffffff;
+            color: #10B981;
             font-weight: 700;
         }
 
@@ -159,7 +160,7 @@ export const Fourblockswphead = () => {
         }
 
         .fourblocks-wrapper .resource-card {
-            background-color: rgba(255, 255, 255, 0.03); 
+            background-color: transparent;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: 30px 25px;
@@ -177,7 +178,7 @@ export const Fourblockswphead = () => {
         }
 
         .fourblocks-wrapper .resource-card h3 {
-            color: #ffffff; 
+            color: #000000;
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 15px;
@@ -186,7 +187,7 @@ export const Fourblockswphead = () => {
         }
 
         .fourblocks-wrapper .resource-card p {
-            color: #ffffff;
+            color: #374151;
             font-size: 14px;
             line-height: 1.6;
             margin: 0;
@@ -197,7 +198,7 @@ export const Fourblockswphead = () => {
             position: absolute;
             top: 30px;
             right: 20px;
-            color: #ffffff;
+            color: #10B981;
             font-size: 18px;
             font-weight: bold;
             transition: transform 0.2s ease;
@@ -247,60 +248,60 @@ export const Fourblockswphead = () => {
         <div className="sidebar">
           <img 
             src="https://www.wpfedev.com/_next/image/?url=https%3A%2F%2Fadmin.wpfedev.com%2Fwp-content%2Fuploads%2F2026%2F01%2FSampleimage-scaled.webp&w=1080&q=75" 
-            alt="Headless WordPress Experts" 
+            alt={content.imageAlt}
             className="team-image" 
           />
           <div className="cta-card">
-            <h2>Meet <span>WPfeDev</span></h2>
-            <p>Get started with professional Headless WordPress development services by requesting a strategy proposal today from our top-rated Next.js & Vercel engineers!</p>
+            <h2>{content.sidebarLead} <span>{content.sidebarAccent}</span></h2>
+            <p>{content.sidebarDescription}</p>
             <form className="form-group" onSubmit={(e) => e.preventDefault()}>
-              <input type="url" placeholder="Enter your website" required />
-              <button type="submit" aria-label="Submit">&#8594;</button>
+              <input type="url" placeholder={content.placeholder} required />
+              <button type="submit" aria-label={content.submitLabel}>&#8594;</button>
             </form>
           </div>
         </div>
 
         <div className="content-area">
           <div className="header-section">
-            <h1>Headless WordPress Expertise</h1>
-            <p><strong>What is Headless WordPress?</strong> It's the modern architecture that decouples your backend content management from your frontend display. By pairing the familiar WordPress backend with modern frontend frameworks like Next.js and hosting platforms like Vercel, our headless solutions deliver blazing-fast performance, enhanced security, and infinite scalability to meet your audience where they are.</p>
+            <h1>{content.title}</h1>
+            <p><strong>{content.introLead}</strong> {content.introBody}</p>
           </div>
 
           <div className="grid">
             <a href="#" className="resource-card">
-              <h3>45 Headless WP Statistics to Know in 2026</h3>
+              <h3>{content.cards[0].title}</h3>
               <span className="arrow">&#8594;</span>
-              <p>Read the latest performance and conversion statistics to give your decoupled WordPress strategy the boost it needs.</p>
+              <p>{content.cards[0].description}</p>
             </a>
 
             <a href="#" className="resource-card">
-              <h3>What Do Vercel & Next.js Migrations Include?</h3>
+              <h3>{content.cards[1].title}</h3>
               <span className="arrow">&#8594;</span>
-              <p>Learn exactly what to expect when decoupling your site and moving your frontend deployment to Vercel's edge network.</p>
+              <p>{content.cards[1].description}</p>
             </a>
 
             <a href="#" className="resource-card">
-              <h3>How Much Does Headless WP Development Cost?</h3>
+              <h3>{content.cards[2].title}</h3>
               <span className="arrow">&#8594;</span>
-              <p>Know the average cost of decoupled development services, API integrations, and the factors affecting long-term hosting pricing.</p>
+              <p>{content.cards[2].description}</p>
             </a>
 
             <a href="#" className="resource-card">
-              <h3>Headless Migration Case Studies</h3>
+              <h3>{content.cards[3].title}</h3>
               <span className="arrow">&#8594;</span>
-              <p>Discover the massive impact on Core Web Vitals and SEO rankings with these real-world Next.js success stories.</p>
+              <p>{content.cards[3].description}</p>
             </a>
 
             <a href="#" className="resource-card">
-              <h3>API & Headless CMS Trends</h3>
+              <h3>{content.cards[4].title}</h3>
               <span className="arrow">&#8594;</span>
-              <p>Find out how GraphQL, REST, and AI-driven content rendering are shaping the headless WordPress landscape in 2026.</p>
+              <p>{content.cards[4].description}</p>
             </a>
 
             <a href="#" className="resource-card">
-              <h3>FAQs on Vercel and Headless Services</h3>
+              <h3>{content.cards[5].title}</h3>
               <span className="arrow">&#8594;</span>
-              <p>Get answers to frequently asked questions about maintaining, scaling, and optimizing decoupled WordPress architectures.</p>
+              <p>{content.cards[5].description}</p>
             </a>
           </div>
         </div>
