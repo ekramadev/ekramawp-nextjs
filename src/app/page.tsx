@@ -17,6 +17,7 @@ import { Metadata } from "next";
 import { getWorkflowHeroContent } from "@/content/workflowHeroes";
 import { getMarketIntelligenceContent } from "@/content/marketIntelligence";
 import { getGeoOverlapContent } from "@/content/geoOverlap";
+import { getWpHeroContent, getEngineeringApproachContent } from "@/content/engineeringSections";
 
 // 1. TARGET THE EXACT HOME PAGE (ID 8)
 // We stop guessing slugs or URIs. We ask for ID 8 directly.
@@ -77,6 +78,8 @@ export default async function Home() {
         leftColumn={getLeftColumnContent('/')}
         architecturePhases={getArchitecturePhasesContent('/')}
         pageResources={getPageResourcesContent('/')}
+        wpHero={getWpHeroContent('/')}
+        engineeringApproach={getEngineeringApproachContent('/')}
       />
     </main>
   );
