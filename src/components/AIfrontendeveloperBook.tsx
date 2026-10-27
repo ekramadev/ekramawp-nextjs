@@ -133,7 +133,7 @@ export const AIfrontendeveloperBook = () => {
   const activeStep = steps[currentIndex];
 
   return (
-    <section className="bofu-pricing-wrapper">
+    <section data-wpfe-section="" className="bofu-pricing-wrapper">
       <style jsx>{`
         /* --- 1. THE MAIN WRAPPER (Light Theme) --- */
         .bofu-pricing-wrapper {
@@ -527,7 +527,7 @@ export const AIfrontendeveloperBook = () => {
         }
       `}</style>
 
-      <div className="container-inner">
+      <div data-wpfe-container="content" className="container-inner">
 
         {/* Intro Header */}
         <div className="intro-header">

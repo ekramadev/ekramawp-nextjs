@@ -5,10 +5,10 @@ import Image from "next/image";
 export const EvolutionServices = () => {
   return (
     /* Integrated the global section-container for pt-10, pb-0, px-5 */
-    <section className="section-container relative overflow-hidden bg-transparent">
+    <section data-wpfe-section="" className="section-container relative overflow-hidden bg-transparent">
 
       {/* Integrated global-grid-layout for max-width, centering, and responsive grid */}
-      <div className="global-grid-layout">
+      <div data-wpfe-container="content" className="global-grid-layout">
 
         {/* --- LEFT COLUMN: VISUAL & CTA --- */}
         {/* Changed order to 2 on mobile, 1 on desktop so text stays on top for mobile users */}

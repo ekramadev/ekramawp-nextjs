@@ -39,9 +39,9 @@ export const Leftcolumntab = ({ content }: { content: LeftColumnContent }) => {
   }, [currentIndex, isTransitioning]);
 
   return (
-    <section data-component="capability-carousel" className="w-full pt-16 pb-24 relative z-10 bg-transparent">
+    <section data-wpfe-section="" data-component="capability-carousel" className="w-full pt-16 pb-24 relative z-10 bg-transparent">
 
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 flex flex-col lg:flex-row items-center justify-between text-center lg:text-left gap-[clamp(40px,6vw,100px)] w-full">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 flex flex-col lg:flex-row items-center justify-between text-center lg:text-left gap-[clamp(40px,6vw,100px)] w-full">
 
         {/* CAROUSEL ON LEFT */}
         <div className="shrink-0 grow-0 relative w-[100vw] lg:w-[calc(100%-450px)] max-w-[850px]">

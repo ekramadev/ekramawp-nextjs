@@ -38,7 +38,7 @@ export const WPDevCarousel = () => {
   if (!mounted) return null;
 
   return (
-    <section
+    <section data-wpfe-section=""
       id="strategy-carousel-isolated"
       className="relative overflow-hidden hardware-accelerated"
     >
@@ -389,7 +389,7 @@ export const WPDevCarousel = () => {
         }
       `}</style>
 
-      <div className="header-section">
+      <div data-wpfe-container="content" className="header-section">
         <h2 className="main-heading">
           Technical Solutions for <br />
           <span className="white-highlight"> Modern Digital Business </span>
@@ -401,7 +401,7 @@ export const WPDevCarousel = () => {
         </p>
       </div>
 
-      <div className="split-layout">
+      <div data-wpfe-container="content" className="split-layout">
         <div className="carousel-column">
           <Slider key={slidesToShow} {...settings} className="sc-carousel-track">
             <div>

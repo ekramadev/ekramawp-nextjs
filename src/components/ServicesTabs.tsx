@@ -107,8 +107,8 @@ export const ServicesTabs = () => {
   const currentTabContent = TABS.find((tab) => tab.id === activeTab) || TABS[0];
 
   return (
-    <section className="w-full py-24 md:py-32 bg-[#06080c] text-white overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 w-full">
+    <section data-wpfe-section="" className="w-full py-24 md:py-32 bg-[#06080c] text-white overflow-hidden">
+      <div data-wpfe-container="content" className="max-w-[1440px] mx-auto px-6 md:px-12 w-full">
         
         {/* --- MINIMALIST HEADER BAR --- */}
         <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end border-b border-white/10 pb-10 mb-16 lg:mb-20 gap-6">

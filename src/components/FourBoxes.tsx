@@ -37,7 +37,7 @@ export const FourBoxes = ({ content }: { content: FourBoxesContent }) => {
   }, []);
 
   return (
-    <section data-component="four-capabilities" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
+    <section data-wpfe-section="" data-component="four-capabilities" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
       {/* Dynamic Keyframes: Tuned to shift seamlessly from light gray boundaries to Emerald accents */}
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -57,7 +57,7 @@ export const FourBoxes = ({ content }: { content: FourBoxesContent }) => {
         }
       `}} />
 
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
 
         {/* --- Header --- */}
         <div className="max-w-[800px] mx-auto mb-[60px] text-center">

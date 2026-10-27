@@ -1123,8 +1123,8 @@ export const HeroHome = () => {
         }
       `}</style>
 
-      <section className="relative w-full flex items-center justify-center overflow-hidden  pt-0 pb-6 px-8 lg:px-16 bg-white">
-        <div className="container mx-auto flex flex-col lg:flex-row relative max-w-[1300px] z-10 gap-12 lg:gap-4 items-center">
+      <section data-wpfe-section="" className="relative w-full flex items-center justify-center overflow-hidden  pt-0 pb-6 px-8 lg:px-16 bg-white">
+        <div data-wpfe-container="content" className="container mx-auto flex flex-col lg:flex-row relative max-w-[1300px] z-10 gap-12 lg:gap-4 items-center">
 
           {/* LEFT CONTENT */}
           <div className="w-full lg:w-[35%] flex flex-col justify-center text-left z-20">

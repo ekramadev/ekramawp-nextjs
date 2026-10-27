@@ -3,9 +3,9 @@ import React from 'react';
 
 export const CaseStudyCard = () => {
   return (
-    <section className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
+    <section data-wpfe-section="" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
       {/* Main Container */}
-      <div className="max-w-[1400px] w-full mx-auto px-5 relative z-10 flex flex-col lg:flex-row items-center justify-center text-center lg:text-left gap-12 lg:gap-20">
+      <div data-wpfe-container="content" className="max-w-[1400px] w-full mx-auto px-5 relative z-10 flex flex-col lg:flex-row items-center justify-center text-center lg:text-left gap-12 lg:gap-20">
 
         {/* --- LEFT COLUMN: Text Content --- */}
         <div className="w-full lg:w-1/2 flex-1 flex flex-col gap-6">

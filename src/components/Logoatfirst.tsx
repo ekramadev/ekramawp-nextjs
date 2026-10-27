@@ -3,8 +3,8 @@ import React from 'react';
 export const Logoatfirst = () => {
   return (
     // Reduced pb-16 to pb-4 for tighter bottom spacing
-    <section className="w-full pt-2 pb-4 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
+    <section data-wpfe-section="" className="w-full pt-2 pb-4 relative overflow-hidden">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
         
         {/* Top Section: Powered By */}
         {/* Reduced py-8 to py-4 */}

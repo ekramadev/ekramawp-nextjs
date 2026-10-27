@@ -48,8 +48,8 @@ export const HeadlessWpTabs = ({ content: pageData }: { content: ArchitectureTab
   const currentTabInfo = tabs[activeTab];
 
   return (
-    <section data-component="architecture-tabs" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
+    <section data-wpfe-section="" data-component="architecture-tabs" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
 
         {/* Title & Body */}
         <h2 className="mb-[15px] text-black font-bold">

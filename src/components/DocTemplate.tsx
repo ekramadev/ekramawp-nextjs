@@ -61,7 +61,7 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div data-wpfe-container="content" className="min-h-screen bg-white flex items-center justify-center">
         <p className="text-slate-500">Document not found in WordPress...</p>
       </div>
     );
@@ -92,8 +92,8 @@ export default async function DocTemplate({ slug, expectedCategory }: DocTemplat
   const categoryName = post.categories?.nodes[0]?.name || "Documentation";
 
   return (
-    <article className="w-full min-h-screen bg-white pt-12 pb-20 px-5 flex flex-col items-center">
-      <div className="w-full max-w-[700px]">
+    <article data-wpfe-section="" className="w-full min-h-screen bg-white pt-12 pb-20 px-5 flex flex-col items-center">
+      <div data-wpfe-container="content" className="w-full max-w-[700px]">
 
         {/* --- 1. CATEGORY BADGE --- */}
         <div className="mb-4">

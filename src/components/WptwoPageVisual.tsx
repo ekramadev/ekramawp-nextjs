@@ -176,7 +176,7 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
     }, [content.steps, instanceId]);
 
     return (
-        <section id="ek-ai-hero" className="relative w-full bg-transparent flex items-center overflow-hidden box-border">
+        <section data-wpfe-section="" id="ek-ai-hero" className="relative w-full bg-transparent flex items-center overflow-hidden box-border">
             {/* External Resources */}
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
@@ -374,7 +374,7 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
         }
       `}} />
 
-            <div className="ek-hero-container">
+            <div data-wpfe-container="content" className="ek-hero-container">
                 {/* LEFT COLUMN: Content (55%) */}
                 <div className="hero-zone-a">
                     <span

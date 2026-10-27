@@ -40,8 +40,8 @@ export const FiveCirclesBox = ({ content }: { content: FiveCirclesContent }) => 
   };
 
   return (
-    <section data-component="five-circles" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
+    <section data-wpfe-section="" data-component="five-circles" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
+      <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 items-center justify-center text-center">
         
         {/* --- HEADER --- */}
         <header className="max-w-[980px] mx-auto mb-8">

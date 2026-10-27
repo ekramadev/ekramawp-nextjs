@@ -42,8 +42,8 @@ export const EngineeringSuccess = () => {
   const activeContent = engineeringData.find((d) => d.id === activeTab) || engineeringData[0];
 
   return (
-    <section className="w-full pb-8 relative overflow-hidden">
-  <div className="max-w-[1400px] mx-auto px-5 relative z-10 flex flex-col items-center justify-center text-center">
+    <section data-wpfe-section="" className="w-full pb-8 relative overflow-hidden">
+  <div data-wpfe-container="content" className="max-w-[1400px] mx-auto px-5 relative z-10 flex flex-col items-center justify-center text-center">
     <h2 className="text-[#10B981] font-black text-3xl md:text-5xl mb-4">
       Building the Future of <br className="hidden md:block" />
       <span className="relative inline-block px-2 z-10 text-gray-900 mt-2 md:mt-0">
@@ -57,7 +57,7 @@ export const EngineeringSuccess = () => {
     </p>
   </div>
 
-      <div className="max-w-[1500px] mx-auto px-5 flex flex-col lg:flex-row gap-[40px] lg:gap-[60px] items-start relative z-10">
+      <div data-wpfe-inset="" className="max-w-[1500px] mx-auto px-5 flex flex-col lg:flex-row gap-[40px] lg:gap-[60px] items-start relative z-10">
         
         <div className="w-full lg:flex-[0_0_280px] flex flex-col">
           

@@ -15,7 +15,7 @@ export const Contentdouble = ({ content }: { content: ContentDoubleContent }) =>
     }, []);
 
     return (
-        <section data-component="content-double" className="contentdouble-wrapper">
+        <section data-wpfe-section="" data-component="content-double" className="contentdouble-wrapper">
             {/* External Font Import */}
             <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
 
@@ -192,7 +192,7 @@ export const Contentdouble = ({ content }: { content: ContentDoubleContent }) =>
         }
       `}} />
 
-            <div className="container">
+            <div data-wpfe-container="content" className="container">
                 <div className="layout-grid">
 
                     <div className={`content-left fade-up ${isVisible ? 'visible' : ''}`}>

@@ -156,8 +156,14 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         if (classes.includes("section-HtmlCheatsheet")) return <HtmlCheatsheet content={htmlCheatsheet} />;
         if (classes.includes("section-Logoatfirst")) return <Logoatfirst />;
         if (classes.includes("section-CaseStudyCard")) return <CaseStudyCard />;
+      }
 
-
+      // Give standalone WordPress blocks the same outer spacing as mapped sections.
+      if (
+        domNode instanceof Element && !domNode.parent &&
+        ["div", "section", "article", "aside", "header", "footer", "figure", "p", "h1", "h2", "h3", "h4", "blockquote", "ul", "ol", "form"].includes(domNode.name)
+      ) {
+        domNode.attribs["data-wpfe-container"] = "raw";
       }
     },
   };
@@ -165,7 +171,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
   if (!htmlContent) return null;
 
   return (
-    <div className="w-full flex flex-col">
+    <div data-wpfe-page="" className="w-full flex flex-col">
       {parse(htmlContent, options)}
     </div>
   );

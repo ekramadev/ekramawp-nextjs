@@ -23,9 +23,9 @@ export const StatsSection = () => {
   ];
 
   return (
-    <section className="relative pt-10 pb-0 px-5 flex items-center overflow-hidden">
+    <section data-wpfe-section="" className="relative pt-10 pb-0 px-5 flex items-center overflow-hidden">
       {/* Main Container */}
-      <div className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center relative z-10">        
+      <div data-wpfe-container="content" className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center relative z-10">
         {/* Left Side: Content */}
         <div className="flex flex-col">
           <h1 className="text-gray-900 mb-6">
