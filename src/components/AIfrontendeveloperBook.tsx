@@ -1,127 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
+import type { WorkPlanningContent } from "@/content/planningSections";
 
-export const AIfrontendeveloperBook = () => {
+export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningContent }) => {
   // 1. ALL hooks must go right here, inside the component, before anything else!
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expandedItem, setExpandedItem] = useState<number | null>(null);
   const [showAllFeatures, setShowAllFeatures] = useState(false);
 
-  const steps = [
-    {
-      badge: "Custom PPC Plans",
-      label: "Starting at",
-      amount: "$650",
-      infoTitle: "How we determine pricing",
-      items: [
-        {
-          title: "Your Ad Spend",
-          desc: "Your advertising budget will not only determine your monthly management costs, it will also help determine which advertising channels we’d recommend investing in to maximize your marketing budget.",
-          icon: <img src="https://www.webfx.com/wp-content/uploads/2023/06/accounts.png" alt="Ad Spend" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
-        },
-        {
-          title: "Networks and Targeting",
-          desc: "Your custom strategy will depend on where you are looking to advertise- Google, Bing, Programmatic, etc. Your WebFX strategist can recommend PPC channels for you based on your business goals!",
-          icon: <img src="https://www.webfx.com/wp-content/uploads/2023/06/accounts.png" alt="Networks" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
-        },
-        {
-          title: "Creative Needs",
-          desc: "If you have an in-house designer, you may not need WebFX’s support with the creation of branded ad creative. However, many of our clients trust WebFX’s design team to create professional, branded display ads for any campaign type.",
-          icon: <img src="https://www.webfx.com/wp-content/uploads/2023/06/accounts.png" alt="Creative" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
-        }
-      ],
-      rightTitle: "Included for All PPC Plans:",
-      features: [
-        "In-depth keyword research and advanced selection",
-        "Competitor and industry analysis",
-        "Data-backed keyword development",
-        "Ongoing ad strategy management and optimization",
-        "Access to our in-house revenue acceleration software RevenueCloudFX",
-        "Closed-loop ROI and customer journey tracking",
-        "Conversion-boosting and performance tested ad copy",
-        "Expertise and support from a team of over 750 strategists",
-        "Ad campaign performance, analysis, and revenue reporting",
-        "Strategic bid management"
-      ],
-      btnText: "Get My Custom Quote"
-    },
-    {
-      badge: "Enterprise Plans",
-      label: "Starting at",
-      amount: "$1,200",
-      infoTitle: "How we determine pricing",
-      items: [
-        {
-          title: "Your Ad Spend",
-          desc: "Your advertising budget will not only determine your monthly management costs, it will also help determine which advertising channels we’d recommend investing in to maximize your marketing budget.",
-          icon: <img src="https://www.webfx.com/wp-content/uploads/2023/06/accounts.png" alt="Ad Spend" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
-        },
-        {
-          title: "Networks and Targeting",
-          desc: "Your custom strategy will depend on where you are looking to advertise- Google, Bing, Programmatic, etc. Your WebFX strategist can recommend PPC channels for you based on your business goals!",
-          icon: <img src="https://www.webfx.com/wp-content/uploads/2023/06/accounts.png" alt="Networks" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
-        },
-        {
-          title: "Creative Needs",
-          desc: "If you have an in-house designer, you may not need WebFX’s support with the creation of branded ad creative. However, many of our clients trust WebFX’s design team to create professional, branded display ads for any campaign type.",
-          icon: <img src="https://www.webfx.com/wp-content/uploads/2023/06/accounts.png" alt="Creative" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
-        }
-      ],
-      rightTitle: "Included for All PPC Plans:",
-      features: [
-        "In-depth keyword research and advanced selection",
-        "Competitor and industry analysis",
-        "Data-backed keyword development",
-        "Ongoing ad strategy management and optimization",
-        "Access to our in-house revenue acceleration software RevenueCloudFX",
-        "Closed-loop ROI and customer journey tracking",
-        "Conversion-boosting and performance tested ad copy",
-        "Expertise and support from a team of over 750 strategists",
-        "Ad campaign performance, analysis, and revenue reporting",
-        "Strategic bid management"
-      ],
-      btnText: "Get My Custom Quote"
-    },
-    {
-      badge: "Global Strategy",
-      label: "Starting at",
-      amount: "$3,500",
-      infoTitle: "How we determine pricing",
-      items: [
-        {
-          title: "Your Ad Spend",
-          desc: "Your advertising budget will not only determine your monthly management costs, it will also help determine which advertising channels we’d recommend investing in to maximize your marketing budget.",
-          icon: <img src="https://www.webfx.com/wp-content/uploads/2023/06/accounts.png" alt="Ad Spend" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
-        },
-        {
-          title: "Networks and Targeting",
-          desc: "Your custom strategy will depend on where you are looking to advertise- Google, Bing, Programmatic, etc. Your WebFX strategist can recommend PPC channels for you based on your business goals!",
-          icon: <img src="https://www.webfx.com/wp-content/uploads/2023/06/accounts.png" alt="Networks" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
-        },
-        {
-          title: "Creative Needs",
-          desc: "If you have an in-house designer, you may not need WebFX’s support with the creation of branded ad creative. However, many of our clients trust WebFX’s design team to create professional, branded display ads for any campaign type.",
-          icon: <img src="https://www.webfx.com/wp-content/uploads/2023/06/accounts.png" alt="Creative" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
-        }
-      ],
-      rightTitle: "Included for All PPC Plans:",
-      features: [
-        "In-depth keyword research and advanced selection",
-        "Competitor and industry analysis",
-        "Data-backed keyword development",
-        "Ongoing ad strategy management and optimization",
-        "Access to our in-house revenue acceleration software RevenueCloudFX",
-        "Closed-loop ROI and customer journey tracking",
-        "Conversion-boosting and performance tested ad copy",
-        "Expertise and support from a team of over 750 strategists",
-        "Ad campaign performance, analysis, and revenue reporting",
-        "Strategic bid management"
-      ],
-      btnText: "Get My Custom Quote"
-    }
-  ];
-
+  const steps = content.steps;
   const handleNext = () => {
     setCurrentIndex((prev) => (prev < steps.length - 1 ? prev + 1 : 0));
   };
@@ -137,7 +25,7 @@ export const AIfrontendeveloperBook = () => {
       <style jsx>{`
         /* --- 1. THE MAIN WRAPPER (Light Theme) --- */
         .bofu-pricing-wrapper {
-          color: #333333 !important;
+          color: #374151 !important;
           padding: 80px 20px 100px;
           position: relative;
           z-index: 1;
@@ -156,7 +44,7 @@ export const AIfrontendeveloperBook = () => {
           top: 650px; 
           width: 100%;
           height: 800px; 
-          background-color: #d1fae5 !important; /* Soft emerald background */
+          background-color: transparent !important; /* Section background reveals the shared site background. */
           background-image: radial-gradient(#10b981 1.2px, transparent 1.2px) !important;  
           background-size: 14px 14px !important;
           background-repeat: no-repeat; 
@@ -198,13 +86,11 @@ export const AIfrontendeveloperBook = () => {
           margin-bottom: 70px;
         }
         .intro-header h2 {
-          font-size: clamp(1.8rem, 4vw, 2.4rem) !important;
-          color: #1a1a1a !important; /* Dark text */
+          color: #000000 !important; /* Dark text */
           margin-bottom: 20px !important;
         }
         .intro-header p {
-          font-size: 1.05rem !important;
-          color: #4b5563 !important; /* Slate gray */
+          color: #374151 !important; /* Slate gray */
           max-width: 800px;
           margin: 0 auto !important;
         }
@@ -252,24 +138,24 @@ export const AIfrontendeveloperBook = () => {
           box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important; /* Softer shadow */
         }
         .badge {
-          color: #ffffff !important;
+          color: #000000 !important;
           font-size: 0.95rem !important;
           text-transform: uppercase;
           margin: 0 0 8px 0 !important;
         }
         .label {
-          color: #ffffff !important;
+          color: #374151 !important;
           font-size: 0.9rem !important;
           opacity: 0.9;
           margin: 0 0 10px 0 !important;
         }
         .price {
-          color: #ffffff !important;
+          color: #000000 !important;
           font-size: 3.5rem !important;
           margin: 0 !important;
         }
         .price span {
-          color: #ffffff !important;
+          color: #000000 !important;
           font-size: 1.1rem !important;
         }
 
@@ -282,7 +168,7 @@ export const AIfrontendeveloperBook = () => {
           border-bottom-left-radius: 20px;
         }
         .card-left-bottom h4 {
-          color: #1a1a1a !important; /* Dark text */
+          color: #000000 !important; /* Dark text */
           font-size: 1.25rem !important;
           margin: 0 0 25px 0 !important; 
         }
@@ -305,13 +191,13 @@ export const AIfrontendeveloperBook = () => {
           flex-shrink: 0;
         }
         .item-header h5 {
-          color: #1a1a1a !important; /* Dark text */
+          color: #000000 !important; /* Dark text */
           font-size: 1.05rem !important;
           margin: 0 !important; 
           font-weight: 600;
         }
         .item-block p {
-          color: #4b5563 !important; /* Slate gray description */
+          color: #374151 !important; /* Slate gray description */
           font-size: 0.95rem !important;
           margin: 0 !important;
           line-height: 1.5;
@@ -328,7 +214,7 @@ export const AIfrontendeveloperBook = () => {
           border-bottom-right-radius: 20px;
         }
         .card-right h4 {
-          color: #1a1a1a !important; /* Dark text */
+          color: #000000 !important; /* Dark text */
           font-size: 1.2rem !important;
           margin: 0 0 30px 0 !important;
           font-weight: 600;
@@ -398,7 +284,7 @@ export const AIfrontendeveloperBook = () => {
           text-decoration: underline;
         }
         .nav-link-area span {
-          color: #6b7280 !important; /* Slate gray */
+          color: #374151 !important; /* Slate gray */
           font-size: 0.9rem !important;
           margin: 0 15px !important;
         }
@@ -408,7 +294,7 @@ export const AIfrontendeveloperBook = () => {
           display: none;
         }
         .item-desc {
-          color: #4b5563 !important; /* Slate gray */
+          color: #374151 !important; /* Slate gray */
           font-size: 0.95rem !important;
           margin: 0 !important;
           transition: all 0.3s ease;
@@ -461,7 +347,6 @@ export const AIfrontendeveloperBook = () => {
             margin-bottom: 40px !important;
           }
           .intro-header h2 {
-             font-size: clamp(1.6rem, 4vw, 2rem) !important;
           }
 
           /* Stack Card vertically */
@@ -532,12 +417,12 @@ export const AIfrontendeveloperBook = () => {
         {/* Intro Header */}
         <div className="intro-header">
           <h2>
-            Looking for plans and pricing?<br />
-            Get a preview of our enterprise PPC services
+            {content.titleLead}<br />
+            {content.titleRest}
           </h2>
           {/* Paragraph hidden on mobile via CSS */}
           <p>
-            Growing PPC’s performance starts with a plan customized to your business, industry, and audience. So, we build a customized enterprise PPC service plan for your organization, providing you with a roadmap for how we’ll achieve your goals for paid search, from greater brand awareness to bigger market share.
+            {content.intro}
           </p>
         </div>
 
@@ -556,7 +441,7 @@ export const AIfrontendeveloperBook = () => {
               <h3 className="badge">{activeStep.badge}</h3>
               <p className="label">{activeStep.label}</p>
               <h2 className="price">
-                {activeStep.amount} <span>/ month</span>
+                {activeStep.amount} <span>{activeStep.amountUnit}</span>
               </h2>
             </div>
 
@@ -572,7 +457,7 @@ export const AIfrontendeveloperBook = () => {
                       className="item-header cursor-pointer lg:cursor-default"
                       onClick={() => setExpandedItem(isExpanded ? -1 : idx)}>
                       <div className="item-icon-wrap">
-                        {item.icon}
+                        <img src="https://www.webfx.com/wp-content/uploads/2023/06/accounts.png" alt={item.imageAlt} style={{ width: "32px", height: "32px", objectFit: "contain" }} />
                       </div>
                       <h5>{item.title}</h5>
                       <span className="accordion-icon">
@@ -617,7 +502,7 @@ export const AIfrontendeveloperBook = () => {
                 className="mobile-feature-toggle"
                 onClick={() => setShowAllFeatures(!showAllFeatures)}
               >
-                {showAllFeatures ? "See Less ↑" : "See All Features ↓"}
+                {showAllFeatures ? content.showLess : content.showAll}
               </button>
             )}
 
@@ -630,9 +515,9 @@ export const AIfrontendeveloperBook = () => {
 
         {/* Bottom Navigation */}
         <div className="nav-link-area">
-          <button onClick={handlePrev}>← Previous Plan</button>
-          <span>Plan {currentIndex + 1} of {steps.length}</span>
-          <button onClick={handleNext}>Next Plan →</button>
+          <button onClick={handlePrev}>{content.previous}</button>
+          <span>{content.stageLabel} {currentIndex + 1} of {steps.length}</span>
+          <button onClick={handleNext}>{content.next}</button>
         </div>
 
       </div>
