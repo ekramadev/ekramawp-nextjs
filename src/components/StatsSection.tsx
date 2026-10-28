@@ -1,26 +1,14 @@
 "use client";
 
 import React from "react";
+import type { StatsSectionContent } from "@/content/reviewSections";
 
-export const StatsSection = () => {
-  const stats = [
-    {
-      value: "53%",
-      desc: "of mobile users abandon a site if it takes longer than 3 seconds to load.",
-    },
-    {
-      value: "7%",
-      desc: "Drop in conversion rates for every 100-millisecond delay in load time.",
-    },
-    {
-      value: "100%",
-      desc: "Performance score on Lighthouse correlates with higher SEO rankings.",
-    },
-    {
-      value: "400%",
-      desc: "Return on Investment (ROI) for every dollar spent on UX engineering.",
-    },
-  ];
+interface StatsSectionProps {
+  readonly content: StatsSectionContent;
+}
+
+export const StatsSection = ({ content }: StatsSectionProps) => {
+  const stats = content.cards;
 
   return (
     <section data-wpfe-section="" className="relative pt-10 pb-0 px-5 flex items-center overflow-hidden">
@@ -29,12 +17,12 @@ export const StatsSection = () => {
         {/* Left Side: Content */}
         <div className="flex flex-col">
           <h1 className="text-gray-900 mb-6">
-            Performance Metrics You <br className="hidden md:block" />
-            <span className="text-brand-emerald">Cannot Ignore</span>
+            {content.titleLead} <br className="hidden md:block" />
+            <span className="text-brand-emerald">{content.titleAccent}</span>
           </h1>
 
-          <p className="text-gray-600 mb-0 lg:mb-2 max-w-[600px] mx-auto lg:mx-0">
-            Our data-driven approach ensures your digital infrastructure is optimized for maximum speed, high conversion, and long-term search engine dominance. By replacing guesswork with concrete, evidence-based insights, we transform your digital presence into a measurable, high-performance asset. 
+          <p className="text-gray-700 mb-0 lg:mb-2 max-w-[600px] mx-auto lg:mx-0">
+            {content.intro}
           </p>
         </div>
 

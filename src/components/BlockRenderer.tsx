@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import type { LogoReferenceContent, WorkPlanningContent } from "@/content/planningSections";
+import type { StatsSectionContent, ServicesTabsContent } from "@/content/reviewSections";
 import parse, { DOMNode, Element } from "html-react-parser";
 
 // --------------------------------------------------------
@@ -67,6 +68,8 @@ interface Props {
   htmlContent: string;
   logoReference: LogoReferenceContent;
   workPlanning: WorkPlanningContent;
+  statsSection: StatsSectionContent;
+  servicesTabs: ServicesTabsContent;
   workflowHero: WorkflowHeroContent;
   marketIntelligence: MarketIntelligenceContent;
   geoOverlap: GeoOverlapContent;
@@ -90,7 +93,7 @@ interface Props {
   engineeringApproach: EngineeringApproachContent;
 }
 
-export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
+export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsSection, servicesTabs, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -114,11 +117,11 @@ export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, workfl
         if (classes.includes("section-hero")) return <HeroHome />;
 
         // 2. STATS & AI SHIFT
-        if (classes.includes("section-stats")) return <StatsSection />;
+        if (classes.includes("section-stats")) return <StatsSection content={statsSection} />;
         if (classes.includes("section-ai-shift")) return <AiShiftSection {...aiShift} />;
 
         // 3. SERVICES & TABS
-        if (classes.includes("section-services-tabs")) return <ServicesTabs />;
+        if (classes.includes("section-services-tabs")) return <ServicesTabs content={servicesTabs} />;
         if (classes.includes("section-master-services")) return <MasterServices />;
         if (classes.includes("section-evolution")) return <EvolutionServices />;
 
