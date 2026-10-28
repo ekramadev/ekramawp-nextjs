@@ -1,3 +1,4 @@
+import { getLogoReferenceContent, getWorkPlanningContent } from "@/content/planningSections";
 import { getArchitecturePhasesContent, getPageResourcesContent } from "@/content/phaseResources";
 import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
@@ -98,6 +99,8 @@ export default async function DynamicPage({ params }: Props) {
           pageResources={getPageResourcesContent(uri)}
           wpHero={getWpHeroContent(uri)}
           engineeringApproach={getEngineeringApproachContent(uri)}
+          logoReference={getLogoReferenceContent(uri)}
+          workPlanning={getWorkPlanningContent(uri)}
         />
       </div>
     </main>

@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import type { LogoReferenceContent, WorkPlanningContent } from "@/content/planningSections";
 import parse, { DOMNode, Element } from "html-react-parser";
 
 // --------------------------------------------------------
@@ -64,6 +65,8 @@ import type { WpHeroContent, EngineeringApproachContent } from "@/content/engine
 
 interface Props {
   htmlContent: string;
+  logoReference: LogoReferenceContent;
+  workPlanning: WorkPlanningContent;
   workflowHero: WorkflowHeroContent;
   marketIntelligence: MarketIntelligenceContent;
   geoOverlap: GeoOverlapContent;
@@ -87,7 +90,7 @@ interface Props {
   engineeringApproach: EngineeringApproachContent;
 }
 
-export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
+export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -135,7 +138,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         if (classes.includes("section-wpdev-carousel")) return <WPDevCarousel />;
 
         // 7. BOOKS & EXTRAS
-        if (classes.includes("section-aifrontendeveloper-book")) return <AIfrontendeveloperBook />;
+        if (classes.includes("section-aifrontendeveloper-book")) return <AIfrontendeveloperBook content={workPlanning} />;
         if (classes.includes("section-Leftcolumn-tab")) return <Leftcolumntab content={leftColumn} />;
         if (classes.includes("section-Threecolumn-arch")) return <Threecolumnarch content={architecturePhases} />;
         if (classes.includes("section-Simple-Content")) return <SimpleContentSection content={simpleDelivery} />;
@@ -157,7 +160,7 @@ export const BlockRenderer = ({ htmlContent, workflowHero, marketIntelligence, g
         if (classes.includes("section-HtmlContent")) return <HtmlContent content={htmlExpertise} />;
         if (classes.includes("section-HtmlSecondContent")) return <HtmlSecondContent content={htmlCapabilities} />;
         if (classes.includes("section-HtmlCheatsheet")) return <HtmlCheatsheet content={htmlCheatsheet} />;
-        if (classes.includes("section-Logoatfirst")) return <Logoatfirst />;
+        if (classes.includes("section-Logoatfirst")) return <Logoatfirst content={logoReference} />;
         if (classes.includes("section-CaseStudyCard")) return <CaseStudyCard />;
       }
 

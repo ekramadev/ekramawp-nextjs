@@ -1,3 +1,4 @@
+import { getLogoReferenceContent, getWorkPlanningContent } from "@/content/planningSections";
 import { getArchitecturePhasesContent, getPageResourcesContent } from "@/content/phaseResources";
 import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
@@ -80,6 +81,8 @@ export default async function Home() {
         pageResources={getPageResourcesContent('/')}
         wpHero={getWpHeroContent('/')}
         engineeringApproach={getEngineeringApproachContent('/')}
+        logoReference={getLogoReferenceContent('/')}
+        workPlanning={getWorkPlanningContent('/')}
       />
     </main>
   );
