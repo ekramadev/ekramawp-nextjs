@@ -1,5 +1,6 @@
 import { getLogoReferenceContent, getWorkPlanningContent } from "@/content/planningSections";
 import { getStatsSectionContent, getServicesTabsContent } from "@/content/reviewSections";
+import { getCodePortfolioContent, getBoxesImageContent } from "@/content/showcaseSections";
 import { getArchitecturePhasesContent, getPageResourcesContent } from "@/content/phaseResources";
 import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
@@ -86,6 +87,8 @@ export default async function Home() {
         workPlanning={getWorkPlanningContent('/')}
         statsSection={getStatsSectionContent('/')}
         servicesTabs={getServicesTabsContent('/')}
+        codePortfolio={getCodePortfolioContent('/')}
+        boxesImage={getBoxesImageContent('/')}
       />
     </main>
   );

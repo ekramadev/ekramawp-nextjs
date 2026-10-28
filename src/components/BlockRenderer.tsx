@@ -2,6 +2,7 @@
 import React from "react";
 import type { LogoReferenceContent, WorkPlanningContent } from "@/content/planningSections";
 import type { StatsSectionContent, ServicesTabsContent } from "@/content/reviewSections";
+import type { CodePortfolioContent, BoxesImageContent } from "@/content/showcaseSections";
 import parse, { DOMNode, Element } from "html-react-parser";
 
 // --------------------------------------------------------
@@ -70,6 +71,8 @@ interface Props {
   workPlanning: WorkPlanningContent;
   statsSection: StatsSectionContent;
   servicesTabs: ServicesTabsContent;
+  codePortfolio: CodePortfolioContent;
+  boxesImage: BoxesImageContent;
   workflowHero: WorkflowHeroContent;
   marketIntelligence: MarketIntelligenceContent;
   geoOverlap: GeoOverlapContent;
@@ -93,7 +96,7 @@ interface Props {
   engineeringApproach: EngineeringApproachContent;
 }
 
-export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsSection, servicesTabs, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
+export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsSection, servicesTabs, codePortfolio, boxesImage, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -136,8 +139,8 @@ export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsS
         if (classes.includes("section-engineering-process")) return <EngineeringProcess />;
 
         // 6. PORTFOLIO & CAROUSELS
-        if (classes.includes("section-code-portfolio")) return <CodePortfolio />;
-        if (classes.includes("section-portfolio")) return <CodePortfolio />;
+        if (classes.includes("section-code-portfolio")) return <CodePortfolio content={codePortfolio} />;
+        if (classes.includes("section-portfolio")) return <CodePortfolio content={codePortfolio} />;
         if (classes.includes("section-wpdev-carousel")) return <WPDevCarousel />;
 
         // 7. BOOKS & EXTRAS
@@ -148,7 +151,7 @@ export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsS
         if (classes.includes("section-Four-Boxes")) return <FourBoxes content={fourBoxes} />;
         if (classes.includes("section-FAQ")) return <FAQSection />;
         if (classes.includes("section-TraditionalHeroArea")) return <TraditionalHeroArea content={traditionalHero} />;
-        if (classes.includes("section-Boxesimage")) return <Boxesimage />;
+        if (classes.includes("section-Boxesimage")) return <Boxesimage content={boxesImage} />;
         if (classes.includes("section-ThreeColumnBar")) return <ThreeColumnBar content={deliveryComparison} />;
         if (classes.includes("section-FiveCirclesBox")) return <FiveCirclesBox content={fiveCircles} />;
         if (classes.includes("section-BigTabsData")) return <BigTabsData />;

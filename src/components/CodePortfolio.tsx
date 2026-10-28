@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
+import type { CodePortfolioContent } from "@/content/showcaseSections";
 
 // --- 1. DATA: ALL 6 OF YOUR ORIGINAL PROJECTS ---
 const PROJECT_SOURCES: Record<string, string> = {
@@ -11,7 +12,7 @@ const PROJECT_SOURCES: Record<string, string> = {
   project6: `<!DOCTYPE html><html><head><style>body { font-family: sans-serif; background: #F0F9FF; display: flex; justify-content: center; align-items: center; height: 100vh; } .box { background: white; padding: 25px; border-radius: 10px; width: 250px; } input { width: 100%; padding: 10px; margin: 10px 0; box-sizing: border-box; border: 1px solid #ddd; border-radius: 4px; } button { padding: 8px 16px; border: none; border-radius: 4px; background: #10B981; color: white; cursor: pointer; } button:disabled { background: #ccc; cursor: not-allowed; }</style></head><body><div class="box"><h3>Validator</h3><input type="email" id="e" placeholder="Email" onkeyup="v()"><button id="b" disabled onclick="alert('Success')">Submit</button></div><script>function v() { const e = document.getElementById('e').value; const b = document.getElementById('b'); b.disabled = !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(e); }</script></body></html>`
 };
 
-export const CodePortfolio = () => {
+export const CodePortfolio = ({ content }: { content: CodePortfolioContent }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const [codeString, setCodeString] = useState("");
@@ -47,12 +48,14 @@ export const CodePortfolio = () => {
       <section data-wpfe-section="" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
 
         <header className="mb-16">
-          <h2 className="font-black text-[#10B981]">
-            Architecture & <span className="text-gray-900 relative">Performance</span>
+          <h2 className="font-black text-black">
+            {content.headingLead} <span className="text-brand-emerald relative">{content.headingAccent}</span>
           </h2>        </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {Object.entries(PROJECT_SOURCES).map(([id], index) => (
+          {Object.entries(PROJECT_SOURCES).map(([id], index) => {
+            const module = content.modules[index];
+            return (
             <div
               key={id}
               onClick={() => handleOpen(id)}
@@ -61,7 +64,7 @@ export const CodePortfolio = () => {
             >
               <div className="flex justify-between items-start mb-6">
                 <span className="text-[#10B981] bg-[#10B981]/10 px-3 py-1 rounded font-bold text-xs tracking-wider">
-                  MODULE 0{index + 1}
+                  {module.badge}
                 </span>
                 <div className="w-8 h-8 rounded bg-[#10B981] flex items-center justify-center text-white shadow-sm">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -72,27 +75,22 @@ export const CodePortfolio = () => {
 
               {/* Updated heading to dark text */}
               <h3 className="text-gray-900 text-xl font-black mb-3">
-                {id === 'project1' && 'State Manager'}
-                {id === 'project2' && 'Search Algorithm'}
-                {id === 'project3' && 'DOM Kanban'}
-                {id === 'project4' && 'Async Data'}
-                {id === 'project5' && 'CSS Variables'}
-                {id === 'project6' && 'Form Validator'}
+                {module.title}
               </h3>
 
               {/* Updated paragraph to slate gray */}
-              <p className="text-gray-500 mb-8 leading-relaxed text-sm">
-                Testing isolated logic for {id} within a secure sandbox environment.
+              <p className="text-[#374151] mb-8 leading-relaxed text-sm">
+                {module.description}
               </p>
 
               <div className="flex justify-between items-center mt-auto">
                 {/* Keep the brand emerald on hover */}
                 <span className="text-[#10B981] font-bold text-sm group-hover:text-brand-emerald transition-colors">
-                  Run Simulator →
+                  {module.action}
                 </span>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </section>
 
@@ -101,8 +99,8 @@ export const CodePortfolio = () => {
         <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-12" onClick={handleClose}>
           <div className="w-full h-full bg-white rounded-3xl overflow-hidden flex flex-col shadow-2xl" onClick={e => e.stopPropagation()}>
             <div className="h-14 bg-gray-50 border-b border-gray-200 flex items-center justify-between px-6">
-              <span className="font-black text-gray-800 text-sm tracking-widest uppercase">Live Engineering Simulator</span>
-              <button onClick={handleClose} className="bg-red-500 hover:bg-red-600 transition-colors text-white px-4 py-1.5 rounded-full text-xs font-bold">CLOSE</button>
+              <span className="font-black text-gray-800 text-sm tracking-widest uppercase">{content.modalTitle}</span>
+              <button onClick={handleClose} className="bg-red-500 hover:bg-red-600 transition-colors text-white px-4 py-1.5 rounded-full text-xs font-bold">{content.closeLabel}</button>
             </div>
 
             <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
