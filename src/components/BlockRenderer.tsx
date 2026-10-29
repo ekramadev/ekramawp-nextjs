@@ -1,4 +1,5 @@
 "use client";
+import type { HomeHeroCopy, ShutterCopy } from "@/content/homeLegacy";
 import React from "react";
 import type { LogoReferenceContent, WorkPlanningContent } from "@/content/planningSections";
 import type { StatsSectionContent, ServicesTabsContent } from "@/content/reviewSections";
@@ -69,6 +70,8 @@ import type { ArchitecturePhasesContent, PageResourcesContent } from "@/content/
 import type { WpHeroContent, EngineeringApproachContent } from "@/content/engineeringSections";
 
 interface Props {
+  homeHero: HomeHeroCopy;
+  shutter: ShutterCopy;
   htmlContent: string;
   logoReference: LogoReferenceContent;
   workPlanning: WorkPlanningContent;
@@ -105,7 +108,7 @@ interface Props {
   engineeringApproach: EngineeringApproachContent;
 }
 
-export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsSection, servicesTabs, codePortfolio, boxesImage, serviceFaq, platformFaq, platformOverview, contextStudy, audienceCarousel, legacyElements, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
+export const BlockRenderer = ({ htmlContent, homeHero, shutter, logoReference, workPlanning, statsSection, servicesTabs, codePortfolio, boxesImage, serviceFaq, platformFaq, platformOverview, contextStudy, audienceCarousel, legacyElements, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -125,8 +128,8 @@ export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsS
         ) return <WpHeroVisual content={wpHero} />;
 
         // ⬇️ PRIORITY 2: Check for the standard home hero LAST
-        if (classes.includes("home-hero")) return <HeroHome />;
-        if (classes.includes("section-hero")) return <HeroHome />;
+        if (classes.includes("home-hero")) return <HeroHome content={homeHero} />;
+        if (classes.includes("section-hero")) return <HeroHome content={homeHero} />;
 
         // 2. STATS & AI SHIFT
         if (classes.includes("section-stats")) return <StatsSection content={statsSection} />;
@@ -165,7 +168,7 @@ export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsS
         if (classes.includes("section-FiveCirclesBox")) return <FiveCirclesBox content={fiveCircles} />;
         if (classes.includes("section-BigTabsData")) return <BigTabsData content={platformOverview} />;
         if (classes.includes("section-WptwoPageVisual")) return <WptwoPageVisual content={workflowHero} />;
-        if (classes.includes("section-Shutterupanddown")) return <Shutterupanddown />;
+        if (classes.includes("section-Shutterupanddown")) return <Shutterupanddown content={shutter} />;
         if (classes.includes("section-Contentdouble")) return <Contentdouble content={contentDouble} />;
         if (classes.includes("section-HeadlessfiveElements")) return <HeadlessfiveElements content={legacyElements} />;
         if (classes.includes("section-Headwpcarousal")) return <Headwpcarousal content={engineeringCarousel} />;

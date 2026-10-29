@@ -1,65 +1,10 @@
 "use client";
 
 import React, { useState } from 'react';
-
-// --- DATA ---
-const expertiseData = [
-  {
-    id: 'nextjs',
-    title: 'Next.js Frontend',
-    desc: 'Lightning-fast React frontends decoupled from the WordPress backend.',
-    features: [
-      { icon: '🚀', text: 'Server-Side Rendering (SSR) & SSG' },
-      { icon: '⚡', text: 'Optimized Core Web Vitals' },
-      { icon: '🧩', text: 'Modern App Router architecture' },
-      { icon: '📱', text: 'Fully responsive & interactive UI' }
-    ],
-    bestFor: 'High-performance websites, dynamic web apps, and superior SEO.',
-    useCases: 'E-commerce, publishing platforms, corporate sites.'
-  },
-  {
-    id: 'graphql',
-    title: 'WPGraphQL API',
-    desc: 'Efficiently querying and mutating WordPress data using GraphQL endpoints.',
-    features: [
-      { icon: '📡', text: 'Reduced payload sizes' },
-      { icon: '🔗', text: 'Seamless ACF (Advanced Custom Fields) integration' },
-      { icon: '🔄', text: 'Real-time data synchronization' },
-      { icon: '🛡️', text: 'Secure endpoint exposure' }
-    ],
-    bestFor: 'Fetching exact data requirements without over-fetching.',
-    useCases: 'Omnichannel content distribution, mobile app backends.'
-  },
-  {
-    id: 'modeling',
-    title: 'Content Modeling',
-    desc: 'Tailoring the WordPress admin dashboard for a flawless editorial experience.',
-    features: [
-      { icon: '📝', text: 'Custom Post Types & Taxonomies' },
-      { icon: '🧱', text: 'Gutenberg Block integration' },
-      { icon: '🎨', text: 'Flexible content layouts via ACF' },
-      { icon: '👥', text: 'Custom user roles & permissions' }
-    ],
-    bestFor: 'Providing marketing teams with intuitive, structured authoring tools.',
-    useCases: 'Complex publishing workflows, modular page builders.'
-  },
-  {
-    id: 'infra',
-    title: 'Architecture & Security',
-    desc: 'Bulletproof infrastructure setup for your decoupled application.',
-    features: [
-      { icon: '🔒', text: 'Hidden WP Admin (Zero-day protection)' },
-      { icon: '☁️', text: 'Vercel / Edge Network deployment' },
-      { icon: '💾', text: 'Static revalidation (ISR)' },
-      { icon: '🌐', text: 'Global CDN caching' }
-    ],
-    bestFor: 'Enterprise-grade security and limitless scalability under heavy traffic.',
-    useCases: 'High-traffic media sites, enterprise applications.'
-  }
-];
+import type { ShutterCardCopy, ShutterCopy } from '@/content/homeLegacy';
 
 // --- INDIVIDUAL CARD COMPONENT ---
-const ExpertiseCard = ({ data }: { data: typeof expertiseData[0] }) => {
+const ExpertiseCard = ({ data, labels }: { data: ShutterCardCopy; labels: ShutterCopy }) => {
   // Start expanded (false means it is NOT collapsed)
   const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -82,9 +27,9 @@ const ExpertiseCard = ({ data }: { data: typeof expertiseData[0] }) => {
             ))}
           </ul>
           <div className="meta-info">
-            <strong>Best for:</strong>
+            <strong>{labels.focusLabel}</strong>
             <p>{data.bestFor}</p>
-            <strong>Use cases:</strong>
+            <strong>{labels.contextsLabel}</strong>
             <p>{data.useCases}</p>
           </div>
         </div>
@@ -94,7 +39,7 @@ const ExpertiseCard = ({ data }: { data: typeof expertiseData[0] }) => {
         className={`toggle-btn ${isCollapsed ? 'collapsed-btn' : ''}`} 
         onClick={() => setIsCollapsed(!isCollapsed)}
       >
-        <span>{isCollapsed ? 'Show details' : 'Hide details'}</span>
+        <span>{isCollapsed ? labels.showLabel : labels.hideLabel}</span>
         <svg className="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7"></path>
         </svg>
@@ -104,7 +49,7 @@ const ExpertiseCard = ({ data }: { data: typeof expertiseData[0] }) => {
 };
 
 // --- MAIN COMPONENT ---
-export const Shutterupanddown = () => {
+export const Shutterupanddown = ({ content }: { content: ShutterCopy }) => {
   return (
     <section data-wpfe-section="" className="shutter-wrapper">
       {/* Scoped CSS */}
@@ -115,16 +60,16 @@ export const Shutterupanddown = () => {
             --border-color: #333333;
             --text-main: #ffffff;
             --text-muted: #a3a3a3;
-            --accent-color: #ffffff;
+            --accent-color: var(--wpfe-emerald);
             --feature-bg: #1c1c1c;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             
-            background-color: var(--bg-color);
+            background-color: transparent;
             color: var(--text-main);
             padding: 60px 20px;
             display: flex;
             justify-content: center;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-neuehaas);
             width: 100%;
         }
 
@@ -274,8 +219,8 @@ export const Shutterupanddown = () => {
 
       <div data-wpfe-container="content" className="container">
         <div className="grid">
-          {expertiseData.map((data) => (
-            <ExpertiseCard key={data.id} data={data} />
+          {content.cards.map((data) => (
+            <ExpertiseCard key={data.id} data={data} labels={content} />
           ))}
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { getHomeHeroCopy, getShutterCopy } from "@/content/homeLegacy";
 import { getLogoReferenceContent, getWorkPlanningContent } from "@/content/planningSections";
 import { getStatsSectionContent, getServicesTabsContent } from "@/content/reviewSections";
 import { getCodePortfolioContent, getBoxesImageContent } from "@/content/showcaseSections";
@@ -114,6 +115,8 @@ export default async function DynamicPage({ params }: Props) {
           platformFaq={getPlatformFaqContent(uri)}
           platformOverview={getPlatformOverviewContent(uri)}
           contextStudy={getContextStudyContent(uri)}
+          homeHero={getHomeHeroCopy(uri)}
+          shutter={getShutterCopy(uri)}
           audienceCarousel={getAudienceCarouselCopy(uri)}
           legacyElements={getLegacyElementsCopy(uri)}
         />
