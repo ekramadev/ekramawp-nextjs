@@ -4,6 +4,7 @@ import type { LogoReferenceContent, WorkPlanningContent } from "@/content/planni
 import type { StatsSectionContent, ServicesTabsContent } from "@/content/reviewSections";
 import type { CodePortfolioContent, BoxesImageContent } from "@/content/showcaseSections";
 import type { FaqSectionContent } from "@/content/faqSections";
+import type { PlatformOverviewContent, ContextStudyContent } from "@/content/platformContexts";
 import parse, { DOMNode, Element } from "html-react-parser";
 
 // --------------------------------------------------------
@@ -76,6 +77,8 @@ interface Props {
   boxesImage: BoxesImageContent;
   serviceFaq: FaqSectionContent;
   platformFaq: FaqSectionContent;
+  platformOverview: PlatformOverviewContent;
+  contextStudy: ContextStudyContent;
   workflowHero: WorkflowHeroContent;
   marketIntelligence: MarketIntelligenceContent;
   geoOverlap: GeoOverlapContent;
@@ -99,7 +102,7 @@ interface Props {
   engineeringApproach: EngineeringApproachContent;
 }
 
-export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsSection, servicesTabs, codePortfolio, boxesImage, serviceFaq, platformFaq, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
+export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsSection, servicesTabs, codePortfolio, boxesImage, serviceFaq, platformFaq, platformOverview, contextStudy, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -157,7 +160,7 @@ export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsS
         if (classes.includes("section-Boxesimage")) return <Boxesimage content={boxesImage} />;
         if (classes.includes("section-ThreeColumnBar")) return <ThreeColumnBar content={deliveryComparison} />;
         if (classes.includes("section-FiveCirclesBox")) return <FiveCirclesBox content={fiveCircles} />;
-        if (classes.includes("section-BigTabsData")) return <BigTabsData />;
+        if (classes.includes("section-BigTabsData")) return <BigTabsData content={platformOverview} />;
         if (classes.includes("section-WptwoPageVisual")) return <WptwoPageVisual content={workflowHero} />;
         if (classes.includes("section-Shutterupanddown")) return <Shutterupanddown />;
         if (classes.includes("section-Contentdouble")) return <Contentdouble content={contentDouble} />;
@@ -170,7 +173,7 @@ export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsS
         if (classes.includes("section-HtmlSecondContent")) return <HtmlSecondContent content={htmlCapabilities} />;
         if (classes.includes("section-HtmlCheatsheet")) return <HtmlCheatsheet content={htmlCheatsheet} />;
         if (classes.includes("section-Logoatfirst")) return <Logoatfirst content={logoReference} />;
-        if (classes.includes("section-CaseStudyCard")) return <CaseStudyCard />;
+        if (classes.includes("section-CaseStudyCard")) return <CaseStudyCard content={contextStudy} />;
       }
 
       // Give standalone WordPress blocks the same outer spacing as mapped sections.

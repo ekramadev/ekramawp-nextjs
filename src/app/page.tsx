@@ -2,6 +2,7 @@ import { getLogoReferenceContent, getWorkPlanningContent } from "@/content/plann
 import { getStatsSectionContent, getServicesTabsContent } from "@/content/reviewSections";
 import { getCodePortfolioContent, getBoxesImageContent } from "@/content/showcaseSections";
 import { getServiceFaqContent, getPlatformFaqContent } from "@/content/faqSections";
+import { getPlatformOverviewContent, getContextStudyContent } from "@/content/platformContexts";
 import { getArchitecturePhasesContent, getPageResourcesContent } from "@/content/phaseResources";
 import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
@@ -92,6 +93,8 @@ export default async function Home() {
         boxesImage={getBoxesImageContent('/')}
         serviceFaq={getServiceFaqContent('/')}
         platformFaq={getPlatformFaqContent('/')}
+        platformOverview={getPlatformOverviewContent('/')}
+        contextStudy={getContextStudyContent('/')}
       />
     </main>
   );
