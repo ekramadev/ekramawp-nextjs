@@ -1,7 +1,8 @@
 "use client";
 import React from 'react';
+import type { ContextStudyContent } from '@/content/platformContexts';
 
-export const CaseStudyCard = () => {
+export const CaseStudyCard = ({ content }: { content: ContextStudyContent }) => {
   return (
     <section data-wpfe-section="" className="w-full pt-2 pb-16 relative overflow-hidden bg-transparent">
       {/* Main Container */}
@@ -9,20 +10,20 @@ export const CaseStudyCard = () => {
 
         {/* --- LEFT COLUMN: Text Content --- */}
         <div className="w-full lg:w-1/2 flex-1 flex flex-col gap-6">
-          <h2>
-            Award-winning <span className="text-[#10B981]">SEO</span><br />
-            <span className="text-[#10B981]">Company</span><br />
-            dedicated to your business<br />
-            growth
+          <h2 className="text-black">
+            {content.heading[0]} <span className="text-brand-emerald">{content.heading[1]}</span><br />
+            <span className="text-brand-emerald">{content.heading[2]}</span><br />
+            {content.heading[3]}<br />
+            {content.heading[4]}
           </h2>
 
           {/* Changed to <p> tags so they inherit your global light theme paragraph styles */}
-          <p className="mt-2 pr-0 lg:pr-8">
-            SEO strategies change time and time again, yet the goal still remains the same: <strong className="text-gray-900">Generate revenue from search.</strong> Unfortunately, many SEO agencies and experts are not equipped to deliver on that goal. That’s why you need an SEO agency like SEO.com who acts as an extension of your own marketing department.
+          <p className="mt-2 pr-0 lg:pr-8 text-gray-700">
+            {content.introduction[0]}<strong className="text-gray-700">{content.introduction[1]}</strong>{content.introduction[2]}
           </p>
 
-          <p className="pr-0 lg:pr-8">
-            The <span className="text-[#10B981] font-semibold">SEO services</span> we provide are customized to your organization’s priorities, no matter what changes in the industry occur.
+          <p className="pr-0 lg:pr-8 text-gray-700">
+            {content.detail[0]}<span className="text-brand-emerald font-semibold">{content.detail[1]}</span>{content.detail[2]}
           </p>
         </div>
 
@@ -32,7 +33,7 @@ export const CaseStudyCard = () => {
           {/* The Image */}
           <img
             src="https://admin.wpfedev.com/wp-content/uploads/2026/04/task_01kna884mqe76r5kh6q4bcm4jp_1775239514_img_1.webp"
-            alt="AI SEO Case Study featuring 136% visibility increase"
+            alt={content.imageAlt}
             className="w-full h-auto max-w-[650px] object-contain drop-shadow-2xl"
           />
 
@@ -41,34 +42,34 @@ export const CaseStudyCard = () => {
 
             {/* Metric 1 */}
             <div className="flex flex-col items-center lg:items-start">
-              <div className="text-[#10B981] text-3xl md:text-5xl font-black">8%</div>
+              <div className="text-brand-emerald text-3xl md:text-5xl font-black">{content.cues[0][0]}</div>
               {/* Explicitly set text-gray-500 and uppercase for crisp light theme readability */}
-              <div className="text-gray-500 text-[11px] font-bold tracking-widest leading-tight mt-1 uppercase">
-                avg increase in<br />closed sales
+              <div className="text-gray-700 text-[11px] font-bold tracking-widest leading-tight mt-1 uppercase">
+                {content.cues[0][1]}<br />{content.cues[0][2]}
               </div>
             </div>
 
             {/* Metric 2 */}
             <div className="flex flex-col items-center lg:items-start">
-              <div className="text-[#10B981] text-3xl md:text-5xl font-black">25%</div>
-              <div className="text-gray-500 text-[11px] font-bold tracking-widest leading-tight mt-1 uppercase">
-                performance lift
+              <div className="text-brand-emerald text-3xl md:text-5xl font-black">{content.cues[1][0]}</div>
+              <div className="text-gray-700 text-[11px] font-bold tracking-widest leading-tight mt-1 uppercase">
+                {content.cues[1][1]}
               </div>
             </div>
 
             {/* Metric 3 */}
             <div className="flex flex-col items-center lg:items-start">
-              <div className="text-[#10B981] text-3xl md:text-5xl font-black">50+</div>
-              <div className="text-gray-500 text-[11px] font-bold tracking-widest leading-tight mt-1 uppercase">
-                leveraging data
+              <div className="text-brand-emerald text-3xl md:text-5xl font-black">{content.cues[2][0]}</div>
+              <div className="text-gray-700 text-[11px] font-bold tracking-widest leading-tight mt-1 uppercase">
+                {content.cues[2][1]}
               </div>
             </div>
 
           </div>
 
           {/* Asterisk note - darkened slightly from gray-400 to gray-500 for better contrast on white */}
-          <div className="w-full text-center lg:text-left text-gray-500 text-[11px] italic opacity-90">
-            * clients leveraging connected data for advertising
+          <div className="w-full text-center lg:text-left text-gray-700 text-[11px] italic opacity-90">
+            {content.footnote}
           </div>
         </div>
 
