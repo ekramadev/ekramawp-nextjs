@@ -1,0 +1,705 @@
+export interface FaqItem { readonly question: string; readonly answer: string; }
+export interface FaqSectionContent {
+  readonly titleLead: string;
+  readonly titleAccent: string;
+  readonly intro: string;
+  readonly items: readonly [FaqItem, FaqItem, FaqItem, FaqItem];
+}
+type FourPairs = readonly [readonly [string, string], readonly [string, string], readonly [string, string], readonly [string, string]];
+
+function faq(titleLead: string, intro: string, pairs: FourPairs): FaqSectionContent {
+  const item = ([question, answer]: readonly [string, string]): FaqItem => ({ question, answer });
+  return { titleLead, titleAccent: "Questions", intro, items: [item(pairs[0]), item(pairs[1]), item(pairs[2]), item(pairs[3])] };
+}
+
+export const serviceFaqContent: Readonly<Record<string, FaqSectionContent>> = {
+  "/services/data-analytics/": faq("Data Analytics", "Clarify business questions, source records and reporting decisions before planning an analytics project.", [
+    ["Where should an analytics project begin?", "Start with the business decision, the people making it and the records available to support it."],
+    ["How should analytics sources be reviewed?", "Check ownership, definitions, missing values and update frequency before combining records from different business systems."],
+    ["Which measures belong in an analytics report?", "Choose measures tied to the agreed question. Record their calculation, reporting period and relevant business context."],
+    ["What should analytics handover include?", "Include source definitions, calculation notes, refresh responsibilities and known limitations so report owners can maintain the analysis."],
+  ]),
+  "/services/data-science/": faq("Data Science", "Review the decision, dataset and evaluation approach behind a proposed statistical or predictive model.", [
+    ["How is a data science problem defined?", "Describe the decision a model will inform, the available observations and the consequences of an incorrect result."],
+    ["What data is needed for predictive modeling?", "Relevant historical examples, clear outcomes and documented collection conditions help establish whether a predictive approach is suitable."],
+    ["How should a data science model be evaluated?", "Compare the model with an agreed baseline using held-out observations and measures that reflect the actual business problem."],
+    ["What happens after a model is delivered?", "Assign ownership for model inputs, output review and evaluation as the underlying data or business requirements change."],
+  ]),
+  "/secure-portals/": faq("Secure Portals", "Define portal users, permissions and information exchanges around the workflows the portal will support.", [
+    ["Which users should a portal support?", "List customer, partner and internal roles, then identify the records and actions each role needs."],
+    ["How should portal access be specified?", "Document sign-in requirements, permission boundaries, approval steps and account removal rules for every portal role."],
+    ["Can a portal exchange data with existing systems?", "Integration scope should identify the systems involved, record ownership, transfer rules and the handling of failed updates."],
+    ["What should be checked before portal release?", "Review role-based workflows, information visibility, form validation and recovery from interrupted or rejected requests."],
+  ]),
+  "/services/it-outsourcing/": faq("IT Outsourcing", "Set clear boundaries for delegated IT work, service handoffs and operational ownership.", [
+    ["Which IT responsibilities can be delegated?", "Identify the operations or maintenance tasks in scope, alongside decisions and responsibilities that remain with the internal team."],
+    ["How should an outsourcing handoff work?", "Record system access, open work, operating instructions and escalation contacts before responsibility changes hands."],
+    ["Who approves changes to outsourced systems?", "Agree named approval roles and change records so delegated work follows the organization's operating requirements."],
+    ["How should outsourced IT work be reviewed?", "Review completed requests, unresolved incidents and upcoming changes against the responsibilities defined in the service scope."],
+  ]),
+  "/services/software-development/": faq("Software Development", "Connect application requirements to implementation scope, release checks and ongoing ownership.", [
+    ["What defines the scope of custom software?", "User workflows, business rules, system connections and acceptance criteria establish the boundaries of the application build."],
+    ["How are software priorities organized?", "Sequence capabilities around user needs and technical dependencies, with explicit decisions about what belongs in each release."],
+    ["Can custom software use existing business data?", "First map the source records, access rules and integration constraints, then define how the new application will use them."],
+    ["What should a software release handover contain?", "Include setup instructions, operational notes, known issues and responsibilities for support, changes and future releases."],
+  ]),
+  "/services/digital-transformation/": faq("Digital Transformation", "Review existing processes, digital opportunities and the operational changes required to adopt them.", [
+    ["Where should digital transformation start?", "Choose a business process with a clear owner, documented pain points and a practical reason to change."],
+    ["Does every process need automation?", "Review exceptions, approval needs and information quality before deciding which steps are suitable for automation."],
+    ["How can existing systems affect transformation?", "Current applications, data ownership and integration limits shape which changes can be introduced together or in stages."],
+    ["What should a transformation roadmap include?", "Include process changes, technical dependencies, user adoption work and checkpoints for reviewing whether the new workflow meets its purpose."],
+  ]),
+  "/services/it-support/": faq("IT Support", "Clarify incident intake, investigation responsibilities and the information needed to resolve technical problems.", [
+    ["What information helps an IT support request?", "Describe the affected system, user impact, error messages and recent changes, with reproduction steps when available."],
+    ["How should support requests be prioritized?", "Agree impact and urgency rules so teams can distinguish a widespread outage from an individual access or configuration issue."],
+    ["When should an incident be escalated?", "Define escalation points for unresolved faults, specialist investigation and decisions requiring an application or infrastructure owner."],
+    ["How can recurring support issues be addressed?", "Keep incident records and review repeated symptoms to identify configuration, documentation or maintenance work beyond the individual request."],
+  ]),
+  "/crm-engineering/": faq("CRM Engineering", "Plan customer records, relationship workflows and integrations around the teams using the CRM.", [
+    ["Which customer workflows belong in a CRM?", "Map lead handling, account updates, customer communication and service activity before selecting the records and screens to build."],
+    ["How should CRM data be organized?", "Define customer and organization records, required fields, duplicate handling and ownership of changes to shared information."],
+    ["What should CRM integrations cover?", "Identify the systems exchanging contacts or activity records, including synchronization direction and resolution of conflicting updates."],
+    ["How should CRM changes be reviewed?", "Test representative sales and service tasks with the relevant roles, including permissions and the visibility of customer history."],
+  ]),
+  "/services/desktop-development/": faq("Desktop Applications", "Review workstation requirements, local data and release arrangements for desktop software.", [
+    ["What shapes a desktop application specification?", "Daily user tasks, operating systems, device dependencies and deployment restrictions determine the application's practical requirements."],
+    ["Can a desktop application work without a connection?", "Offline behavior must be defined explicitly, including which tasks remain available and how local changes are synchronized later."],
+    ["How should desktop application data be handled?", "Specify local storage, access controls, backup expectations and any exchange of records with central business systems."],
+    ["What belongs in a desktop release plan?", "Plan installation, version updates, compatibility checks and recovery steps for the workstations receiving the application."],
+  ]),
+  "/computer-vision/": faq("Computer Vision", "Define visual inspection tasks, image conditions and evaluation needs before developing an image-analysis workflow.", [
+    ["Which task should a computer vision system solve?", "Specify the object, defect or visual condition to detect and how the result will be used."],
+    ["What image examples are needed?", "Include representative lighting, camera positions and relevant variations, with consistent labels for the target inspection task."],
+    ["How should visual inspection results be evaluated?", "Review missed detections and false alerts on separate examples, considering their operational consequences and human review requirements."],
+    ["What affects deployment of a vision workflow?", "Camera interfaces, image transfer, processing location and the response to uncertain results all belong in the deployment scope."],
+  ]),
+  "/services/machine-learning/": faq("Machine Learning", "Review training examples, model evaluation and the workflow that will consume machine-learning outputs.", [
+    ["When is machine learning worth evaluating?", "Consider it when representative examples exist and the task can be evaluated against a clear outcome or decision."],
+    ["How should training data be prepared?", "Document the target outcome, input fields, labeling process and data-quality checks before starting model development."],
+    ["What should model testing cover?", "Evaluate separate examples and relevant edge cases, then compare results with the baseline chosen for the workflow."],
+    ["Who should own a deployed ML model?", "Assign responsibility for input changes, output review and model reassessment when the operating context evolves."],
+  ]),
+  "/marketing-software/": faq("Marketing Software", "Connect campaign workflows, audience records and reporting requirements without assuming marketing outcomes.", [
+    ["Which campaign tasks should marketing software cover?", "Define campaign planning, audience selection, content approval and activity tracking around the team's existing responsibilities."],
+    ["How should marketing audience data be managed?", "Record source ownership, contact preferences, segmentation rules and the permissions needed to use each audience field."],
+    ["What should campaign integrations exchange?", "Specify the contact, campaign and activity records shared with other systems, together with update and failure-handling rules."],
+    ["How should marketing reporting be scoped?", "Agree attribution assumptions, measure definitions and reporting periods so campaign results can be interpreted with their context."],
+  ]),
+  "/services/software-consulting/": faq("Software Consulting", "Prepare the technical context and decisions a software consulting engagement needs to address.", [
+    ["What should a software consulting brief contain?", "Include the business problem, current application landscape, constraints and the decisions requiring technical guidance."],
+    ["How are architecture options compared?", "Assess each option against integration needs, operating responsibilities, maintainability and the constraints of the proposed software."],
+    ["Does consulting need to include implementation?", "Define whether the engagement ends with recommendations or also covers prototypes, delivery planning and implementation review."],
+    ["What makes consulting recommendations usable?", "Document assumptions, tradeoffs, unresolved questions and the next decisions required from business and technical owners."],
+  ]),
+  "/services/application-services/": faq("Application Services", "Define the application lifecycle work needed across development, operation and change.", [
+    ["What can application services include?", "The scope can cover application changes, integration work, maintenance and support, with ownership defined for each activity."],
+    ["How should an existing application be assessed?", "Review its users, dependencies, current issues and operating instructions before agreeing the work to take on."],
+    ["How are application changes coordinated?", "Use agreed requirements, change approvals and release checks to connect requested updates with the teams operating the application."],
+    ["What should application service handover record?", "Record access arrangements, support contacts, open issues and maintenance responsibilities for the applications included in scope."],
+  ]),
+  "/services/business-intelligence/": faq("Business Intelligence Services", "Clarify reporting questions, data models and ownership for a BI delivery engagement.", [
+    ["What should a BI services project deliver?", "Agree the business questions, reporting views and data preparation work included before committing to a dashboard build."],
+    ["How are BI measure definitions established?", "Work with business owners to document the calculation, reporting grain and exclusions behind each measure."],
+    ["What source issues affect BI delivery?", "Inconsistent identifiers, missing history and different update schedules should be reviewed before combining operational records."],
+    ["What should BI handover include?", "Provide model notes, measure definitions, refresh instructions and responsibilities for maintaining the reports as requirements change."],
+  ]),
+  "/power-bi-dashboards/": faq("Power BI Dashboards", "Plan report audiences, model definitions and refresh ownership for Power BI work.", [
+    ["What should be defined before a Power BI dashboard?", "Identify the report audience, decisions, source tables and measures the dashboard needs to present."],
+    ["How should Power BI measures be reviewed?", "Check calculation definitions and filter behavior against representative business cases rather than relying on chart appearance alone."],
+    ["What belongs in a dashboard refresh plan?", "Document source availability, credentials ownership, refresh expectations and how a failed update will be investigated."],
+    ["How should Power BI report access be planned?", "List the intended viewers and editors, then review workspace and data visibility requirements for those roles."],
+  ]),
+  "/services/mobile-development/": faq("Mobile Development", "Review mobile user journeys, device needs and release responsibilities for the application.", [
+    ["How are mobile application requirements defined?", "Start with the user tasks, target devices and platform capabilities that the application needs to support."],
+    ["What guides native or cross-platform selection?", "Compare device integrations, interface requirements and maintenance responsibilities before selecting the mobile implementation approach."],
+    ["How should unreliable mobile connectivity be handled?", "Specify loading, retry and offline behavior, including how unsent changes are shown and reconciled when the connection returns."],
+    ["What should a mobile release review cover?", "Review device compatibility, permissions, user journeys and distribution requirements for the platforms included in the release."],
+  ]),
+  "/digital-retail/": faq("Digital Retail", "Plan catalog, checkout and fulfillment workflows across the retail channels in scope.", [
+    ["Which channels should a retail platform connect?", "Identify the storefronts, stores and operational systems that need to share product, order or stock records."],
+    ["How should retail inventory updates be defined?", "Specify the authoritative stock source, reservation rules and handling of delayed or conflicting channel updates."],
+    ["What belongs in a retail checkout specification?", "Define product options, promotions, payment steps and delivery choices, including how customers recover from incomplete orders."],
+    ["How should digital retail changes be tested?", "Exercise browsing, purchasing, cancellation and fulfillment scenarios with representative products and the relevant operational roles."],
+  ]),
+  "/services/application-maintenance/": faq("Application Maintenance", "Organize corrective work, dependency updates and release checks around existing applications.", [
+    ["What should an application maintenance scope identify?", "List the applications, environments, known issues and types of change included in the maintenance arrangement."],
+    ["How should maintenance requests be prioritized?", "Review user impact, technical risk and dependencies before deciding the order of fixes and updates."],
+    ["How are maintenance changes checked?", "Use reproduction steps and regression checks tied to affected workflows before releasing the proposed correction."],
+    ["What records support ongoing maintenance?", "Keep issue history, dependency notes, release instructions and rollback information current for each maintained application."],
+  ]),
+  "/telecom-tech/": faq("Telecom Software", "Connect network operations, service records and incident workflows in a defined telecom software scope.", [
+    ["What should telecom operations software cover?", "Map service provisioning, network events and operational tasks around the systems and teams responsible for them."],
+    ["How should telecom system integrations be specified?", "Define service identifiers, event formats and update ownership across the network and business systems exchanging records."],
+    ["What matters when reviewing network event data?", "Document timestamps, source context, duplicate handling and the rules used to turn events into operational work."],
+    ["What should a telecom software release check?", "Review provisioning and incident scenarios, access boundaries and recovery behavior for interrupted or rejected system exchanges."],
+  ]),
+  "/services/managed-it-services/": faq("Managed IT Services", "Define managed systems, monitoring responsibilities and change approvals around the operating environment.", [
+    ["Which systems belong in managed IT scope?", "Create an inventory of the infrastructure and applications covered, with clear boundaries for excluded or internally managed work."],
+    ["How should monitoring alerts be handled?", "Agree alert ownership, priority rules and escalation contacts so a detected issue has a defined investigation path."],
+    ["Who approves managed infrastructure changes?", "Assign change approval and scheduling responsibilities alongside the access needed to perform the agreed operational tasks."],
+    ["What should managed service reviews examine?", "Review unresolved issues, maintenance records and planned changes against the operating responsibilities agreed for the service."],
+  ]),
+  "/services/it-staff-augmentation/": faq("IT Staff Augmentation", "Clarify engineering responsibilities, collaboration arrangements and access before adding capacity to a team.", [
+    ["What should an augmentation request specify?", "Describe the engineering work, required experience and responsibilities the additional contributor will take within the existing team."],
+    ["How should augmented engineers be onboarded?", "Provide project context, working agreements, approved access and the review process used by the internal team."],
+    ["Who sets priorities for augmented team members?", "Agree delivery ownership and reporting lines so work priorities and acceptance decisions remain clear throughout the engagement."],
+    ["What belongs in an augmentation handover?", "Include current tasks, implementation notes and access changes when responsibilities move back to the internal team."],
+  ]),
+  "/retail-banking-it/": faq("Retail Banking IT", "Scope digital banking journeys, account information and integration checks around defined operating requirements.", [
+    ["Which banking journeys should be mapped first?", "Identify customer tasks such as account access, service requests and transaction review, including approval and exception paths."],
+    ["How should banking data visibility be specified?", "Define which account and customer records each role can view or change, with reviewable access and activity requirements."],
+    ["What should core banking integrations document?", "Document record ownership, transaction references, synchronization rules and the response to rejected or incomplete exchanges."],
+    ["How should banking software requirements be validated?", "Review representative customer and operational scenarios with the responsible teams, including the controls and evidence they require."],
+  ]),
+  "/services/it-consulting/": faq("IT Consulting", "Connect technology decisions with business priorities, infrastructure constraints and accountable next steps.", [
+    ["What information helps an IT consulting assessment?", "Share the business priorities, system landscape, operating concerns and decisions that require an independent technical review."],
+    ["How should IT options be evaluated?", "Compare operational fit, dependencies and ownership requirements against the organization's actual constraints and intended use."],
+    ["What should an IT roadmap prioritize?", "Sequence changes around business needs, prerequisites and the teams responsible for implementing and operating each change."],
+    ["What should follow an IT consulting review?", "Record recommendations, assumptions and unresolved choices, then assign owners for the next investigation or implementation steps."],
+  ]),
+  "/services/software-modernization/": faq("Software Modernization", "Plan legacy application changes around current behavior, migration dependencies and controlled releases.", [
+    ["How should a modernization project begin?", "Inventory current workflows, dependencies and constraints before deciding which application parts should be retained, changed or replaced."],
+    ["Does modernization require replacing the whole application?", "The approach depends on the system. Assess staged changes against a replacement using the same business and operating requirements."],
+    ["How should legacy data migration be reviewed?", "Define source-to-target mappings, reconciliation checks and exception handling before moving records into the revised application."],
+    ["What belongs in a modernization release plan?", "Document compatibility checks, transition responsibilities and recovery steps so the change can be reviewed against existing business behavior."],
+  ]),
+  "/services/": faq("Software Services", "Choose an engineering scope around the business problem, current systems and delivery responsibilities.", [
+    ["How do we choose the right software service?", "Describe the operational need and existing systems first, then identify whether advice, implementation or ongoing application work is required."],
+    ["Can a service scope cover several engineering areas?", "Related development, integration and infrastructure tasks can be planned together when their boundaries and owners are explicit."],
+    ["What should be agreed before software work starts?", "Agree the intended workflows, deliverables, dependencies and acceptance checks with the people responsible for the result."],
+    ["How should software services be handed over?", "Record implementation decisions, operating instructions and support ownership so the delivered work can be maintained by the responsible team."],
+  ]),
+  "/services/mvp-development/": faq("MVP Development", "Define the product assumption and smallest useful workflow before planning an initial release.", [
+    ["What should an MVP aim to test?", "Choose a specific product assumption and the user behavior or feedback that would help evaluate it."],
+    ["How are MVP features selected?", "Prioritize the capabilities needed to complete the chosen user journey, with later ideas recorded outside the initial scope."],
+    ["Does an MVP need production considerations?", "Clarify the intended users and operating environment, then define appropriate access, data handling and support requirements for that release."],
+    ["What should be reviewed after an MVP release?", "Compare observed use and user feedback with the original assumption before deciding what to change, expand or stop."],
+  ]),
+  "/services/ai-development/": faq("AI Development", "Review the task, information sources and evaluation plan for a proposed AI application.", [
+    ["What should an AI development brief define?", "Specify the task, intended users, available information and the decisions the AI output is allowed to support."],
+    ["How should AI inputs be prepared?", "Review source quality, access permissions and representative examples before selecting an implementation or evaluation approach."],
+    ["How can AI application results be assessed?", "Use task-specific examples and agreed review criteria, including incorrect responses and cases requiring human judgment."],
+    ["What should an AI application handover include?", "Document information sources, evaluation notes, operating limits and responsibility for reviewing changes to the application or its inputs."],
+  ]),
+  "/services/it-project-management/": faq("IT Project Management", "Establish delivery scope, milestone ownership and change decisions for technical projects.", [
+    ["What belongs in an IT project plan?", "Define deliverables, dependencies, review milestones and the people responsible for approving and completing the technical work."],
+    ["How should project progress be reported?", "Report completed work, open decisions and delivery risks against the agreed scope and current milestone plan."],
+    ["How should project scope changes be handled?", "Record the requested change and its effect on dependencies and delivery commitments before obtaining the relevant approval."],
+    ["What should project closure confirm?", "Confirm acceptance decisions, remaining work and handover responsibilities with the teams that will operate or maintain the delivered system."],
+  ]),
+  "/services/agile-consulting/": faq("Agile Consulting", "Review how teams plan work, coordinate delivery and learn from completed iterations.", [
+    ["What should an agile working review examine?", "Look at work intake, decision ownership, dependencies and feedback loops before recommending changes to the team's delivery process."],
+    ["Does every team need the same agile process?", "Choose working practices that fit team responsibilities and delivery constraints rather than applying a fixed ceremony list to every context."],
+    ["How should an agile improvement be introduced?", "Select a specific working problem, agree a change with the team and review its effect after practical use."],
+    ["What should an agile consulting handover contain?", "Record working agreements, ownership changes and follow-up review points so the team can continue adjusting its process."],
+  ]),
+  "/services/artificial-intelligence/": faq("Artificial Intelligence", "Clarify candidate AI workflows, model inputs and the role of human review.", [
+    ["Which AI use cases should be considered first?", "Start with a defined operational task whose inputs, expected outputs and review requirements can be described clearly."],
+    ["How should an AI workflow use existing information?", "Identify approved sources and access boundaries, then specify how that information reaches the application and stays current."],
+    ["Where should human review remain in an AI workflow?", "Identify decisions requiring approval or expert interpretation, and define how uncertain or unsuitable outputs are escalated."],
+    ["What should be monitored after AI deployment?", "Review output quality, source changes and user-reported failures against the evaluation criteria established for the use case."],
+  ]),
+  "/services/it-help-desk/": faq("IT Help Desk", "Define support intake, user communication and escalation for everyday technical requests.", [
+    ["What should a help desk ticket include?", "Include the affected device or application, the user's task and the symptoms that prevent it from being completed."],
+    ["How should help desk tickets move between teams?", "Record investigation notes, ownership and the reason for escalation so the next support role has the necessary context."],
+    ["What should users know about an open ticket?", "Agree how ticket status, requested information and resolution steps will be communicated through the chosen support channel."],
+    ["How should a help desk resolution be recorded?", "Document the action taken and confirm the reported task works again before closing the request under the agreed process."],
+  ]),
+  "/services/compliance-services/": faq("Compliance Services", "Connect stated control requirements with system configuration, evidence and review ownership.", [
+    ["What should a compliance-related technical scope identify?", "List the applicable requirements provided by the organization and the systems, records and configuration areas included in the review."],
+    ["Does a configuration change establish compliance?", "A technical change is one part of the evidence. The responsible organization must review the complete requirements and operating process."],
+    ["What evidence should a control review retain?", "Record configuration decisions, access reviews, test results and unresolved exceptions relevant to the controls being assessed."],
+    ["Who should approve compliance-related system changes?", "Assign technical and control owners to review the proposed change, supporting evidence and any remaining exceptions."],
+  ]),
+  "/data-science-ops/": faq("Data Science Operations", "Plan repeatable data preparation, model execution and operational review for analytical workflows.", [
+    ["What belongs in a data science operating workflow?", "Define data preparation, model execution, output storage and review responsibilities for the analytical work being operationalized."],
+    ["How should analytical inputs be checked?", "Validate the expected schema, record coverage and transformations before new data enters a scheduled analytical run."],
+    ["What makes a model run traceable?", "Keep the input version, transformation steps, model version and run outcome connected in the operating record."],
+    ["How should failed analytical runs be handled?", "Define alerts, investigation ownership and restart rules, including how downstream reports identify incomplete or outdated results."],
+  ]),
+  "/ml-engineering/": faq("ML Engineering", "Connect model training, evaluation and serving requirements through an explicit engineering workflow.", [
+    ["What should an ML engineering pipeline include?", "Specify dataset preparation, training steps, evaluation gates and the artifacts required to reproduce a model build."],
+    ["How should model versions be managed?", "Link each model artifact to its data and configuration versions, evaluation record and intended deployment environment."],
+    ["What should model-serving requirements describe?", "Define accepted inputs, expected output format, failure behavior and the application responsibilities around each prediction request."],
+    ["When should an ML model be reassessed?", "Review it when data patterns, task requirements or evaluation results change enough to challenge the assumptions behind the deployed version."],
+  ]),
+  "/saas-architecture/": faq("SaaS Architecture", "Define tenant boundaries, shared services and operating responsibilities for a SaaS application.", [
+    ["What should SaaS tenant requirements describe?", "Identify tenant organizations, user roles and the data or configuration that belongs to each tenant."],
+    ["How should tenant data boundaries be reviewed?", "Check access rules and record ownership across application, storage and administrative workflows using representative tenant scenarios."],
+    ["Which capabilities should a SaaS platform share?", "Compare shared and tenant-specific configuration for onboarding, identity, billing connections and operational support before choosing service boundaries."],
+    ["What belongs in a SaaS operations plan?", "Define deployment, observability, tenant support and recovery responsibilities around the services and environments in the platform scope."],
+  ]),
+  "/adobe-commerce-tech/": faq("Adobe Commerce", "Review catalog, checkout and operational integrations around the commerce workflows in scope.", [
+    ["What should an Adobe Commerce implementation define?", "Document catalog structure, customer types, purchasing rules and the operational systems that the storefront needs to connect."],
+    ["How should product catalog changes be planned?", "Agree attribute definitions, product relationships and source ownership before importing or updating storefront catalog records."],
+    ["What should checkout integration checks cover?", "Review payment outcomes, order references and fulfillment handoffs, including retries and incomplete or rejected transactions."],
+    ["How should commerce extensions be assessed?", "Review each extension against the required workflow, compatibility constraints and responsibility for updates and ongoing maintenance."],
+  ]),
+  "/custom-erp/": faq("Custom ERP", "Connect departmental records, approvals and shared business rules before defining an ERP build.", [
+    ["Which processes should a custom ERP connect?", "Map the departments and transactions in scope, including how purchasing, inventory and financial records depend on one another."],
+    ["How should shared ERP records be owned?", "Assign ownership for master data and define the approval and validation rules used when departments update shared records."],
+    ["Can ERP capabilities be introduced in stages?", "Plan stages around process dependencies and reconciliation needs so each release has clear operational boundaries."],
+    ["What should ERP acceptance checks examine?", "Run representative cross-department transactions and verify approvals, record consistency and exception handling against the agreed business rules."],
+  ]),
+  "/transportation-management/": faq("Transportation Management", "Plan shipment, route and dispatch workflows around the information needed to manage transport work.", [
+    ["What belongs in transportation software scope?", "Define shipment records, capacity constraints, route planning and dispatch tasks for the transport operation being supported."],
+    ["How should transportation status be tracked?", "Agree event sources, status definitions and timestamp rules so dispatch teams can interpret each shipment update consistently."],
+    ["What should route planning requirements include?", "Document stops, vehicle limits and operating constraints, together with the decisions dispatchers must be able to review or adjust."],
+    ["How should transport exceptions be handled?", "Define ownership and update rules for delays, missed stops and changed capacity so operational changes remain visible in the shipment record."],
+  ]),
+  "/supply-chain-tech/": faq("Supply Chain Technology", "Map inventory, procurement and fulfillment records across the supply chain workflows being connected.", [
+    ["Which supply chain records should be linked?", "Identify purchase, stock and fulfillment records that need a shared reference across the participating business systems."],
+    ["How should inventory information be reconciled?", "Agree authoritative sources, units and update timing before comparing procurement, warehouse and fulfillment balances."],
+    ["What should supply chain traceability capture?", "Define the item, batch or order references and events needed to follow the movement relevant to the operation."],
+    ["How should supply chain exceptions be reviewed?", "Assign responsibility for shortages, mismatched records and delayed handoffs, with a visible history of the decisions taken."],
+  ]),
+  "/wms-solutions/": faq("Warehouse Management", "Define warehouse locations, stock movements and verification steps for the fulfillment operation.", [
+    ["What should a warehouse location model describe?", "Specify sites, zones and bins, together with the item and quantity information required for each storage location."],
+    ["How should warehouse stock movements be recorded?", "Agree references and validation for receiving, transfers, picking and adjustments so changes can be reconciled to warehouse activity."],
+    ["What should picking and packing checks cover?", "Review item identification, quantity confirmation and order matching, including the handling of shortages and incorrect scans."],
+    ["How should a WMS connect to business systems?", "Define order intake, stock updates and shipment confirmations with clear ownership of retries and reconciliation between systems."],
+  ]),
+  "/enterprise-asset-management/": faq("Enterprise Asset Management", "Connect asset records, maintenance work and lifecycle decisions around the equipment being managed.", [
+    ["What belongs in an enterprise asset record?", "Define asset identity, location, ownership and the technical details needed to support maintenance and lifecycle decisions."],
+    ["How should maintenance work be planned?", "Specify inspection triggers, work-order responsibilities and the records technicians need before and after completing maintenance."],
+    ["Can asset information connect to other systems?", "Map the financial, inventory or operational records that need the asset reference, including ownership of updates."],
+    ["What should asset lifecycle reporting show?", "Agree the events, maintenance history and status definitions needed to review assets from acquisition through retirement."],
+  ]),
+  "/procurement/": faq("Procurement Software", "Define requisitions, supplier comparisons and purchasing approvals around the organization's procurement process.", [
+    ["How should procurement requests enter the system?", "Specify the item or service, requesting team and supporting information needed before a requisition can be reviewed."],
+    ["What should supplier bid comparisons include?", "Agree comparison fields and evaluation responsibilities so supplier offers can be reviewed against the same purchasing requirement."],
+    ["How should purchase approvals be modeled?", "Document approval roles, thresholds and exception paths before connecting an approved request to a purchase order."],
+    ["What should procurement integrations reconcile?", "Connect purchase orders, receipts and invoices using agreed references, with ownership for missing or mismatched records."],
+  ]),
+  "/enterprise-pm/": faq("Enterprise Project Management", "Coordinate project schedules, dependencies and reporting across the business units involved.", [
+    ["What should an enterprise project view consolidate?", "Identify milestones, dependencies and ownership across projects while retaining the context needed by each participating business unit."],
+    ["How should project status definitions be agreed?", "Define the evidence behind progress and risk statuses so different teams report against comparable criteria."],
+    ["What should cross-project dependency tracking capture?", "Record the deliverable, responsible owner and downstream work affected when a dependency changes."],
+    ["How should enterprise project dashboards be reviewed?", "Review open decisions and schedule changes with the accountable teams, using the dashboard to support the agreed governance process."],
+  ]),
+  "/logistics-fleet/": faq("Fleet Technology", "Review vehicle records, driver workflows and telematics events used in fleet operations.", [
+    ["Which fleet records should be centralized?", "Define vehicle, driver and assignment records, including the documents and status information relevant to each fleet role."],
+    ["How should telematics events be interpreted?", "Document device sources, units, timestamps and data gaps before using vehicle events in operational views or alerts."],
+    ["What should fleet route changes record?", "Keep assignment changes, dispatcher decisions and affected stops linked to the relevant vehicle and journey."],
+    ["How should fleet exceptions be managed?", "Assign review paths for missing location updates, vehicle issues and incomplete driver records so operational teams know who acts next."],
+  ]),
+  "/enterprise-commerce/": faq("Enterprise Commerce", "Plan account-based purchasing, contract terms and order reconciliation for business buyers.", [
+    ["What differs in enterprise purchasing workflows?", "Document organization accounts, buyer permissions and approval requirements alongside the products and services available to purchase."],
+    ["How should company-specific pricing be specified?", "Define the source of contract terms and the rules determining which product prices an authorized buyer can view."],
+    ["What should business checkout support?", "Agree purchase references, payment arrangements and order approvals, including the handling of incomplete or rejected requests."],
+    ["How should enterprise commerce orders be reconciled?", "Connect order, invoice and fulfillment references with clear ownership for differences between storefront and back-office records."],
+  ]),
+  "/corporate-intranets/": faq("Corporate Intranets", "Organize internal information, employee access and publishing responsibilities around the people using the intranet.", [
+    ["What should a corporate intranet contain?", "Prioritize the documents, announcements and employee resources that internal users need to find and use in their work."],
+    ["How should intranet publishing be governed?", "Assign content owners, review steps and expiry or update responsibilities for the information published to employees."],
+    ["What should intranet access rules describe?", "Map employee groups and restricted information, then review visibility and editing rights for each content area."],
+    ["How should intranet search be reviewed?", "Test common employee questions and document lookups against the content structure, labels and access rules in scope."],
+  ]),
+  "/financial-planning-analyses/": faq("Financial Planning Software", "Define forecast assumptions, budget records and review workflows for financial planning applications.", [
+    ["What should a financial planning model describe?", "Identify the planning period, business drivers and relationships connecting assumptions to the forecasts users need to review."],
+    ["How should budget and forecast versions be managed?", "Keep the relevant assumptions, approval state and reporting period attached to each planning version."],
+    ["What should financial planning integrations exchange?", "Define account mappings, actuals imports and reconciliation checks between operational sources and the planning model."],
+    ["How should planning calculations be tested?", "Check representative input changes, totals and period boundaries against the agreed calculation rules and expected financial relationships."],
+  ]),
+  "/transaction-systems/": faq("Transaction Systems", "Clarify transaction state, ledger references and reconciliation responsibilities across system boundaries.", [
+    ["What should a transaction record identify?", "Capture the business reference, amount or quantity, current state and related events required to trace the transaction."],
+    ["How should interrupted transactions be handled?", "Define retry, duplicate-detection and recovery behavior so the application can distinguish a completed operation from an unresolved request."],
+    ["What should settlement integrations document?", "Agree the external references, state transitions and reconciliation rules used when records move between participating systems."],
+    ["How should transaction exceptions be reviewed?", "Provide investigation records and ownership for mismatched, rejected or incomplete entries without concealing unresolved states."],
+  ]),
+  "/enterprise-accounting/": faq("Enterprise Accounting Software", "Define ledger rules, transaction records and review requirements for accounting applications.", [
+    ["What belongs in an accounting software specification?", "Document the account structure, transaction types and posting rules the application must support for the organization's accounting process."],
+    ["How should currency handling be defined?", "Specify transaction and reporting currencies, rate sources and rounding rules with the accounting team before implementing calculations."],
+    ["What should an accounting audit trail capture?", "Keep the record reference, change history and relevant approval information needed to review how an accounting entry was created or adjusted."],
+    ["How should ledger integrations be reconciled?", "Match source transactions to posted entries using agreed references and retain visible exceptions for missing or inconsistent records."],
+  ]),
+  "/business-intelligence/": faq("BI Architecture", "Review the query, model and dashboard decisions that turn business records into interpretable reporting.", [
+    ["How should a BI architecture be scoped?", "Map source systems, transformation needs and reporting audiences before defining the data model and dashboard layers."],
+    ["What makes a dashboard measure interpretable?", "State its business definition, calculation grain and filter context so readers understand what the displayed result represents."],
+    ["How should reporting changes be managed?", "Review model and measure changes with report owners, including their effect on existing views and historical comparisons."],
+    ["What should BI operational ownership cover?", "Assign responsibility for source changes, refresh failures and report corrections across the query and visualization workflow."],
+  ]),
+  "/applied-ai/": faq("Applied AI", "Connect text, document or conversational AI capabilities to a specific business task and review process.", [
+    ["What defines a practical applied AI use case?", "Describe the input, expected output and business action, including where the application should request human review."],
+    ["How should document-processing outputs be checked?", "Compare extracted fields with representative source documents and define how uncertain, missing or conflicting values are handled."],
+    ["What should conversational AI access be limited to?", "Specify approved information sources and allowed actions, with clear boundaries around restricted records and consequential changes."],
+    ["How should an applied AI workflow be evaluated?", "Use real task scenarios to review output usefulness, failure handling and the handoff between the AI capability and its users."],
+  ]),
+  "/hris-software/": faq("HR Information Systems", "Connect employee records, recruitment activity and leave workflows under defined access and ownership rules.", [
+    ["Which records should an HRIS manage?", "Identify the employee, candidate and employment records in scope, with ownership for maintaining each type of information."],
+    ["How should HRIS access be organized?", "Separate employee self-service, manager approvals and HR administration according to the sensitivity and purpose of each workflow."],
+    ["What should leave calculation requirements specify?", "Document entitlement rules, working calendars and approval steps before implementing balance calculations and absence requests."],
+    ["How should HRIS integrations be reviewed?", "Map employee identifiers and field ownership across recruitment, payroll and other systems, including handling of rejected or conflicting updates."],
+  ]),
+  "/corporate-lms/": faq("Corporate Learning Systems", "Define learning paths, participation records and qualification reviews for employee training software.", [
+    ["How should a corporate learning path be structured?", "Identify the audience, course sequence and completion requirements for the training objective being supported."],
+    ["What should learner progress records capture?", "Specify participation, assessment and completion events, together with the evidence required for a training record to be accepted."],
+    ["How should training assignments be managed?", "Define the employee groups, assignment rules and review roles responsible for keeping required learning current."],
+    ["What should LMS reporting distinguish?", "Keep enrollment, participation and completion definitions separate so training owners can interpret learner records accurately."],
+  ]),
+  "/med-devices-software/": faq("Medical Device Software", "Clarify intended device behavior, interfaces and verification responsibilities before implementation work.", [
+    ["What should a device software brief establish?", "Document the intended function, device interfaces and operating conditions, with the responsible product team defining relevant safety requirements."],
+    ["How should device calculation requirements be recorded?", "Specify input units, calculation rules and expected handling of invalid values so implementation can be checked against defined cases."],
+    ["What should device interface checks include?", "Review message formats, timing assumptions and fault responses across the hardware and software boundaries in scope."],
+    ["What belongs in device software handover?", "Include requirements links, verification records and unresolved issues for review by the organization responsible for the device."],
+  ]),
+  "/behavioral-health-it/": faq("Behavioral Health IT", "Scope care coordination, patient information and scheduling workflows around the roles that use them.", [
+    ["Which behavioral health workflows should be mapped?", "Define appointment scheduling, care documentation and treatment milestone records with the clinical and administrative teams responsible for them."],
+    ["How should patient information visibility be planned?", "Document the purpose and authorized roles for each information exchange, including boundaries between patient and professional views."],
+    ["What should treatment milestone records show?", "Agree the event definitions, responsible record owners and review process with the care organization before implementing tracking fields."],
+    ["How should a patient portal be reviewed?", "Check representative scheduling and record-viewing tasks, including permission boundaries and the handling of incomplete requests."],
+  ]),
+  "/lab-info-systems/": faq("Laboratory Information Systems", "Define specimen identifiers, laboratory records and instrument handoffs around the laboratory's operating process.", [
+    ["What should specimen tracking capture?", "Specify specimen identity, location and handling events so laboratory users can follow the sample through the agreed workflow."],
+    ["How should laboratory result records be structured?", "Agree test definitions, units, review states and ownership of corrections with the laboratory teams using the system."],
+    ["What should instrument integrations document?", "Define instrument identifiers, message formats and matching rules between incoming results and the corresponding laboratory request."],
+    ["How should laboratory exceptions be handled?", "Provide review paths for missing samples, unmatched results and corrected records, with the relevant decision history retained."],
+  ]),
+  "/pharma-biotech/": faq("Pharma and Biotech Software", "Plan research records, study workflows and controlled information exchanges for the work in scope.", [
+    ["What should pharma research software scope identify?", "List the study or research tasks, data types and review responsibilities that the application is expected to support."],
+    ["How should study records be organized?", "Define study references, observations and version history so research teams can relate each record to its collection context."],
+    ["What should compound data access rules cover?", "Identify authorized roles, permitted actions and the review requirements for sharing or changing compound-related information."],
+    ["How should research software changes be reviewed?", "Connect proposed changes to the affected workflows, data definitions and verification evidence required by the responsible research organization."],
+  ]),
+  "/medtech-startups/": faq("Medtech Product Development", "Define the first health product workflow, interface boundaries and evidence needed to review an initial release.", [
+    ["What should a medtech prototype establish?", "Choose the user task and product assumption to evaluate, with clear boundaries around any clinical or operational use."],
+    ["How should health system integrations be scoped?", "Identify the information exchanged, participating systems and authorized users before defining interface and validation requirements."],
+    ["What belongs in an initial medtech release?", "Prioritize the workflow needed for the agreed evaluation, including information handling and review responsibilities appropriate to that use."],
+    ["What should follow an initial medtech evaluation?", "Review user feedback, integration findings and unresolved product requirements before planning the next stage of development."],
+  ]),
+  "/public-health-systems/": faq("Public Health Systems", "Connect reporting records, population context and access requirements across public health workflows.", [
+    ["What should a public health reporting scope define?", "Specify the reporting purpose, source organizations and population or geographic coverage represented by the records."],
+    ["How should aggregated health information be interpreted?", "Keep collection periods, coverage limits and measure definitions visible so users understand the context of displayed totals or trends."],
+    ["What should public health system access cover?", "Define the information and actions appropriate to reporting, administrative and public-facing roles for each workflow."],
+    ["How should reporting changes be validated?", "Reconcile sample source records with the reported output and review exclusions, updates and unresolved data-quality issues."],
+  ]),
+  "/wellness-apps/": faq("Wellness Applications", "Plan habit tracking, user records and device information around the wellness tasks the application supports.", [
+    ["What should a wellness application track?", "Choose the activities and habits relevant to the user goal, with clear definitions for manual entries and device-provided records."],
+    ["How should biometric information be presented?", "Show the source, units and collection context, and avoid presenting an application display as a substitute for professional interpretation."],
+    ["What should wellness app data controls include?", "Define user access, sharing preferences and record management around the personal information collected by the application."],
+    ["How should a wellness tracking workflow be checked?", "Review entry, editing and history views with representative records, including gaps or disagreements between user and device inputs."],
+  ]),
+  "/insurtech/": faq("Insurance Technology", "Define policy, risk and claim records with explicit review responsibilities for automated steps.", [
+    ["Which insurance workflows should software connect?", "Map policy information, claim intake and case review around the teams and systems responsible for each stage."],
+    ["How should claim information be validated?", "Define required documents, field checks and exceptions that need review before a claim moves to the next workflow stage."],
+    ["What should risk calculation requirements establish?", "Record the approved input definitions and calculation rules supplied by the responsible insurance team, including version and review requirements."],
+    ["How should insurance automation decisions be reviewed?", "Retain the relevant inputs, rule versions and escalation history so authorized reviewers can examine the workflow outcome."],
+  ]),
+  "/wealth-management-tech/": faq("Wealth Management Technology", "Organize portfolio records, reporting calculations and authorized workflow changes for wealth platforms.", [
+    ["What should a wealth platform consolidate?", "Define the account, holding and transaction records needed for the portfolio views and operational tasks in scope."],
+    ["How should portfolio calculations be specified?", "Agree valuation inputs, reporting periods and calculation conventions with the responsible business team before implementing displayed results."],
+    ["What should allocation workflow controls cover?", "Specify authorized roles, approval steps and the information required to review a proposed allocation change."],
+    ["How should wealth reporting be reconciled?", "Compare source positions and transactions with report outputs, retaining visible explanations for missing, stale or inconsistent information."],
+  ]),
+  "/digital-lending/": faq("Digital Lending", "Scope application records, calculation rules and approval workflows around the lending process.", [
+    ["What should a lending application collect?", "Define the applicant records and supporting documents required by the lender for the specific application workflow."],
+    ["How should lending calculations be implemented?", "Document the lender-approved inputs, formulas and rounding rules, then check representative repayment and exception cases."],
+    ["What should loan document tracking show?", "Record document status, review ownership and outstanding information so authorized users can follow the application through its stages."],
+    ["How should lending decisions be traceable?", "Keep the relevant application version, calculation inputs and approval history connected to the decision recorded in the system."],
+  ]),
+  "/fintech-engineering/": faq("Fintech Engineering", "Connect account data, transaction workflows and technical controls within a defined financial application scope.", [
+    ["What should fintech application boundaries identify?", "Map user tasks, account records and external financial services, with clear ownership for each transaction and data exchange."],
+    ["How should fintech access controls be specified?", "Define authorized actions and information visibility for customer, operational and administrative roles across the application."],
+    ["What should fintech transaction validation cover?", "Agree reference matching, permitted state changes and handling of duplicate, rejected or incomplete requests."],
+    ["How should fintech integration testing be planned?", "Review representative success and failure scenarios with the participating service owners, including reconciliation and recovery responsibilities."],
+  ]),
+  "/payment-gateways/": faq("Payment Gateway Integration", "Define payment references, status updates and reconciliation between merchants and payment providers.", [
+    ["What should a payment integration specification include?", "Document the merchant workflow, payment provider interfaces and transaction references that connect checkout activity with payment records."],
+    ["How should payment status updates be handled?", "Specify accepted states, duplicate-event handling and the checks used before a provider event changes an order or payment record."],
+    ["What should a failed payment workflow offer?", "Define how customers see the outcome and how the merchant investigates unresolved attempts without treating every retry as a new purchase."],
+    ["How should gateway records be reconciled?", "Match merchant and provider references across payments, refunds and settlement records, with ownership for investigating differences."],
+  ]),
+  "/smart-manufacturing/": faq("Manufacturing Software", "Connect production events, equipment observations and operational review within the manufacturing workflow.", [
+    ["Which manufacturing events should be captured?", "Identify the production stages, equipment readings and work records needed for the specific operational question or workflow."],
+    ["How should equipment sensor data be reviewed?", "Record units, sampling context and missing-data behavior before using equipment observations in dashboards or alerts."],
+    ["What should fault alert requirements define?", "Specify the condition, review owner and expected operational response, including how false alerts and incomplete observations are investigated."],
+    ["How should manufacturing software be introduced?", "Plan representative process checks and system handoffs with production teams before extending the application across additional equipment or lines."],
+  ]),
+  "/logistics-software/": faq("Logistics Software", "Link cargo, delivery and fulfillment records across the logistics tasks being coordinated.", [
+    ["What should logistics software coordinate?", "Define cargo records, delivery milestones and fulfillment responsibilities across the carriers, suppliers and internal teams in scope."],
+    ["How should cargo loading requirements be modeled?", "Document item dimensions, capacity limits and loading rules with the operational team before implementing planning views or validation."],
+    ["What should delivery tracking updates contain?", "Agree shipment references, milestone meanings and event sources so updates can be connected to the correct logistics record."],
+    ["How should logistics handoff problems be handled?", "Assign ownership for missing confirmations, changed delivery plans and mismatched records, with the decision history available to participating teams."],
+  ]),
+  "/energy-utilities/": faq("Energy and Utility Systems", "Plan meter records, usage reporting and field service workflows around the utility operation.", [
+    ["What should utility usage records identify?", "Define the meter, measurement period and units needed to connect each reading with its service point and reporting context."],
+    ["How should missing meter readings be handled?", "Agree how gaps are identified and reviewed, keeping recorded observations distinct from any approved replacement or estimated values."],
+    ["What should field maintenance dispatch include?", "Specify asset references, work priorities and the information crews need to record the outcome of a maintenance visit."],
+    ["How should utility system integrations be checked?", "Reconcile representative meter and service records across interfaces, including delayed transmissions and rejected updates."],
+  ]),
+  "/professional-services-it/": faq("Professional Services IT", "Connect client work, time records and resource planning around the firm's operating processes.", [
+    ["Which professional service workflows should be mapped?", "Define client engagements, case or project records and the work approvals used by the teams delivering the service."],
+    ["How should time recording requirements be defined?", "Agree activity categories, engagement references and review rules so recorded time can be interpreted in the appropriate client-work context."],
+    ["What should resource planning views show?", "Specify assignments, availability and workload definitions while retaining the assumptions behind any utilization calculation."],
+    ["How should client-work records be protected?", "Define access by engagement and role, with explicit rules for sharing, editing and handing over the records involved."],
+  ]),
+  "/real-estate/": faq("Real Estate Software", "Define listing records, property workflows and scheduling requirements for the real estate operation.", [
+    ["What should a property listing record contain?", "Agree the property attributes, media and availability information needed by the intended listing audience and administrative roles."],
+    ["How should listing updates be managed?", "Define record ownership, approval steps and status rules so changes reach the relevant property views consistently."],
+    ["What should broker scheduling support?", "Map appointment availability, property references and confirmation workflows, including changes or cancellations that require follow-up."],
+    ["How should property contract records be organized?", "Connect the property, participants and document versions with the review and access responsibilities defined for the transaction workflow."],
+  ]),
+  "/construction-it/": faq("Construction IT", "Connect site records, estimating inputs and inspection workflows around the construction project.", [
+    ["What should construction project records connect?", "Map sites, drawing references, work packages and responsible teams so information can be found in the relevant project context."],
+    ["How should construction estimating rules be specified?", "Document quantities, units and calculation assumptions with the estimating team before implementing resource or cost views."],
+    ["What should a site inspection workflow capture?", "Define checklist versions, observations and follow-up ownership, including the evidence needed to review an unresolved inspection item."],
+    ["How should drawing revisions be handled?", "Keep revision identifiers, approval state and distribution responsibilities visible so site teams can identify the version relevant to their work."],
+  ]),
+  "/hospitality-tech/": faq("Hospitality Technology", "Define reservation, guest and service workflows across the hospitality locations in scope.", [
+    ["What should a reservation system coordinate?", "Specify room or service availability, booking records and status changes across the locations and sales channels involved."],
+    ["How should guest information be shared?", "Document the purpose and authorized roles for each guest-data exchange between reservations, service and administrative systems."],
+    ["What should dining service software record?", "Define order, table and check references with the rules used to transfer, amend and close service records."],
+    ["How should hospitality integrations be reviewed?", "Test booking and service scenarios across connected systems, including cancellations, changed availability and interrupted updates."],
+  ]),
+  "/wep-app-front-end/": faq("Web Application Front Ends", "Review interface structure, service connections and user behavior for a web application front end.", [
+    ["What should a web application front end support?", "Define the screens, user journeys and actions required to complete the application's agreed business workflows."],
+    ["How should front-end data states be specified?", "Document loading, empty, error and success states so users receive useful feedback while interacting with application data."],
+    ["What should front-end service integrations define?", "Agree request formats, response handling and permission boundaries with the services supplying the interface."],
+    ["How should front-end acceptance checks be planned?", "Review representative tasks across target viewports and input methods, including form validation and recovery from failed requests."],
+  ]),
+};
+
+export const platformFaqContent: Readonly<Record<string, FaqSectionContent>> = {
+  "/services/database-development/": faq("Database Development", "Define data structures, query needs and operating responsibilities before planning database work.", [
+    ["What should a database specification establish?", "Describe the entities, relationships and validation rules that the database must represent for the application's workflows."],
+    ["How should database query requirements be reviewed?", "Identify the records each workflow reads or changes, with representative data volumes and the conditions under which queries run."],
+    ["What belongs in a database migration plan?", "Document source mappings, transformation rules and reconciliation checks, including how invalid or unmatched records will be reviewed."],
+    ["Who should own database operations?", "Assign responsibility for access, backups, recovery checks and schema changes across the environments included in the project."],
+  ]),
+  "/m365-sharepoint/": faq("Microsoft 365 and SharePoint", "Plan document organization, internal collaboration and permissions around the teams using SharePoint.", [
+    ["How should SharePoint information be organized?", "Map sites, document libraries and metadata to the teams, records and search tasks the collaboration space needs to support."],
+    ["What should document access requirements cover?", "Define who can read, edit and approve each content area, including any external collaboration allowed by the organization."],
+    ["How should existing documents be migrated?", "Review source ownership, duplicate records and required metadata before agreeing the destination structure and migration checks."],
+    ["What should SharePoint governance include?", "Assign content owners and review responsibilities for site access, publishing, document updates and changes to the collaboration structure."],
+  ]),
+  "/services/testing-and-qa/": faq("Testing and QA", "Define test scope, representative scenarios and the evidence needed to review software behavior.", [
+    ["What should a QA plan be based on?", "Use the agreed requirements, user workflows and identified risks to decide what behavior and environments need testing."],
+    ["Which tests are suitable for automation?", "Consider repeatable checks with stable expectations, while retaining manual review for exploratory work and behavior needing human judgment."],
+    ["How should a defect be reported?", "Record the environment, reproduction steps and observed result, together with the expected behavior and relevant supporting evidence."],
+    ["What should a QA handover explain?", "Summarize coverage, test results and unresolved findings so release owners understand what was checked and what still needs review."],
+  ]),
+  "/salesforce-tech/": faq("Salesforce Engineering", "Connect CRM configuration, data ownership and system integrations to the Salesforce workflows in scope.", [
+    ["What should a Salesforce implementation start with?", "Map the customer and operational workflows, then identify the records, roles and approval steps the implementation needs to support."],
+    ["How should Salesforce customization be scoped?", "Compare configuration and custom development against the required behavior, maintenance ownership and constraints of the existing Salesforce setup."],
+    ["What should Salesforce integrations reconcile?", "Define external identifiers, field ownership and update rules, including how synchronization failures and conflicting records will be handled."],
+    ["How should Salesforce changes be reviewed?", "Test representative workflows with the relevant roles and check the effect on existing data, automation and connected systems."],
+  ]),
+  "/php-engineers/": faq("PHP Engineering", "Review application workflows, server-side responsibilities and integration requirements for PHP development.", [
+    ["What should a PHP application brief describe?", "Identify the web workflows, business rules and data operations that the server-side application must implement."],
+    ["How should a PHP framework be selected?", "Compare the application's requirements, existing codebase and maintenance responsibilities before choosing or changing the framework."],
+    ["What should PHP integration work define?", "Specify service contracts, authentication requirements and failure handling for the databases and APIs the application uses."],
+    ["What should a PHP release handover include?", "Document runtime setup, configuration, dependency updates and operating checks so the responsible team can support subsequent releases."],
+  ]),
+  "/services/data-warehousing/": faq("Data Warehousing", "Define source mappings, historical records and analytical models for a warehouse delivery project.", [
+    ["Which sources should a data warehouse include?", "Select the operational records needed for agreed analytical questions, with owners and update expectations identified for each source."],
+    ["How should warehouse history be modeled?", "Specify reporting grain and the treatment of changed records so analysts understand how historical values are represented."],
+    ["What should a warehouse loading process check?", "Validate mappings, record counts and transformation rules, and retain exceptions for data that cannot be loaded as expected."],
+    ["What belongs in warehouse operations handover?", "Include pipeline schedules, lineage notes and ownership for investigating failed loads, source changes and reconciliation differences."],
+  ]),
+  "/iot-engineering/": faq("IoT Engineering", "Plan device messages, platform responsibilities and operating conditions for an IoT system.", [
+    ["What should an IoT device specification describe?", "Record the measurements, device capabilities and operating conditions needed to support the intended monitoring or control workflow."],
+    ["How should IoT messages be modeled?", "Define device identifiers, message formats and units, including timestamps and the handling of missing or duplicate observations."],
+    ["What should intermittent device connectivity mean?", "Specify local behavior, buffered messages and reconnection rules so the platform can distinguish delayed data from current observations."],
+    ["How should IoT operations be planned?", "Assign responsibilities for device registration, configuration changes, telemetry review and investigation of devices that stop reporting."],
+  ]),
+  "/dynamics-365-solutions/": faq("Dynamics 365 Solutions", "Map business processes, configuration and data exchanges for the Dynamics 365 application in scope.", [
+    ["What should a Dynamics 365 scope identify?", "Name the business processes, application areas and user roles that the implementation or configuration work needs to support."],
+    ["How should Dynamics 365 requirements be reviewed?", "Compare existing processes with the proposed configuration and document exceptions that need custom work or a changed operating process."],
+    ["What should Dynamics data migration cover?", "Agree record mappings, ownership and validation checks before moving data into the configured application."],
+    ["How should a Dynamics release be accepted?", "Review representative business transactions and integrations with process owners, including role access and unresolved configuration decisions."],
+  ]),
+  "/services/web-development/": faq("Web Development", "Connect page structure, user journeys and application services in a defined web development scope.", [
+    ["What should a web development brief include?", "Describe the intended audiences, pages and interactive tasks, along with the content and services needed to support them."],
+    ["How should responsive website behavior be specified?", "Define how navigation, content and controls should behave across the target screen sizes and input methods."],
+    ["What should website form requirements cover?", "Specify required fields, validation, submission outcomes and the service or team receiving each accepted request."],
+    ["What should a web release review examine?", "Check agreed user journeys, content, links and connected services, including empty states and recovery from failed requests."],
+  ]),
+  "/services/penetration-testing/": faq("Penetration Testing", "Define authorized targets, testing boundaries and reporting responsibilities before a penetration test.", [
+    ["What must be agreed before penetration testing?", "Obtain authorization and define targets, permitted techniques, timing and escalation contacts with the organization responsible for the systems."],
+    ["How should penetration test access be arranged?", "Specify the test roles, accounts and environments included so findings can be interpreted within the agreed access conditions."],
+    ["What should a penetration test finding describe?", "Record the affected target, reproduction evidence and observed impact, with enough context for the responsible team to investigate and remediate."],
+    ["What should follow penetration test remediation?", "Review the agreed corrections and any retest evidence against the original findings, retaining unresolved items and scope limitations."],
+  ]),
+  "/c-engineers/": faq("C++ Engineering", "Define native software behavior, hardware dependencies and verification needs for C++ work.", [
+    ["What should a C++ engineering scope describe?", "Identify the system, embedded or desktop behavior required, together with hardware interfaces and operating constraints."],
+    ["How should native application interfaces be specified?", "Document data formats, ownership and error behavior at the boundaries between the C++ application and other components."],
+    ["What should C++ verification focus on?", "Review functional cases and resource-lifecycle behavior against the application's requirements, including invalid inputs and failure conditions."],
+    ["What belongs in a native software handover?", "Include compiler and build configuration, dependency notes and the target environments needed to reproduce and maintain the application."],
+  ]),
+  "/java-architects/": faq("Java Architecture", "Review service boundaries, data flows and operating requirements for Java enterprise applications.", [
+    ["What should a Java architecture review examine?", "Map business capabilities, application dependencies and data flows before selecting or revising service and module boundaries."],
+    ["How should Java integration contracts be defined?", "Specify request and response formats, ownership and failure behavior for the services and messaging interfaces in scope."],
+    ["What should enterprise Java deployment requirements cover?", "Describe runtime configuration, environment dependencies and operational responsibilities alongside the application's expected workloads."],
+    ["What should Java architecture decisions record?", "Document the requirements, alternatives and tradeoffs behind each significant choice so implementation teams can apply the design consistently."],
+  ]),
+  "/ar-experiences/": faq("Augmented Reality", "Define the user task, real-world context and device requirements for an AR experience.", [
+    ["What should an enterprise AR use case establish?", "Describe the training, retail or operational task and explain how virtual content should relate to the user's physical surroundings."],
+    ["Which devices should an AR specification consider?", "Identify the supported devices and environments, including camera, tracking and interaction capabilities needed for the intended experience."],
+    ["What should AR content preparation include?", "Agree the models, annotations and placement behavior, together with ownership for updating the content as the underlying task changes."],
+    ["How should an AR experience be evaluated?", "Review representative tasks on target devices and in relevant physical conditions, including tracking loss and unavailable content."],
+  ]),
+  "/servicenow-dev/": faq("ServiceNow Development", "Connect service requests, approvals and record ownership through the ServiceNow workflows in scope.", [
+    ["What should a ServiceNow workflow describe?", "Define request intake, assignment and approval stages with the roles responsible for moving each record through the process."],
+    ["How should ServiceNow configuration changes be planned?", "Review existing forms, rules and dependencies before agreeing which configuration or custom development changes are required."],
+    ["What should ServiceNow integrations exchange?", "Identify the service or asset records shared with other systems, including reference matching and handling of failed updates."],
+    ["How should ServiceNow workflow acceptance be checked?", "Exercise representative requests with the relevant roles and review routing, approvals and exception paths against the agreed process."],
+  ]),
+  "/azure-cloud/": faq("Azure Cloud", "Define workload placement, identity boundaries and operating ownership for Azure infrastructure.", [
+    ["What should an Azure infrastructure plan begin with?", "Inventory workloads, dependencies and organizational constraints before choosing the Azure resources and environments needed to host them."],
+    ["How should Azure access be planned?", "Map administrative and application identities to the permissions required for the resources included in the deployment."],
+    ["What should an Azure migration review cover?", "Check workload compatibility, data transfer and environment configuration, including validation and recovery steps for the transition."],
+    ["What should Azure operations handover include?", "Record resource ownership, monitoring, backup and change responsibilities so the deployed environment has a defined operating process."],
+  ]),
+  "/pimcore-solutions/": faq("Pimcore Solutions", "Plan product records, media and data distribution around the channels using Pimcore.", [
+    ["What should a Pimcore data model represent?", "Define the products or master records, attributes and relationships needed by the teams and channels using the information."],
+    ["How should product information ownership be assigned?", "Agree who maintains source values, reviews changes and approves records for distribution to downstream channels."],
+    ["What should Pimcore integrations specify?", "Document imports, exports and identifier mappings, with validation and exception handling for incomplete or conflicting records."],
+    ["How should a Pimcore implementation be accepted?", "Review representative record updates and channel deliveries, including media associations and the rules determining publication readiness."],
+  ]),
+  "/services/big-data/": faq("Big Data Services", "Scope distributed data processing around source characteristics, transformation needs and operational review.", [
+    ["What determines a big data processing approach?", "Review source volume, arrival patterns and the questions or workflows the processed records must support."],
+    ["How should distributed data transformations be defined?", "Specify input structure, grouping rules and expected outputs, with handling for malformed, late or repeated records."],
+    ["What should big data validation compare?", "Check representative inputs, transformed outputs and reconciliation totals so processing results can be traced to source records."],
+    ["What belongs in a data processing operating plan?", "Assign ownership for pipeline failures, resource configuration and source changes across the processing environments included in scope."],
+  ]),
+  "/services/api-development/": faq("API Development", "Define service contracts, access boundaries and failure behavior for application interfaces.", [
+    ["What should an API contract define?", "Specify operations, request and response fields, validation rules and error outcomes for the applications consuming the interface."],
+    ["How should API access requirements be documented?", "Identify the callers, allowed operations and information each role or system is authorized to retrieve or change."],
+    ["What should API failure handling cover?", "Agree timeout, retry and duplicate-request behavior, including how callers distinguish rejected requests from unresolved operations."],
+    ["What should an API handover provide?", "Include interface examples, environment configuration and version-change responsibilities so consumers can integrate and maintain their use of the service."],
+  ]),
+  "/aws-infrastructure/": faq("AWS Infrastructure", "Map workloads, resource boundaries and operational responsibilities before an AWS deployment.", [
+    ["What should AWS infrastructure scope identify?", "Describe the application workloads, data stores and network connections required, alongside organizational and operating constraints."],
+    ["How should AWS resource permissions be reviewed?", "Assign application and administrative responsibilities, then define the permissions needed to perform those tasks within the deployment."],
+    ["What should AWS recovery planning include?", "Agree backup coverage, recovery procedures and validation responsibilities for the workload and data services in scope."],
+    ["What should an AWS handover document?", "Record resource configuration, deployment instructions and ownership for monitoring, maintenance and future infrastructure changes."],
+  ]),
+  "/net-experts/": faq(".NET Engineering", "Review application behavior, service contracts and runtime requirements for .NET development.", [
+    ["What should a .NET application scope define?", "Identify the business workflows, data operations and interfaces required, with the target runtime and environment constraints made explicit."],
+    ["How should .NET service boundaries be chosen?", "Use business responsibilities and integration dependencies to decide which capabilities belong together and which need separate contracts."],
+    ["What should .NET application checks cover?", "Test agreed business rules and service interactions, including invalid data and the application's response to unavailable dependencies."],
+    ["What belongs in a .NET release handover?", "Include build and deployment instructions, configuration requirements and dependency notes for the team responsible for operating the application."],
+  ]),
+  "/services/cybersecurity/": faq("Cybersecurity Consulting", "Define the systems, risks and review responsibilities covered by a cybersecurity engagement.", [
+    ["What should a cybersecurity assessment cover?", "Agree the systems, information flows and operating controls included, with authorization and boundaries appropriate to the review."],
+    ["How should cybersecurity findings be prioritized?", "Consider the affected assets, exposure and operational consequences with the organization responsible for deciding remediation priorities."],
+    ["What should access-control reviews examine?", "Compare current permissions and account lifecycle practices with the responsibilities and information boundaries defined by the organization."],
+    ["What should a cybersecurity action plan record?", "Assign owners, proposed corrections and verification steps to findings while retaining unresolved risks and the scope limits of the assessment."],
+  ]),
+  "/services/devops-consulting/": faq("DevOps Consulting", "Review build, release and operating workflows around the teams delivering software.", [
+    ["What should a DevOps review start with?", "Map how a change moves from development to operation, including manual handoffs, dependencies and unclear ownership."],
+    ["Which delivery steps should be automated?", "Choose repeatable steps with defined inputs and checks, then review permissions and failure handling before automating the workflow."],
+    ["What should a deployment pipeline verify?", "Define the build, test and approval conditions required before a change is released into each target environment."],
+    ["What should DevOps recommendations include?", "Document pipeline changes, operating responsibilities and follow-up checks so the teams can maintain the revised delivery process."],
+  ]),
+  "/services/microsoft-consulting/": faq("Microsoft Consulting", "Review application configuration, shared identity and administration across the Microsoft products in scope.", [
+    ["What should a Microsoft consulting engagement identify?", "List the products, business workflows and administrative questions included before assessing configuration or integration options."],
+    ["How should Microsoft identity requirements be reviewed?", "Map user groups, access needs and account lifecycle responsibilities across the applications the organization intends to connect."],
+    ["What information supports a licensing review?", "Provide the organization's current product inventory, assigned usage and supplied licensing information for review by the responsible administrators."],
+    ["What should Microsoft configuration recommendations record?", "Explain the intended behavior, dependencies and ownership behind each proposed change, including the checks required before rollout."],
+  ]),
+  "/services/infrastructure-services/": faq("Infrastructure Services", "Plan infrastructure work around application dependencies, environment constraints and operating duties.", [
+    ["What should an infrastructure assessment inventory?", "Identify compute, storage and network resources alongside the applications, users and external services depending on them."],
+    ["How should infrastructure capacity needs be reviewed?", "Use representative workloads and operating observations to document requirements and identify constraints needing further investigation."],
+    ["What should infrastructure change planning include?", "Define the configuration change, affected dependencies and validation steps, with ownership for scheduling and recovery if needed."],
+    ["What belongs in infrastructure service handover?", "Provide environment records, access responsibilities and operating procedures for monitoring, maintenance and recovery of the resources in scope."],
+  ]),
+  "/services/security-testing/": faq("Security Testing", "Define authorized test coverage and evidence for reviewing application security controls.", [
+    ["What should a security test scope establish?", "Identify the application, environment and controls included, with approved test boundaries and contacts for unexpected findings."],
+    ["How should permission checks be tested?", "Exercise representative roles and actions against the expected access rules, including attempts to reach records outside the permitted scope."],
+    ["What should vulnerability test evidence contain?", "Record the tested conditions, affected behavior and reproduction details needed for the responsible engineering team to examine the finding."],
+    ["What should security retesting confirm?", "Check the agreed correction under the relevant conditions and record remaining limitations rather than treating a partial retest as universal assurance."],
+  ]),
+  "/blockchain-tech/": faq("Blockchain Engineering", "Review ledger use, participant responsibilities and integration boundaries before planning blockchain software.", [
+    ["What should a blockchain use case justify?", "Explain the records shared by participants and why the proposed ledger arrangement fits their coordination and verification requirements."],
+    ["How should blockchain participants be defined?", "Document who can submit, inspect or approve transactions and who owns the infrastructure and application responsibilities."],
+    ["What should ledger integration contracts describe?", "Specify transaction references, state changes and the handling of failed submissions across the ledger and connected business systems."],
+    ["What should blockchain application verification cover?", "Review permitted state transitions, participant actions and exception scenarios against the rules defined for the application."],
+  ]),
+  "/big-data-systems/": faq("Big Data Systems", "Define storage, parallel processing and record ownership for a large-scale data platform.", [
+    ["What should a large data platform inventory?", "List source formats, arrival patterns and intended consumers before defining storage and processing responsibilities."],
+    ["How should unstructured records be organized?", "Agree identifiers, metadata and retention needs so records can be located and interpreted beyond their raw storage location."],
+    ["What should parallel processing requirements specify?", "Define partitioning assumptions, transformation outputs and behavior for late, invalid or repeated records."],
+    ["How should data platform operations be reviewed?", "Track ingestion and processing outcomes with ownership for failed jobs, changing sources and unresolved data-quality exceptions."],
+  ]),
+  "/vr-enterprise/": faq("Enterprise VR", "Plan virtual training or prototyping experiences around user tasks, devices and content ownership.", [
+    ["What should an enterprise VR scenario teach or test?", "Define the user task, virtual environment and observable actions needed to review the training or prototyping objective."],
+    ["What should VR hardware requirements establish?", "Identify supported headsets, interaction methods and physical-use conditions before building the intended experience."],
+    ["How should virtual training content be maintained?", "Assign ownership for models, instructions and scenario updates when the underlying equipment or operating process changes."],
+    ["How should a VR prototype be evaluated?", "Review representative tasks on the target hardware with the relevant users, including navigation, interaction feedback and session completion."],
+  ]),
+  "/cloud-native/": faq("Cloud-Native Applications", "Connect application services, deployment boundaries and operational ownership in a cloud-native design.", [
+    ["What should a cloud-native architecture define?", "Map business capabilities, service responsibilities and data ownership before selecting deployment and communication patterns."],
+    ["Does every application need microservices?", "Assess service separation against the application's change patterns, dependencies and operating capacity before choosing additional distributed boundaries."],
+    ["What should service failure behavior describe?", "Define timeouts, retries and recovery expectations so callers and operators can identify and handle unavailable dependencies."],
+    ["What belongs in cloud-native operations planning?", "Assign deployment, configuration, observability and recovery responsibilities across the application services and environments being delivered."],
+  ]),
+  "/python-engineers/": faq("Python Engineering", "Define automation, data or API work around the inputs and operating environment a Python application needs.", [
+    ["What should a Python project brief identify?", "Describe the automation, calculation or service task, including its input records, expected output and operating constraints."],
+    ["How should Python data processing be specified?", "Document source formats, transformation rules and validation cases, with explicit handling of missing or unsuitable records."],
+    ["What should Python integration requirements cover?", "Define the interfaces, credentials ownership and failure behavior for the applications or services the Python code connects."],
+    ["What should a Python application handover contain?", "Include dependency and environment instructions, execution steps and operating notes needed to reproduce and maintain the delivered workflow."],
+  ]),
+  "/go-engineers/": faq("Go Engineering", "Review service contracts, data handling and operating needs for Go applications.", [
+    ["What should a Go service specification define?", "Identify the service responsibility, request types and expected outputs, including dependencies and relevant operating constraints."],
+    ["How should concurrent Go work be reviewed?", "Define ownership and coordination for shared work, with checks for cancellation, incomplete operations and failure paths."],
+    ["What should Go service integrations document?", "Specify message formats, connection behavior and error outcomes at the boundaries with external services and data stores."],
+    ["What belongs in a Go deployment handover?", "Record build instructions, runtime configuration and operating checks so the responsible team can deploy and maintain the service."],
+  ]),
+  "/node-js-experts/": faq("Node.js Engineering", "Plan server-side JavaScript services around application requests, background work and integration boundaries.", [
+    ["What should a Node.js service handle?", "Define the API requests, application rules and background tasks included, with explicit boundaries around external systems and data stores."],
+    ["How should asynchronous application states be defined?", "Specify completion, timeout and error outcomes so callers can tell whether background or external work has finished."],
+    ["What should Node.js database integrations cover?", "Document record operations, validation and connection failure behavior, including ownership of retries and incomplete work."],
+    ["What should a Node.js release handover include?", "Provide runtime and dependency requirements, configuration instructions and the operational steps needed to support the server application."],
+  ]),
+  "/javascript-devs/": faq("JavaScript Engineering", "Connect interface events, application state and service calls in a defined JavaScript implementation.", [
+    ["What should JavaScript application requirements describe?", "Specify user actions, resulting state changes and the information the application displays or exchanges when each action occurs."],
+    ["How should JavaScript state ownership be planned?", "Identify which component or service owns each value and how changes reach the other parts of the application that depend on it."],
+    ["What should asynchronous JavaScript checks include?", "Review loading, success and failure outcomes, including what happens when users change context before a request completes."],
+    ["What should JavaScript project handover document?", "Include dependency setup, application entry points and service configuration so subsequent engineers can understand and maintain the implemented workflows."],
+  ]),
+  "/react-native-experts/": faq("React Native Engineering", "Define mobile screen behavior, native capabilities and platform checks for a React Native application.", [
+    ["What should a React Native application scope include?", "Identify the mobile journeys, native device capabilities and supported platforms required for the proposed application."],
+    ["How should platform-specific behavior be reviewed?", "Document differences in permissions, navigation and device integrations, then check them on the platforms included in the release."],
+    ["What should React Native data workflows define?", "Specify request outcomes, local state and recovery from interrupted connections so users can understand the status of their actions."],
+    ["What belongs in React Native handover?", "Provide build configuration, native dependency notes and distribution instructions for the teams maintaining the mobile application."],
+  ]),
+  "/mobile-devs/": faq("Mobile Engineering Teams", "Clarify mobile implementation responsibilities, device dependencies and team handoffs before delivery work.", [
+    ["What should a mobile engineering request specify?", "Describe the target platforms, application workflows and engineering responsibilities needed within the existing product team."],
+    ["How should mobile engineers receive project context?", "Provide application architecture, device integration requirements and the team's build, review and release procedures during onboarding."],
+    ["What should offline synchronization requirements cover?", "Agree local changes, conflict handling and recovery behavior before implementing workflows that can continue without a connection."],
+    ["How should mobile engineering work be handed over?", "Record current changes, platform-specific decisions and release dependencies so responsibilities can transfer without losing implementation context."],
+  ]),
+  "/ms-ecosystem/": faq("Microsoft Ecosystem", "Connect directories, shared identity and application records across the Microsoft environment being coordinated.", [
+    ["What should a Microsoft ecosystem review map?", "Inventory the applications, directories and shared records used by the organization, with the roles responsible for each environment."],
+    ["How should shared identity changes be planned?", "Define account lifecycle and access responsibilities across connected products before changing how users sign in or receive permissions."],
+    ["What should cross-product data exchanges document?", "Agree record identifiers, field ownership and update direction so connected applications have a defined way to reconcile shared information."],
+    ["What should ecosystem governance retain?", "Keep configuration decisions, access ownership and review procedures current as applications and organizational responsibilities change."],
+  ]),
+  "/power-apps-dev/": faq("Power Apps Development", "Plan low-code forms, records and approvals around the business process the application will support.", [
+    ["What should a Power Apps brief describe?", "Identify the people, forms and record changes involved in the business task, along with the existing information sources."],
+    ["How should Power Apps data access be defined?", "Specify which users may read or update each source and review the permissions needed by the application's connections."],
+    ["What should an approval app workflow include?", "Define request states, approval roles and exception paths, including what users see when information is incomplete or a request is rejected."],
+    ["What belongs in Power Apps handover?", "Record application ownership, connection dependencies and change-review responsibilities so the organization can maintain the low-code workflow."],
+  ]),
+  "/headless-cms/": faq("Headless CMS", "Define editorial models, API delivery and publishing responsibilities for decoupled content management.", [
+    ["What should a headless CMS content model include?", "Define reusable content types, fields and relationships around the information editors create and the channels that consume it."],
+    ["How should editorial preview be planned?", "Specify which draft content editors need to inspect and how preview access relates to the publishing and approval process."],
+    ["What should content API requirements define?", "Document the fields, media references and access rules needed by consuming applications, including how missing or changed content is handled."],
+    ["What should a headless publishing workflow review?", "Check approvals, content availability and refresh behavior across the CMS and consuming interfaces before agreeing release responsibilities."],
+  ]),
+  "/headless-wordpress-front-end/": faq("Headless WordPress Front Ends", "Plan WordPress editing and front-end delivery around the content workflow and interfaces in scope.", [
+    ["What changes in a headless WordPress setup?", "WordPress manages the editorial records while a separate front end renders the content through the agreed data interface."],
+    ["How should WordPress plugins be assessed?", "Review each plugin's purpose and API dependencies to determine whether its behavior remains available to the separate front end."],
+    ["What should WordPress preview and publishing define?", "Agree how editors inspect drafts and how approved changes become available in the front end, including failed refresh or fetch behavior."],
+    ["What belongs in a headless WordPress handover?", "Document content models, interface configuration and ownership for CMS updates, front-end releases and publishing issues."],
+  ]),
+};
+
+function normalizePath(path: string | null | undefined): string {
+  const value = (path || "/").trim().split(/[?#]/)[0].toLowerCase().replace(/^\/+|\/+$/g, "");
+  return value ? `/${value}/` : "/";
+}
+const fallbackFaq = serviceFaqContent["/services/"];
+export const getServiceFaqContent = (path?: string | null): FaqSectionContent => serviceFaqContent[normalizePath(path)] || fallbackFaq;
+export const getPlatformFaqContent = (path?: string | null): FaqSectionContent => platformFaqContent[normalizePath(path)] || fallbackFaq;

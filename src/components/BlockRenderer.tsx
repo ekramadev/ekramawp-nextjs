@@ -3,6 +3,7 @@ import React from "react";
 import type { LogoReferenceContent, WorkPlanningContent } from "@/content/planningSections";
 import type { StatsSectionContent, ServicesTabsContent } from "@/content/reviewSections";
 import type { CodePortfolioContent, BoxesImageContent } from "@/content/showcaseSections";
+import type { FaqSectionContent } from "@/content/faqSections";
 import parse, { DOMNode, Element } from "html-react-parser";
 
 // --------------------------------------------------------
@@ -73,6 +74,8 @@ interface Props {
   servicesTabs: ServicesTabsContent;
   codePortfolio: CodePortfolioContent;
   boxesImage: BoxesImageContent;
+  serviceFaq: FaqSectionContent;
+  platformFaq: FaqSectionContent;
   workflowHero: WorkflowHeroContent;
   marketIntelligence: MarketIntelligenceContent;
   geoOverlap: GeoOverlapContent;
@@ -96,7 +99,7 @@ interface Props {
   engineeringApproach: EngineeringApproachContent;
 }
 
-export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsSection, servicesTabs, codePortfolio, boxesImage, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
+export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsSection, servicesTabs, codePortfolio, boxesImage, serviceFaq, platformFaq, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -149,7 +152,7 @@ export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsS
         if (classes.includes("section-Threecolumn-arch")) return <Threecolumnarch content={architecturePhases} />;
         if (classes.includes("section-Simple-Content")) return <SimpleContentSection content={simpleDelivery} />;
         if (classes.includes("section-Four-Boxes")) return <FourBoxes content={fourBoxes} />;
-        if (classes.includes("section-FAQ")) return <FAQSection />;
+        if (classes.split(/\s+/).includes("section-FAQ")) return <FAQSection content={serviceFaq} />;
         if (classes.includes("section-TraditionalHeroArea")) return <TraditionalHeroArea content={traditionalHero} />;
         if (classes.includes("section-Boxesimage")) return <Boxesimage content={boxesImage} />;
         if (classes.includes("section-ThreeColumnBar")) return <ThreeColumnBar content={deliveryComparison} />;
@@ -162,7 +165,7 @@ export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsS
         if (classes.includes("section-Headwpcarousal")) return <Headwpcarousal content={engineeringCarousel} />;
         if (classes.includes("section-Fourblockswphead")) return <Fourblockswphead content={pageResources} />;
         if (classes.includes("section-HeadlessWpTabs")) return <HeadlessWpTabs content={architectureTabs} />;
-        if (classes.includes("section-FAQheadlesswp")) return <FAQheadlesswp />;
+        if (classes.split(/\s+/).includes("section-FAQheadlesswp")) return <FAQheadlesswp content={platformFaq} />;
         if (classes.includes("section-HtmlContent")) return <HtmlContent content={htmlExpertise} />;
         if (classes.includes("section-HtmlSecondContent")) return <HtmlSecondContent content={htmlCapabilities} />;
         if (classes.includes("section-HtmlCheatsheet")) return <HtmlCheatsheet content={htmlCheatsheet} />;
