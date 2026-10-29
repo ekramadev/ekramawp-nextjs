@@ -1,27 +1,8 @@
 "use client";
 import React, { useState } from 'react';
+import type { FaqSectionContent } from '@/content/faqSections';
 
-// FAQ Data - Tailored to Front End Engineering
-const faqData = [
-  {
-    question: "How do you ensure sub-100ms interaction times?",
-    answer: "We utilize a combination of code-splitting, tree-shaking, and edge caching. By leveraging Next.js Server Components, we minimize the JavaScript bundle sent to the client, ensuring the main thread remains unblocked for immediate user interaction."
-  },
-  {
-    question: "Why choose Headless WordPress over Traditional?",
-    answer: "Headless architecture decouples the frontend from the backend. This allows us to use modern frameworks like React for the UI, resulting in significantly faster load times, better security, and a richer, app-like user experience compared to traditional PHP themes."
-  },
-  {
-    question: "Do you build custom design systems?",
-    answer: "Yes. We don't just build pages; we architect Atomic Design systems. We create reusable libraries of components (atoms, molecules, organisms) that ensure visual consistency and scalability across your entire application."
-  },
-  {
-    question: "How do you handle SEO with React/Next.js?",
-    answer: "We use Server-Side Rendering (SSR) and Static Site Generation (SSG) to ensure search engine crawlers see fully rendered HTML. We also implement semantic HTML5, dynamic metadata, and schema markup to maximize visibility."
-  }
-];
-
-export const FAQSection = () => {
+export const FAQSection = ({ content }: { content: FaqSectionContent }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0); // 0 = First one open by default
 
   const toggleAccordion = (index: number) => {
@@ -36,17 +17,17 @@ export const FAQSection = () => {
 
           {/* Header */}
           <div className="text-center mb-[60px]">
-            <h2 className="text-gray-900 mb-4 font-bold">
-              Engineering <span className="text-[#10b981]">Insights</span>
+            <h2 className="text-black mb-4 font-bold">
+              {content.titleLead} <span className="text-brand-emerald">{content.titleAccent}</span>
             </h2>
-            <p className="text-gray-600">
-              Explore our most frequently asked questions to understand our approach to front-end architecture, performance optimization, and scalable design systems.
+            <p className="text-gray-700">
+              {content.intro}
             </p>
           </div>
 
           {/* FAQ List */}
           <div>
-            {faqData.map((item, index) => {
+            {content.items.map((item, index) => {
               const isActive = activeIndex === index;
 
               return (
@@ -62,7 +43,7 @@ export const FAQSection = () => {
                     onClick={() => toggleAccordion(index)}
                     aria-expanded={isActive}
                   >
-                    <span className={`mr-[20px] text-lg font-bold transition-colors duration-300 ${isActive ? 'text-[#10b981]' : 'text-gray-900'}`}>
+                    <span className={`mr-[20px] text-lg font-bold transition-colors duration-300 ${isActive ? 'text-brand-emerald' : 'text-black'}`}>
                       {item.question}
                     </span>
                     <div
@@ -78,7 +59,7 @@ export const FAQSection = () => {
                     className={`overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive ? 'max-h-[500px]' : 'max-h-0'
                       }`}
                   >
-                    <div className="px-[30px] pb-[30px] text-gray-600 leading-[1.7] text-[1.05rem]">
+                    <div className="px-[30px] pb-[30px] text-gray-700 leading-[1.7] text-[1.05rem]">
                       {item.answer}
                     </div>
                   </div>

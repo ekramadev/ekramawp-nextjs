@@ -1,6 +1,7 @@
 import { getLogoReferenceContent, getWorkPlanningContent } from "@/content/planningSections";
 import { getStatsSectionContent, getServicesTabsContent } from "@/content/reviewSections";
 import { getCodePortfolioContent, getBoxesImageContent } from "@/content/showcaseSections";
+import { getServiceFaqContent, getPlatformFaqContent } from "@/content/faqSections";
 import { getArchitecturePhasesContent, getPageResourcesContent } from "@/content/phaseResources";
 import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
@@ -107,6 +108,8 @@ export default async function DynamicPage({ params }: Props) {
           servicesTabs={getServicesTabsContent(uri)}
           codePortfolio={getCodePortfolioContent(uri)}
           boxesImage={getBoxesImageContent(uri)}
+          serviceFaq={getServiceFaqContent(uri)}
+          platformFaq={getPlatformFaqContent(uri)}
         />
       </div>
     </main>
