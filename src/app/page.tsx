@@ -1,3 +1,4 @@
+import { getHomeHeroCopy, getShutterCopy } from "@/content/homeLegacy";
 import { getLogoReferenceContent, getWorkPlanningContent } from "@/content/planningSections";
 import { getStatsSectionContent, getServicesTabsContent } from "@/content/reviewSections";
 import { getCodePortfolioContent, getBoxesImageContent } from "@/content/showcaseSections";
@@ -96,6 +97,8 @@ export default async function Home() {
         platformFaq={getPlatformFaqContent('/')}
         platformOverview={getPlatformOverviewContent('/')}
         contextStudy={getContextStudyContent('/')}
+        homeHero={getHomeHeroCopy('/')}
+        shutter={getShutterCopy('/')}
         audienceCarousel={getAudienceCarouselCopy('/')}
         legacyElements={getLegacyElementsCopy('/')}
       />

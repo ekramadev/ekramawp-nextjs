@@ -1,3 +1,4 @@
+import type { HomeHeroCopy } from "@/content/homeLegacy";
 import React, { useState, useEffect, useCallback, ReactNode } from "react";
 
 // PLACEHOLDER COMPONENTS FOR YOUR LOCAL SVGS
@@ -1037,7 +1038,7 @@ const CAROUSEL_SVGS = [
 const BUTTON_LABELS = ["Logistics", "Healthcare", "Finance"];
 const INTERVAL_MS = 5000; // 5 seconds per slide
 
-export const HeroHome = () => {
+export const HeroHome = ({ content }: { content: HomeHeroCopy }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   // Auto-play interval
@@ -1123,7 +1124,7 @@ export const HeroHome = () => {
         }
       `}</style>
 
-      <section data-wpfe-section="" className="relative w-full flex items-center justify-center overflow-hidden  pt-0 pb-6 px-8 lg:px-16 bg-white">
+      <section data-wpfe-section="" className="relative w-full flex items-center justify-center overflow-hidden  pt-0 pb-6 px-8 lg:px-16 bg-transparent">
         <div data-wpfe-container="content" className="container mx-auto flex flex-col lg:flex-row relative max-w-[1300px] z-10 gap-12 lg:gap-4 items-center">
 
           {/* LEFT CONTENT */}
@@ -1131,8 +1132,8 @@ export const HeroHome = () => {
             <h1 className="text-[40px]  leading-[1.05] mt-0">
               Software Consulting  and Development
             </h1>
-            <p className=" text-lg lg:text-xl font-medium">
-              Delivering project success no matter what
+            <p className=" text-gray-700 font-medium">
+              {content.intro}
             </p>
 
             {/* PROGRESS BUTTONS */}
@@ -1143,7 +1144,7 @@ export const HeroHome = () => {
                   <button
                     key={index}
                     onClick={() => setActiveTab(index)}
-                    className={`relative px-2 py-4 text-left font-semibold text-[18px] transition-colors duration-300 ${isActive ? 'text-brand-emerald' : 'text-slate-500 hover:text-slate-800'
+                    className={`relative px-2 py-4 text-left font-semibold text-[18px] transition-colors duration-300 ${isActive ? 'text-brand-emerald' : 'text-gray-700 hover:text-brand-emerald'
                       }`}
                   >
                     {label}
