@@ -2,11 +2,12 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import Slider from "react-slick";
+import type { AudienceCarouselCopy } from "@/content/legacyDelivery";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export const WPDevCarousel = () => {
+export const WPDevCarousel = ({ content }: { content: AudienceCarouselCopy }) => {
   const [mounted, setMounted] = useState(false);
   const [slidesToShow, setSlidesToShow] = useState(2);
 
@@ -204,6 +205,7 @@ export const WPDevCarousel = () => {
         }
 
         #strategy-carousel-isolated .sc-card ul li {
+          color: #374151;
           margin-bottom: 12px;
           position: relative;
         }
@@ -218,7 +220,7 @@ export const WPDevCarousel = () => {
         }
 
         #strategy-carousel-isolated strong {
-          color: var(--sc-brand);
+          color: var(--wpfe-emerald);
         }
 
         #strategy-carousel-isolated .sc-stat-row {
@@ -231,14 +233,14 @@ export const WPDevCarousel = () => {
         #strategy-carousel-isolated .sc-stat-val {
           font-size: 32px;
           font-weight: 900;
-          color: var(--sc-brand);
+          color: var(--wpfe-emerald);
           line-height: 1;
           margin-bottom: 6px;
         }
 
         #strategy-carousel-isolated .sc-stat-lbl {
           font-size: 11px;
-          color: rgba(255, 255, 255, 0.7);
+          color: #374151;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.8px;
@@ -350,6 +352,10 @@ export const WPDevCarousel = () => {
           outline: none;
         }
 
+        #strategy-carousel-isolated .main-heading, #strategy-carousel-isolated .seo-card-title { color: #000000; }
+        #strategy-carousel-isolated .white-highlight, #strategy-carousel-isolated .seo-card-title span { color: var(--wpfe-emerald); }
+        #strategy-carousel-isolated .intro-text, #strategy-carousel-isolated .seo-strategy-card p, #strategy-carousel-isolated .seo-input, #strategy-carousel-isolated .seo-input::placeholder { color: #374151; }
+
         .seo-button {
           background: var(--sc-brand);
           color: white;
@@ -391,13 +397,11 @@ export const WPDevCarousel = () => {
 
       <div data-wpfe-container="content" className="header-section">
         <h2 className="main-heading">
-          Technical Solutions for <br />
-          <span className="white-highlight"> Modern Digital Business </span>
+          {content.heading} <br />
+          <span className="white-highlight"> {content.accent} </span>
         </h2>
         <p className="intro-text">
-          Architecture is not one-size-fits-all. Whether you are an Agency
-          requiring white-label precision, or an Enterprise needing
-          micro-frontend scalability, I engineer the stack to fit your goals.
+          {content.intro}
         </p>
       </div>
 
@@ -406,96 +410,92 @@ export const WPDevCarousel = () => {
           <Slider key={slidesToShow} {...settings} className="sc-carousel-track">
             <div>
               <div className="sc-card">
-                <p className="sc-badge">Digital Agencies</p>
+                <p className="sc-badge">{content.cards[0].badge}</p>
                 <div>
                   <ul>
                     <li>
-                      <strong>Strategy:</strong> White Label Components.
+                      <strong>{content.cards[0].rows[0][0]}</strong> {content.cards[0].rows[0][1]}
                     </li>
                     <li>
-                      <strong>Tech:</strong> React / Storybook.
+                      <strong>{content.cards[0].rows[1][0]}</strong> {content.cards[0].rows[1][1]}
                     </li>
                     <li>
-                      <strong>Benefit:</strong> Handle complex engineering and
-                      deliver pixel-perfect sites.
+                      <strong>{content.cards[0].rows[2][0]}</strong> {content.cards[0].rows[2][1]}
                     </li>
                   </ul>
                 </div>
                 <div className="sc-stat-row">
-                  <div className="sc-stat-val">100%</div>
-                  <div className="sc-stat-lbl">Brand Fidelity</div>
+                  <div className="sc-stat-val">{content.cards[0].cue}</div>
+                  <div className="sc-stat-lbl">{content.cards[0].cueLabel}</div>
                 </div>
               </div>
             </div>
 
             <div>
               <div className="sc-card">
-                <p className="sc-badge">Enterprise &amp; B2B</p>
+                <p className="sc-badge">{content.cards[1].badge}</p>
                 <div>
                   <ul>
                     <li>
-                      <strong>Strategy:</strong> Micro-Frontend Arch.
+                      <strong>{content.cards[1].rows[0][0]}</strong> {content.cards[1].rows[0][1]}
                     </li>
                     <li>
-                      <strong>Tech:</strong> Next.js / GraphQL.
+                      <strong>{content.cards[1].rows[1][0]}</strong> {content.cards[1].rows[1][1]}
                     </li>
                     <li>
-                      <strong>Benefit:</strong> Decoupled systems for high
-                      security and scalability.
+                      <strong>{content.cards[1].rows[2][0]}</strong> {content.cards[1].rows[2][1]}
                     </li>
                   </ul>
                 </div>
                 <div className="sc-stat-row">
-                  <div className="sc-stat-val">99.9%</div>
-                  <div className="sc-stat-lbl">System Uptime</div>
+                  <div className="sc-stat-val">{content.cards[1].cue}</div>
+                  <div className="sc-stat-lbl">{content.cards[1].cueLabel}</div>
                 </div>
               </div>
             </div>
 
             <div>
               <div className="sc-card">
-                <p className="sc-badge">Headless Commerce</p>
+                <p className="sc-badge">{content.cards[2].badge}</p>
                 <div>
                   <ul>
                     <li>
-                      <strong>Strategy:</strong> Composable Stack.
+                      <strong>{content.cards[2].rows[0][0]}</strong> {content.cards[2].rows[0][1]}
                     </li>
                     <li>
-                      <strong>Tech:</strong> Shopify / Sanity.
+                      <strong>{content.cards[2].rows[1][0]}</strong> {content.cards[2].rows[1][1]}
                     </li>
                     <li>
-                      <strong>Benefit:</strong> Bypass template limits.
-                      High-speed shopping experiences.
+                      <strong>{content.cards[2].rows[2][0]}</strong> {content.cards[2].rows[2][1]}
                     </li>
                   </ul>
                 </div>
                 <div className="sc-stat-row">
-                  <div className="sc-stat-val">2x</div>
-                  <div className="sc-stat-lbl">Conversion Rate</div>
+                  <div className="sc-stat-val">{content.cards[2].cue}</div>
+                  <div className="sc-stat-lbl">{content.cards[2].cueLabel}</div>
                 </div>
               </div>
             </div>
 
             <div>
               <div className="sc-card">
-                <p className="sc-badge">SaaS &amp; Startups</p>
+                <p className="sc-badge">{content.cards[3].badge}</p>
                 <div>
                   <ul>
                     <li>
-                      <strong>Strategy:</strong> Rapid MVP Eng.
+                      <strong>{content.cards[3].rows[0][0]}</strong> {content.cards[3].rows[0][1]}
                     </li>
                     <li>
-                      <strong>Tech:</strong> Supabase / Stripe.
+                      <strong>{content.cards[3].rows[1][0]}</strong> {content.cards[3].rows[1][1]}
                     </li>
                     <li>
-                      <strong>Benefit:</strong> Modular architecture that
-                      scales. Launch weeks ahead.
+                      <strong>{content.cards[3].rows[2][0]}</strong> {content.cards[3].rows[2][1]}
                     </li>
                   </ul>
                 </div>
                 <div className="sc-stat-row">
-                  <div className="sc-stat-val">Fast</div>
-                  <div className="sc-stat-lbl">Time-to-Market</div>
+                  <div className="sc-stat-val">{content.cards[3].cue}</div>
+                  <div className="sc-stat-lbl">{content.cards[3].cueLabel}</div>
                 </div>
               </div>
             </div>
@@ -513,22 +513,22 @@ export const WPDevCarousel = () => {
             </div>
             
             <h3 className="seo-card-title">
-              SEO Services That <br />
-              <span>Aren't Cookie Cutter</span>
+              {content.sideHeading} <br />
+              <span>{content.sideAccent}</span>
             </h3>
 
             <p>
-              Get an SEO strategy that's tailored for your business, industry, and revenue goals.
+              {content.sideBody}
             </p>
 
             <input 
               type="text" 
-              placeholder="Enter your website" 
+              placeholder={content.placeholder}
               className="seo-input" 
             />
 
             <button className="seo-button">
-              Get My SEO Strategy
+              {content.button}
             </button>
           </div>
         </div>
