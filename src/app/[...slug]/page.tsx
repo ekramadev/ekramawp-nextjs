@@ -3,6 +3,7 @@ import { getStatsSectionContent, getServicesTabsContent } from "@/content/review
 import { getCodePortfolioContent, getBoxesImageContent } from "@/content/showcaseSections";
 import { getServiceFaqContent, getPlatformFaqContent } from "@/content/faqSections";
 import { getPlatformOverviewContent, getContextStudyContent } from "@/content/platformContexts";
+import { getAudienceCarouselCopy, getLegacyElementsCopy } from "@/content/legacyDelivery";
 import { getArchitecturePhasesContent, getPageResourcesContent } from "@/content/phaseResources";
 import { getHtmlExpertiseContent, getHtmlCapabilitiesContent } from "@/content/htmlSections";
 import { getTraditionalHeroContent, getHtmlCheatsheetContent } from "@/content/serviceShowcases";
@@ -113,6 +114,8 @@ export default async function DynamicPage({ params }: Props) {
           platformFaq={getPlatformFaqContent(uri)}
           platformOverview={getPlatformOverviewContent(uri)}
           contextStudy={getContextStudyContent(uri)}
+          audienceCarousel={getAudienceCarouselCopy(uri)}
+          legacyElements={getLegacyElementsCopy(uri)}
         />
       </div>
     </main>

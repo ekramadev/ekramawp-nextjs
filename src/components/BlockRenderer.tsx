@@ -5,6 +5,7 @@ import type { StatsSectionContent, ServicesTabsContent } from "@/content/reviewS
 import type { CodePortfolioContent, BoxesImageContent } from "@/content/showcaseSections";
 import type { FaqSectionContent } from "@/content/faqSections";
 import type { PlatformOverviewContent, ContextStudyContent } from "@/content/platformContexts";
+import type { AudienceCarouselCopy, LegacyPageCopy } from "@/content/legacyDelivery";
 import parse, { DOMNode, Element } from "html-react-parser";
 
 // --------------------------------------------------------
@@ -79,6 +80,8 @@ interface Props {
   platformFaq: FaqSectionContent;
   platformOverview: PlatformOverviewContent;
   contextStudy: ContextStudyContent;
+  audienceCarousel: AudienceCarouselCopy;
+  legacyElements: LegacyPageCopy;
   workflowHero: WorkflowHeroContent;
   marketIntelligence: MarketIntelligenceContent;
   geoOverlap: GeoOverlapContent;
@@ -102,7 +105,7 @@ interface Props {
   engineeringApproach: EngineeringApproachContent;
 }
 
-export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsSection, servicesTabs, codePortfolio, boxesImage, serviceFaq, platformFaq, platformOverview, contextStudy, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
+export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsSection, servicesTabs, codePortfolio, boxesImage, serviceFaq, platformFaq, platformOverview, contextStudy, audienceCarousel, legacyElements, workflowHero, marketIntelligence, geoOverlap, fiveCircles, contentDouble, architectureTabs, engineeringCarousel, htmlExpertise, htmlCapabilities, traditionalHero, htmlCheatsheet, aiShift, pentagonGrowth, simpleDelivery, deliveryComparison, fourBoxes, leftColumn, architecturePhases, pageResources, wpHero, engineeringApproach }: Props) => {
 
   const options = {
     replace: (domNode: DOMNode) => {
@@ -147,7 +150,7 @@ export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsS
         // 6. PORTFOLIO & CAROUSELS
         if (classes.includes("section-code-portfolio")) return <CodePortfolio content={codePortfolio} />;
         if (classes.includes("section-portfolio")) return <CodePortfolio content={codePortfolio} />;
-        if (classes.includes("section-wpdev-carousel")) return <WPDevCarousel />;
+        if (classes.includes("section-wpdev-carousel")) return <WPDevCarousel content={audienceCarousel} />;
 
         // 7. BOOKS & EXTRAS
         if (classes.includes("section-aifrontendeveloper-book")) return <AIfrontendeveloperBook content={workPlanning} />;
@@ -164,7 +167,7 @@ export const BlockRenderer = ({ htmlContent, logoReference, workPlanning, statsS
         if (classes.includes("section-WptwoPageVisual")) return <WptwoPageVisual content={workflowHero} />;
         if (classes.includes("section-Shutterupanddown")) return <Shutterupanddown />;
         if (classes.includes("section-Contentdouble")) return <Contentdouble content={contentDouble} />;
-        if (classes.includes("section-HeadlessfiveElements")) return <HeadlessfiveElements />;
+        if (classes.includes("section-HeadlessfiveElements")) return <HeadlessfiveElements content={legacyElements} />;
         if (classes.includes("section-Headwpcarousal")) return <Headwpcarousal content={engineeringCarousel} />;
         if (classes.includes("section-Fourblockswphead")) return <Fourblockswphead content={pageResources} />;
         if (classes.includes("section-HeadlessWpTabs")) return <HeadlessWpTabs content={architectureTabs} />;
