@@ -17,6 +17,17 @@ function hero(eyebrow: string, title: string, description: string, hubLabel: str
 
 // Final website copy, keyed by the full route so reused layouts retain each page's meaning.
 export const workflowHeroes: Record<string, WorkflowHeroContent> = {
+  '/headless-wordpress-front-end/': {
+    ...hero('Headless WordPress Front End', 'Connect WordPress Publishing with Your Front End', 'Plan the link between WordPress editing and the front end that presents its content. Define API access, previews and update handling around the site\'s publishing needs.', 'WP FLOW', 'Discuss your WordPress front end', [
+      ['Models', 'Define WordPress fields and relationships for editors.'],
+      ['Queries', 'Review the content interface and permitted response fields.'],
+      ['Views', 'Map approved records to the front-end components.'],
+      ['Preview', 'Check draft content through restricted preview paths.'],
+      ['Publish', 'Define how published updates reach rendered pages.'],
+      ['Checks', 'Review pages with missing content and service failure cases.'],
+    ]),
+    hubCaption: 'Publishing flow',
+  },
   '/transportation-management/': hero('Transportation Management Software', 'Plan Freight, Routes, and Fleet Operations Together', 'Build a transportation platform that connects load planning, vehicle schedules, route selection, and trip updates. Give dispatchers a clearer view of what is moving, where it is, and what needs attention.', 'TMS', 'Discuss your transportation platform', [
     ['Loads', 'Match shipment requirements with container space and vehicle capacity.'],
     ['Scheduling', 'Coordinate vehicle availability, departure times, and delivery windows.'],
