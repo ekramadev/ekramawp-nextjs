@@ -25,7 +25,7 @@ export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningConte
       <style jsx>{`
         /* --- 1. THE MAIN WRAPPER (Light Theme) --- */
         .bofu-pricing-wrapper {
-          color: #374151 !important;
+          color: #333333 !important;
           padding: 80px 20px 100px;
           position: relative;
           z-index: 1;
@@ -44,7 +44,7 @@ export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningConte
           top: 650px; 
           width: 100%;
           height: 800px; 
-          background-color: transparent !important; /* Section background reveals the shared site background. */
+          background-color: #d1fae5 !important; /* Reference dotted emerald backdrop. */
           background-image: radial-gradient(#10b981 1.2px, transparent 1.2px) !important;  
           background-size: 14px 14px !important;
           background-repeat: no-repeat; 
@@ -75,6 +75,15 @@ export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningConte
           z-index: 10;
         }
 
+        /* Keep the reference card width inside the shared page-gutter container. */
+        .intro-header,
+        .pricing-card,
+        .nav-link-area {
+          max-width: 950px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
         /* Hide the toggle button entirely on desktop */
         .mobile-feature-toggle {
           display: none !important;
@@ -86,11 +95,13 @@ export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningConte
           margin-bottom: 70px;
         }
         .intro-header h2 {
-          color: #000000 !important; /* Dark text */
+          font-size: clamp(1.8rem, 4vw, 2.4rem) !important;
+          color: #1a1a1a !important; /* Dark text */
           margin-bottom: 20px !important;
         }
         .intro-header p {
-          color: #374151 !important; /* Slate gray */
+          font-size: 1.05rem !important;
+          color: #4b5563 !important; /* Slate gray */
           max-width: 800px;
           margin: 0 auto !important;
         }
@@ -138,24 +149,24 @@ export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningConte
           box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important; /* Softer shadow */
         }
         .badge {
-          color: #000000 !important;
+          color: #ffffff !important;
           font-size: 0.95rem !important;
           text-transform: uppercase;
           margin: 0 0 8px 0 !important;
         }
         .label {
-          color: #374151 !important;
+          color: #ffffff !important;
           font-size: 0.9rem !important;
           opacity: 0.9;
           margin: 0 0 10px 0 !important;
         }
         .price {
-          color: #000000 !important;
+          color: #ffffff !important;
           font-size: 3.5rem !important;
           margin: 0 !important;
         }
         .price span {
-          color: #000000 !important;
+          color: #ffffff !important;
           font-size: 1.1rem !important;
         }
 
@@ -168,7 +179,7 @@ export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningConte
           border-bottom-left-radius: 20px;
         }
         .card-left-bottom h4 {
-          color: #000000 !important; /* Dark text */
+          color: #1a1a1a !important; /* Dark text */
           font-size: 1.25rem !important;
           margin: 0 0 25px 0 !important; 
         }
@@ -191,13 +202,13 @@ export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningConte
           flex-shrink: 0;
         }
         .item-header h5 {
-          color: #000000 !important; /* Dark text */
+          color: #1a1a1a !important; /* Dark text */
           font-size: 1.05rem !important;
           margin: 0 !important; 
           font-weight: 600;
         }
         .item-block p {
-          color: #374151 !important; /* Slate gray description */
+          color: #4b5563 !important; /* Slate gray description */
           font-size: 0.95rem !important;
           margin: 0 !important;
           line-height: 1.5;
@@ -214,7 +225,7 @@ export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningConte
           border-bottom-right-radius: 20px;
         }
         .card-right h4 {
-          color: #000000 !important; /* Dark text */
+          color: #1a1a1a !important; /* Dark text */
           font-size: 1.2rem !important;
           margin: 0 0 30px 0 !important;
           font-weight: 600;
@@ -284,7 +295,7 @@ export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningConte
           text-decoration: underline;
         }
         .nav-link-area span {
-          color: #374151 !important; /* Slate gray */
+          color: #6b7280 !important; /* Slate gray */
           font-size: 0.9rem !important;
           margin: 0 15px !important;
         }
@@ -294,7 +305,7 @@ export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningConte
           display: none;
         }
         .item-desc {
-          color: #374151 !important; /* Slate gray */
+          color: #4b5563 !important; /* Slate gray */
           font-size: 0.95rem !important;
           margin: 0 !important;
           transition: all 0.3s ease;
@@ -347,6 +358,7 @@ export const AIfrontendeveloperBook = ({ content }: { content: WorkPlanningConte
             margin-bottom: 40px !important;
           }
           .intro-header h2 {
+            font-size: clamp(1.6rem, 4vw, 2rem) !important;
           }
 
           /* Stack Card vertically */
