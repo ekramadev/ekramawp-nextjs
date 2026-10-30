@@ -25,15 +25,15 @@ export const Contentdouble = ({ content }: { content: ContentDoubleContent }) =>
         .contentdouble-wrapper {
             --bg-color: transparent; /* Inherit global white background */
             --text-main: #1a1a1a; /* Darkest gray for headings */
-            --text-muted: #4b5563; /* Slate gray for paragraphs */
+            --text-muted: #374151; /* Slate gray for paragraphs */
             --card-bg: transparent; /* Shared page background */
             --card-border: #e5e7eb; /* Light gray border */
             --backdrop-bg: transparent; /* Shared page background */
             --check-color: #10B981; /* Emerald green checks */
             
-            font-family: 'Inter', sans-serif;
+            font-family: inherit;
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--text-muted);
             line-height: 1.6;
             overflow-x: hidden;
             width: 100%;
@@ -71,6 +71,11 @@ export const Contentdouble = ({ content }: { content: ContentDoubleContent }) =>
             font-size: 0.95rem;
         }
 
+        .contentdouble-wrapper .content-left > h1 + p {
+            font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+            line-height: clamp(1.41rem, 2vw, 1.75rem);
+        }
+
         .contentdouble-wrapper .checklist {
             list-style: none;
             margin: 24px 0;
@@ -84,7 +89,7 @@ export const Contentdouble = ({ content }: { content: ContentDoubleContent }) =>
             margin-bottom: 14px;
             font-weight: 500;
             font-size: 0.95rem;
-            color: var(--text-main);
+            color: var(--text-muted);
         }
 
         .contentdouble-wrapper .check-icon {
@@ -118,7 +123,7 @@ export const Contentdouble = ({ content }: { content: ContentDoubleContent }) =>
             position: relative;
             background-color: var(--card-bg);
             border: 1px solid var(--card-border);
-            color: var(--text-main);
+            color: var(--text-muted);
             padding: 48px;
             border-radius: 16px;
             z-index: 2;
@@ -127,7 +132,7 @@ export const Contentdouble = ({ content }: { content: ContentDoubleContent }) =>
 
         .contentdouble-wrapper .expertise-card h2 {
             color: #000000;
-            font-family: 'Poppins', sans-serif;
+            font-family: inherit;
             font-size: 2.25rem;
             font-weight: 800;
             margin-top: 0;
@@ -155,7 +160,7 @@ export const Contentdouble = ({ content }: { content: ContentDoubleContent }) =>
         }
 
         .contentdouble-wrapper .tip-item strong {
-            color: var(--text-main);
+            color: var(--text-muted);
             font-weight: 700;
             display: block;
             margin-bottom: 4px;
