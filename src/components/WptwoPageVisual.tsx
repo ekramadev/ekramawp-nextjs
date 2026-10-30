@@ -243,8 +243,8 @@ export const WptwoPageVisual = ({ content }: { content: WorkflowHeroContent }) =
         }
 
         .hero-zone-a p { 
-            font-size: 1.125rem; 
-            line-height: 1.6; 
+            font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+            line-height: clamp(1.41rem, 2vw, 1.75rem);
             color: #374151;
             margin-bottom: 40px; 
             max-width: 90%; 
