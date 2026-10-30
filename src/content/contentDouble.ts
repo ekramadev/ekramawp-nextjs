@@ -10,6 +10,20 @@ export interface ContentDoubleContent {
 }
 
 export const contentDoubleContent: Record<string, ContentDoubleContent> = {
+  '/headless-wordpress-front-end/': {
+    titleLines: ['Headless WordPress', 'Front-End Delivery'],
+    intro: 'Keep WordPress as the publishing workspace while a separate front end presents its content. Define how editors, content interfaces and page components connect before implementation.',
+    approach: 'Review the WordPress content model alongside the pages that consume it. Agree which records are available, how unpublished work is previewed and when published changes should reach the front end:',
+    checks: ['WordPress content and field definitions', 'REST or WPGraphQL interface selection', 'Front-end component data requirements', 'Restricted editorial preview access', 'Published-content refresh rules', 'Media fields and image alternatives', 'Unavailable-content and service checks'],
+    closing: 'Document the publishing path from an editorial change to its rendered page, including who reviews model changes and maintains the integration.',
+    cardTitle: 'Connect Editing with Delivery',
+    cardIntro: 'Decoupling WordPress separates responsibilities; it does not establish page speed or access protection by itself. Review the content contract and operating choices for this implementation.',
+    tips: [
+      ['Editorial structure', 'Define WordPress fields, relationships and validation around the information editors maintain and front-end components need.'],
+      ['Preview and publication', 'Specify access to draft content and the refresh behavior required after publication. Check both paths with representative editorial changes.'],
+      ['Integration ownership', 'Agree responsibility for content-interface changes, missing records and service failures, with checks covering the affected page components.'],
+    ],
+  },
   '/node-js-experts/': {
     titleLines: ['Node.js Engineering', 'for Connected Apps'],
     intro: 'Build server-side JavaScript services around the requests, records, and integrations your application needs. Define API boundaries and data ownership before extending the backend.',
