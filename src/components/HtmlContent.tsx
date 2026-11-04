@@ -4,7 +4,7 @@ import type { HtmlExpertiseContent } from '@/content/htmlSections';
 
 export const HtmlContent = ({ content }: { content: HtmlExpertiseContent }) => {
   return (
-    <section data-wpfe-section="" data-component="html-expertise" className="w-full bg-transparent py-20 px-5 box-border font-['Inter',sans-serif]">
+    <section data-wpfe-section="" data-component="html-expertise" className="w-full bg-transparent py-20 px-5 box-border">
       {/* SCOPED CSS */}
       <style dangerouslySetInnerHTML={{ __html: `
         .html-expertise-container {
@@ -31,10 +31,10 @@ export const HtmlContent = ({ content }: { content: HtmlExpertiseContent }) => {
         }
 
         .html-heading-wrapper h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(3rem, 5vw, 3.4375rem);
             font-weight: 900;
             color: #000000;
-            line-height: 1.1;
+            line-height: clamp(3.42rem, 6vw, 4rem);
             letter-spacing: -0.04em;
             margin-bottom: 20px;
         }
@@ -46,11 +46,11 @@ export const HtmlContent = ({ content }: { content: HtmlExpertiseContent }) => {
         }
 
         .html-heading-wrapper p {
-            font-size: 1.25rem;
+            font-size: clamp(1.125rem, 1.5vw, 1.25rem);
             color: #374151;
             max-width: 800px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: clamp(1.41rem, 2vw, 1.75rem);
         }
 
         /* --- LEFT COLUMN: CONTENT --- */

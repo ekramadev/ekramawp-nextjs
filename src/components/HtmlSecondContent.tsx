@@ -4,7 +4,7 @@ import type { HtmlCapabilitiesContent } from '@/content/htmlSections';
 
 export const HtmlSecondContent = ({ content }: { content: HtmlCapabilitiesContent }) => {
   return (
-    <section data-wpfe-section="" data-component="html-capabilities" className="w-full bg-transparent py-24 px-5 box-border font-['Inter',sans-serif]">
+    <section data-wpfe-section="" data-component="html-capabilities" className="w-full bg-transparent py-24 px-5 box-border">
       {/* SCOPED CSS */}
       <style dangerouslySetInnerHTML={{ __html: `
         .html-grid-container {
@@ -24,10 +24,10 @@ export const HtmlSecondContent = ({ content }: { content: HtmlCapabilitiesConten
         }
 
         .html-heading-top h2 {
-            font-size: clamp(2.5rem, 4vw, 3.8rem);
+            font-size: clamp(3rem, 5vw, 3.4375rem);
             font-weight: 900;
             color: #000000;
-            line-height: 1.1;
+            line-height: clamp(3.42rem, 6vw, 4rem);
             letter-spacing: -0.04em;
             margin-bottom: 20px;
         }
@@ -37,9 +37,9 @@ export const HtmlSecondContent = ({ content }: { content: HtmlCapabilitiesConten
         }
 
         .html-heading-top p {
-            font-size: 1.15rem;
+            font-size: clamp(1.125rem, 1.5vw, 1.25rem);
             color: #374151;
-            line-height: 1.7;
+            line-height: clamp(1.41rem, 2vw, 1.75rem);
             margin: 0;
         }
 
