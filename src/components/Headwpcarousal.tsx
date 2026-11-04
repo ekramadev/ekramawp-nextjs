@@ -54,7 +54,7 @@ export const Headwpcarousal = ({ content }: { content: EngineeringCarouselConten
             width: 100%;
             background: transparent;
             line-height: 1.5;
-            font-family: 'Inter', sans-serif;
+            font-family: inherit;
             color: var(--heading-color);
         }
 
@@ -86,16 +86,16 @@ export const Headwpcarousal = ({ content }: { content: EngineeringCarouselConten
         }
         
         #ek-strategy-carousel-section .king-heading-wrap h2 {
-            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-size: clamp(3rem, 5vw, 3.4375rem);
             font-weight: 900;
             color: var(--heading-color);
-            line-height: 1.1;
+            line-height: clamp(3.42rem, 6vw, 4rem);
             letter-spacing: -0.04em;
             margin: 0 0 20px 0;
         }
 
         #ek-strategy-carousel-section .king-heading-wrap p {
-            font-size: 1.15rem;
+            font-size: clamp(1.125rem, 1.5vw, 1.25rem);
             color: var(--gray-text);
             font-weight: 400;
             max-width: 700px;
