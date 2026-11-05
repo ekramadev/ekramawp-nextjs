@@ -94,7 +94,8 @@ export const PentagonGrowthEngine = ({ content }: { content: PentagonGrowthConte
           <h1>
             {content.titleLead} <span className="text-emerald-500">{content.titleAccent}</span>
           </h1>
-          <p className="text-gray-700 max-w-[700px] mx-auto text-base lg:text-lg opacity-90 leading-relaxed">
+          <p className="text-gray-700 max-w-[700px] mx-auto text-base lg:text-lg opacity-90 leading-relaxed"
+            style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)", lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}>
     {content.intro}
   </p>
         </div>
