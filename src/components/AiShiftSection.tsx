@@ -64,13 +64,15 @@ export function AiShiftSection({
         {(title || body) && (
           <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto relative z-30">
             {title && (
-              <h2 className="text-3xl md:text-4xl font-extrabold text-black tracking-tight mb-4">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-black tracking-tight mb-4"
+                style={{ fontSize: "clamp(3rem, 5vw, 3.4375rem)", lineHeight: "clamp(3.42rem, 6vw, 4rem)" }}>
                 {title}
               </h2>
             )}
             {body && (
               <div
                 className="text-lg leading-relaxed text-gray-700"
+                style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)", lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}
                 dangerouslySetInnerHTML={{ __html: body }}
               />
             )}

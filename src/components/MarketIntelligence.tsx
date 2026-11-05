@@ -25,10 +25,12 @@ export const MarketIntelligence = ({ content }: { content: MarketIntelligenceCon
 
         {/* HEADER CONTENT */}
         <div className="col-span-full max-w-[800px] mx-auto w-full text-center relative z-20 flex flex-col items-center justify-center">
-          <h2 className="text-black text-4xl md:text-5xl">
+          <h2 className="text-black text-4xl md:text-5xl"
+            style={{ fontSize: "clamp(3rem, 5vw, 3.4375rem)", lineHeight: "clamp(3.42rem, 6vw, 4rem)" }}>
             {content.title}
           </h2>
-          <p className="text-gray-700 text-lg md:text-xl mb-16">
+          <p className="text-gray-700 text-lg md:text-xl mb-16"
+            style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)", lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}>
             {content.description}
           </p>
         </div>
