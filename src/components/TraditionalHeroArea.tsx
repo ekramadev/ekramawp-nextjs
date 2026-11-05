@@ -88,7 +88,7 @@ const renderFloatingIcons = (count: number, seedOffset: number) => {
             {content.titleLead} <br/>
             <span className="text-brand-emerald">{content.titleAccent}</span>
           </h2>
-          <p className="text-gray-700 text-[1.05rem] leading-[1.7] mb-8 pr-0 md:pr-4">
+          <p className="text-gray-700 text-[1.05rem] leading-[1.7] mb-8 pr-0 md:pr-4" style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)", lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}>
             {content.intro}
           </p>
           <a href="#contact" className="bg-emerald-500 text-white py-[14px] px-[28px] font-bold text-[0.95rem] rounded-lg inline-block transition-transform duration-200 hover:-translate-y-[2px] hover:shadow-[0_10px_20px_rgba(16,185,129,0.3)] decoration-none">

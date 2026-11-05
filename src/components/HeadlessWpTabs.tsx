@@ -56,7 +56,7 @@ export const HeadlessWpTabs = ({ content: pageData }: { content: ArchitectureTab
           {renderEmeraldTitle(pageData.header)}
         </h2>
         {pageData.description && (
-          <p className="mb-[50px] text-gray-700 max-w-[700px] mx-auto text-[18px]">
+          <p className="mb-[50px] text-gray-700 max-w-[700px] mx-auto text-[18px]" style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)" }}>
             {pageData.description}
           </p>
         )}
