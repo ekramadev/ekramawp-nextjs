@@ -33,7 +33,8 @@ export const SimpleContentSection = ({ content }: { content: SimpleDeliveryConte
           </h2>
 
           {/* Changed text-white/70 to text-gray-600 */}
-          <p className="text-gray-700 text-[18px]">
+          <p className="text-gray-700 text-[18px]"
+            style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)" }}>
             {content.intro}
           </p>
         </div>
