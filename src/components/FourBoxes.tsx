@@ -64,7 +64,7 @@ export const FourBoxes = ({ content }: { content: FourBoxesContent }) => {
           <h2 className="text-black mb-[24px] m-0 font-black">
             {content.titleLead} <span className="text-brand-emerald">{content.titleAccent}</span>
           </h2>
-          <p className="text-[1.1rem] text-gray-700 font-normal leading-[1.6] m-0">{content.intro}</p>
+          <p className="text-[1.1rem] text-gray-700 font-normal leading-[1.6] m-0" style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)", lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}>{content.intro}</p>
         </div>
 
         {/* --- Grid --- */}

@@ -20,7 +20,7 @@ export const Threecolumnarch = ({ content }: { content: ArchitecturePhasesConten
           <h2 className="text-black mb-[25px] m-0">
             {content.titleLead} <span className="text-brand-emerald">{content.titleAccent}</span>
           </h2>
-          <p className="text-gray-700 text-[1.1rem] leading-[1.7] max-w-2xl mx-auto m-0">
+          <p className="text-gray-700 text-[1.1rem] leading-[1.7] max-w-2xl mx-auto m-0" style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)", lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}>
             {content.intro}
           </p>
         </div>
