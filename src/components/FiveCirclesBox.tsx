@@ -48,7 +48,8 @@ export const FiveCirclesBox = ({ content }: { content: FiveCirclesContent }) => 
           <h2 className="text-black">
             {content.titleLead} <span style={{ color: "var(--wpfe-emerald)" }} className="transition-colors duration-500">{content.titleAccent}</span>
           </h2>
-          <div className="mt-4 max-w-[860px] mx-auto text-gray-700">
+          <div className="mt-4 max-w-[860px] mx-auto text-gray-700"
+            style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)", lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}>
             {content.intro}
           </div>
         </header>
