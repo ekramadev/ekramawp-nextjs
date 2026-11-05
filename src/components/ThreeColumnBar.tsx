@@ -13,7 +13,8 @@ export const ThreeColumnBar = ({ content }: { content: DeliveryComparisonContent
         </h2>
         
         {/* Title Body Content */}
-        <div className="max-w-[800px] mx-auto mb-[70px] text-gray-700">
+        <div className="max-w-[800px] mx-auto mb-[70px] text-gray-700"
+          style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)", lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}>
           {content.intro}
         </div>
 
