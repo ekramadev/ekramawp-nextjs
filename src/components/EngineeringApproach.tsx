@@ -20,7 +20,7 @@ export const EngineeringApproach = ({ content }: { content: EngineeringApproachC
           {/* The H2 Heading */}
           <h2 className="text-black font-black mb-3"> {/* Added mb-6 for space below the heading */}
             {content.titleLead} <br className="hidden md:block" />
-            <span className="relative inline-block px-2 z-10 text-black">
+            <span className="relative inline-block px-2 z-10 text-brand-emerald">
               {content.titleAccent}
             </span>
           </h2>
