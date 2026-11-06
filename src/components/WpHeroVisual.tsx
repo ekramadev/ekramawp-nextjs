@@ -23,7 +23,7 @@ export const WpHeroVisual = ({ content }: { content: WpHeroContent }) => {
             {content.title}
           </h1>
 
-          <p className="text-gray-700 mb-8 max-w-[100%] lg:max-w-[95%] leading-[1.6]">
+          <p className="text-gray-700 mb-8 max-w-[100%] lg:max-w-[95%] leading-[1.6]" style={{ lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}>
             {content.intro}
           </p>
 
