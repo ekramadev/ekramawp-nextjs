@@ -106,7 +106,7 @@ export const Leftcolumntab = ({ content }: { content: LeftColumnContent }) => {
             <span className="text-brand-emerald">{content.heading[1]}</span>
           </h2>
 
-          <p className="text-gray-700 text-[17px] leading-relaxed mb-8 font-light">
+          <p className="text-gray-700 text-[17px] leading-relaxed mb-8 font-light" style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)", lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}>
             {content.intro}
             <br /><br />
             {content.body}
