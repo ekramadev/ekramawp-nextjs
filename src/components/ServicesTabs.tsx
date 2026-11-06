@@ -26,7 +26,7 @@ export const ServicesTabs = ({ content }: ServicesTabsProps) => {
               {content.title}
             </h1>
           </div>
-          <p className="text-gray-700 max-w-[420px] font-light leading-relaxed m-0">
+          <p className="text-gray-700 max-w-[420px] font-light leading-relaxed m-0" style={{ lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}>
             {content.intro}
           </p>
         </div>
