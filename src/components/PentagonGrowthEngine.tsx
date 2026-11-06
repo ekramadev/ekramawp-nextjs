@@ -92,7 +92,7 @@ export const PentagonGrowthEngine = ({ content }: { content: PentagonGrowthConte
         {/* --- 1. HEADING --- */}
         <div className="text-center mb-10 lg:mb-14">
           <h1>
-            {content.titleLead} <span className="text-emerald-500">{content.titleAccent}</span>
+            {content.titleLead} <span className="text-brand-emerald">{content.titleAccent}</span>
           </h1>
           <p className="text-gray-700 max-w-[700px] mx-auto text-base lg:text-lg opacity-90 leading-relaxed"
             style={{ fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)", lineHeight: "clamp(1.41rem, 2vw, 1.75rem)" }}>
@@ -153,7 +153,7 @@ export const PentagonGrowthEngine = ({ content }: { content: PentagonGrowthConte
               <ul className="space-y-3 list-none p-0 m-0">
                 {activeData.list.map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-700">
-                    <span className="text-emerald-500 mt-1">✓</span>
+                    <span className="text-brand-emerald mt-1">✓</span>
                     <span>{item}</span>
                   </li>
                 ))}

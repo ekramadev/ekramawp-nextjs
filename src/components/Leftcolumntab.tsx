@@ -101,7 +101,7 @@ export const Leftcolumntab = ({ content }: { content: LeftColumnContent }) => {
             {content.badge}
           </div>
 
-          <h2 className="mb-6 text-[42px] lg:text-[48px] font-extrabold text-black leading-[1.1] tracking-tight">
+          <h2 className="mb-6 text-[42px] lg:text-[48px] font-extrabold text-black leading-[1.1] tracking-tight" style={{ fontSize: "clamp(3rem, 5vw, 3.4375rem)", lineHeight: "clamp(3.42rem, 6vw, 4rem)" }}>
             {content.heading[0]} <br />
             <span className="text-brand-emerald">{content.heading[1]}</span>
           </h2>
