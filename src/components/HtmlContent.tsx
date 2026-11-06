@@ -40,7 +40,7 @@ export const HtmlContent = ({ content }: { content: HtmlExpertiseContent }) => {
         }
 
         .html-highlight {
-            color: #10b981;
+            color: var(--wpfe-emerald);
             position: relative;
             display: inline-block;
         }

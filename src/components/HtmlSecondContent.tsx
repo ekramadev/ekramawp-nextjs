@@ -33,7 +33,7 @@ export const HtmlSecondContent = ({ content }: { content: HtmlCapabilitiesConten
         }
 
         .html-highlight-text {
-            color: #10b981;
+            color: var(--wpfe-emerald);
         }
 
         .html-heading-top p {
