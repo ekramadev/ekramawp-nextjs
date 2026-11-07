@@ -86,16 +86,16 @@ export const FourBoxes = ({ content }: { content: FourBoxesContent }) => {
             <div className="w-full h-[1px] bg-gray-200 mb-[25px]"></div>
             <div className="grid grid-cols-1 min-[500px]:grid-cols-2 gap-[15px]">
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[0]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[0]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[1]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[1]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[2]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[2]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[3]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[0].bullets[3]}
               </div>
             </div>
           </article>
@@ -119,16 +119,16 @@ export const FourBoxes = ({ content }: { content: FourBoxesContent }) => {
             <div className="w-full h-[1px] bg-gray-200 mb-[25px]"></div>
             <div className="grid grid-cols-1 min-[500px]:grid-cols-2 gap-[15px]">
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[0]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[0]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[1]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[1]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[2]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[2]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[3]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[1].bullets[3]}
               </div>
             </div>
           </article>
@@ -149,16 +149,16 @@ export const FourBoxes = ({ content }: { content: FourBoxesContent }) => {
             <div className="w-full h-[1px] bg-gray-200 mb-[25px]"></div>
             <div className="grid grid-cols-1 min-[500px]:grid-cols-2 gap-[15px]">
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[0]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[0]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[1]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[1]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[2]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[2]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[3]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[2].bullets[3]}
               </div>
             </div>
           </article>
@@ -180,16 +180,16 @@ export const FourBoxes = ({ content }: { content: FourBoxesContent }) => {
             <div className="w-full h-[1px] bg-gray-200 mb-[25px]"></div>
             <div className="grid grid-cols-1 min-[500px]:grid-cols-2 gap-[15px]">
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[0]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[0]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[1]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[1]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[2]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[2]}
               </div>
               <div className="flex items-center text-[0.9rem] text-gray-700 font-semibold">
-                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-[#10B981] text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[3]}
+                <span className="inline-flex items-center justify-center w-[20px] h-[20px] rounded-full border border-[#10B981] text-brand-emerald text-[10px] mr-[10px] font-black">✓</span> {content.cards[3].bullets[3]}
               </div>
             </div>
           </article>

@@ -68,7 +68,7 @@ export const Threecolumnarch = ({ content }: { content: ArchitecturePhasesConten
                     {phase.list.map((item, i) => (
                       <li
                         key={i}
-                        className="relative pl-[35px] mb-[18px] text-[1.05rem] text-gray-700 leading-[1.5] before:content-['✓'] before:absolute before:left-0 before:text-[#10B981] before:font-black before:text-[1.2rem]"
+                        className="relative pl-[35px] mb-[18px] text-[1.05rem] text-gray-700 leading-[1.5] before:content-['✓'] before:absolute before:left-0 before:text-brand-emerald before:font-black before:text-[1.2rem]"
                       >
                         {item}
                       </li>
