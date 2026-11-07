@@ -96,7 +96,7 @@ export const Leftcolumntab = ({ content }: { content: LeftColumnContent }) => {
         <div className="w-full lg:w-[400px] shrink-0 flex flex-col items-center lg:items-start z-20">
 
           {/* Badge updated to high-contrast light theme treatment */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-transparent border border-[#10B981]/20 text-[#10B981] text-sm font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-transparent border border-[#10B981]/20 text-brand-emerald text-sm font-semibold mb-6">
             <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
             {content.badge}
           </div>

@@ -63,7 +63,7 @@ export const CodePortfolio = ({ content }: { content: CodePortfolioContent }) =>
               className="group bg-white border border-gray-200 shadow-sm rounded-2xl p-8 cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:border-[#10B981] hover:shadow-[0_15px_35px_rgba(16,185,129,0.1)] text-left"
             >
               <div className="flex justify-between items-start mb-6">
-                <span className="text-[#10B981] bg-[#10B981]/10 px-3 py-1 rounded font-bold text-xs tracking-wider">
+                <span className="text-brand-emerald bg-[#10B981]/10 px-3 py-1 rounded font-bold text-xs tracking-wider">
                   {module.badge}
                 </span>
                 <div className="w-8 h-8 rounded bg-[#10B981] flex items-center justify-center text-white shadow-sm">
@@ -85,7 +85,7 @@ export const CodePortfolio = ({ content }: { content: CodePortfolioContent }) =>
 
               <div className="flex justify-between items-center mt-auto">
                 {/* Keep the brand emerald on hover */}
-                <span className="text-[#10B981] font-bold text-sm group-hover:text-brand-emerald transition-colors">
+                <span className="text-brand-emerald font-bold text-sm group-hover:text-brand-emerald transition-colors">
                   {module.action}
                 </span>
               </div>
