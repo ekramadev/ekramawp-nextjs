@@ -9,7 +9,7 @@ export const ThreeColumnBar = ({ content }: { content: DeliveryComparisonContent
         
         {/* Heading Section */}
         <h2 className="mb-[20px] text-black">
-          {content.title[0]} <span className="text-[#10B981]">{content.title[1]}</span> {content.title[2]}
+          {content.title[0]} <span className="text-brand-emerald">{content.title[1]}</span> {content.title[2]}
         </h2>
         
         {/* Title Body Content */}
@@ -25,20 +25,20 @@ export const ThreeColumnBar = ({ content }: { content: DeliveryComparisonContent
           <div className="flex flex-col h-full p-[35px_25px] bg-transparent">
             <div className="min-h-[60px] mb-[25px] flex items-center">
               <div className="text-[26px] font-black tracking-[-1px] text-black">
-                WPFEDEV<span className="text-[#10B981]">.com</span>
+                WPFEDEV<span className="text-brand-emerald">.com</span>
               </div>
             </div>
             <ul className="list-none p-0 m-0 grow">
               <li className="flex items-start mb-[25px]">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-brand-emerald">✔</div>
                 <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[0][0]}</p>
               </li>
               <li className="flex items-start mb-[25px]">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-brand-emerald">✔</div>
                 <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[0][1]}</p>
               </li>
               <li className="flex items-start">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-brand-emerald">✔</div>
                 <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[0][2]}</p>
               </li>
             </ul>
@@ -74,7 +74,7 @@ export const ThreeColumnBar = ({ content }: { content: DeliveryComparisonContent
             </div>
             <ul className="list-none p-0 m-0 grow">
               <li className="flex items-start mb-[25px]">
-                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-[#10B981]">✔</div>
+                <div className="shrink-0 w-[24px] h-[24px] rounded-full flex items-center justify-center font-black text-[11px] bg-[#10B981]/15 text-brand-emerald">✔</div>
                 <p className="text-gray-700 text-[15px] ml-[16px] leading-[1.6] -mt-[2px]">{content.rows[2][0]}</p>
               </li>
               <li className="flex items-start mb-[25px]">

@@ -18,7 +18,7 @@ const renderEmeraldTitle = (text: string) => {
   const lastWord = words.pop();
   return (
     <>
-      {words.join(" ")} <span className="text-[#10B981]">{lastWord}</span>
+      {words.join(" ")} <span className="text-brand-emerald">{lastWord}</span>
     </>
   );
 };
@@ -75,7 +75,7 @@ export const HeadlessWpTabs = ({ content: pageData }: { content: ArchitectureTab
                 alt={tab.title}
                 className={`w-[60px] h-[60px] object-contain mb-[12px] transition-all duration-300 ${activeTab === index ? 'opacity-100 scale-110' : 'opacity-40 group-hover:opacity-70'}`}
               />
-              <span className={`text-[15px] font-bold transition-colors duration-300 ${activeTab === index ? 'text-[#10B981]' : 'text-gray-700 group-hover:text-brand-emerald'}`}>
+              <span className={`text-[15px] font-bold transition-colors duration-300 ${activeTab === index ? 'text-brand-emerald' : 'text-gray-700 group-hover:text-brand-emerald'}`}>
                 {tab.title}
               </span>
 
