@@ -37,7 +37,7 @@ export const HtmlCheatsheet = ({ content }: { content: HtmlCheatsheetContent }) 
         }
 
         .cheatsheet-highlight {
-            color: #10b981;
+            color: var(--wpfe-emerald);
         }
 
         .cheatsheet-heading-wrap p {
