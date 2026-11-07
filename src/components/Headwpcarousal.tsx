@@ -105,7 +105,7 @@ export const Headwpcarousal = ({ content }: { content: EngineeringCarouselConten
         #ek-strategy-carousel-section .blue-scratch {
             position: relative;
             display: inline-block;
-            color: var(--brand-color);
+            color: var(--wpfe-emerald);
             z-index: 1;
             padding: 0 5px;
         }
