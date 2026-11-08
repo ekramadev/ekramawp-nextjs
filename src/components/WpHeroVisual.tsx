@@ -83,9 +83,9 @@ export const WpHeroVisual = ({ content }: { content: WpHeroContent }) => {
               <circle cx="0" cy="0" r="140" fill="transparent" stroke="#50C878" strokeWidth="1" strokeDasharray="5 5" />
               <foreignObject x="-100" y="-80" width="200" height="160">
                 <div className="h-full flex flex-col items-center justify-center text-center">
-                  <div className="text-gray-900 text-[38px] font-extrabold">WP<span className="text-[#10B981]">FEDEV</span></div>
+                  <div className="text-gray-900 text-[38px] font-extrabold">WP<span className="text-brand-emerald">FEDEV</span></div>
                   <div className="text-gray-700 font-bold text-[25px]">{content.hubTitle}</div>
-                  <div className="text-[20px] text-[#10B981] font-bold mt-[5px] bg-[#10B981]/10 py-[4px] px-[12px] rounded-[12px]">{content.hubCue}</div>
+                  <div className="text-[20px] text-brand-emerald font-bold mt-[5px] bg-[#10B981]/10 py-[4px] px-[12px] rounded-[12px]">{content.hubCue}</div>
                 </div>
               </foreignObject>
               <g strokeWidth="90" strokeLinecap="round" fill="none">
