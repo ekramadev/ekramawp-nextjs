@@ -163,7 +163,7 @@ export const SimpleContentSection = ({ content }: { content: SimpleDeliveryConte
 
                       {/* Text Content - Dark Gray */}
                       <div className="relative z-10 pl-[38px] md:pl-[48px] lg:pl-[56px] pr-[15%] py-3 flex flex-col justify-center">
-                        <h4 className="text-black font-bold mb-[4px] transition-colors group-hover/node:text-[#10B981]">
+                        <h4 className="text-black font-bold mb-[4px] transition-colors group-hover/node:text-brand-emerald">
                           {content.nodes[i].title}
                         </h4>
                         <p className="text-gray-700 font-medium text-[10px] md:text-[12px] lg:text-[13px]">
@@ -172,7 +172,7 @@ export const SimpleContentSection = ({ content }: { content: SimpleDeliveryConte
                       </div>
 
                       {/* Floating Number Bubble - Light Theme */}
-                      <div className="absolute right-[6%] -top-[12px] md:-top-[14px] w-[26px] h-[26px] md:w-[32px] md:h-[32px] rounded-full bg-white border-[2px] border-[#10B981] flex items-center justify-center text-[#10B981] font-bold text-[11px] md:text-[13px] z-40 transition-colors duration-300 group-hover/node:bg-[#10B981] group-hover/node:text-white shadow-sm">
+                      <div className="absolute right-[6%] -top-[12px] md:-top-[14px] w-[26px] h-[26px] md:w-[32px] md:h-[32px] rounded-full bg-white border-[2px] border-[#10B981] flex items-center justify-center text-brand-emerald font-bold text-[11px] md:text-[13px] z-40 transition-colors duration-300 group-hover/node:bg-[#10B981] group-hover/node:text-white shadow-sm">
                         {node.id}
                       </div>
                     </div>
