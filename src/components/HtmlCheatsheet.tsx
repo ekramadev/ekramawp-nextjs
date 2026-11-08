@@ -97,7 +97,7 @@ export const HtmlCheatsheet = ({ content }: { content: HtmlCheatsheetContent }) 
 
         .tag-name {
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            color: #10b981;
+            color: var(--wpfe-emerald);
             font-weight: 800;
             font-size: 1.15rem;
             letter-spacing: -0.5px;
