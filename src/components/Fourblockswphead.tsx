@@ -70,7 +70,7 @@ export const Fourblockswphead = ({ content }: { content: PageResourcesContent })
         }
 
         .fourblocks-wrapper .cta-card h2 span {
-            color: #10B981;
+            color: var(--wpfe-emerald);
             font-weight: 400;
         }
 
@@ -150,7 +150,7 @@ export const Fourblockswphead = ({ content }: { content: PageResourcesContent })
         }
 
         .fourblocks-wrapper .header-section strong {
-            color: #10B981;
+            color: var(--wpfe-emerald);
             font-weight: 700;
         }
 
@@ -200,7 +200,7 @@ export const Fourblockswphead = ({ content }: { content: PageResourcesContent })
             position: absolute;
             top: 30px;
             right: 20px;
-            color: #10B981;
+            color: var(--wpfe-emerald);
             font-size: 18px;
             font-weight: bold;
             transition: transform 0.2s ease;
